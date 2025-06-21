@@ -52,3 +52,22 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Visual Studio config folders
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
