@@ -29,9 +29,9 @@ namespace Cargo.Application.EMP_Cargo
             services.AddScoped<IUseCase<CrearCargoData, SpResultBase>, CrearCargoUseCase>();
             services.AddScoped<IUseCase<ActualizarCargoData, SpResultBase>, ActualizarCargoUseCase>();
             services.AddScoped<IUseCase<EliminarCargoData, SpResultBase>, EliminarCargoUseCase>();
-            services.AddScoped<IUseCase<ListarCargoPaginadoRequest, PagedResult<CargoEmpresaRequest>>, ListarCargoPaginadasUseCase>();
-            services.AddScoped<IUseCase<ListarCargoRequest, List<CargoEmpresaRequest>>, ListarCargoUseCase>();
-            services.AddScoped<IUseCase<long, CargoEmpresaRequest?>, ObtenerCargoPorIdUseCase>();
+            services.AddScoped<IUseCase<ListarCargoPaginadoRequest, PagedResult<CargoDto>>, ListarCargoPaginadasUseCase>();
+            services.AddScoped<IUseCase<ListarCargoRequest, List<CargoDto>>, ListarCargoUseCase>();
+            services.AddScoped<IUseCase<long, CargoDto?>, ObtenerCargoPorIdUseCase>();
 
             return services;
         }
