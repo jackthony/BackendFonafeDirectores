@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cargo.Application.EMP_Cargo.Repositories;
+﻿using Cargo.Application.EMP_Cargo.Repositories;
 using Empresa.Application.EMP_Cargo.Dtos;
 using OneOf;
 using Shared.Kernel.Errors;

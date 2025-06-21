@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Cargo.Application.EMP_Cargo.Repositories;
 using Empresa.Application.EMP_Cargo.Dtos;
+using Empresa.Application.EMP_Empresa.Dtos;
+using Empresa.Application.EMP_Empresa.Repositories;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
