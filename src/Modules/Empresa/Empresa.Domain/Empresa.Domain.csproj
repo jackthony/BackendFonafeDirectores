@@ -4,11 +4,6 @@
     <ProjectReference Include="..\..\..\Shared\Shared.csproj" />
   </ItemGroup>
 	
-  <ItemGroup>
-    <Folder Include="EMP_TipoDirector\Models\" />
-    <Folder Include="EMP_TipoDirector\Repositories\" />
-  </ItemGroup>
-	
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
