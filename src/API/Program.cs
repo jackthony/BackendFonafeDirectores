@@ -3,7 +3,6 @@ using Api.Decorators;
 using Api.Middlewares;
 using Empresa.Application;
 using Empresa.Infrastructure;
-using Empresa.Presentation;
 using Usuario.Application;
 using Usuario.Infrastructure;
 using Usuario.Presentation;
@@ -14,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Shared.Time;
 using Empresa.Application.EMP_Empresa;
+using Empresa.Presentation.EMP_Empresa;
 
 var builder = WebApplication.CreateBuilder(args);
 

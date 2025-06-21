@@ -1,10 +1,10 @@
 ﻿using Empresa.Application.EMP_Empresa.Dtos;
-using Empresa.Presentation.Dtos.Request;
+using Empresa.Presentation.EMP_Empresa.Dtos.Request;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 
-namespace Empresa.Presentation.Presenters
+namespace Empresa.Presentation.EMP_Empresa.Presenters
 {
     public class CrearEmpresaPresenter : IPresenter<
         CrearEmpresaClientRequest,

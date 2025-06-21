@@ -1,15 +1,15 @@
 ﻿using Empresa.Application.EMP_Empresa.Dtos;
 using Empresa.Application.EMP_Empresa.Repositories;
 using Empresa.Domain.EMP_Empresa.Repositories;
-using Empresa.Presentation.Dtos.Request;
-using Empresa.Presentation.Dtos.Responses;
-using Empresa.Presentation.Presenters;
+using Empresa.Presentation.EMP_Empresa.Dtos.Request;
+using Empresa.Presentation.EMP_Empresa.Dtos.Responses;
+using Empresa.Presentation.EMP_Empresa.Presenters;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 
-namespace Empresa.Presentation
+namespace Empresa.Presentation.EMP_Empresa
 {
     public static class DependencyInjections
     {

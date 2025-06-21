@@ -1,7 +1,7 @@
 ﻿using Empresa.Application.EMP_Empresa.Dtos;
-using Empresa.Presentation.Dtos.Responses;
+using Empresa.Presentation.EMP_Empresa.Dtos.Responses;
 
-namespace Empresa.Presentation.Mappers
+namespace Empresa.Presentation.EMP_Empresa.Mappers
 {
     public static class EmpresaClientMapper
     {

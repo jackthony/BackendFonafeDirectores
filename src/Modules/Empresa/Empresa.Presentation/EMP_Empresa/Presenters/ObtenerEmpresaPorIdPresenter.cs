@@ -1,10 +1,10 @@
 ﻿using Empresa.Application.EMP_Empresa.Dtos;
-using Empresa.Presentation.Dtos.Responses;
-using Empresa.Presentation.Mappers;
+using Empresa.Presentation.EMP_Empresa.Dtos.Responses;
+using Empresa.Presentation.EMP_Empresa.Mappers;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 
-namespace Empresa.Presentation.Presenters
+namespace Empresa.Presentation.EMP_Empresa.Presenters
 {
     public class ObtenerEmpresaPorIdPresenter : IPresenter<
         int,

@@ -1,4 +1,4 @@
-﻿namespace Empresa.Presentation.Dtos.Request
+﻿namespace Empresa.Presentation.EMP_Empresa.Dtos.Request
 {
     public class ActualizarEmpresaClientRequest
     {
