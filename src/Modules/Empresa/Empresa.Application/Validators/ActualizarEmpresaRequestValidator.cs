@@ -1,0 +1,12 @@
+﻿using Empresa.Application.Dtos;
+using FluentValidation;
+
+namespace Empresa.Application.Validators
+{
+    public class ActualizarEmpresaRequestValidator : AbstractValidator<ActualizarEmpresaRequest>
+    {
+        public ActualizarEmpresaRequestValidator()
+        {
+        }
+    }
+}

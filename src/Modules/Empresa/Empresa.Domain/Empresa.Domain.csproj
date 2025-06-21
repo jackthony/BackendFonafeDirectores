@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="EMP_Ministro\" />
+    <Folder Include="EMP_Rubro\" />
+    <Folder Include="EMP_Sector\" />
+    <Folder Include="EMP_TipoDirector\" />
+  </ItemGroup>
+	
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<NoWarn>$(NoWarn);IDE0290</NoWarn>
+  </PropertyGroup>
+
+</Project>

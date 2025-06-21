@@ -1,0 +1,480 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\AlexisAll\\netProjects\\ApiModular\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_especialidad\\repositories\\iwriteespecialidadrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_especialidad\\repositories\\iwriteespecialidadrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_empresa\\repositories\\iwriteempresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_empresa\\repositories\\iwriteempresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\eliminarespecialidaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\eliminarespecialidaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\especialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\especialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\crearespecialidaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\crearespecialidaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\actualizarespecialidaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_especialidad\\models\\actualizarespecialidaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\actualizarcargodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\actualizarcargodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\api\\delivery\\rest\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|solutionrelative:src\\api\\delivery\\rest\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2520A221-E671-47EF-A6AD-11FA89EBB668}|src\\Modules\\Empresa\\Empresa.Presentation\\Empresa.Presentation.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.presentation\\presenters\\listarempresapresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2520A221-E671-47EF-A6AD-11FA89EBB668}|src\\Modules\\Empresa\\Empresa.Presentation\\Empresa.Presentation.csproj|solutionrelative:src\\modules\\empresa\\empresa.presentation\\presenters\\listarempresapresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{228534F2-CED7-44A1-80F8-0C65FEF99C6C}|src\\Modules\\Empresa\\Empresa.Infrastructure\\Empresa.Infrastructure.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.infrastructure\\persistence\\repositories\\sqlserver\\empresasqlrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{228534F2-CED7-44A1-80F8-0C65FEF99C6C}|src\\Modules\\Empresa\\Empresa.Infrastructure\\Empresa.Infrastructure.csproj|solutionrelative:src\\modules\\empresa\\empresa.infrastructure\\persistence\\repositories\\sqlserver\\empresasqlrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\shared\\clientv1\\pagination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|solutionrelative:src\\shared\\clientv1\\pagination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\shared\\clientv1\\lstitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|solutionrelative:src\\shared\\clientv1\\lstitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\cargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\cargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_director\\models\\actualizardirectordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_director\\models\\actualizardirectordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_director\\models\\eliminardirectordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_director\\models\\eliminardirectordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_director\\models\\director.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_director\\models\\director.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_director\\models\\creardirectordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_director\\models\\creardirectordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\eliminarcargodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\eliminarcargodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\crearcargodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_cargo\\models\\crearcargodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_empresa\\models\\crearempresadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_empresa\\models\\crearempresadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\empresa\\empresa.domain\\emp_empresa\\models\\actualizarempresadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33949CF0-E23C-4B1B-9FC0-BF3EA9B580A3}|src\\Modules\\Empresa\\Empresa.Domain\\Empresa.Domain.csproj|solutionrelative:src\\modules\\empresa\\empresa.domain\\emp_empresa\\models\\actualizarempresadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|solutionrelative:src\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|solutionrelative:src\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6ACCEC09-DB05-418E-B18D-F27089C8C5A4}|src\\Api\\Api.csproj|solutionrelative:src\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\shared\\time\\timeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|solutionrelative:src\\shared\\time\\timeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\shared\\time\\itimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04646640-8F5E-4521-B454-9F3401D545B3}|src\\Shared\\Shared.csproj|solutionrelative:src\\shared\\time\\itimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17D0A251-8203-4419-B104-7C2A166214D3}|src\\Modules\\Usuario\\Usuario.Application\\Usuario.Application.csproj|d:\\alexisall\\netprojects\\apimodular\\src\\modules\\usuario\\usuario.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17D0A251-8203-4419-B104-7C2A166214D3}|src\\Modules\\Usuario\\Usuario.Application\\Usuario.Application.csproj|solutionrelative:src\\modules\\usuario\\usuario.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\API\\Program.cs",
+              "RelativeDocumentMoniker": "src\\API\\Program.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\API\\Program.cs",
+              "RelativeToolTip": "src\\API\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T18:58:46.855Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IWriteEspecialidadRepository.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Repositories\\IWriteEspecialidadRepository.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Repositories\\IWriteEspecialidadRepository.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Repositories\\IWriteEspecialidadRepository.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Repositories\\IWriteEspecialidadRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T03:06:51.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EliminarEspecialidadData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\EliminarEspecialidadData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\EliminarEspecialidadData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\EliminarEspecialidadData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\EliminarEspecialidadData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:39:01.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Especialidad.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\Especialidad.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\Especialidad.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\Especialidad.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\Especialidad.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:39:07.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IWriteEmpresaRepository.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Repositories\\IWriteEmpresaRepository.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Repositories\\IWriteEmpresaRepository.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Repositories\\IWriteEmpresaRepository.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Repositories\\IWriteEmpresaRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:27:09.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CrearEspecialidadData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\CrearEspecialidadData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\CrearEspecialidadData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\CrearEspecialidadData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\CrearEspecialidadData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:38:54.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ActualizarEspecialidadData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\ActualizarEspecialidadData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\ActualizarEspecialidadData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\ActualizarEspecialidadData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Especialidad\\Models\\ActualizarEspecialidadData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:37:21.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ActualizarCargoData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\ActualizarCargoData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\ActualizarCargoData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\ActualizarCargoData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\ActualizarCargoData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:29:07.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmpresaController.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\API\\Delivery\\Rest\\EmpresaController.cs",
+              "RelativeDocumentMoniker": "src\\API\\Delivery\\Rest\\EmpresaController.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\API\\Delivery\\Rest\\EmpresaController.cs",
+              "RelativeToolTip": "src\\API\\Delivery\\Rest\\EmpresaController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:56:39.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ListarEmpresaPresenter.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Presentation\\Presenters\\ListarEmpresaPresenter.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Presentation\\Presenters\\ListarEmpresaPresenter.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Presentation\\Presenters\\ListarEmpresaPresenter.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Presentation\\Presenters\\ListarEmpresaPresenter.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBkAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:57:55.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EmpresaSqlRepository.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Infrastructure\\Persistence\\Repositories\\SqlServer\\EmpresaSqlRepository.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Infrastructure\\Persistence\\Repositories\\SqlServer\\EmpresaSqlRepository.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Infrastructure\\Persistence\\Repositories\\SqlServer\\EmpresaSqlRepository.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Infrastructure\\Persistence\\Repositories\\SqlServer\\EmpresaSqlRepository.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBsAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:48:26.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Pagination.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\ClientV1\\Pagination.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\ClientV1\\Pagination.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\ClientV1\\Pagination.cs",
+              "RelativeToolTip": "src\\Shared\\ClientV1\\Pagination.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:48:09.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LstItemResponse.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\ClientV1\\LstItemResponse.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\ClientV1\\LstItemResponse.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\ClientV1\\LstItemResponse.cs",
+              "RelativeToolTip": "src\\Shared\\ClientV1\\LstItemResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:48:07.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ActualizarDirectorData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\ActualizarDirectorData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\ActualizarDirectorData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\ActualizarDirectorData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\ActualizarDirectorData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:35:24.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Cargo.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\Cargo.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\Cargo.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\Cargo.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\Cargo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:29:46.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EliminarDirectorData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\EliminarDirectorData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\EliminarDirectorData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\EliminarDirectorData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\EliminarDirectorData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:35:46.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Director.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\Director.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\Director.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\Director.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\Director.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:35:42.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CrearDirectorData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\CrearDirectorData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\CrearDirectorData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\CrearDirectorData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Director\\Models\\CrearDirectorData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:35:38.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EliminarCargoData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\EliminarCargoData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\EliminarCargoData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\EliminarCargoData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\EliminarCargoData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:30:02.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CrearCargoData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\CrearCargoData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\CrearCargoData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\CrearCargoData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Cargo\\Models\\CrearCargoData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:29:57.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CrearEmpresaData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\CrearEmpresaData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\CrearEmpresaData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\CrearEmpresaData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\CrearEmpresaData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:29:51.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ActualizarEmpresaData.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\ActualizarEmpresaData.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\ActualizarEmpresaData.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\ActualizarEmpresaData.cs",
+              "RelativeToolTip": "src\\Modules\\Empresa\\Empresa.Domain\\EMP_Empresa\\Models\\ActualizarEmpresaData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:29:14.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Api",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Api\\Api.csproj",
+              "RelativeDocumentMoniker": "src\\Api\\Api.csproj",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Api\\Api.csproj",
+              "RelativeToolTip": "src\\Api\\Api.csproj",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABoAAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-21T01:10:51.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\API\\appsettings.json",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\API\\appsettings.json",
+              "RelativeToolTip": "src\\API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-20T21:41:32.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "TimeProvider.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\Time\\TimeProvider.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Time\\TimeProvider.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\Time\\TimeProvider.cs",
+              "RelativeToolTip": "src\\Shared\\Time\\TimeProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T21:31:56.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ITimeProvider.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\Time\\ITimeProvider.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Time\\ITimeProvider.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Shared\\Time\\ITimeProvider.cs",
+              "RelativeToolTip": "src\\Shared\\Time\\ITimeProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T21:31:39.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Usuario\\Usuario.Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Usuario\\Usuario.Application\\DependencyInjection.cs",
+              "ToolTip": "D:\\AlexisAll\\netProjects\\ApiModular\\src\\Modules\\Usuario\\Usuario.Application\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\Modules\\Usuario\\Usuario.Application\\DependencyInjection.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T20:40:21.31Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
