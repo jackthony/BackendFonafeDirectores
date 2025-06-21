@@ -5,10 +5,8 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <Folder Include="EMP_Ministro\" />
-    <Folder Include="EMP_Rubro\" />
-    <Folder Include="EMP_Sector\" />
-    <Folder Include="EMP_TipoDirector\" />
+    <Folder Include="EMP_TipoDirector\Models\" />
+    <Folder Include="EMP_TipoDirector\Repositories\" />
   </ItemGroup>
 	
   <PropertyGroup>

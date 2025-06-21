@@ -1,6 +1,6 @@
 ﻿using Empresa.Application.Dtos;
 using Empresa.Application.Repositories;
-using Empresa.Domain.Repositories;
+using Empresa.Domain.EMP_Empresa.Repositories;
 using Empresa.Presentation.Dtos.Request;
 using Empresa.Presentation.Dtos.Responses;
 using Empresa.Presentation.Presenters;

@@ -1,5 +1,4 @@
 ﻿using Empresa.Domain.EMP_Especialidad.Models;
-
 namespace Empresa.Domain.EMP_Especialidad.Repositories
 {
     public interface IWriteEspecialidadRepository<T>

@@ -1,5 +1,5 @@
 ﻿using Empresa.Application.Dtos;
-using Empresa.Domain.Models;
+using Empresa.Domain.EMP_Empresa.Models;
 using Shared.Kernel.Responses;
 
 namespace Empresa.Application.Repositories
