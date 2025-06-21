@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using Empresa.Application.Dtos;
-using Empresa.Application.Repositories;
+using Empresa.Application.EMP_Empresa.Dtos;
+using Empresa.Application.EMP_Empresa.Repositories;
 using Empresa.Domain.EMP_Empresa.Models;
 using Empresa.Domain.EMP_Empresa.Repositories;
 using Shared.Kernel.Responses;

@@ -1,4 +1,4 @@
-﻿using Empresa.Application.Dtos;
+﻿using Empresa.Application.EMP_Empresa.Dtos;
 using Empresa.Presentation.Dtos.Responses;
 
 namespace Empresa.Presentation.Mappers

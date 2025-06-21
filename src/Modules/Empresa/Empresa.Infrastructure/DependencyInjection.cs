@@ -1,4 +1,4 @@
-﻿using Empresa.Application.Repositories;
+﻿using Empresa.Application.EMP_Empresa.Repositories;
 using Empresa.Domain.EMP_Empresa.Repositories;
 using Empresa.Infrastructure.Persistence.Repositories.SqlServer;
 using Microsoft.Extensions.DependencyInjection;

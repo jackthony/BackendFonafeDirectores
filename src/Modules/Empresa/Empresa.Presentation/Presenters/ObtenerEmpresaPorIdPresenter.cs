@@ -1,4 +1,4 @@
-﻿using Empresa.Application.Dtos;
+﻿using Empresa.Application.EMP_Empresa.Dtos;
 using Empresa.Presentation.Dtos.Responses;
 using Empresa.Presentation.Mappers;
 using Shared.ClientV1;

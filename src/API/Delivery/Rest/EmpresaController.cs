@@ -1,5 +1,5 @@
 ﻿using Api.Helpers;
-using Empresa.Application.Dtos;
+using Empresa.Application.EMP_Empresa.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;
 

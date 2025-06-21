@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Shared.Time;
+using Empresa.Application.EMP_Empresa;
 
 var builder = WebApplication.CreateBuilder(args);
 
