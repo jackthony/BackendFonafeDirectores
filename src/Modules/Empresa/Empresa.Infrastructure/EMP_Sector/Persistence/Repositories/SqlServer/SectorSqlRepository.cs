@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.Sector.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearSectorParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarSector");
             return spResult;
         }
 
@@ -23,17 +23,17 @@ namespace Empresa.Infrastructure.Sector.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarSectorParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarSector");
             return spResult;
         }
 
         public async Task<SectorResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
+            parameters.Add("IdSector", id);
 
             return await _connection.QueryFirstOrDefaultAsync<SectorResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerSectorPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +43,7 @@ namespace Empresa.Infrastructure.Sector.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<SectorResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarSector",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +55,7 @@ namespace Empresa.Infrastructure.Sector.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarSectorPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +75,7 @@ namespace Empresa.Infrastructure.Sector.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarSectorParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarSector");
             return spResult;
         }
 

@@ -8,7 +8,12 @@ namespace Empresa.Application.Sector.Mappers
     {
         public EliminarSectorParameters Map(EliminarSectorRequest source)
         {
-            throw new NotImplementedException();
+            return new EliminarSectorParameters
+            {
+                SectorId = source.SectorId,
+                UsuarioModificacionId = source.UsuarioModificacionId,
+                FechaModificacion = DateTime.UtcNow
+            };
         }
     }
 }

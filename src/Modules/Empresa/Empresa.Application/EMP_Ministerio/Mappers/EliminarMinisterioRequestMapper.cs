@@ -8,7 +8,12 @@ namespace Empresa.Application.Ministerio.Mappers
     {
         public EliminarMinisterioParameters Map(EliminarMinisterioRequest source)
         {
-            throw new NotImplementedException();
+            return new EliminarMinisterioParameters
+            {
+                MinisterioId = source.MinisterioId,
+                UsuarioModificacionId = source.UsuarioModificacionId,
+                FechaModificacion = DateTime.UtcNow
+            };
         }
     }
 }

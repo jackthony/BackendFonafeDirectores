@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.Ministerio.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearMinisterioParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarMinisterio");
             return spResult;
         }
 
@@ -23,17 +23,17 @@ namespace Empresa.Infrastructure.Ministerio.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarMinisterioParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarMinisterio");
             return spResult;
         }
 
         public async Task<MinisterioResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
+            parameters.Add("IdMinisterio", id);
 
             return await _connection.QueryFirstOrDefaultAsync<MinisterioResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerMinisterioPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +43,7 @@ namespace Empresa.Infrastructure.Ministerio.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<MinisterioResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarMinisterio",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +55,7 @@ namespace Empresa.Infrastructure.Ministerio.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarMinisterioPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +75,7 @@ namespace Empresa.Infrastructure.Ministerio.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarMinisterioParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarMinisterio");
             return spResult;
         }
 

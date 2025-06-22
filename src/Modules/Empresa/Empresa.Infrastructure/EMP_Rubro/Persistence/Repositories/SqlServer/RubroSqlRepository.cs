@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.Rubro.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearRubroParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarRubro");
             return spResult;
         }
 
@@ -23,17 +23,16 @@ namespace Empresa.Infrastructure.Rubro.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarRubroParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarRubro");
             return spResult;
         }
 
         public async Task<RubroResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
-
+            parameters.Add("IdRubro", id);
             return await _connection.QueryFirstOrDefaultAsync<RubroResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerRubroPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +42,7 @@ namespace Empresa.Infrastructure.Rubro.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<RubroResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarRubro",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +54,7 @@ namespace Empresa.Infrastructure.Rubro.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarRubroPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +74,7 @@ namespace Empresa.Infrastructure.Rubro.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarRubroParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarRubro");
             return spResult;
         }
 

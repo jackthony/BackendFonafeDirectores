@@ -18,7 +18,9 @@ namespace Empresa.Application.Especialidad.Mappers
         {
             return new CrearEspecialidadParameters
             {
-
+                NombreEspecialidad = source.NombreEspecialidad,
+                UsuarioRegistroId = source.UsuarioRegistroId,
+                FechaRegistro = _timeProvider.NowPeru
             };
         }
     }

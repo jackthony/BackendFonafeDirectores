@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearDirectorParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarDirector");
             return spResult;
         }
 
@@ -23,17 +23,18 @@ namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarDirectorParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarDirector");
             return spResult;
         }
 
         public async Task<DirectorResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
+
+            parameters.Add("IdDirector", id);
 
             return await _connection.QueryFirstOrDefaultAsync<DirectorResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerDirectorPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +44,7 @@ namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<DirectorResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarDirector",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +56,7 @@ namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarDirectorPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +76,7 @@ namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarDirectorParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarDirector");
             return spResult;
         }
 

@@ -18,7 +18,7 @@ namespace Empresa.Application.Director.Mappers
         {
             return new CrearDirectorParameters
             {
-
+                
             };
         }
     }

@@ -8,7 +8,12 @@ namespace Empresa.Application.Especialidad.Mappers
     {
         public EliminarEspecialidadParameters Map(EliminarEspecialidadRequest source)
         {
-            throw new NotImplementedException();
+            return new EliminarEspecialidadParameters
+            {
+                EspecialidadId = source.EspecialidadId,
+                UsuarioModificacionId = source.UsuarioModificacionId,
+                FechaModificacion = DateTime.UtcNow
+            };
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.Especialidad.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearEspecialidadParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarEspecialidad");
             return spResult;
         }
 
@@ -23,17 +23,18 @@ namespace Empresa.Infrastructure.Especialidad.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarEspecialidadParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarEspecialidad");
             return spResult;
         }
 
         public async Task<EspecialidadResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
+
+            parameters.Add("IdEspecialidad", id);
 
             return await _connection.QueryFirstOrDefaultAsync<EspecialidadResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerEspecialidadPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +44,7 @@ namespace Empresa.Infrastructure.Especialidad.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<EspecialidadResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarEspecialidad",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +56,7 @@ namespace Empresa.Infrastructure.Especialidad.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarEspecialidadPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +76,7 @@ namespace Empresa.Infrastructure.Especialidad.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarEspecialidadParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarEspecialidad");
             return spResult;
         }
 

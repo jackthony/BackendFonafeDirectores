@@ -8,7 +8,12 @@ namespace Empresa.Application.Rubro.Mappers
     {
         public EliminarRubroParameters Map(EliminarRubroRequest source)
         {
-            throw new NotImplementedException();
+            return new EliminarRubroParameters
+            {
+                RubroId = source.RubroId,
+                UsuarioModificacionId = source.UsuarioModificacionId,
+                FechaModificacion = DateTime.UtcNow
+            };
         }
     }
 }

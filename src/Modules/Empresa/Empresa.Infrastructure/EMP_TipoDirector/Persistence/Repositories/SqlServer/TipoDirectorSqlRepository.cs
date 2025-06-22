@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.TipoDirector.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearTipoDirectorParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarTipoDirector");
             return spResult;
         }
 
@@ -23,17 +23,17 @@ namespace Empresa.Infrastructure.TipoDirector.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarTipoDirectorParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarTipoDirector");
             return spResult;
         }
 
         public async Task<TipoDirectorResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
+            parameters.Add("IdTipoDirector", id);
 
             return await _connection.QueryFirstOrDefaultAsync<TipoDirectorResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerTipoDirectorPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +43,7 @@ namespace Empresa.Infrastructure.TipoDirector.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<TipoDirectorResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarTipoDirector",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +55,7 @@ namespace Empresa.Infrastructure.TipoDirector.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarTipoDirectorPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +75,7 @@ namespace Empresa.Infrastructure.TipoDirector.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarTipoDirectorParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarTipoDirector");
             return spResult;
         }
 

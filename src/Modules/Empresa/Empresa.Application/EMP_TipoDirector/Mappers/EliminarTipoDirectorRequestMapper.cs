@@ -8,7 +8,12 @@ namespace Empresa.Application.TipoDirector.Mappers
     {
         public EliminarTipoDirectorParameters Map(EliminarTipoDirectorRequest source)
         {
-            throw new NotImplementedException();
+            return new EliminarTipoDirectorParameters
+            {
+                TipoDirectorId = source.TipoDirectorId,
+                UsuarioModificacionId = source.UsuarioModificacionId,
+                FechaModificacion = DateTime.UtcNow
+            };
         }
     }
 }

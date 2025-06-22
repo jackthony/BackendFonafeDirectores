@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usuario.Infrastructure", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usuario.Presentation", "src\Modules\Usuario\Usuario.Presentation\Usuario.Presentation.csproj", "{2CADF2D8-CA85-4BF2-9687-6AB0F53493A1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Archivo", "Archivo", "{FE1B872F-D321-4A5D-AA4D-9112C3A3FC6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,7 @@ Global
 		{17D0A251-8203-4419-B104-7C2A166214D3} = {B635BB11-9A23-4367-8957-ADF78F214979}
 		{40CCDDA9-6C65-4CFF-98D7-D17CD08D4F77} = {B635BB11-9A23-4367-8957-ADF78F214979}
 		{2CADF2D8-CA85-4BF2-9687-6AB0F53493A1} = {B635BB11-9A23-4367-8957-ADF78F214979}
+		{FE1B872F-D321-4A5D-AA4D-9112C3A3FC6C} = {57F75EF4-B16F-4F45-B662-FFC9DA5C5F8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8B06E46-D947-4094-8233-F0B9DBA6414A}
