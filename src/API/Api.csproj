@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<NoWarn>$(NoWarn);IDE0290</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <PackageReference Include="Scrutor" Version="6.1.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\Shared\Shared.csproj" />
+	<ProjectReference Include="..\Modules\Usuario\Usuario.Infrastructure\Usuario.Infrastructure.csproj" />
+	<ProjectReference Include="..\Modules\Usuario\Usuario.Application\Usuario.Application.csproj" />
+	<ProjectReference Include="..\Modules\Usuario\Usuario.Presentation\Usuario.Presentation.csproj" />
+	<ProjectReference Include="..\Modules\Empresa\Empresa.Presentation\Empresa.Presentation.csproj" />
+	<ProjectReference Include="..\Modules\Empresa\Empresa.Application\Empresa.Application.csproj" />
+	<ProjectReference Include="..\Modules\Empresa\Empresa.Infrastructure\Empresa.Infrastructure.csproj" />
+
+  </ItemGroup>
+
+</Project>
