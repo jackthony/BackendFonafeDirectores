@@ -10,7 +10,7 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class TipoDirectorController : ControllerBase
     {
         private readonly IUseCase<CrearTipoDirectorRequest, SpResultBase> _crearTipoDirectorUseCase;

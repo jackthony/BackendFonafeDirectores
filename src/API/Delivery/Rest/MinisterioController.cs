@@ -10,7 +10,7 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class MinisterioController : ControllerBase
     {
         private readonly IUseCase<CrearMinisterioRequest, SpResultBase> _crearMinisterioUseCase;

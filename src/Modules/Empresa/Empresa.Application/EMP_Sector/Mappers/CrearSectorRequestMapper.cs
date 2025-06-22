@@ -18,14 +18,6 @@ namespace Empresa.Application.Sector.Mappers
         {
             return new CrearSectorParameters
             {
-                Sectorname = source.Sectorname,
-                PasswordHash = source.Password,
-                CorreoElectronico = source.CorreoElectronico,
-                FechaRegistro = _timeProvider.NowPeru,
-                EmpresaRegistroId = source.EmpresaRegistroId,
-                ApellidoPaterno = source.ApellidoPaterno,
-                ApellidoMaterno = source.ApellidoMaterno,
-                Nombres = source.Nombres
             };
         }
     }

@@ -10,7 +10,7 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class SectorController : ControllerBase
     {
         private readonly IUseCase<CrearSectorRequest, SpResultBase> _crearSectorUseCase;

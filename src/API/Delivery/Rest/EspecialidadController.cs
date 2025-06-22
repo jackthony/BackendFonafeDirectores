@@ -10,7 +10,7 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class EspecialidadController : ControllerBase
     {
         private readonly IUseCase<CrearEspecialidadRequest, SpResultBase> _crearEspecialidadUseCase;

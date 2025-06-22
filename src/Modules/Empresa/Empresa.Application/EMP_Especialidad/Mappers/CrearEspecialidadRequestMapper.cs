@@ -18,14 +18,7 @@ namespace Empresa.Application.Especialidad.Mappers
         {
             return new CrearEspecialidadParameters
             {
-                Especialidadname = source.Especialidadname,
-                PasswordHash = source.Password,
-                CorreoElectronico = source.CorreoElectronico,
-                FechaRegistro = _timeProvider.NowPeru,
-                EmpresaRegistroId = source.EmpresaRegistroId,
-                ApellidoPaterno = source.ApellidoPaterno,
-                ApellidoMaterno = source.ApellidoMaterno,
-                Nombres = source.Nombres
+
             };
         }
     }

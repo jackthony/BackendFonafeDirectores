@@ -10,7 +10,7 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class RubroController : ControllerBase
     {
         private readonly IUseCase<CrearRubroRequest, SpResultBase> _crearRubroUseCase;

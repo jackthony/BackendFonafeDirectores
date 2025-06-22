@@ -10,7 +10,7 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class DirectorController : ControllerBase
     {
         private readonly IUseCase<CrearDirectorRequest, SpResultBase> _crearDirectorUseCase;

@@ -15,7 +15,7 @@ namespace Empresa.Infrastructure.Cargo.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<CrearCargoParameters, SpResultBase>(
             request,
-            "sp_RegistrarEmpresa");
+            "sp_RegistrarCargo");
             return spResult;
         }
 
@@ -23,17 +23,17 @@ namespace Empresa.Infrastructure.Cargo.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<EliminarCargoParameters, SpResultBase>(
             request,
-            "sp_EliminarEmpresa");
+            "sp_EliminarCargo");
             return spResult;
         }
 
         public async Task<CargoResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEmpresa", id);
+            parameters.Add("IdCargo", id);
 
             return await _connection.QueryFirstOrDefaultAsync<CargoResult>(
-                "sp_ObtenerEmpresaPorId",
+                "sp_ObtenerCargoPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +43,7 @@ namespace Empresa.Infrastructure.Cargo.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<CargoResult>(
-                "sp_ListarEmpresa",
+                "sp_ListarCargo",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -55,7 +55,7 @@ namespace Empresa.Infrastructure.Cargo.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEmpresaPaginado",
+                "sp_ListarCargoPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
@@ -75,7 +75,7 @@ namespace Empresa.Infrastructure.Cargo.Persistence.Repositories.SqlServer
         {
             var spResult = await ExecAsync<ActualizarCargoParameters, SpResultBase>(
             request,
-            "sp_ActualizarEmpresa");
+            "sp_ActualizarCargo");
             return spResult;
         }
 
