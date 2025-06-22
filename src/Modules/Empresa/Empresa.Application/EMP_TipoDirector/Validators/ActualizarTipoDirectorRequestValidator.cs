@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_TipoDirector.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.TipoDirector.Dtos;
 
-namespace Empresa.Application.EMP_TipoDirector.Validators
+namespace Empresa.Application.TipoDirector.Validators
 {
     public class ActualizarTipoDirectorRequestValidator : AbstractValidator<ActualizarTipoDirectorRequest>
     {

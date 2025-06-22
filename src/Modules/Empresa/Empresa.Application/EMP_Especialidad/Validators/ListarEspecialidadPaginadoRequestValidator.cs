@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_Especialidad.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.Especialidad.Dtos;
 
-namespace Empresa.Application.EMP_Especialidad.Validators
+namespace Empresa.Application.Especialidad.Validators
 {
     public class ListarEspecialidadPaginadoRequestValidator : AbstractValidator<ListarEspecialidadPaginadoRequest>
     {

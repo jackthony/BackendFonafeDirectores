@@ -1,23 +1,31 @@
-﻿using Empresa.Application.EMP_Especialidad.Dtos;
-using Empresa.Application.EMP_Especialidad.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
+using Empresa.Application.Especialidad.Dtos;
+using Empresa.Domain.Especialidad.Parameters;
+using Empresa.Domain.Especialidad.Repositories;
+using Empresa.Domain.Especialidad.Results;
 
-namespace Empresa.Application.EMP_Especialidad.UseCases
+namespace Empresa.Application.Especialidad.UseCases
 {
-    public class ListarEspecialidadUseCase : IUseCase<ListarEspecialidadRequest, List<EspecialidadDto>>
+    public class ListarEspecialidadUseCase : IUseCase<ListarEspecialidadRequest, List<EspecialidadResult>>
     {
-        private readonly IReadEspecialidadRepository _repository;
+        private readonly IEspecialidadRepository _repository;
+        private readonly IMapper<ListarEspecialidadRequest, ListarEspecialidadParameters> _mapper;
 
-        public ListarEspecialidadUseCase(IReadEspecialidadRepository repository)
+        public ListarEspecialidadUseCase(
+            IEspecialidadRepository repository,
+            IMapper<ListarEspecialidadRequest, ListarEspecialidadParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, List<EspecialidadDto>>> ExecuteAsync(ListarEspecialidadRequest request)
+        public async Task<OneOf<ErrorBase, List<EspecialidadResult>>> ExecuteAsync(ListarEspecialidadRequest request)
         {
-            var result = await _repository.ListAsync(request);
+            var parameters = _mapper.Map(request);
+            var result = await _repository.ListAsync(parameters);
             return result;
         }
     }

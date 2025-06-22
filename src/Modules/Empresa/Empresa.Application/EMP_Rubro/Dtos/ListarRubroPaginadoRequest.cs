@@ -1,8 +1,6 @@
-﻿using Shared.Kernel.Requests;
-
-namespace Empresa.Application.EMP_Rubro.Dtos
+﻿namespace Empresa.Application.Rubro.Dtos
 {
-    public class ListarRubroPaginadoRequest : PagedRequest
+    public class ListarRubroPaginadoRequest
     {
     }
 }

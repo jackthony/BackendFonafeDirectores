@@ -1,10 +1,9 @@
-﻿namespace Empresa.Application.EMP_Cargo.Dtos
+﻿namespace Empresa.Application.Cargo.Dtos
 {
     public class ActualizarCargoRequest
     {
-        public required int CargoId { get; set; }
-        public required int UsuarioModificacionId { get; set; }
-        public string? NombreCargo { get; set; }
-        public bool? IsActivo { get; set; }
+        public int CargoId { get; set; }
+        public string NombreCargo { get; set; } = default!;
+        public int UsuarioModificacionId { get; set; }
     }
 }

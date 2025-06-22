@@ -1,23 +1,31 @@
-﻿using Empresa.Application.EMP_Rubro.Dtos;
-using Empresa.Application.EMP_Rubro.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
+using Empresa.Application.Rubro.Dtos;
+using Empresa.Domain.Rubro.Parameters;
+using Empresa.Domain.Rubro.Repositories;
+using Empresa.Domain.Rubro.Results;
 
-namespace Empresa.Application.EMP_Rubro.UseCases
+namespace Empresa.Application.Rubro.UseCases
 {
-    public class ListarRubroUseCase : IUseCase<ListarRubroRequest, List<RubroDto>>
+    public class ListarRubroUseCase : IUseCase<ListarRubroRequest, List<RubroResult>>
     {
-        private readonly IReadRubroRepository _repository;
+        private readonly IRubroRepository _repository;
+        private readonly IMapper<ListarRubroRequest, ListarRubroParameters> _mapper;
 
-        public ListarRubroUseCase(IReadRubroRepository repository)
+        public ListarRubroUseCase(
+            IRubroRepository repository,
+            IMapper<ListarRubroRequest, ListarRubroParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, List<RubroDto>>> ExecuteAsync(ListarRubroRequest request)
+        public async Task<OneOf<ErrorBase, List<RubroResult>>> ExecuteAsync(ListarRubroRequest request)
         {
-            var result = await _repository.ListAsync(request);
+            var parameters = _mapper.Map(request);
+            var result = await _repository.ListAsync(parameters);
             return result;
         }
     }

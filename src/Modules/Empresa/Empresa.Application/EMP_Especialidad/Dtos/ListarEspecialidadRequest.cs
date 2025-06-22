@@ -1,4 +1,4 @@
-﻿namespace Empresa.Application.EMP_Especialidad.Dtos
+﻿namespace Empresa.Application.Especialidad.Dtos
 {
     public class ListarEspecialidadRequest
     {

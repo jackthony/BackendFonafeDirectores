@@ -1,23 +1,31 @@
-﻿using Empresa.Application.EMP_Empresa.Dtos;
-using Empresa.Application.EMP_Empresa.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
+using Empresa.Application.Empresa.Dtos;
+using Empresa.Domain.Empresa.Parameters;
+using Empresa.Domain.Empresa.Repositories;
+using Empresa.Domain.Empresa.Results;
 
-namespace Empresa.Application.EMP_Empresa.UseCases
+namespace Empresa.Application.Empresa.UseCases
 {
-    public class ListarEmpresaUseCase : IUseCase<ListarEmpresaRequest, List<EmpresaDto>>
+    public class ListarEmpresaUseCase : IUseCase<ListarEmpresaRequest, List<EmpresaResult>>
     {
-        private readonly IReadEmpresaRepository _repository;
+        private readonly IEmpresaRepository _repository;
+        private readonly IMapper<ListarEmpresaRequest, ListarEmpresaParameters> _mapper;
 
-        public ListarEmpresaUseCase(IReadEmpresaRepository repository)
+        public ListarEmpresaUseCase(
+            IEmpresaRepository repository,
+            IMapper<ListarEmpresaRequest, ListarEmpresaParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, List<EmpresaDto>>> ExecuteAsync(ListarEmpresaRequest request)
+        public async Task<OneOf<ErrorBase, List<EmpresaResult>>> ExecuteAsync(ListarEmpresaRequest request)
         {
-            var result = await _repository.ListAsync(request);
+            var parameters = _mapper.Map(request);
+            var result = await _repository.ListAsync(parameters);
             return result;
         }
     }

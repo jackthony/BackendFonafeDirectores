@@ -1,53 +1,68 @@
 ﻿using Dapper;
-using Empresa.Application.EMP_Rubro.Dtos;
-using Empresa.Application.EMP_Rubro.Repositories;
-using Empresa.Domain.EMP_Rubro.Models;
-using Empresa.Domain.EMP_Rubro.Repositories;
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Rubro.Parameters;
+using Empresa.Domain.Rubro.Repositories;
+using Empresa.Domain.Rubro.Results;
 
-namespace Empresa.Infrastructure.EMP_Rubro.Persistence.Repositories.SqlServer
+namespace Empresa.Infrastructure.Rubro.Persistence.Repositories.SqlServer
 {
-    public class RubroSqlRepository(IDbConnection connection) : IWriteRubroRepository<SpResultBase>, IReadRubroRepository
+    public class RubroSqlRepository(IDbConnection connection) : IRubroRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<RubroDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearRubroParameters request)
+        {
+            var spResult = await ExecAsync<CrearRubroParameters, SpResultBase>(
+            request,
+            "sp_RegistrarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarRubroParameters request)
+        {
+            var spResult = await ExecAsync<EliminarRubroParameters, SpResultBase>(
+            request,
+            "sp_EliminarEmpresa");
+            return spResult;
+        }
+
+        public async Task<RubroResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdRubro", id);
+            parameters.Add("IdEmpresa", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<RubroDto>(
-                "sp_ObtenerRubroPorId",
+            return await _connection.QueryFirstOrDefaultAsync<RubroResult>(
+                "sp_ObtenerEmpresaPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<RubroDto>> ListAsync(ListarRubroRequest request)
+        public async Task<List<RubroResult>> ListAsync(ListarRubroParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<RubroDto>(
-                "sp_ListarRubro",
+            var result = await _connection.QueryAsync<RubroResult>(
+                "sp_ListarEmpresa",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
-        public async Task<PagedResult<RubroDto>> ListByPaginationAsync(ListarRubroPaginadoRequest request)
+        public async Task<PagedResult<RubroResult>> ListByPaginationAsync(ListarRubroPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarRubroPaginado",
+                "sp_ListarEmpresaPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<RubroDto>()).ToList();
+            var items = (await multi.ReadAsync<RubroResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<RubroDto>()
+            return new PagedResult<RubroResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,27 +71,11 @@ namespace Empresa.Infrastructure.EMP_Rubro.Persistence.Repositories.SqlServer
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearRubroData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarRubroParameters request)
         {
-            var spResult = await ExecAsync<CrearRubroData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarRubroParameters, SpResultBase>(
             request,
-            "sp_RegistrarRubro");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarRubroData request)
-        {
-            var spResult = await ExecAsync<EliminarRubroData, SpResultBase>(
-            request,
-            "sp_EliminarRubro");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarRubroData request)
-        {
-            var spResult = await ExecAsync<ActualizarRubroData, SpResultBase>(
-            request,
-            "sp_ActualizarRubro");
+            "sp_ActualizarEmpresa");
             return spResult;
         }
 

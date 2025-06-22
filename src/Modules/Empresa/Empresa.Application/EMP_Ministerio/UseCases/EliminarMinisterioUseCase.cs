@@ -1,25 +1,34 @@
-﻿using Empresa.Domain.EMP_Ministerio.Models;
-using Empresa.Domain.EMP_Ministerio.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Empresa.Application.Ministerio.Dtos;
+using Empresa.Domain.Ministerio.Parameters;
+using Empresa.Domain.Ministerio.Repositories;
 
-namespace Empresa.Application.EMP_Ministerio.UseCases
+namespace Empresa.Application.Ministerio.UseCases
 {
-    public class EliminarMinisterioUseCase : IUseCase<EliminarMinisterioData, SpResultBase>
+    public class EliminarMinisterioUseCase : IUseCase<EliminarMinisterioRequest, SpResultBase>
     {
-        private readonly IWriteMinisterioRepository<SpResultBase> _repository;
+        private readonly IMinisterioRepository _repository;
+        private readonly IMapper<EliminarMinisterioRequest, EliminarMinisterioParameters> _mapper;
 
-        public EliminarMinisterioUseCase(IWriteMinisterioRepository<SpResultBase> repository)
+        public EliminarMinisterioUseCase(
+            IMinisterioRepository repository,
+            IMapper<EliminarMinisterioRequest, EliminarMinisterioParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarMinisterioData request)
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarMinisterioRequest request)
         {
-            var result = await _repository.DeleteAsync(request);
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.DeleteAsync(parameters);
+
             if (!result.Success) return ErrorBase.Database(result.Message);
+
             return result;
         }
     }

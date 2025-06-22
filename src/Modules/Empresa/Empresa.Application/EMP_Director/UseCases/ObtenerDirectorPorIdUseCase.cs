@@ -1,21 +1,21 @@
-﻿using Empresa.Application.EMP_Director.Dtos;
-using Empresa.Application.EMP_Director.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Empresa.Domain.Director.Repositories;
+using Empresa.Domain.Director.Results;
 
-namespace Empresa.Application.EMP_Director.UseCases
+namespace Empresa.Application.Director.UseCases
 {
-    public class ObtenerDirectorPorIdUseCase : IUseCase<long, DirectorDto?>
+    public class ObtenerDirectorPorIdUseCase : IUseCase<int, DirectorResult?>
     {
-        private readonly IReadDirectorRepository _repository;
+        private readonly IDirectorRepository _repository;
 
-        public ObtenerDirectorPorIdUseCase(IReadDirectorRepository repository)
+        public ObtenerDirectorPorIdUseCase(IDirectorRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<OneOf<ErrorBase, DirectorDto?>> ExecuteAsync(long request)
+        public async Task<OneOf<ErrorBase, DirectorResult?>> ExecuteAsync(int request)
         {
             var result = await _repository.GetByIdAsync(request);
             if (result == null) return ErrorBase.NotFound();

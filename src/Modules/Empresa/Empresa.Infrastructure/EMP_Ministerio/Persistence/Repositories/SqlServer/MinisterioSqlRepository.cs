@@ -1,53 +1,68 @@
 ﻿using Dapper;
-using Empresa.Application.EMP_Ministerio.Dtos;
-using Empresa.Application.EMP_Ministerio.Repositories;
-using Empresa.Domain.EMP_Ministerio.Models;
-using Empresa.Domain.EMP_Ministerio.Repositories;
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Ministerio.Parameters;
+using Empresa.Domain.Ministerio.Repositories;
+using Empresa.Domain.Ministerio.Results;
 
-namespace Empresa.Infrastructure.EMP_Ministerio.Persistence.Repositories.SqlServer
+namespace Empresa.Infrastructure.Ministerio.Persistence.Repositories.SqlServer
 {
-    public class MinisterioSqlRepository(IDbConnection connection) : IWriteMinisterioRepository<SpResultBase>, IReadMinisterioRepository
+    public class MinisterioSqlRepository(IDbConnection connection) : IMinisterioRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<MinisterioDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearMinisterioParameters request)
+        {
+            var spResult = await ExecAsync<CrearMinisterioParameters, SpResultBase>(
+            request,
+            "sp_RegistrarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarMinisterioParameters request)
+        {
+            var spResult = await ExecAsync<EliminarMinisterioParameters, SpResultBase>(
+            request,
+            "sp_EliminarEmpresa");
+            return spResult;
+        }
+
+        public async Task<MinisterioResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdMinisterio", id);
+            parameters.Add("IdEmpresa", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<MinisterioDto>(
-                "sp_ObtenerMinisterioPorId",
+            return await _connection.QueryFirstOrDefaultAsync<MinisterioResult>(
+                "sp_ObtenerEmpresaPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<MinisterioDto>> ListAsync(ListarMinisterioRequest request)
+        public async Task<List<MinisterioResult>> ListAsync(ListarMinisterioParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<MinisterioDto>(
-                "sp_ListarMinisterio",
+            var result = await _connection.QueryAsync<MinisterioResult>(
+                "sp_ListarEmpresa",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
-        public async Task<PagedResult<MinisterioDto>> ListByPaginationAsync(ListarMinisterioPaginadoRequest request)
+        public async Task<PagedResult<MinisterioResult>> ListByPaginationAsync(ListarMinisterioPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarMinisterioPaginado",
+                "sp_ListarEmpresaPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<MinisterioDto>()).ToList();
+            var items = (await multi.ReadAsync<MinisterioResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<MinisterioDto>()
+            return new PagedResult<MinisterioResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,27 +71,11 @@ namespace Empresa.Infrastructure.EMP_Ministerio.Persistence.Repositories.SqlServ
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearMinisterioData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarMinisterioParameters request)
         {
-            var spResult = await ExecAsync<CrearMinisterioData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarMinisterioParameters, SpResultBase>(
             request,
-            "sp_RegistrarMinisterio");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarMinisterioData request)
-        {
-            var spResult = await ExecAsync<EliminarMinisterioData, SpResultBase>(
-            request,
-            "sp_EliminarMinisterio");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarMinisterioData request)
-        {
-            var spResult = await ExecAsync<ActualizarMinisterioData, SpResultBase>(
-            request,
-            "sp_ActualizarMinisterio");
+            "sp_ActualizarEmpresa");
             return spResult;
         }
 

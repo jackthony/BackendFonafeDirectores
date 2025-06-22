@@ -1,8 +1,8 @@
-﻿namespace Empresa.Application.EMP_Cargo.Dtos
+﻿namespace Empresa.Application.Cargo.Dtos
 {
     public class CrearCargoRequest
     {
-        public required string NombreCargo { get; set; }
-        public required int UsuarioRegistroId { get; set; }
+        public string NombreCargo { get; set; } = default!;
+        public int UsuarioRegistroId { get; set; }
     }
 }

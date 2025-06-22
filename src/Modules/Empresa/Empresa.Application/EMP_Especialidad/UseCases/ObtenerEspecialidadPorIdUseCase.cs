@@ -1,21 +1,21 @@
-﻿using Empresa.Application.EMP_Especialidad.Dtos;
-using Empresa.Application.EMP_Especialidad.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Empresa.Domain.Especialidad.Repositories;
+using Empresa.Domain.Especialidad.Results;
 
-namespace Empresa.Application.EMP_Especialidad.UseCases
+namespace Empresa.Application.Especialidad.UseCases
 {
-    public class ObtenerEspecialidadPorIdUseCase : IUseCase<long, EspecialidadDto?>
+    public class ObtenerEspecialidadPorIdUseCase : IUseCase<int, EspecialidadResult?>
     {
-        private readonly IReadEspecialidadRepository _repository;
+        private readonly IEspecialidadRepository _repository;
 
-        public ObtenerEspecialidadPorIdUseCase(IReadEspecialidadRepository repository)
+        public ObtenerEspecialidadPorIdUseCase(IEspecialidadRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<OneOf<ErrorBase, EspecialidadDto?>> ExecuteAsync(long request)
+        public async Task<OneOf<ErrorBase, EspecialidadResult?>> ExecuteAsync(int request)
         {
             var result = await _repository.GetByIdAsync(request);
             if (result == null) return ErrorBase.NotFound();

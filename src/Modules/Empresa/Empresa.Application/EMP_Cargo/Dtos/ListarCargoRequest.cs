@@ -1,4 +1,4 @@
-﻿namespace Empresa.Application.EMP_Cargo.Dtos
+﻿namespace Empresa.Application.Cargo.Dtos
 {
     public class ListarCargoRequest
     {

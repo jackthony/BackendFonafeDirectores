@@ -1,25 +1,34 @@
-﻿using Empresa.Domain.EMP_Empresa.Models;
-using Empresa.Domain.EMP_Empresa.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Empresa.Application.Empresa.Dtos;
+using Empresa.Domain.Empresa.Parameters;
+using Empresa.Domain.Empresa.Repositories;
 
-namespace Empresa.Application.EMP_Empresa.UseCases
+namespace Empresa.Application.Empresa.UseCases
 {
-    public class EliminarEmpresaUseCase : IUseCase<EliminarEmpresaData, SpResultBase>
+    public class EliminarEmpresaUseCase : IUseCase<EliminarEmpresaRequest, SpResultBase>
     {
-        private readonly IWriteEmpresaRepository<SpResultBase> _repository;
+        private readonly IEmpresaRepository _repository;
+        private readonly IMapper<EliminarEmpresaRequest, EliminarEmpresaParameters> _mapper;
 
-        public EliminarEmpresaUseCase(IWriteEmpresaRepository<SpResultBase> repository)
+        public EliminarEmpresaUseCase(
+            IEmpresaRepository repository,
+            IMapper<EliminarEmpresaRequest, EliminarEmpresaParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarEmpresaData request)
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarEmpresaRequest request)
         {
-            var result = await _repository.DeleteAsync(request);
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.DeleteAsync(parameters);
+
             if (!result.Success) return ErrorBase.Database(result.Message);
+
             return result;
         }
     }

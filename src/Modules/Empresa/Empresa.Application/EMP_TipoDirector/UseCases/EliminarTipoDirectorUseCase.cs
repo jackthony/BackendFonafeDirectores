@@ -1,25 +1,34 @@
-﻿using Empresa.Domain.EMP_TipoDirector.Models;
-using Empresa.Domain.EMP_TipoDirector.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Empresa.Application.TipoDirector.Dtos;
+using Empresa.Domain.TipoDirector.Parameters;
+using Empresa.Domain.TipoDirector.Repositories;
 
-namespace Empresa.Application.EMP_TipoDirector.UseCases
+namespace Empresa.Application.TipoDirector.UseCases
 {
-    public class EliminarTipoDirectorUseCase : IUseCase<EliminarTipoDirectorData, SpResultBase>
+    public class EliminarTipoDirectorUseCase : IUseCase<EliminarTipoDirectorRequest, SpResultBase>
     {
-        private readonly IWriteTipoDirectorRepository<SpResultBase> _repository;
+        private readonly ITipoDirectorRepository _repository;
+        private readonly IMapper<EliminarTipoDirectorRequest, EliminarTipoDirectorParameters> _mapper;
 
-        public EliminarTipoDirectorUseCase(IWriteTipoDirectorRepository<SpResultBase> repository)
+        public EliminarTipoDirectorUseCase(
+            ITipoDirectorRepository repository,
+            IMapper<EliminarTipoDirectorRequest, EliminarTipoDirectorParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarTipoDirectorData request)
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarTipoDirectorRequest request)
         {
-            var result = await _repository.DeleteAsync(request);
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.DeleteAsync(parameters);
+
             if (!result.Success) return ErrorBase.Database(result.Message);
+
             return result;
         }
     }

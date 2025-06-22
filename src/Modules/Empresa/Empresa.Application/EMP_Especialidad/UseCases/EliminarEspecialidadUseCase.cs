@@ -1,25 +1,34 @@
-﻿using Empresa.Domain.EMP_Especialidad.Models;
-using Empresa.Domain.EMP_Especialidad.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Empresa.Application.Especialidad.Dtos;
+using Empresa.Domain.Especialidad.Parameters;
+using Empresa.Domain.Especialidad.Repositories;
 
-namespace Empresa.Application.EMP_Especialidad.UseCases
+namespace Empresa.Application.Especialidad.UseCases
 {
-    public class EliminarEspecialidadUseCase : IUseCase<EliminarEspecialidadData, SpResultBase>
+    public class EliminarEspecialidadUseCase : IUseCase<EliminarEspecialidadRequest, SpResultBase>
     {
-        private readonly IWriteEspecialidadRepository<SpResultBase> _repository;
+        private readonly IEspecialidadRepository _repository;
+        private readonly IMapper<EliminarEspecialidadRequest, EliminarEspecialidadParameters> _mapper;
 
-        public EliminarEspecialidadUseCase(IWriteEspecialidadRepository<SpResultBase> repository)
+        public EliminarEspecialidadUseCase(
+            IEspecialidadRepository repository,
+            IMapper<EliminarEspecialidadRequest, EliminarEspecialidadParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarEspecialidadData request)
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarEspecialidadRequest request)
         {
-            var result = await _repository.DeleteAsync(request);
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.DeleteAsync(parameters);
+
             if (!result.Success) return ErrorBase.Database(result.Message);
+
             return result;
         }
     }

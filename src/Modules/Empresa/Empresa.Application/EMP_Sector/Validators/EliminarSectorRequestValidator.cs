@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_Sector.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.Sector.Dtos;
 
-namespace Empresa.Application.EMP_Sector.Validators
+namespace Empresa.Application.Sector.Validators
 {
     public class EliminarSectorRequestValidator : AbstractValidator<EliminarSectorRequest>
     {

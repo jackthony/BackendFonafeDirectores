@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_Rubro.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.Rubro.Dtos;
 
-namespace Empresa.Application.EMP_Rubro.Validators
+namespace Empresa.Application.Rubro.Validators
 {
     public class ListarRubroRequestValidator : AbstractValidator<ListarRubroRequest>
     {

@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_Ministerio.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.Ministerio.Dtos;
 
-namespace Empresa.Application.EMP_Ministerio.Validators
+namespace Empresa.Application.Ministerio.Validators
 {
     public class CrearMinisterioRequestValidator : AbstractValidator<CrearMinisterioRequest>
     {

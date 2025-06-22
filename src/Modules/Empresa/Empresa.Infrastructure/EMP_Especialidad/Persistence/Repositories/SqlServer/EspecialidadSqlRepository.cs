@@ -1,53 +1,68 @@
 ﻿using Dapper;
-using Empresa.Application.EMP_Especialidad.Dtos;
-using Empresa.Application.EMP_Especialidad.Repositories;
-using Empresa.Domain.EMP_Especialidad.Models;
-using Empresa.Domain.EMP_Especialidad.Repositories;
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Especialidad.Parameters;
+using Empresa.Domain.Especialidad.Repositories;
+using Empresa.Domain.Especialidad.Results;
 
-namespace Empresa.Infrastructure.EMP_Especialidad.Persistence.Repositories.SqlServer
+namespace Empresa.Infrastructure.Especialidad.Persistence.Repositories.SqlServer
 {
-    public class EspecialidadSqlRepository(IDbConnection connection) : IWriteEspecialidadRepository<SpResultBase>, IReadEspecialidadRepository
+    public class EspecialidadSqlRepository(IDbConnection connection) : IEspecialidadRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<EspecialidadDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearEspecialidadParameters request)
+        {
+            var spResult = await ExecAsync<CrearEspecialidadParameters, SpResultBase>(
+            request,
+            "sp_RegistrarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarEspecialidadParameters request)
+        {
+            var spResult = await ExecAsync<EliminarEspecialidadParameters, SpResultBase>(
+            request,
+            "sp_EliminarEmpresa");
+            return spResult;
+        }
+
+        public async Task<EspecialidadResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdEspecialidad", id);
+            parameters.Add("IdEmpresa", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<EspecialidadDto>(
-                "sp_ObtenerEspecialidadPorId",
+            return await _connection.QueryFirstOrDefaultAsync<EspecialidadResult>(
+                "sp_ObtenerEmpresaPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<EspecialidadDto>> ListAsync(ListarEspecialidadRequest request)
+        public async Task<List<EspecialidadResult>> ListAsync(ListarEspecialidadParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<EspecialidadDto>(
-                "sp_ListarEspecialidad",
+            var result = await _connection.QueryAsync<EspecialidadResult>(
+                "sp_ListarEmpresa",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
-        public async Task<PagedResult<EspecialidadDto>> ListByPaginationAsync(ListarEspecialidadPaginadoRequest request)
+        public async Task<PagedResult<EspecialidadResult>> ListByPaginationAsync(ListarEspecialidadPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarEspecialidadPaginado",
+                "sp_ListarEmpresaPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<EspecialidadDto>()).ToList();
+            var items = (await multi.ReadAsync<EspecialidadResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<EspecialidadDto>()
+            return new PagedResult<EspecialidadResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,27 +71,11 @@ namespace Empresa.Infrastructure.EMP_Especialidad.Persistence.Repositories.SqlSe
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearEspecialidadData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarEspecialidadParameters request)
         {
-            var spResult = await ExecAsync<CrearEspecialidadData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarEspecialidadParameters, SpResultBase>(
             request,
-            "sp_RegistrarEspecialidad");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarEspecialidadData request)
-        {
-            var spResult = await ExecAsync<EliminarEspecialidadData, SpResultBase>(
-            request,
-            "sp_EliminarEspecialidad");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarEspecialidadData request)
-        {
-            var spResult = await ExecAsync<ActualizarEspecialidadData, SpResultBase>(
-            request,
-            "sp_ActualizarEspecialidad");
+            "sp_ActualizarEmpresa");
             return spResult;
         }
 

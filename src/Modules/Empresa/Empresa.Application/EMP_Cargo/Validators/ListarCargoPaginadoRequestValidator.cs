@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_Cargo.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.Cargo.Dtos;
 
-namespace Empresa.Application.EMP_Cargo.Validators
+namespace Empresa.Application.Cargo.Validators
 {
     public class ListarCargoPaginadoRequestValidator : AbstractValidator<ListarCargoPaginadoRequest>
     {

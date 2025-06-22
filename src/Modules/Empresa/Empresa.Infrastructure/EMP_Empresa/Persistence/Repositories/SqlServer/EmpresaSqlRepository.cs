@@ -1,33 +1,48 @@
 ﻿using Dapper;
-using Empresa.Application.EMP_Empresa.Dtos;
-using Empresa.Application.EMP_Empresa.Repositories;
-using Empresa.Domain.EMP_Empresa.Models;
-using Empresa.Domain.EMP_Empresa.Repositories;
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Empresa.Parameters;
+using Empresa.Domain.Empresa.Repositories;
+using Empresa.Domain.Empresa.Results;
 
-namespace Empresa.Infrastructure.EMP_Empresa.Persistence.Repositories.SqlServer
+namespace Empresa.Infrastructure.Empresa.Persistence.Repositories.SqlServer
 {
-    public class EmpresaSqlRepository(IDbConnection connection) : IWriteEmpresaRepository<SpResultBase>, IReadEmpresaRepository
+    public class EmpresaSqlRepository(IDbConnection connection) : IEmpresaRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<EmpresaDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearEmpresaParameters request)
+        {
+            var spResult = await ExecAsync<CrearEmpresaParameters, SpResultBase>(
+            request,
+            "sp_RegistrarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarEmpresaParameters request)
+        {
+            var spResult = await ExecAsync<EliminarEmpresaParameters, SpResultBase>(
+            request,
+            "sp_EliminarEmpresa");
+            return spResult;
+        }
+
+        public async Task<EmpresaResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
             parameters.Add("IdEmpresa", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<EmpresaDto>(
+            return await _connection.QueryFirstOrDefaultAsync<EmpresaResult>(
                 "sp_ObtenerEmpresaPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<EmpresaDto>> ListAsync(ListarEmpresaRequest request)
+        public async Task<List<EmpresaResult>> ListAsync(ListarEmpresaParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<EmpresaDto>(
+            var result = await _connection.QueryAsync<EmpresaResult>(
                 "sp_ListarEmpresa",
                 parameters,
                 commandType: CommandType.StoredProcedure);
@@ -35,7 +50,7 @@ namespace Empresa.Infrastructure.EMP_Empresa.Persistence.Repositories.SqlServer
             return result.ToList();
         }
 
-        public async Task<PagedResult<EmpresaDto>> ListByPaginationAsync(ListarEmpresaPaginadoRequest request)
+        public async Task<PagedResult<EmpresaResult>> ListByPaginationAsync(ListarEmpresaPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
@@ -44,10 +59,10 @@ namespace Empresa.Infrastructure.EMP_Empresa.Persistence.Repositories.SqlServer
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<EmpresaDto>()).ToList();
+            var items = (await multi.ReadAsync<EmpresaResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<EmpresaDto>()
+            return new PagedResult<EmpresaResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,25 +71,9 @@ namespace Empresa.Infrastructure.EMP_Empresa.Persistence.Repositories.SqlServer
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearEmpresaData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarEmpresaParameters request)
         {
-            var spResult = await ExecAsync<CrearEmpresaData, SpResultBase>(
-            request,
-            "sp_RegistrarEmpresa");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarEmpresaData request)
-        {
-            var spResult = await ExecAsync<EliminarEmpresaData, SpResultBase>(
-            request,
-            "sp_EliminarEmpresa");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarEmpresaData request)
-        {
-            var spResult = await ExecAsync<ActualizarEmpresaData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarEmpresaParameters, SpResultBase>(
             request,
             "sp_ActualizarEmpresa");
             return spResult;

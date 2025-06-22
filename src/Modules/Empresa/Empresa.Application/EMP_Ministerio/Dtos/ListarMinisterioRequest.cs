@@ -1,4 +1,4 @@
-﻿namespace Empresa.Application.EMP_Ministerio.Dtos
+﻿namespace Empresa.Application.Ministerio.Dtos
 {
     public class ListarMinisterioRequest
     {

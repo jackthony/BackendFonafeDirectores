@@ -1,53 +1,68 @@
 ﻿using Dapper;
-using Empresa.Application.EMP_Director.Dtos;
-using Empresa.Application.EMP_Director.Repositories;
-using Empresa.Domain.EMP_Director.Models;
-using Empresa.Domain.EMP_Director.Repositories;
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Director.Parameters;
+using Empresa.Domain.Director.Repositories;
+using Empresa.Domain.Director.Results;
 
-namespace Empresa.Infrastructure.EMP_Director.Persistence.Repositories.SqlServer
+namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
 {
-    public class DirectorSqlRepository(IDbConnection connection) : IWriteDirectorRepository<SpResultBase>, IReadDirectorRepository
+    public class DirectorSqlRepository(IDbConnection connection) : IDirectorRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<DirectorDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearDirectorParameters request)
+        {
+            var spResult = await ExecAsync<CrearDirectorParameters, SpResultBase>(
+            request,
+            "sp_RegistrarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarDirectorParameters request)
+        {
+            var spResult = await ExecAsync<EliminarDirectorParameters, SpResultBase>(
+            request,
+            "sp_EliminarEmpresa");
+            return spResult;
+        }
+
+        public async Task<DirectorResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdDirector", id);
+            parameters.Add("IdEmpresa", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<DirectorDto>(
-                "sp_ObtenerDirectorPorId",
+            return await _connection.QueryFirstOrDefaultAsync<DirectorResult>(
+                "sp_ObtenerEmpresaPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<DirectorDto>> ListAsync(ListarDirectorRequest request)
+        public async Task<List<DirectorResult>> ListAsync(ListarDirectorParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<DirectorDto>(
-                "sp_ListarDirector",
+            var result = await _connection.QueryAsync<DirectorResult>(
+                "sp_ListarEmpresa",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
-        public async Task<PagedResult<DirectorDto>> ListByPaginationAsync(ListarDirectorPaginadoRequest request)
+        public async Task<PagedResult<DirectorResult>> ListByPaginationAsync(ListarDirectorPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarDirectorPaginado",
+                "sp_ListarEmpresaPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<DirectorDto>()).ToList();
+            var items = (await multi.ReadAsync<DirectorResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<DirectorDto>()
+            return new PagedResult<DirectorResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,27 +71,11 @@ namespace Empresa.Infrastructure.EMP_Director.Persistence.Repositories.SqlServer
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearDirectorData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarDirectorParameters request)
         {
-            var spResult = await ExecAsync<CrearDirectorData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarDirectorParameters, SpResultBase>(
             request,
-            "sp_RegistrarDirector");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarDirectorData request)
-        {
-            var spResult = await ExecAsync<EliminarDirectorData, SpResultBase>(
-            request,
-            "sp_EliminarDirector");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarDirectorData request)
-        {
-            var spResult = await ExecAsync<ActualizarDirectorData, SpResultBase>(
-            request,
-            "sp_ActualizarDirector");
+            "sp_ActualizarEmpresa");
             return spResult;
         }
 

@@ -1,7 +1,7 @@
-﻿using Empresa.Application.EMP_Director.Dtos;
-using FluentValidation;
+﻿using FluentValidation;
+using Empresa.Application.Director.Dtos;
 
-namespace Empresa.Application.EMP_Director.Validators
+namespace Empresa.Application.Director.Validators
 {
     public class EliminarDirectorRequestValidator : AbstractValidator<EliminarDirectorRequest>
     {

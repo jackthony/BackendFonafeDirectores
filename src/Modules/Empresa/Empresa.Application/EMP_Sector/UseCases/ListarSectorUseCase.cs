@@ -1,23 +1,31 @@
-﻿using Empresa.Application.EMP_Sector.Dtos;
-using Empresa.Application.EMP_Sector.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
+using Empresa.Application.Sector.Dtos;
+using Empresa.Domain.Sector.Parameters;
+using Empresa.Domain.Sector.Repositories;
+using Empresa.Domain.Sector.Results;
 
-namespace Empresa.Application.EMP_Sector.UseCases
+namespace Empresa.Application.Sector.UseCases
 {
-    public class ListarSectorUseCase : IUseCase<ListarSectorRequest, List<SectorDto>>
+    public class ListarSectorUseCase : IUseCase<ListarSectorRequest, List<SectorResult>>
     {
-        private readonly IReadSectorRepository _repository;
+        private readonly ISectorRepository _repository;
+        private readonly IMapper<ListarSectorRequest, ListarSectorParameters> _mapper;
 
-        public ListarSectorUseCase(IReadSectorRepository repository)
+        public ListarSectorUseCase(
+            ISectorRepository repository,
+            IMapper<ListarSectorRequest, ListarSectorParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, List<SectorDto>>> ExecuteAsync(ListarSectorRequest request)
+        public async Task<OneOf<ErrorBase, List<SectorResult>>> ExecuteAsync(ListarSectorRequest request)
         {
-            var result = await _repository.ListAsync(request);
+            var parameters = _mapper.Map(request);
+            var result = await _repository.ListAsync(parameters);
             return result;
         }
     }

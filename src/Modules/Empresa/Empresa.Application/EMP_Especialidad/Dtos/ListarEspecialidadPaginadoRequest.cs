@@ -1,8 +1,6 @@
-﻿using Shared.Kernel.Requests;
-
-namespace Empresa.Application.EMP_Especialidad.Dtos
+﻿namespace Empresa.Application.Especialidad.Dtos
 {
-    public class ListarEspecialidadPaginadoRequest : PagedRequest
+    public class ListarEspecialidadPaginadoRequest
     {
     }
 }

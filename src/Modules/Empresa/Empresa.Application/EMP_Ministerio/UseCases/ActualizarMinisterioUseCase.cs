@@ -1,24 +1,28 @@
-﻿using Empresa.Domain.EMP_Ministerio.Models;
-using Empresa.Domain.EMP_Ministerio.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Empresa.Application.Ministerio.Dtos;
+using Empresa.Domain.Ministerio.Parameters;
+using Empresa.Domain.Ministerio.Repositories;
 
-namespace Empresa.Application.EMP_Ministerio.UseCases
+namespace Empresa.Application.Ministerio.UseCases
 {
-    public class ActualizarMinisterioUseCase : IUseCase<ActualizarMinisterioData, SpResultBase>
+    public class ActualizarMinisterioUseCase : IUseCase<ActualizarMinisterioRequest, SpResultBase>
     {
-        private readonly IWriteMinisterioRepository<SpResultBase> _repository;
+        private readonly IMinisterioRepository _repository;
+        private readonly IMapper<ActualizarMinisterioRequest, ActualizarMinisterioParameters> _mapper;
 
-        public ActualizarMinisterioUseCase(IWriteMinisterioRepository<SpResultBase> repository)
+        public ActualizarMinisterioUseCase(IMinisterioRepository repository, IMapper<ActualizarMinisterioRequest, ActualizarMinisterioParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
-
-        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(ActualizarMinisterioData request)
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(ActualizarMinisterioRequest request)
         {
-            var result = await _repository.UpdateAsync(request);
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.UpdateAsync(parameters);
             if (!result.Success) return ErrorBase.Database(result.Message);
             return result;
         }

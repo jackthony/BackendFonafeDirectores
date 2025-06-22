@@ -4,16 +4,26 @@ using Api.Middlewares;
 using Serilog;
 using Shared.Kernel.Interfaces;
 using Shared.Time;
-using Empresa.Application.EMP_Empresa;
-using Empresa.Presentation.EMP_Empresa;
-using Empresa.Infrastructure.EMP_Empresa;
-using Empresa.Application.EMP_Cargo;
-using Empresa.Infrastructure.EMP_Cargo;
-using Empresa.Presentation.EMP_Cargo;
 using Usuario.Application.Auth;
 using Usuario.Infrastructure.Auth;
 using Usuario.Application.User;
 using Usuario.Infrastructure.User;
+using Empresa.Application.Cargo;
+using Empresa.Infrastructure.Cargo;
+using Empresa.Application.Director;
+using Empresa.Infrastructure.Director;
+using Empresa.Application.Empresa;
+using Empresa.Infrastructure.Empresa;
+using Empresa.Application.Especialidad;
+using Empresa.Application.Ministerio;
+using Empresa.Application.Rubro;
+using Empresa.Application.Sector;
+using Empresa.Application.TipoDirector;
+using Empresa.Infrastructure.Especialidad;
+using Empresa.Infrastructure.Ministerio;
+using Empresa.Infrastructure.Rubro;
+using Empresa.Infrastructure.Sector;
+using Empresa.Infrastructure.TipoDirector;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,18 +52,37 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
 
 builder.Services.AddDatabase(builder.Configuration);
-builder.Services.AddEmpresaApplication();
-builder.Services.AddEmpresaInfrastructure();
-builder.Services.AddEmpresaPresentation();
-builder.Services.AddCargoApplication();
-builder.Services.AddCargoInfrastructure();
-builder.Services.AddCargoPresentation();
 
 builder.Services.AddAuthApplication();
 builder.Services.AddAuthInfrastructure();
 
 builder.Services.AddUserApplication();
 builder.Services.AddUserInfrastructure();
+
+builder.Services.AddCargoApplication();
+builder.Services.AddCargoInfrastructure();
+
+builder.Services.AddDirectorApplication();
+builder.Services.AddDirectorInfrastructure();
+
+builder.Services.AddEmpresaApplication();
+builder.Services.AddEmpresaInfrastructure();
+
+builder.Services.AddEspecialidadApplication();
+builder.Services.AddEspecialidadInfrastructure();
+
+builder.Services.AddMinisterioApplication();
+builder.Services.AddMinisterioInfrastructure();
+
+builder.Services.AddRubroApplication();
+builder.Services.AddRubroInfrastructure();
+
+builder.Services.AddSectorApplication();
+builder.Services.AddSectorInfrastructure();
+
+builder.Services.AddTipoDirectorApplication();
+builder.Services.AddTipoDirectorInfrastructure();
+
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   

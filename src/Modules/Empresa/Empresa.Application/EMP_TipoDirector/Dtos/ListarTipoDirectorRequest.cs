@@ -1,4 +1,4 @@
-﻿namespace Empresa.Application.EMP_TipoDirector.Dtos
+﻿namespace Empresa.Application.TipoDirector.Dtos
 {
     public class ListarTipoDirectorRequest
     {

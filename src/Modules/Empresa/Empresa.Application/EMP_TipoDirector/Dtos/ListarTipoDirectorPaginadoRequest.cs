@@ -1,8 +1,6 @@
-﻿using Shared.Kernel.Requests;
-
-namespace Empresa.Application.EMP_TipoDirector.Dtos
+﻿namespace Empresa.Application.TipoDirector.Dtos
 {
-    public class ListarTipoDirectorPaginadoRequest : PagedRequest
+    public class ListarTipoDirectorPaginadoRequest
     {
     }
 }

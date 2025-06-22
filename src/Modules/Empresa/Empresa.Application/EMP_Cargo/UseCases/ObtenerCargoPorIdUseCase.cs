@@ -1,21 +1,21 @@
-﻿using Empresa.Application.EMP_Cargo.Dtos;
-using Empresa.Application.EMP_Cargo.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Empresa.Domain.Cargo.Repositories;
+using Empresa.Domain.Cargo.Results;
 
-namespace Empresa.Application.EMP_Cargo.UseCases
+namespace Empresa.Application.Cargo.UseCases
 {
-    public class ObtenerCargoPorIdUseCase : IUseCase<long, CargoDto?>
+    public class ObtenerCargoPorIdUseCase : IUseCase<int, CargoResult?>
     {
-        private readonly IReadCargoRepository _repository;
+        private readonly ICargoRepository _repository;
 
-        public ObtenerCargoPorIdUseCase(IReadCargoRepository repository)
+        public ObtenerCargoPorIdUseCase(ICargoRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<OneOf<ErrorBase, CargoDto?>> ExecuteAsync(long request)
+        public async Task<OneOf<ErrorBase, CargoResult?>> ExecuteAsync(int request)
         {
             var result = await _repository.GetByIdAsync(request);
             if (result == null) return ErrorBase.NotFound();

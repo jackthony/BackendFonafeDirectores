@@ -1,21 +1,21 @@
-﻿using Empresa.Application.EMP_Ministerio.Dtos;
-using Empresa.Application.EMP_Ministerio.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Empresa.Domain.Ministerio.Repositories;
+using Empresa.Domain.Ministerio.Results;
 
-namespace Empresa.Application.EMP_Ministerio.UseCases
+namespace Empresa.Application.Ministerio.UseCases
 {
-    public class ObtenerMinisterioPorIdUseCase : IUseCase<long, MinisterioDto?>
+    public class ObtenerMinisterioPorIdUseCase : IUseCase<int, MinisterioResult?>
     {
-        private readonly IReadMinisterioRepository _repository;
+        private readonly IMinisterioRepository _repository;
 
-        public ObtenerMinisterioPorIdUseCase(IReadMinisterioRepository repository)
+        public ObtenerMinisterioPorIdUseCase(IMinisterioRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<OneOf<ErrorBase, MinisterioDto?>> ExecuteAsync(long request)
+        public async Task<OneOf<ErrorBase, MinisterioResult?>> ExecuteAsync(int request)
         {
             var result = await _repository.GetByIdAsync(request);
             if (result == null) return ErrorBase.NotFound();

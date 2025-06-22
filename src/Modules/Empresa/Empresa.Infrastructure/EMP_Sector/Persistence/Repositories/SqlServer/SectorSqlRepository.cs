@@ -1,53 +1,68 @@
 ﻿using Dapper;
-using Empresa.Application.EMP_Sector.Dtos;
-using Empresa.Application.EMP_Sector.Repositories;
-using Empresa.Domain.EMP_Sector.Models;
-using Empresa.Domain.EMP_Sector.Repositories;
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Sector.Parameters;
+using Empresa.Domain.Sector.Repositories;
+using Empresa.Domain.Sector.Results;
 
-namespace Empresa.Infrastructure.EMP_Sector.Persistence.Repositories.SqlServer
+namespace Empresa.Infrastructure.Sector.Persistence.Repositories.SqlServer
 {
-    public class SectorSqlRepository(IDbConnection connection) : IWriteSectorRepository<SpResultBase>, IReadSectorRepository
+    public class SectorSqlRepository(IDbConnection connection) : ISectorRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<SectorDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearSectorParameters request)
+        {
+            var spResult = await ExecAsync<CrearSectorParameters, SpResultBase>(
+            request,
+            "sp_RegistrarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarSectorParameters request)
+        {
+            var spResult = await ExecAsync<EliminarSectorParameters, SpResultBase>(
+            request,
+            "sp_EliminarEmpresa");
+            return spResult;
+        }
+
+        public async Task<SectorResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdSector", id);
+            parameters.Add("IdEmpresa", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<SectorDto>(
-                "sp_ObtenerSectorPorId",
+            return await _connection.QueryFirstOrDefaultAsync<SectorResult>(
+                "sp_ObtenerEmpresaPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<SectorDto>> ListAsync(ListarSectorRequest request)
+        public async Task<List<SectorResult>> ListAsync(ListarSectorParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<SectorDto>(
-                "sp_ListarSector",
+            var result = await _connection.QueryAsync<SectorResult>(
+                "sp_ListarEmpresa",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
-        public async Task<PagedResult<SectorDto>> ListByPaginationAsync(ListarSectorPaginadoRequest request)
+        public async Task<PagedResult<SectorResult>> ListByPaginationAsync(ListarSectorPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarSectorPaginado",
+                "sp_ListarEmpresaPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<SectorDto>()).ToList();
+            var items = (await multi.ReadAsync<SectorResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<SectorDto>()
+            return new PagedResult<SectorResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,27 +71,11 @@ namespace Empresa.Infrastructure.EMP_Sector.Persistence.Repositories.SqlServer
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearSectorData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarSectorParameters request)
         {
-            var spResult = await ExecAsync<CrearSectorData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarSectorParameters, SpResultBase>(
             request,
-            "sp_RegistrarSector");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarSectorData request)
-        {
-            var spResult = await ExecAsync<EliminarSectorData, SpResultBase>(
-            request,
-            "sp_EliminarSector");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarSectorData request)
-        {
-            var spResult = await ExecAsync<ActualizarSectorData, SpResultBase>(
-            request,
-            "sp_ActualizarSector");
+            "sp_ActualizarEmpresa");
             return spResult;
         }
 

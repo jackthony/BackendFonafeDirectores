@@ -1,21 +1,21 @@
-﻿using Empresa.Application.EMP_Sector.Dtos;
-using Empresa.Application.EMP_Sector.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Empresa.Domain.Sector.Repositories;
+using Empresa.Domain.Sector.Results;
 
-namespace Empresa.Application.EMP_Sector.UseCases
+namespace Empresa.Application.Sector.UseCases
 {
-    public class ObtenerSectorPorIdUseCase : IUseCase<long, SectorDto?>
+    public class ObtenerSectorPorIdUseCase : IUseCase<int, SectorResult?>
     {
-        private readonly IReadSectorRepository _repository;
+        private readonly ISectorRepository _repository;
 
-        public ObtenerSectorPorIdUseCase(IReadSectorRepository repository)
+        public ObtenerSectorPorIdUseCase(ISectorRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<OneOf<ErrorBase, SectorDto?>> ExecuteAsync(long request)
+        public async Task<OneOf<ErrorBase, SectorResult?>> ExecuteAsync(int request)
         {
             var result = await _repository.GetByIdAsync(request);
             if (result == null) return ErrorBase.NotFound();

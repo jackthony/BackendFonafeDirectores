@@ -1,24 +1,29 @@
-﻿using Empresa.Domain.EMP_Rubro.Models;
-using Empresa.Domain.EMP_Rubro.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Empresa.Application.Rubro.Dtos;
+using Empresa.Domain.Rubro.Parameters;
+using Empresa.Domain.Rubro.Repositories;
 
-namespace Empresa.Application.EMP_Rubro.UseCases
+namespace Empresa.Application.Rubro.UseCases
 {
-    public class CrearRubroUseCase : IUseCase<CrearRubroData, SpResultBase>
+    public class CrearRubroUseCase : IUseCase<CrearRubroRequest, SpResultBase>
     {
-        private readonly IWriteRubroRepository<SpResultBase> _repository;
+        private readonly IRubroRepository _repository;
+        private readonly IMapper<CrearRubroRequest, CrearRubroParameters> _mapper;
 
-        public CrearRubroUseCase(IWriteRubroRepository<SpResultBase> repository)
+        public CrearRubroUseCase(IRubroRepository repository, IMapper<CrearRubroRequest, CrearRubroParameters> mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(CrearRubroData request)
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(CrearRubroRequest request)
         {
-            var result = await _repository.AddAsync(request);
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.AddAsync(parameters);
             if (!result.Success) return ErrorBase.Database(result.Message);
             return result;
         }
