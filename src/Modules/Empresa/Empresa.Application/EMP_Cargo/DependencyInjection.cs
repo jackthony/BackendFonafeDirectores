@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cargo.Application.EMP_Cargo.UseCases;
-using Empresa.Application.EMP_Cargo.Dtos;
+﻿using Empresa.Application.EMP_Cargo.Dtos;
+using Empresa.Application.EMP_Cargo.Mappers;
+using Empresa.Application.EMP_Cargo.UseCases;
 using Empresa.Application.EMP_Cargo.Validators;
 using Empresa.Domain.EMP_Cargo.Models;
 using FluentValidation;
@@ -12,12 +8,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 
-namespace Cargo.Application.EMP_Cargo
+namespace Empresa.Application.EMP_Cargo
 {
     public static class DependencyInjection
     {
         public static IServiceCollection AddCargoApplication(this IServiceCollection services)
         {
+            // Mappers
+            services.AddScoped<IMapper<CrearCargoRequest, CrearCargoData>, CrearCargoMapper>();
+            services.AddScoped<IMapper<ActualizarCargoRequest, ActualizarCargoData>, ActualizarCargoMapper>();
+            services.AddScoped<IMapper<EliminarCargoRequest, EliminarCargoData>, EliminarCargoMapper>();
+
             // Validators
             services.AddValidatorsFromAssemblyContaining<ActualizarCargoRequestValidator>();
             services.AddValidatorsFromAssemblyContaining<CrearCargoRequestValidator>();

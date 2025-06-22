@@ -1,6 +1,5 @@
 ﻿using Empresa.Application.EMP_Empresa.Dtos;
 using Empresa.Application.EMP_Empresa.Repositories;
-using Empresa.Domain.EMP_Empresa.Models;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Empresa.Application.EMP_Cargo.Dtos
+﻿namespace Empresa.Application.EMP_Cargo.Dtos
 {
     public class ActualizarCargoRequest
     {
+        public required int CargoId { get; set; }
+        public required int UsuarioModificacionId { get; set; }
+        public string? NombreCargo { get; set; }
+        public bool? IsActivo { get; set; }
     }
 }

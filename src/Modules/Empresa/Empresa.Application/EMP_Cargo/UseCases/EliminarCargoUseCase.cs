@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Empresa.Domain.EMP_Cargo.Models;
+﻿using Empresa.Domain.EMP_Cargo.Models;
 using Empresa.Domain.EMP_Cargo.Repositories;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 
-namespace Cargo.Application.EMP_Cargo.UseCases
+namespace Empresa.Application.EMP_Cargo.UseCases
 {
     public class EliminarCargoUseCase : IUseCase<EliminarCargoData, SpResultBase>
     {

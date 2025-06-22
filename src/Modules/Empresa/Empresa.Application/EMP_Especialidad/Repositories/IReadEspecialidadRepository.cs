@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Empresa.Application.EMP_Especialidad.Dtos;
+using Shared.Kernel.Responses;
 
 namespace Empresa.Application.EMP_Especialidad.Repositories
 {
-    internal class IReadEspecialidadRepository
+    public interface IReadEspecialidadRepository
     {
+        Task<List<EspecialidadDto>> ListAsync(ListarEspecialidadRequest request);
+        Task<EspecialidadDto?> GetByIdAsync(long id);
+        Task<PagedResult<EspecialidadDto>> ListByPaginationAsync(ListarEspecialidadPaginadoRequest request);
     }
 }

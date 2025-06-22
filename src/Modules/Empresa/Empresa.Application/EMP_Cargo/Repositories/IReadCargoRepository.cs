@@ -1,7 +1,7 @@
 ﻿using Empresa.Application.EMP_Cargo.Dtos;
 using Shared.Kernel.Responses;
 
-namespace Cargo.Application.EMP_Cargo.Repositories
+namespace Empresa.Application.EMP_Cargo.Repositories
 {
     public interface IReadCargoRepository
     {

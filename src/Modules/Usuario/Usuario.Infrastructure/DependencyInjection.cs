@@ -3,6 +3,8 @@ using Usuario.Domain.Repositories;
 using Usuario.Infrastructure.Persistence.Repositories.SqlServer;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Responses;
+using Usuario.Application.Auth.Services;
+using Usuario.Infrastructure.Auth.Services;
 
 namespace Usuario.Infrastructure
 {

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Empresa.Domain.EMP_Ministerio.Models;
+﻿using Empresa.Domain.EMP_Ministerio.Models;
+
 namespace Empresa.Domain.EMP_Ministerio.Repositories
 {
     public interface IWriteMinisterioRepository<T>

@@ -1,11 +1,11 @@
-﻿using Cargo.Application.EMP_Cargo.Repositories;
-using Empresa.Application.EMP_Cargo.Dtos;
+﻿using Empresa.Application.EMP_Cargo.Dtos;
+using Empresa.Application.EMP_Cargo.Repositories;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 
-namespace Cargo.Application.EMP_Cargo.UseCases
+namespace Empresa.Application.EMP_Cargo.UseCases
 {
     public class ListarCargoPaginadasUseCase : IUseCase<ListarCargoPaginadoRequest, PagedResult<CargoDto>>
     {

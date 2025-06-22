@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Empresa.Domain.EMP_Sector.Models;
+﻿using Empresa.Domain.EMP_Sector.Models;
 
 namespace Empresa.Domain.EMP_Sector.Repositories
 {

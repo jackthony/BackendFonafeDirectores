@@ -3,9 +3,10 @@ using FluentValidation;
 
 namespace Empresa.Application.EMP_Cargo.Validators
 {
-    public class EliminarCargoRequestValidator : AbstractValidator<EliminarCargoDto>
+    public class EliminarCargoRequestValidator : AbstractValidator<EliminarCargoRequest>
     {
         public EliminarCargoRequestValidator()
-        {}
+        {
+        }
     }
 }

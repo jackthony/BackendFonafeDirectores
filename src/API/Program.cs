@@ -1,46 +1,28 @@
 using Api.Common;
 using Api.Decorators;
 using Api.Middlewares;
-using Empresa.Application;
-using Empresa.Infrastructure;
 using Usuario.Application;
 using Usuario.Infrastructure;
 using Usuario.Presentation;
 using Serilog;
 using Shared.Kernel.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Shared.Time;
 using Empresa.Application.EMP_Empresa;
 using Empresa.Presentation.EMP_Empresa;
+using Empresa.Infrastructure.EMP_Empresa;
+using Empresa.Application.EMP_Cargo;
+using Empresa.Infrastructure.EMP_Cargo;
+using Empresa.Presentation.EMP_Cargo;
+using Usuario.Application.Auth;
+using Usuario.Infrastructure.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 // Configurar autenticación JWT
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!)),
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
-    };
-});
+// aqui agregar las inyecciones de auth
+
 
 
 Log.Logger = new LoggerConfiguration()
@@ -60,16 +42,22 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "Boa API", Version = "v1" });
 });
 
-builder.Services.AddSingleton<ITimeProvider, Shared.Time.TimeProvider>();
+builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
 
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddEmpresaApplication();
 builder.Services.AddEmpresaInfrastructure();
 builder.Services.AddEmpresaPresentation();
+builder.Services.AddCargoApplication();
+builder.Services.AddCargoInfrastructure();
+builder.Services.AddCargoPresentation();
 
 builder.Services.AddUsuarioApplication();
 builder.Services.AddUsuarioInfrastructure();
 builder.Services.AddUsuarioPresentation();
+
+builder.Services.AddAuthApplication();
+builder.Services.AddAuthInfrastructure();
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   

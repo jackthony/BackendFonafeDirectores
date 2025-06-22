@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Empresa.Domain.EMP_Director.Models;
+﻿using Empresa.Domain.EMP_Director.Models;
 using Empresa.Domain.EMP_Director.Repositories;
 using OneOf;
 using Shared.Kernel.Errors;

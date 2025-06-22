@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Empresa.Application.EMP_Especialidad.Dtos;
+using FluentValidation;
 
 namespace Empresa.Application.EMP_Especialidad.Validators
 {
-    internal class ListarEspecialidadPaginadoRequestValidator
+    public class ListarEspecialidadPaginadoRequestValidator : AbstractValidator<ListarEspecialidadPaginadoRequest>
     {
+        public ListarEspecialidadPaginadoRequestValidator()
+        {
+        }
     }
 }

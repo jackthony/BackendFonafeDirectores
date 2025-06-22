@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Empresa.Application.EMP_Cargo.Dtos
+﻿namespace Empresa.Application.EMP_Cargo.Dtos
 {
     public class CrearCargoRequest
     {
+        public required string NombreCargo { get; set; }
+        public required int UsuarioRegistroId { get; set; }
     }
 }

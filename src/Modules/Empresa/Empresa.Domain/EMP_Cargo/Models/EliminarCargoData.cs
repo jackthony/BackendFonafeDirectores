@@ -2,5 +2,8 @@
 {
     public class EliminarCargoData
     {
+        public required int CargoId { get; set; }
+        public required int UsuarioModificacionId { get; set; }
+        public required DateTime FechaModificacion { get; set; }
     }
 }
