@@ -1,46 +1,36 @@
 using Api.Common;
 using Api.Decorators;
 using Api.Middlewares;
-using Empresa.Application;
-using Empresa.Infrastructure;
-using Empresa.Presentation;
-using Usuario.Application;
-using Usuario.Infrastructure;
-using Usuario.Presentation;
 using Serilog;
 using Shared.Kernel.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Shared.Time;
+using Usuario.Application.Auth;
+using Usuario.Infrastructure.Auth;
+using Usuario.Application.User;
+using Usuario.Infrastructure.User;
+using Empresa.Application.Cargo;
+using Empresa.Infrastructure.Cargo;
+using Empresa.Application.Director;
+using Empresa.Infrastructure.Director;
+using Empresa.Application.Empresa;
+using Empresa.Infrastructure.Empresa;
+using Empresa.Application.Especialidad;
+using Empresa.Application.Ministerio;
+using Empresa.Application.Rubro;
+using Empresa.Application.Sector;
+using Empresa.Application.TipoDirector;
+using Empresa.Infrastructure.Especialidad;
+using Empresa.Infrastructure.Ministerio;
+using Empresa.Infrastructure.Rubro;
+using Empresa.Infrastructure.Sector;
+using Empresa.Infrastructure.TipoDirector;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 // Configurar autenticación JWT
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!)),
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
-    };
-});
-
+// aqui agregar las inyecciones de auth
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -59,16 +49,40 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "Boa API", Version = "v1" });
 });
 
-builder.Services.AddSingleton<ITimeProvider, Shared.Time.TimeProvider>();
+builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
 
 builder.Services.AddDatabase(builder.Configuration);
+
+builder.Services.AddAuthApplication();
+builder.Services.AddAuthInfrastructure();
+
+builder.Services.AddUserApplication();
+builder.Services.AddUserInfrastructure();
+
+builder.Services.AddCargoApplication();
+builder.Services.AddCargoInfrastructure();
+
+builder.Services.AddDirectorApplication();
+builder.Services.AddDirectorInfrastructure();
+
 builder.Services.AddEmpresaApplication();
 builder.Services.AddEmpresaInfrastructure();
-builder.Services.AddEmpresaPresentation();
 
-builder.Services.AddUsuarioApplication();
-builder.Services.AddUsuarioInfrastructure();
-builder.Services.AddUsuarioPresentation();
+builder.Services.AddEspecialidadApplication();
+builder.Services.AddEspecialidadInfrastructure();
+
+builder.Services.AddMinisterioApplication();
+builder.Services.AddMinisterioInfrastructure();
+
+builder.Services.AddRubroApplication();
+builder.Services.AddRubroInfrastructure();
+
+builder.Services.AddSectorApplication();
+builder.Services.AddSectorInfrastructure();
+
+builder.Services.AddTipoDirectorApplication();
+builder.Services.AddTipoDirectorInfrastructure();
+
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
