@@ -8,7 +8,9 @@ namespace Empresa.Application.Rubro.Mappers
     {
         public ListarRubroParameters Map(ListarRubroRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarRubroParameters
+            {
+            };
         }
     }
 }

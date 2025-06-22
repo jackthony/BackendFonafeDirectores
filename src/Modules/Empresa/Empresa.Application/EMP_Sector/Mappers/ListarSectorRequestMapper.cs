@@ -8,7 +8,9 @@ namespace Empresa.Application.Sector.Mappers
     {
         public ListarSectorParameters Map(ListarSectorRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarSectorParameters
+            {
+            };
         }
     }
 }

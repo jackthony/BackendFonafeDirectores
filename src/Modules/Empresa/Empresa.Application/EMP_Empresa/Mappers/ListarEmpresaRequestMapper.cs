@@ -8,7 +8,9 @@ namespace Empresa.Application.Empresa.Mappers
     {
         public ListarEmpresaParameters Map(ListarEmpresaRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarEmpresaParameters 
+            {
+            };
         }
     }
 }

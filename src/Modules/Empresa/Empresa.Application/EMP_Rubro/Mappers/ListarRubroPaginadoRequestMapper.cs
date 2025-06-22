@@ -8,7 +8,9 @@ namespace Empresa.Application.Rubro.Mappers
     {
         public ListarRubroPaginadoParameters Map(ListarRubroPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarRubroPaginadoParameters
+            {
+            };
         }
     }
 }

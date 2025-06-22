@@ -8,7 +8,9 @@ namespace Empresa.Application.Cargo.Mappers
     {
         public ListarCargoPaginadoParameters Map(ListarCargoPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarCargoPaginadoParameters
+            {
+            };
         }
     }
 }

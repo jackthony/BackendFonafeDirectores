@@ -8,7 +8,9 @@ namespace Empresa.Application.TipoDirector.Mappers
     {
         public ListarTipoDirectorParameters Map(ListarTipoDirectorRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarTipoDirectorParameters
+            {
+            };
         }
     }
 }

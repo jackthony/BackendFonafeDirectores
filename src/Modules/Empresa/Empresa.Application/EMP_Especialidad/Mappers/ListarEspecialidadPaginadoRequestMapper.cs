@@ -8,7 +8,9 @@ namespace Empresa.Application.Especialidad.Mappers
     {
         public ListarEspecialidadPaginadoParameters Map(ListarEspecialidadPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarEspecialidadPaginadoParameters
+            {
+            };
         }
     }
 }

@@ -8,7 +8,9 @@ namespace Empresa.Application.Especialidad.Mappers
     {
         public ListarEspecialidadParameters Map(ListarEspecialidadRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarEspecialidadParameters
+            {
+            };
         }
     }
 }

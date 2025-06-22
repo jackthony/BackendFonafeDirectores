@@ -8,7 +8,9 @@ namespace Empresa.Application.Director.Mappers
     {
         public ListarDirectorParameters Map(ListarDirectorRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarDirectorParameters 
+            {
+            };
         }
     }
 }

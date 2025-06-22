@@ -8,7 +8,9 @@ namespace Empresa.Application.TipoDirector.Mappers
     {
         public ListarTipoDirectorPaginadoParameters Map(ListarTipoDirectorPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarTipoDirectorPaginadoParameters
+            {
+            };
         }
     }
 }

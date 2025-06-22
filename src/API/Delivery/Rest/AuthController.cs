@@ -10,10 +10,12 @@ namespace Api.Delivery.Rest
     public class AuthController : ControllerBase
     {
         private readonly IUseCase<LoginRequest, LoginResponse> _loginUseCase;
+        private readonly IUseCase<VerifyTokenRequest, LoginResponse> _verifyTokenUseCase;
 
-        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase)
+        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase)
         {
             _loginUseCase = loginUseCase;
+            _verifyTokenUseCase = verifyTokenUseCase;
         }
 
         [HttpPost("login")]
@@ -21,6 +23,16 @@ namespace Api.Delivery.Rest
         {
             var result = await _loginUseCase.ExecuteAsync(request);
 
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+
+            return Ok(result.AsT1);
+        }
+
+        [HttpPost("verify-token")]
+        public async Task<IActionResult> VerifyToken([FromBody] VerifyTokenRequest request)
+        {
+            var result = await _verifyTokenUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
 

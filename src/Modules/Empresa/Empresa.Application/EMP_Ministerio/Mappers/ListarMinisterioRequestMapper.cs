@@ -8,7 +8,9 @@ namespace Empresa.Application.Ministerio.Mappers
     {
         public ListarMinisterioParameters Map(ListarMinisterioRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarMinisterioParameters
+            {
+            };
         }
     }
 }

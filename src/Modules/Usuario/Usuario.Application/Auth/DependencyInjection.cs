@@ -13,6 +13,7 @@ namespace Usuario.Application.Auth
         {
             // UseCases
             services.AddScoped<IUseCase<LoginRequest, LoginResponse>, LoginUseCase>();
+            services.AddScoped<IUseCase<VerifyTokenRequest, LoginResponse>, VerifyTokenUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<LoginRequest, LoginParameters>, LoginRequestMapper>();
