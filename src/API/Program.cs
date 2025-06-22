@@ -90,7 +90,19 @@ builder.Services.Decorate(typeof(IUseCase<,>), typeof(ValidationUseCaseDecorator
 
 //builder.Services.Decorate(typeof(IUseCase<,>), typeof(AuditableUseCaseDecorator<,>));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodos", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("PermitirTodos");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
