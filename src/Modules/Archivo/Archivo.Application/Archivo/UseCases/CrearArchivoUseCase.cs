@@ -28,9 +28,11 @@ namespace Archivo.Application.Archivo.UseCases
             var parameters = _mapper.Map(request);
             if (request.IsDocumento && request.Archivo != null)
             {
-                var ruta = $"archivos/{Guid.NewGuid()}_{request.Nombre}";
+                var url = await _storageService.SubirPrueba(request.Archivo);
+                parameters.UrlStorage = url ?? "";
+                /*var ruta = $"archivos/{Guid.NewGuid()}_{request.Nombre}";
                 var url = await _storageService.SubirArchivoAsync(request.Archivo.OpenReadStream(), ruta, request.Archivo.ContentType);
-                parameters.UrlStorage = url;
+                parameters.UrlStorage = url;*/
             }            
             var result = await _repository.AddAsync(parameters);
             if (!result.Success) return ErrorBase.Database(result.Message);

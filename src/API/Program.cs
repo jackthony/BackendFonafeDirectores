@@ -37,7 +37,7 @@ using Empresa.Presentation.EMP_TipoDirector;
 using Shared.ClientV1;
 using Shared.Kernel.Responses;
 using Shared.Presenters;
-using Api.Settings;
+using Usuario.Presentation.User;
 using Usuario.Application.Rol;
 using Usuario.Infrastructure.Rol;
 using Usuario.Presentation.SEG_Rol;
@@ -79,6 +79,7 @@ builder.Services.AddAuthInfrastructure();
 
 builder.Services.AddUserApplication();
 builder.Services.AddUserInfrastructure();
+builder.Services.AddUserPresenters();
 
 builder.Services.AddRolApplication();
 builder.Services.AddRolInfrastructure();
@@ -118,6 +119,7 @@ builder.Services.AddTipoDirectorPresenters();
 
 builder.Services.AddArchivoApplication();
 builder.Services.AddArchivoInfrastructure();
+
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
