@@ -1,68 +1,68 @@
 ﻿using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
-using Usuario.Domain.User.Parameters;
-using Usuario.Domain.User.Repositories;
-using Usuario.Domain.User.Results;
+using Usuario.Domain.PermisoRol.Parameters;
+using Usuario.Domain.PermisoRol.Repositories;
+using Usuario.Domain.PermisoRol.Results;
 
-namespace Usuario.Infrastructure.User.Persistence.Repositories.SqlServer
+namespace Usuario.Infrastructure.PermisoRol.Persistence.Repositories.SqlServer
 {
-    public class UserSqlRepository(IDbConnection connection) : IUserRepository
+    public class PermisoRolSqlRepository(IDbConnection connection) : IPermisoRolRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<SpResultBase> AddAsync(CrearUserParameters request)
+        public async Task<SpResultBase> AddAsync(CrearPermisoRolParameters request)
         {
-            var spResult = await ExecAsync<CrearUserParameters, SpResultBase>(
+            var spResult = await ExecAsync<CrearPermisoRolParameters, SpResultBase>(
             request,
-            "sp_RegistrarUser");
+            "sp_RegistrarPermisoRol");
             return spResult;
         }
 
-        public async Task<SpResultBase> DeleteAsync(EliminarUserParameters request)
+        public async Task<SpResultBase> DeleteAsync(EliminarPermisoRolParameters request)
         {
-            var spResult = await ExecAsync<EliminarUserParameters, SpResultBase>(
+            var spResult = await ExecAsync<EliminarPermisoRolParameters, SpResultBase>(
             request,
-            "sp_EliminarUser");
+            "sp_EliminarPermisoRol");
             return spResult;
         }
 
-        public async Task<UserResult?> GetByIdAsync(int id)
+        public async Task<PermisoRolResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("IdUser", id);
+            parameters.Add("IdPermisoRol", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<UserResult>(
-                "sp_ObtenerUserPorId",
+            return await _connection.QueryFirstOrDefaultAsync<PermisoRolResult>(
+                "sp_ObtenerPermisoRolPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<UserResult>> ListAsync(ListarUserParameters request)
+        public async Task<List<PermisoRolResult>> ListAsync(ListarPermisoRolParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<UserResult>(
-                "sp_ListarUser",
+            var result = await _connection.QueryAsync<PermisoRolResult>(
+                "sp_ListarPermisoRol",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }
 
-        public async Task<PagedResult<UserResult>> ListByPaginationAsync(ListarUserPaginadoParameters request)
+        public async Task<PagedResult<PermisoRolResult>> ListByPaginationAsync(ListarPermisoRolPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
             using var multi = await _connection.QueryMultipleAsync(
-                "sp_ListarUserPaginado",
+                "sp_ListarPermisoRolPaginado",
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<UserResult>()).ToList();
+            var items = (await multi.ReadAsync<PermisoRolResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<UserResult>()
+            return new PagedResult<PermisoRolResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -71,11 +71,11 @@ namespace Usuario.Infrastructure.User.Persistence.Repositories.SqlServer
             };
         }
 
-        public async Task<SpResultBase> UpdateAsync(ActualizarUserParameters request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarPermisoRolParameters request)
         {
-            var spResult = await ExecAsync<ActualizarUserParameters, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarPermisoRolParameters, SpResultBase>(
             request,
-            "sp_ActualizarUser");
+            "sp_ActualizarPermisoRol");
             return spResult;
         }
 

@@ -1,6 +1,6 @@
-﻿namespace Usuario.Presentation.User.Responses
+﻿namespace Usuario.Presentation.PermisoRol.Responses
 {
-    public class UserResponse
+    public class PermisoRolResponse
     {
     }
 }

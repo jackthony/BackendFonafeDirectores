@@ -1,18 +1,18 @@
 ﻿using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
-using Usuario.Domain.User.Results;
-using Usuario.Presentation.User.Responses;
+using Usuario.Domain.PermisoRol.Results;
+using Usuario.Presentation.PermisoRol.Responses;
 
-namespace Usuario.Presentation.User.Mappers
+namespace Usuario.Presentation.PermisoRol.Mappers
 {
-    public class ObtenerUserResponsePorIdPresenter : IPresenterDelivery<UserResult, ItemResponse<UserResponse>>
+    public class ObtenerPermisoRolResponsePorIdPresenter : IPresenterDelivery<PermisoRolResult, ItemResponse<PermisoRolResponse>>
     {
-        public ItemResponse<UserResponse> Present(UserResult input)
+        public ItemResponse<PermisoRolResponse> Present(PermisoRolResult input)
         {
-            return new ItemResponse<UserResponse>
+            return new ItemResponse<PermisoRolResponse>
             {
                 IsSuccess = true,
-                Item = UserResponseMapper.ToResponse(input),
+                Item = PermisoRolResponseMapper.ToResponse(input),
             };
         }
     }

@@ -1,15 +1,15 @@
-﻿using Usuario.Domain.User.Results;
-using Usuario.Presentation.User.Responses;
+﻿using Usuario.Domain.PermisoRol.Results;
+using Usuario.Presentation.PermisoRol.Responses;
 
-namespace Usuario.Presentation.User.Mappers
+namespace Usuario.Presentation.PermisoRol.Mappers
 {
-    public static class UserResponseMapper
+    public static class PermisoRolResponseMapper
     {
-        public static UserResponse ToResponse(UserResult dto) => new()
+        public static PermisoRolResponse ToResponse(PermisoRolResult dto) => new()
         {
         };
 
-        public static IEnumerable<UserResponse> ToListResponse(IEnumerable<UserResult> items)
+        public static IEnumerable<PermisoRolResponse> ToListResponse(IEnumerable<PermisoRolResult> items)
             => items.Select(ToResponse);
     }
 }

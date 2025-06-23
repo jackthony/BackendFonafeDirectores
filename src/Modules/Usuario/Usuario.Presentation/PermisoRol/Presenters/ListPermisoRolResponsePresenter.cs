@@ -1,17 +1,17 @@
 ﻿using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
-using Usuario.Domain.User.Results;
-using Usuario.Presentation.User.Responses;
+using Usuario.Domain.PermisoRol.Results;
+using Usuario.Presentation.PermisoRol.Responses;
 
-namespace Usuario.Presentation.User.Mappers
+namespace Usuario.Presentation.PermisoRol.Mappers
 {
-    public class ListUserResponsePresenter : IPresenterDelivery<List<UserResult>, LstItemResponse<UserResponse>>
+    public class ListPermisoRolResponsePresenter : IPresenterDelivery<List<PermisoRolResult>, LstItemResponse<PermisoRolResponse>>
     {
-        public LstItemResponse<UserResponse> Present(List<UserResult> input)
+        public LstItemResponse<PermisoRolResponse> Present(List<PermisoRolResult> input)
         {
-            return new LstItemResponse<UserResponse>
+            return new LstItemResponse<PermisoRolResponse>
             {
-                LstItem = UserResponseMapper.ToListResponse(input),
+                LstItem = PermisoRolResponseMapper.ToListResponse(input),
                 IsSuccess = true
             };
         }

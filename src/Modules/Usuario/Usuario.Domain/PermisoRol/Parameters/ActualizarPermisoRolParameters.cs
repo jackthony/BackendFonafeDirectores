@@ -1,6 +1,6 @@
-﻿namespace Usuario.Domain.User.Parameters
+﻿namespace Usuario.Domain.PermisoRol.Parameters
 {
-    public class ActualizarUserParameters
+    public class ActualizarPermisoRolParameters
     {
     }
 }

@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Usuario.Domain.User.Repositories;
-using Usuario.Infrastructure.User.Persistence.Repositories.SqlServer;
+using Usuario.Domain.PermisoRol.Repositories;
+using Usuario.Infrastructure.PermisoRol.Persistence.Repositories.SqlServer;
 
-namespace Usuario.Infrastructure.User
+namespace Usuario.Infrastructure.PermisoRol
 {
     public static class DependencyInjections
     {
-        public static IServiceCollection AddUserInfrastructure(this IServiceCollection services)
+        public static IServiceCollection AddPermisoRolInfrastructure(this IServiceCollection services)
         {
-            services.AddScoped<IUserRepository, UserSqlRepository>();
+            services.AddScoped<IPermisoRolRepository, PermisoRolSqlRepository>();
             return services;
         }
     }

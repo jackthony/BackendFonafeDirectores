@@ -1,19 +1,19 @@
 ﻿using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
-using Usuario.Domain.User.Results;
-using Usuario.Presentation.User.Mappers;
-using Usuario.Presentation.User.Responses;
+using Usuario.Domain.PermisoRol.Results;
+using Usuario.Presentation.PermisoRol.Mappers;
+using Usuario.Presentation.PermisoRol.Responses;
 
-namespace Usuario.Presentation.User.Presenters
+namespace Usuario.Presentation.PermisoRol.Presenters
 {
-    public class ListUserPaginadoResponsePresenter : IPresenterDelivery<PagedResult<UserResult>, LstItemResponse<UserResponse>>
+    public class ListPermisoRolPaginadoResponsePresenter : IPresenterDelivery<PagedResult<PermisoRolResult>, LstItemResponse<PermisoRolResponse>>
     {
-        public LstItemResponse<UserResponse> Present(PagedResult<UserResult> input)
+        public LstItemResponse<PermisoRolResponse> Present(PagedResult<PermisoRolResult> input)
         {
-            return new LstItemResponse<UserResponse>
+            return new LstItemResponse<PermisoRolResponse>
             {
-                LstItem = UserResponseMapper.ToListResponse(input.Items),
+                LstItem = PermisoRolResponseMapper.ToListResponse(input.Items),
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,

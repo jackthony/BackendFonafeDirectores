@@ -1,8 +1,8 @@
 ﻿using Shared.Kernel.Requests;
 
-namespace Usuario.Domain.User.Parameters
+namespace Usuario.Domain.PermisoRol.Parameters
 {
-    public class ListarUserPaginadoParameters : PagedRequest
+    public class ListarPermisoRolPaginadoParameters : PagedRequest
     {
     }
 }

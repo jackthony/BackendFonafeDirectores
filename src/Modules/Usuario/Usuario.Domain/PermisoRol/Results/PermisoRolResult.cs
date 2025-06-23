@@ -1,6 +1,6 @@
-﻿namespace Usuario.Domain.User.Results
+﻿namespace Usuario.Domain.PermisoRol.Results
 {
-    public class UserResult
+    public class PermisoRolResult
     {
     }
 }

@@ -1,16 +1,16 @@
 ﻿using Shared.Kernel.Responses;
-using Usuario.Domain.User.Parameters;
-using Usuario.Domain.User.Results;
+using Usuario.Domain.PermisoRol.Parameters;
+using Usuario.Domain.PermisoRol.Results;
 
-namespace Usuario.Domain.User.Repositories
+namespace Usuario.Domain.PermisoRol.Repositories
 {
-    public interface IUserRepository
+    public interface IPermisoRolRepository
     {
-        public Task<SpResultBase> AddAsync(CrearUserParameters request);
-        public Task<SpResultBase> UpdateAsync(ActualizarUserParameters request);
-        public Task<SpResultBase> DeleteAsync(EliminarUserParameters request);
-        public Task<List<UserResult>> ListAsync(ListarUserParameters request);
-        public Task<UserResult?> GetByIdAsync(int id);
-        public Task<PagedResult<UserResult>> ListByPaginationAsync(ListarUserPaginadoParameters request);
+        public Task<SpResultBase> AddAsync(CrearPermisoRolParameters request);
+        public Task<SpResultBase> UpdateAsync(ActualizarPermisoRolParameters request);
+        public Task<SpResultBase> DeleteAsync(EliminarPermisoRolParameters request);
+        public Task<List<PermisoRolResult>> ListAsync(ListarPermisoRolParameters request);
+        public Task<PermisoRolResult?> GetByIdAsync(int id);
+        public Task<PagedResult<PermisoRolResult>> ListByPaginationAsync(ListarPermisoRolPaginadoParameters request);
     }
 }
