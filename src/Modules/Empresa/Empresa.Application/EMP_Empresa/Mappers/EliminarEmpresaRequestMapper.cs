@@ -9,7 +9,7 @@ namespace Empresa.Application.Empresa.Mappers
     {
         private readonly ITimeProvider _timeProvider;
 
-        public CrearEmpresaRequestMapper(ITimeProvider timeProvider)
+        public EliminarEmpresaRequestMapper(ITimeProvider timeProvider)
         {
             _timeProvider = timeProvider;
         }
@@ -20,6 +20,7 @@ namespace Empresa.Application.Empresa.Mappers
                 nEmpresaId = source.nEmpresaId,
                 dtFechaModificacion = _timeProvider.NowPeru,
                 nUsuarioModificacionId = source.nUsuarioModificacionId
-            }
+            };
+        }
     }
 }
