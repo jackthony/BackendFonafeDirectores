@@ -2,7 +2,8 @@
 {
     public class CrearMinisterioRequest
     {
-        public string NombreMinisterio { get; set; } = default!;
-        public int UsuarioRegistroId { get; set; }
+        public string sNombreMinisterio { get; set; } = default!;
+        public int nUsuarioRegistro { get; set; }
     }
 }
+    
