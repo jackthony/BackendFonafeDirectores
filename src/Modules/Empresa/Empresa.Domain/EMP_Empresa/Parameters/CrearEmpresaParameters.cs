@@ -2,16 +2,21 @@
 {
     public class CrearEmpresaParameters
     {
-        // Tabla SEG_Empresa
-        public string Empresaname { get; set; } = default!;
-        public string PasswordHash { get; set; } = default!;
-        public string CorreoElectronico { get; set; } = default!;
-        public DateTime FechaRegistro { get; set; }
-        public int EmpresaRegistroId { get; set; }
-
-        // Tabla SEG_EmpresaInfo
-        public string ApellidoPaterno { get; set; } = default!;
-        public string ApellidoMaterno { get; set; } = default!;
-        public string Nombres { get; set; } = default!;
+        public string sRuc { get; set; } = string.Empty;
+        public string sRazonSocial { get; set; } = string.Empty;
+        public int nSectorId { get; set; }
+        public int nRubroId { get; set; }
+        public int nDepartamentoId { get; set; }
+        public int nProvinciaId { get; set; }
+        public int nDistritoId { get; set; }
+        public string? sDireccion { get; set; } = string.Empty;
+        public string? sComentario { get; set; } = string.Empty;
+        public decimal dIngresosUltimoAnio { get; set; }
+        public decimal dUtilidadUltimoAnio { get; set; }
+        public decimal dConformacionCapitalSocial { get; set; }
+        public int nNumeroMiembros { get; set; }
+        public bool bRegistradoMercadoValor { get; set; }
+        public DateTime dtFechaRegistro { get; set; }
+        public int nUsuarioRegistroId { get; set; }
     }
 }

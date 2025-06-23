@@ -2,12 +2,20 @@
 {
     public class CrearEmpresaRequest
     {
-        public string Empresaname { get; set; } = default!;
-        public string Password { get; set; } = default!;
-        public string CorreoElectronico { get; set; } = default!;
-        public int EmpresaRegistroId { get; set; }
-        public string ApellidoPaterno { get; set; } = default!;
-        public string ApellidoMaterno { get; set; } = default!;
-        public string Nombres { get; set; } = default!;
+        public string sRuc { get; set; } = string.Empty;
+        public string sRazonSocial { get; set; } = string.Empty;
+        public int nSectorId { get; set; }
+        public int nRubroId { get; set; }
+        public int nDepartamentoId { get; set; }
+        public int nProvinciaId { get; set; }
+        public int nDistritoId { get; set; }
+        public string? sDireccion { get; set; } = string.Empty;
+        public string? sComentario { get; set; } = string.Empty;
+        public decimal dIngresosUltimoAnio { get; set; }
+        public decimal dUtilidadUltimoAnio { get; set; }
+        public decimal dConformacionCapitalSocial { get; set; }
+        public int nNumeroMiembros { get; set; }
+        public bool bRegistradoMercadoValor { get; set; }
+        public int nUsuarioRegistroId { get; set; }
     }
 }

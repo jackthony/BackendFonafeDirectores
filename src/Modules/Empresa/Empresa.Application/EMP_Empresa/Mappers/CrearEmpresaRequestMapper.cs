@@ -18,14 +18,22 @@ namespace Empresa.Application.Empresa.Mappers
         {
             return new CrearEmpresaParameters
             {
-                Empresaname = source.Empresaname,
-                PasswordHash = source.Password,
-                CorreoElectronico = source.CorreoElectronico,
-                FechaRegistro = _timeProvider.NowPeru,
-                EmpresaRegistroId = source.EmpresaRegistroId,
-                ApellidoPaterno = source.ApellidoPaterno,
-                ApellidoMaterno = source.ApellidoMaterno,
-                Nombres = source.Nombres
+                sRuc = source.sRuc,
+                sRazonSocial = source.sRazonSocial,
+                nSectorId = source.nSectorId,
+                nRubroId = source.nRubroId,
+                nDepartamentoId = source.nDepartamentoId,
+                nProvinciaId = source.nProvinciaId,
+                nDistritoId = source.nDistritoId,
+                sDireccion = source.sDireccion,
+                sComentario = source.sComentario,
+                dIngresosUltimoAnio = source.dIngresosUltimoAnio,
+                dUtilidadUltimoAnio = source.dUtilidadUltimoAnio,
+                dConformacionCapitalSocial = source.dConformacionCapitalSocial,
+                nNumeroMiembros = source.nNumeroMiembros,
+                bRegistradoMercadoValor = source.bRegistradoMercadoValor,
+                dtFechaRegistro = _timeProvider.NowPeru,
+                nUsuarioRegistroId = source.nUsuarioRegistroId
             };
         }
     }

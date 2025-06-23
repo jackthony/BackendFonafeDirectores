@@ -2,7 +2,8 @@
 {
     public class EliminarDirectorRequest
     {
-        public int TipoDirectorId { get; set; }
-        public int UsuarioModificacionId { get; set; }
+        public int nDirectorId { get; set; }
+        public int nUsuarioModificacionId { get; set; }
+        public DateTime dtFechaModificacion { get; set; }
     }
 }
