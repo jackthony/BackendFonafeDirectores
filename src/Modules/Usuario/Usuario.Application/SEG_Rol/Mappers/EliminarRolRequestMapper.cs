@@ -10,8 +10,8 @@ namespace Usuario.Application.Rol.Mappers
         {
             return new EliminarRolParameters()
             {
-                CargoId = source.nCargoId,
-                UsuarioModificacion = source.nUsuarioModificacionId,
+                CargoId = source.nRolId,
+                UsuarioModificacion = source.nIdUsuarioModificacion,
                 FechaModificacion = source.dtFechaModificacion
             };
         }
