@@ -41,6 +41,9 @@ using Usuario.Presentation.User;
 using Usuario.Application.Rol;
 using Usuario.Infrastructure.Rol;
 using Usuario.Presentation.SEG_Rol;
+using Usuario.Application.PermisoRol;
+using Usuario.Infrastructure.PermisoRol;
+using Usuario.Presentation.PermisoRol;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -79,6 +82,10 @@ builder.Services.AddUserPresenters();
 builder.Services.AddRolApplication();
 builder.Services.AddRolInfrastructure();
 builder.Services.AddRolPresenters();
+
+builder.Services.AddPermisoRolApplication();
+builder.Services.AddPermisoRolInfrastructure();
+builder.Services.AddPermisoRolPresenters();
 
 builder.Services.AddCargoApplication();
 builder.Services.AddCargoInfrastructure();

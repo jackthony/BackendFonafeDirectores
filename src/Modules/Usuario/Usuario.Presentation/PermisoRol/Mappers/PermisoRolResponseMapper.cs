@@ -7,6 +7,7 @@ namespace Usuario.Presentation.PermisoRol.Mappers
     {
         public static PermisoRolResponse ToResponse(PermisoRolResult dto) => new()
         {
+
         };
 
         public static IEnumerable<PermisoRolResponse> ToListResponse(IEnumerable<PermisoRolResult> items)
