@@ -2,7 +2,7 @@
 {
     public class CrearSectorRequest
     {
-        public string NombreSector { get; set; } = default!;
-        public int UsuarioRegistroId { get; set; }
+        public string sNombreSector { get; set; } = default!;
+        public int nUsuarioRegistroId { get; set; }
     }
 }

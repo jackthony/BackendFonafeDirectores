@@ -10,8 +10,8 @@ namespace Empresa.Application.Sector.Mappers
         {
             return new EliminarSectorParameters
             {
-                SectorId = source.SectorId,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                SectorId = source.nSectorId,
+                UsuarioModificacionId = source.nUsuarioModificacionId,
                 FechaModificacion = DateTime.UtcNow
             };
         }

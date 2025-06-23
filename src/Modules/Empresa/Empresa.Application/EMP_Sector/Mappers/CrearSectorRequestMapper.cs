@@ -18,8 +18,8 @@ namespace Empresa.Application.Sector.Mappers
         {
             return new CrearSectorParameters
             {
-                NombreSector = source.NombreSector,
-                UsuarioRegistroId = source.UsuarioRegistroId,
+                NombreSector = source.sNombreSector,
+                UsuarioRegistroId = source.nUsuarioRegistroId,
                 FechaRegistro = _timeProvider.NowPeru
             };
         }
