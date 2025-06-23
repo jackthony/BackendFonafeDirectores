@@ -9,5 +9,6 @@
         public int nUsuarioRegistro { get; set; }
         public DateTime? dtFechaModificacion { get; set; }
         public int? nUsuarioModificacion { get; set; }
+        public int indice { get; set; }
     }
 }

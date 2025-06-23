@@ -11,9 +11,17 @@ namespace Empresa.Presentation.TipoDirector.Presenters
     {
         public LstItemResponse<TipoDirectorResponse> Present(PagedResult<TipoDirectorResult> input)
         {
+            int startIndex = (input.Page - 1) * input.PageSize;
+
+            var lista = TipoDirectorResponseMapper.ToListResponse(input.Items);
+            var listaItems = lista.ToList();
+            for (int i = 0; i < listaItems.Count; i++)
+            {
+                listaItems[i].indice = startIndex + i + 1;
+            }
             return new LstItemResponse<TipoDirectorResponse>
             {
-                LstItem = TipoDirectorResponseMapper.ToListResponse(input.Items),
+                LstItem = listaItems,
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,
