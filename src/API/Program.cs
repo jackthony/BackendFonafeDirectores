@@ -24,6 +24,8 @@ using Empresa.Infrastructure.Ministerio;
 using Empresa.Infrastructure.Rubro;
 using Empresa.Infrastructure.Sector;
 using Empresa.Infrastructure.TipoDirector;
+using Archivo.Application.Archivo;
+using Archivo.Infrastructure.Archivo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +85,8 @@ builder.Services.AddSectorInfrastructure();
 builder.Services.AddTipoDirectorApplication();
 builder.Services.AddTipoDirectorInfrastructure();
 
+builder.Services.AddArchivoApplication();
+builder.Services.AddArchivoInfrastructure();
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   

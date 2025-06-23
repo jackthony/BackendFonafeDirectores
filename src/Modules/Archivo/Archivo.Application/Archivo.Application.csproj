@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Archivo.Domain\Archivo.Domain.csproj" />
-    <ProjectReference Include="..\Archivo.Infrastructure\Archivo.Infrastructure.csproj" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Documento\" />
+    <ProjectReference Include="..\Archivo.Domain\Archivo.Domain.csproj" />
+    <ProjectReference Include="..\Archivo.Infrastructure\Archivo.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
