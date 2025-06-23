@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarEmpresa([FromBody] ActualizarEmpresaRequest request)
         {
             var result = await _actualizarEmpresaUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarEmpresa([FromBody] EliminarEmpresaRequest request)
         {
             var result = await _eliminarEmpresaUseCase.ExecuteAsync(request);

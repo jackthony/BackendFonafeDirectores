@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarMinisterio([FromBody] ActualizarMinisterioRequest request)
         {
             var result = await _actualizarMinisterioUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarMinisterio([FromBody] EliminarMinisterioRequest request)
         {
             var result = await _eliminarMinisterioUseCase.ExecuteAsync(request);

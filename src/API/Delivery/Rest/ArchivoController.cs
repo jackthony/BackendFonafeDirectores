@@ -45,7 +45,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarArchivo([FromBody] ActualizarArchivoRequest request)
         {
             var result = await _actualizarArchivoUseCase.ExecuteAsync(request);
@@ -55,7 +55,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarArchivo([FromBody] EliminarArchivoRequest request)
         {
             var result = await _eliminarArchivoUseCase.ExecuteAsync(request);

@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarCargo([FromBody] ActualizarCargoRequest request)
         {
             var result = await _actualizarCargoUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarCargo([FromBody] EliminarCargoRequest request)
         {
             var result = await _eliminarCargoUseCase.ExecuteAsync(request);

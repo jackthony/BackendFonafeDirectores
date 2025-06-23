@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarSector([FromBody] ActualizarSectorRequest request)
         {
             var result = await _actualizarSectorUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarSector([FromBody] EliminarSectorRequest request)
         {
             var result = await _eliminarSectorUseCase.ExecuteAsync(request);

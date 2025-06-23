@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarDirector([FromBody] ActualizarDirectorRequest request)
         {
             var result = await _actualizarDirectorUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarDirector([FromBody] EliminarDirectorRequest request)
         {
             var result = await _eliminarDirectorUseCase.ExecuteAsync(request);

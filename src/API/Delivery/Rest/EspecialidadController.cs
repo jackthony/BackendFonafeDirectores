@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarEspecialidad([FromBody] ActualizarEspecialidadRequest request)
         {
             var result = await _actualizarEspecialidadUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarEspecialidad([FromBody] EliminarEspecialidadRequest request)
         {
             var result = await _eliminarEspecialidadUseCase.ExecuteAsync(request);

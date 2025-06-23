@@ -52,7 +52,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpPut("actualizar")]
+        [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarRubro([FromBody] ActualizarRubroRequest request)
         {
             var result = await _actualizarRubroUseCase.ExecuteAsync(request);
@@ -62,7 +62,7 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
-        [HttpDelete("eliminar")]
+        [HttpPost("eliminar")]
         public async Task<IActionResult> EliminarRubro([FromBody] EliminarRubroRequest request)
         {
             var result = await _eliminarRubroUseCase.ExecuteAsync(request);
