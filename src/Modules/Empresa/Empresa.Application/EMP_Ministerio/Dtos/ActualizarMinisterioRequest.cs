@@ -2,8 +2,8 @@
 {
     public class ActualizarMinisterioRequest
     {
-        public int MinisterioId { get; set; }
-        public string NombreMinisterio { get; set; } = default!;
-        public int UsuarioModificacionId { get; set; }
+        public int nIdMinisterio { get; set; }
+        public string sNombreMinisterio { get; set; } = default!;
+        public int nUsuarioModificacion { get; set; }
     }
 }

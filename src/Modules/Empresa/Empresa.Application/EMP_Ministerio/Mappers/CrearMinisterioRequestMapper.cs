@@ -19,7 +19,7 @@ namespace Empresa.Application.Ministerio.Mappers
             return new CrearMinisterioParameters
             {
                 NombreMinisterio = source.sNombreMinisterio,
-                UsuarioRegistroId = source.nUsuarioRegistro,
+                UsuarioRegistroId = source.nUsuarioRegistroId,
                 FechaRegistro = _timeProvider.NowPeru
             };
         }
