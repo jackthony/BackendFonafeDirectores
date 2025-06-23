@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<UserResult>, LstItemResponse<UserResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<UserResult>, LstItemResponse<UserResponse>> _presenterList;
         private readonly IPresenterDelivery<UserResult, ItemResponse<UserResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public UserController(
-            IUseCase<CrearUserRequest, SpResultBase> crearUserUseCase,
-            IUseCase<ActualizarUserRequest, SpResultBase> actualizarUserUseCase,
-            IUseCase<EliminarUserRequest, SpResultBase> eliminarUserUseCase,
-            IUseCase<ListarUserPaginadoRequest, PagedResult<UserResult>> listarUserPaginadaUseCase,
-            IUseCase<ListarUserRequest, List<UserResult>> listarUserUseCase,
-            IUseCase<int, UserResult?> obtenerUserPorIdUseCase,
-            IPresenterDelivery<PagedResult<UserResult>, LstItemResponse<UserResponse>> presenterListPage,
-            IPresenterDelivery<List<UserResult>, LstItemResponse<UserResponse>> presenterList,
-            IPresenterDelivery<UserResult, ItemResponse<UserResponse>> presenterObtenerId)
+        public UserController(IUseCase<CrearUserRequest, SpResultBase> crearUserUseCase, IUseCase<ActualizarUserRequest, SpResultBase> actualizarUserUseCase, IUseCase<EliminarUserRequest, SpResultBase> eliminarUserUseCase, IUseCase<ListarUserPaginadoRequest, PagedResult<UserResult>> listarUserPaginadaUseCase, IUseCase<ListarUserRequest, List<UserResult>> listarUserUseCase, IUseCase<int, UserResult?> obtenerUserPorIdUseCase, IPresenterDelivery<PagedResult<UserResult>, LstItemResponse<UserResponse>> presenterListPage, IPresenterDelivery<List<UserResult>, LstItemResponse<UserResponse>> presenterList, IPresenterDelivery<UserResult, ItemResponse<UserResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearUserUseCase = crearUserUseCase;
             _actualizarUserUseCase = actualizarUserUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearUserUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarUserUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarUserUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

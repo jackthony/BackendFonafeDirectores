@@ -5,6 +5,7 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Results;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,14 +20,10 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> _listarArchivoPaginadaUseCase;
         private readonly IUseCase<ListarArchivoRequest, List<ArchivoResult>> _listarArchivoUseCase;
         private readonly IUseCase<int, ArchivoResult?> _obtenerArchivoPorIdUseCase;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public ArchivoController(
-            IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase,
-            IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase,
-            IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase,
-            IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase,
-            IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase,
-            IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -34,6 +31,8 @@ namespace Api.Delivery.Rest
             _listarArchivoPaginadaUseCase = listarArchivoPaginadaUseCase;
             _listarArchivoUseCase = listarArchivoUseCase;
             _obtenerArchivoPorIdUseCase = obtenerArchivoPorIdUseCase;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -42,7 +41,8 @@ namespace Api.Delivery.Rest
             var result = await _crearArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -51,7 +51,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -60,7 +61,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

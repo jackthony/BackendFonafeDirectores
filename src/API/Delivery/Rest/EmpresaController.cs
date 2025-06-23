@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<EmpresaResult>, LstItemResponse<EmpresaResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<EmpresaResult>, LstItemResponse<EmpresaResponse>> _presenterList;
         private readonly IPresenterDelivery<EmpresaResult, ItemResponse<EmpresaResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public EmpresaController(
-            IUseCase<CrearEmpresaRequest, SpResultBase> crearEmpresaUseCase,
-            IUseCase<ActualizarEmpresaRequest, SpResultBase> actualizarEmpresaUseCase,
-            IUseCase<EliminarEmpresaRequest, SpResultBase> eliminarEmpresaUseCase,
-            IUseCase<ListarEmpresaPaginadoRequest, PagedResult<EmpresaResult>> listarEmpresaPaginadaUseCase,
-            IUseCase<ListarEmpresaRequest, List<EmpresaResult>> listarEmpresaUseCase,
-            IUseCase<int, EmpresaResult?> obtenerEmpresaPorIdUseCase,
-            IPresenterDelivery<PagedResult<EmpresaResult>, LstItemResponse<EmpresaResponse>> presenterListPage,
-            IPresenterDelivery<List<EmpresaResult>, LstItemResponse<EmpresaResponse>> presenterList,
-            IPresenterDelivery<EmpresaResult, ItemResponse<EmpresaResponse>> presenterObtenerId)
+        public EmpresaController(IUseCase<CrearEmpresaRequest, SpResultBase> crearEmpresaUseCase, IUseCase<ActualizarEmpresaRequest, SpResultBase> actualizarEmpresaUseCase, IUseCase<EliminarEmpresaRequest, SpResultBase> eliminarEmpresaUseCase, IUseCase<ListarEmpresaPaginadoRequest, PagedResult<EmpresaResult>> listarEmpresaPaginadaUseCase, IUseCase<ListarEmpresaRequest, List<EmpresaResult>> listarEmpresaUseCase, IUseCase<int, EmpresaResult?> obtenerEmpresaPorIdUseCase, IPresenterDelivery<PagedResult<EmpresaResult>, LstItemResponse<EmpresaResponse>> presenterListPage, IPresenterDelivery<List<EmpresaResult>, LstItemResponse<EmpresaResponse>> presenterList, IPresenterDelivery<EmpresaResult, ItemResponse<EmpresaResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearEmpresaUseCase = crearEmpresaUseCase;
             _actualizarEmpresaUseCase = actualizarEmpresaUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearEmpresaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarEmpresaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarEmpresaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

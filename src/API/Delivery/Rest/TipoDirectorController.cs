@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> _presenterList;
         private readonly IPresenterDelivery<TipoDirectorResult, ItemResponse<TipoDirectorResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public TipoDirectorController(
-            IUseCase<CrearTipoDirectorRequest, SpResultBase> crearTipoDirectorUseCase,
-            IUseCase<ActualizarTipoDirectorRequest, SpResultBase> actualizarTipoDirectorUseCase,
-            IUseCase<EliminarTipoDirectorRequest, SpResultBase> eliminarTipoDirectorUseCase,
-            IUseCase<ListarTipoDirectorPaginadoRequest, PagedResult<TipoDirectorResult>> listarTipoDirectorPaginadaUseCase,
-            IUseCase<ListarTipoDirectorRequest, List<TipoDirectorResult>> listarTipoDirectorUseCase,
-            IUseCase<int, TipoDirectorResult?> obtenerTipoDirectorPorIdUseCase,
-            IPresenterDelivery<PagedResult<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> presenterListPage,
-            IPresenterDelivery<List<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> presenterList,
-            IPresenterDelivery<TipoDirectorResult, ItemResponse<TipoDirectorResponse>> presenterObtenerId)
+        public TipoDirectorController(IUseCase<CrearTipoDirectorRequest, SpResultBase> crearTipoDirectorUseCase, IUseCase<ActualizarTipoDirectorRequest, SpResultBase> actualizarTipoDirectorUseCase, IUseCase<EliminarTipoDirectorRequest, SpResultBase> eliminarTipoDirectorUseCase, IUseCase<ListarTipoDirectorPaginadoRequest, PagedResult<TipoDirectorResult>> listarTipoDirectorPaginadaUseCase, IUseCase<ListarTipoDirectorRequest, List<TipoDirectorResult>> listarTipoDirectorUseCase, IUseCase<int, TipoDirectorResult?> obtenerTipoDirectorPorIdUseCase, IPresenterDelivery<PagedResult<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> presenterListPage, IPresenterDelivery<List<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> presenterList, IPresenterDelivery<TipoDirectorResult, ItemResponse<TipoDirectorResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearTipoDirectorUseCase = crearTipoDirectorUseCase;
             _actualizarTipoDirectorUseCase = actualizarTipoDirectorUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearTipoDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarTipoDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarTipoDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

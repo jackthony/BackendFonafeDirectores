@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<RubroResult>, LstItemResponse<RubroResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<RubroResult>, LstItemResponse<RubroResponse>> _presenterList;
         private readonly IPresenterDelivery<RubroResult, ItemResponse<RubroResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public RubroController(
-            IUseCase<CrearRubroRequest, SpResultBase> crearRubroUseCase,
-            IUseCase<ActualizarRubroRequest, SpResultBase> actualizarRubroUseCase,
-            IUseCase<EliminarRubroRequest, SpResultBase> eliminarRubroUseCase,
-            IUseCase<ListarRubroPaginadoRequest, PagedResult<RubroResult>> listarRubroPaginadaUseCase,
-            IUseCase<ListarRubroRequest, List<RubroResult>> listarRubroUseCase,
-            IUseCase<int, RubroResult?> obtenerRubroPorIdUseCase,
-            IPresenterDelivery<PagedResult<RubroResult>, LstItemResponse<RubroResponse>> presenterListPage,
-            IPresenterDelivery<List<RubroResult>, LstItemResponse<RubroResponse>> presenterList,
-            IPresenterDelivery<RubroResult, ItemResponse<RubroResponse>> presenterObtenerId)
+        public RubroController(IUseCase<CrearRubroRequest, SpResultBase> crearRubroUseCase, IUseCase<ActualizarRubroRequest, SpResultBase> actualizarRubroUseCase, IUseCase<EliminarRubroRequest, SpResultBase> eliminarRubroUseCase, IUseCase<ListarRubroPaginadoRequest, PagedResult<RubroResult>> listarRubroPaginadaUseCase, IUseCase<ListarRubroRequest, List<RubroResult>> listarRubroUseCase, IUseCase<int, RubroResult?> obtenerRubroPorIdUseCase, IPresenterDelivery<PagedResult<RubroResult>, LstItemResponse<RubroResponse>> presenterListPage, IPresenterDelivery<List<RubroResult>, LstItemResponse<RubroResponse>> presenterList, IPresenterDelivery<RubroResult, ItemResponse<RubroResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearRubroUseCase = crearRubroUseCase;
             _actualizarRubroUseCase = actualizarRubroUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearRubroUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarRubroUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarRubroUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

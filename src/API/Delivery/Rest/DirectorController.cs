@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<DirectorResult>, LstItemResponse<DirectorResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<DirectorResult>, LstItemResponse<DirectorResponse>> _presenterList;
         private readonly IPresenterDelivery<DirectorResult, ItemResponse<DirectorResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public DirectorController(
-            IUseCase<CrearDirectorRequest, SpResultBase> crearDirectorUseCase,
-            IUseCase<ActualizarDirectorRequest, SpResultBase> actualizarDirectorUseCase,
-            IUseCase<EliminarDirectorRequest, SpResultBase> eliminarDirectorUseCase,
-            IUseCase<ListarDirectorPaginadoRequest, PagedResult<DirectorResult>> listarDirectorPaginadaUseCase,
-            IUseCase<ListarDirectorRequest, List<DirectorResult>> listarDirectorUseCase,
-            IUseCase<int, DirectorResult?> obtenerDirectorPorIdUseCase,
-            IPresenterDelivery<PagedResult<DirectorResult>, LstItemResponse<DirectorResponse>> presenterListPage,
-            IPresenterDelivery<List<DirectorResult>, LstItemResponse<DirectorResponse>> presenterList,
-            IPresenterDelivery<DirectorResult, ItemResponse<DirectorResponse>> presenterObtenerId)
+        public DirectorController(IUseCase<CrearDirectorRequest, SpResultBase> crearDirectorUseCase, IUseCase<ActualizarDirectorRequest, SpResultBase> actualizarDirectorUseCase, IUseCase<EliminarDirectorRequest, SpResultBase> eliminarDirectorUseCase, IUseCase<ListarDirectorPaginadoRequest, PagedResult<DirectorResult>> listarDirectorPaginadaUseCase, IUseCase<ListarDirectorRequest, List<DirectorResult>> listarDirectorUseCase, IUseCase<int, DirectorResult?> obtenerDirectorPorIdUseCase, IPresenterDelivery<PagedResult<DirectorResult>, LstItemResponse<DirectorResponse>> presenterListPage, IPresenterDelivery<List<DirectorResult>, LstItemResponse<DirectorResponse>> presenterList, IPresenterDelivery<DirectorResult, ItemResponse<DirectorResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearDirectorUseCase = crearDirectorUseCase;
             _actualizarDirectorUseCase = actualizarDirectorUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

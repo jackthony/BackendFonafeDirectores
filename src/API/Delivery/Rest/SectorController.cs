@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<SectorResult>, LstItemResponse<SectorResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<SectorResult>, LstItemResponse<SectorResponse>> _presenterList;
         private readonly IPresenterDelivery<SectorResult, ItemResponse<SectorResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public SectorController(
-            IUseCase<CrearSectorRequest, SpResultBase> crearSectorUseCase,
-            IUseCase<ActualizarSectorRequest, SpResultBase> actualizarSectorUseCase,
-            IUseCase<EliminarSectorRequest, SpResultBase> eliminarSectorUseCase,
-            IUseCase<ListarSectorPaginadoRequest, PagedResult<SectorResult>> listarSectorPaginadaUseCase,
-            IUseCase<ListarSectorRequest, List<SectorResult>> listarSectorUseCase,
-            IUseCase<int, SectorResult?> obtenerSectorPorIdUseCase,
-            IPresenterDelivery<PagedResult<SectorResult>, LstItemResponse<SectorResponse>> presenterListPage,
-            IPresenterDelivery<List<SectorResult>, LstItemResponse<SectorResponse>> presenterList,
-            IPresenterDelivery<SectorResult, ItemResponse<SectorResponse>> presenterObtenerId)
+        public SectorController(IUseCase<CrearSectorRequest, SpResultBase> crearSectorUseCase, IUseCase<ActualizarSectorRequest, SpResultBase> actualizarSectorUseCase, IUseCase<EliminarSectorRequest, SpResultBase> eliminarSectorUseCase, IUseCase<ListarSectorPaginadoRequest, PagedResult<SectorResult>> listarSectorPaginadaUseCase, IUseCase<ListarSectorRequest, List<SectorResult>> listarSectorUseCase, IUseCase<int, SectorResult?> obtenerSectorPorIdUseCase, IPresenterDelivery<PagedResult<SectorResult>, LstItemResponse<SectorResponse>> presenterListPage, IPresenterDelivery<List<SectorResult>, LstItemResponse<SectorResponse>> presenterList, IPresenterDelivery<SectorResult, ItemResponse<SectorResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearSectorUseCase = crearSectorUseCase;
             _actualizarSectorUseCase = actualizarSectorUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearSectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarSectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarSectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

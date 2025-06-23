@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<MinisterioResult>, LstItemResponse<MinisterioResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<MinisterioResult>, LstItemResponse<MinisterioResponse>> _presenterList;
         private readonly IPresenterDelivery<MinisterioResult, ItemResponse<MinisterioResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public MinisterioController(
-            IUseCase<CrearMinisterioRequest, SpResultBase> crearMinisterioUseCase,
-            IUseCase<ActualizarMinisterioRequest, SpResultBase> actualizarMinisterioUseCase,
-            IUseCase<EliminarMinisterioRequest, SpResultBase> eliminarMinisterioUseCase,
-            IUseCase<ListarMinisterioPaginadoRequest, PagedResult<MinisterioResult>> listarMinisterioPaginadaUseCase,
-            IUseCase<ListarMinisterioRequest, List<MinisterioResult>> listarMinisterioUseCase,
-            IUseCase<int, MinisterioResult?> obtenerMinisterioPorIdUseCase,
-            IPresenterDelivery<PagedResult<MinisterioResult>, LstItemResponse<MinisterioResponse>> presenterListPage,
-            IPresenterDelivery<List<MinisterioResult>, LstItemResponse<MinisterioResponse>> presenterList,
-            IPresenterDelivery<MinisterioResult, ItemResponse<MinisterioResponse>> presenterObtenerId)
+        public MinisterioController(IUseCase<CrearMinisterioRequest, SpResultBase> crearMinisterioUseCase, IUseCase<ActualizarMinisterioRequest, SpResultBase> actualizarMinisterioUseCase, IUseCase<EliminarMinisterioRequest, SpResultBase> eliminarMinisterioUseCase, IUseCase<ListarMinisterioPaginadoRequest, PagedResult<MinisterioResult>> listarMinisterioPaginadaUseCase, IUseCase<ListarMinisterioRequest, List<MinisterioResult>> listarMinisterioUseCase, IUseCase<int, MinisterioResult?> obtenerMinisterioPorIdUseCase, IPresenterDelivery<PagedResult<MinisterioResult>, LstItemResponse<MinisterioResponse>> presenterListPage, IPresenterDelivery<List<MinisterioResult>, LstItemResponse<MinisterioResponse>> presenterList, IPresenterDelivery<MinisterioResult, ItemResponse<MinisterioResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearMinisterioUseCase = crearMinisterioUseCase;
             _actualizarMinisterioUseCase = actualizarMinisterioUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearMinisterioUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarMinisterioUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarMinisterioUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]
