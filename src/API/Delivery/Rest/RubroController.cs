@@ -5,6 +5,8 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Application.Rubro.Dtos;
 using Empresa.Domain.Rubro.Results;
+using Empresa.Presentation.Rubro.Responses;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,6 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarRubroPaginadoRequest, PagedResult<RubroResult>> _listarRubroPaginadaUseCase;
         private readonly IUseCase<ListarRubroRequest, List<RubroResult>> _listarRubroUseCase;
         private readonly IUseCase<int, RubroResult?> _obtenerRubroPorIdUseCase;
+        private readonly IPresenterDelivery<PagedResult<RubroResult>, LstItemResponse<RubroResponse>> _presenterListPage;
+        private readonly IPresenterDelivery<List<RubroResult>, LstItemResponse<RubroResponse>> _presenterList;
+        private readonly IPresenterDelivery<RubroResult, ItemResponse<RubroResponse>> _presenterObtenerId;
 
         public RubroController(
             IUseCase<CrearRubroRequest, SpResultBase> crearRubroUseCase,
@@ -26,7 +31,10 @@ namespace Api.Delivery.Rest
             IUseCase<EliminarRubroRequest, SpResultBase> eliminarRubroUseCase,
             IUseCase<ListarRubroPaginadoRequest, PagedResult<RubroResult>> listarRubroPaginadaUseCase,
             IUseCase<ListarRubroRequest, List<RubroResult>> listarRubroUseCase,
-            IUseCase<int, RubroResult?> obtenerRubroPorIdUseCase)
+            IUseCase<int, RubroResult?> obtenerRubroPorIdUseCase,
+            IPresenterDelivery<PagedResult<RubroResult>, LstItemResponse<RubroResponse>> presenterListPage,
+            IPresenterDelivery<List<RubroResult>, LstItemResponse<RubroResponse>> presenterList,
+            IPresenterDelivery<RubroResult, ItemResponse<RubroResponse>> presenterObtenerId)
         {
             _crearRubroUseCase = crearRubroUseCase;
             _actualizarRubroUseCase = actualizarRubroUseCase;
@@ -34,6 +42,9 @@ namespace Api.Delivery.Rest
             _listarRubroPaginadaUseCase = listarRubroPaginadaUseCase;
             _listarRubroUseCase = listarRubroUseCase;
             _obtenerRubroPorIdUseCase = obtenerRubroPorIdUseCase;
+            _presenterListPage = presenterListPage;
+            _presenterList = presenterList;
+            _presenterObtenerId = presenterObtenerId;
         }
 
         [HttpPost("crear")]
@@ -69,7 +80,8 @@ namespace Api.Delivery.Rest
             var result = await _listarRubroPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterListPage.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar")]
@@ -78,7 +90,8 @@ namespace Api.Delivery.Rest
             var result = await _listarRubroUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +100,10 @@ namespace Api.Delivery.Rest
             var result = await _obtenerRubroPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            if (result.AsT1 == null)
+                return NotFound();
+            var response = _presenterObtenerId.Present(result.AsT1);
+            return Ok(response);
         }
     }
 }

@@ -5,6 +5,8 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Application.Sector.Dtos;
 using Empresa.Domain.Sector.Results;
+using Empresa.Presentation.Sector.Responses;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,6 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarSectorPaginadoRequest, PagedResult<SectorResult>> _listarSectorPaginadaUseCase;
         private readonly IUseCase<ListarSectorRequest, List<SectorResult>> _listarSectorUseCase;
         private readonly IUseCase<int, SectorResult?> _obtenerSectorPorIdUseCase;
+        private readonly IPresenterDelivery<PagedResult<SectorResult>, LstItemResponse<SectorResponse>> _presenterListPage;
+        private readonly IPresenterDelivery<List<SectorResult>, LstItemResponse<SectorResponse>> _presenterList;
+        private readonly IPresenterDelivery<SectorResult, ItemResponse<SectorResponse>> _presenterObtenerId;
 
         public SectorController(
             IUseCase<CrearSectorRequest, SpResultBase> crearSectorUseCase,
@@ -26,7 +31,10 @@ namespace Api.Delivery.Rest
             IUseCase<EliminarSectorRequest, SpResultBase> eliminarSectorUseCase,
             IUseCase<ListarSectorPaginadoRequest, PagedResult<SectorResult>> listarSectorPaginadaUseCase,
             IUseCase<ListarSectorRequest, List<SectorResult>> listarSectorUseCase,
-            IUseCase<int, SectorResult?> obtenerSectorPorIdUseCase)
+            IUseCase<int, SectorResult?> obtenerSectorPorIdUseCase,
+            IPresenterDelivery<PagedResult<SectorResult>, LstItemResponse<SectorResponse>> presenterListPage,
+            IPresenterDelivery<List<SectorResult>, LstItemResponse<SectorResponse>> presenterList,
+            IPresenterDelivery<SectorResult, ItemResponse<SectorResponse>> presenterObtenerId)
         {
             _crearSectorUseCase = crearSectorUseCase;
             _actualizarSectorUseCase = actualizarSectorUseCase;
@@ -34,6 +42,9 @@ namespace Api.Delivery.Rest
             _listarSectorPaginadaUseCase = listarSectorPaginadaUseCase;
             _listarSectorUseCase = listarSectorUseCase;
             _obtenerSectorPorIdUseCase = obtenerSectorPorIdUseCase;
+            _presenterListPage = presenterListPage;
+            _presenterList = presenterList;
+            _presenterObtenerId = presenterObtenerId;
         }
 
         [HttpPost("crear")]
@@ -69,7 +80,8 @@ namespace Api.Delivery.Rest
             var result = await _listarSectorPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterListPage.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar")]
@@ -78,7 +90,8 @@ namespace Api.Delivery.Rest
             var result = await _listarSectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +100,10 @@ namespace Api.Delivery.Rest
             var result = await _obtenerSectorPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            if (result.AsT1 == null)
+                return NotFound();
+            var response = _presenterObtenerId.Present(result.AsT1);
+            return Ok(response);
         }
     }
 }

@@ -26,6 +26,14 @@ using Empresa.Infrastructure.Sector;
 using Empresa.Infrastructure.TipoDirector;
 using Archivo.Application.Archivo;
 using Archivo.Infrastructure.Archivo;
+using Empresa.Presentation.EMP_Cargo;
+using Empresa.Presentation.EMP_Director;
+using Empresa.Presentation.EMP_Empresa;
+using Empresa.Presentation.EMP_Especialidad;
+using Empresa.Presentation.EMP_Ministerio;
+using Empresa.Presentation.EMP_Rubro;
+using Empresa.Presentation.EMP_Sector;
+using Empresa.Presentation.EMP_TipoDirector;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,27 +71,35 @@ builder.Services.AddUserInfrastructure();
 
 builder.Services.AddCargoApplication();
 builder.Services.AddCargoInfrastructure();
+builder.Services.AddCargoPresenters();
 
 builder.Services.AddDirectorApplication();
 builder.Services.AddDirectorInfrastructure();
+builder.Services.AddDirectorPresenters();
 
 builder.Services.AddEmpresaApplication();
 builder.Services.AddEmpresaInfrastructure();
+builder.Services.AddEmpresaPresenters();
 
 builder.Services.AddEspecialidadApplication();
 builder.Services.AddEspecialidadInfrastructure();
+builder.Services.AddEspecialidadPresenters();
 
 builder.Services.AddMinisterioApplication();
 builder.Services.AddMinisterioInfrastructure();
+builder.Services.AddMinisterioPresenters();
 
 builder.Services.AddRubroApplication();
 builder.Services.AddRubroInfrastructure();
+builder.Services.AddRubroPresenters();
 
 builder.Services.AddSectorApplication();
 builder.Services.AddSectorInfrastructure();
+builder.Services.AddSectorPresenters();
 
 builder.Services.AddTipoDirectorApplication();
 builder.Services.AddTipoDirectorInfrastructure();
+builder.Services.AddTipoDirectorPresenters();
 
 builder.Services.AddArchivoApplication();
 builder.Services.AddArchivoInfrastructure();

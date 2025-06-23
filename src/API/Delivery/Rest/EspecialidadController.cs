@@ -5,6 +5,8 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Application.Especialidad.Dtos;
 using Empresa.Domain.Especialidad.Results;
+using Empresa.Presentation.Especialidad.Responses;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,6 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarEspecialidadPaginadoRequest, PagedResult<EspecialidadResult>> _listarEspecialidadPaginadaUseCase;
         private readonly IUseCase<ListarEspecialidadRequest, List<EspecialidadResult>> _listarEspecialidadUseCase;
         private readonly IUseCase<int, EspecialidadResult?> _obtenerEspecialidadPorIdUseCase;
+        private readonly IPresenterDelivery<PagedResult<EspecialidadResult>, LstItemResponse<EspecialidadResponse>> _presenterListPage;
+        private readonly IPresenterDelivery<List<EspecialidadResult>, LstItemResponse<EspecialidadResponse>> _presenterList;
+        private readonly IPresenterDelivery<EspecialidadResult, ItemResponse<EspecialidadResponse>> _presenterObtenerId;
 
         public EspecialidadController(
             IUseCase<CrearEspecialidadRequest, SpResultBase> crearEspecialidadUseCase,
@@ -26,7 +31,10 @@ namespace Api.Delivery.Rest
             IUseCase<EliminarEspecialidadRequest, SpResultBase> eliminarEspecialidadUseCase,
             IUseCase<ListarEspecialidadPaginadoRequest, PagedResult<EspecialidadResult>> listarEspecialidadPaginadaUseCase,
             IUseCase<ListarEspecialidadRequest, List<EspecialidadResult>> listarEspecialidadUseCase,
-            IUseCase<int, EspecialidadResult?> obtenerEspecialidadPorIdUseCase)
+            IUseCase<int, EspecialidadResult?> obtenerEspecialidadPorIdUseCase,
+            IPresenterDelivery<PagedResult<EspecialidadResult>, LstItemResponse<EspecialidadResponse>> presenterListPage,
+            IPresenterDelivery<List<EspecialidadResult>, LstItemResponse<EspecialidadResponse>> presenterList,
+            IPresenterDelivery<EspecialidadResult, ItemResponse<EspecialidadResponse>> presenterObtenerId)
         {
             _crearEspecialidadUseCase = crearEspecialidadUseCase;
             _actualizarEspecialidadUseCase = actualizarEspecialidadUseCase;
@@ -34,6 +42,9 @@ namespace Api.Delivery.Rest
             _listarEspecialidadPaginadaUseCase = listarEspecialidadPaginadaUseCase;
             _listarEspecialidadUseCase = listarEspecialidadUseCase;
             _obtenerEspecialidadPorIdUseCase = obtenerEspecialidadPorIdUseCase;
+            _presenterListPage = presenterListPage;
+            _presenterList = presenterList;
+            _presenterObtenerId = presenterObtenerId;
         }
 
         [HttpPost("crear")]
@@ -69,7 +80,8 @@ namespace Api.Delivery.Rest
             var result = await _listarEspecialidadPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterListPage.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar")]
@@ -78,7 +90,8 @@ namespace Api.Delivery.Rest
             var result = await _listarEspecialidadUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +100,10 @@ namespace Api.Delivery.Rest
             var result = await _obtenerEspecialidadPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            if (result.AsT1 == null)
+                return NotFound();
+            var response = _presenterObtenerId.Present(result.AsT1);
+            return Ok(response);
         }
     }
 }

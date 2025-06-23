@@ -7,6 +7,13 @@ namespace Empresa.Presentation.Cargo.Mappers
     {
         public static CargoResponse ToResponse(CargoResult dto) => new()
         {
+            nIdCargo = dto.CargoId,
+            sNombreCargo = dto.NombreCargo,
+            bActivo = dto.IsActivo,
+            dtFechaRegistro = dto.FechaRegistro,
+            nUsuarioRegistro = dto.UsuarioRegistroId,
+            dtFechaModificacion = dto.FechaModificacion,
+            nUsuarioModificacion = dto.UsuarioModificacionId
         };
 
         public static IEnumerable<CargoResponse> ToListResponse(IEnumerable<CargoResult> items)

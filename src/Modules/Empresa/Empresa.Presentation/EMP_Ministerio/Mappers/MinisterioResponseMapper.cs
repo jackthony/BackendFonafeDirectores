@@ -7,6 +7,13 @@ namespace Empresa.Presentation.Ministerio.Mappers
     {
         public static MinisterioResponse ToResponse(MinisterioResult dto) => new()
         {
+            nIdMinisterio = dto.MinisterioId,
+            sNombreMinisterio = dto.NombreMinisterio,
+            bActivo = dto.IsActivo,
+            dtFechaRegistro = dto.FechaRegistro,
+            nUsuarioRegistro = dto.UsuarioRegistroId,
+            dtFechaModificacion = dto.FechaModificacion,
+            nUsuarioModificacion = dto.UsuarioModificacionId
         };
 
         public static IEnumerable<MinisterioResponse> ToListResponse(IEnumerable<MinisterioResult> items)

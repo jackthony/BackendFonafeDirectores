@@ -5,6 +5,8 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Usuario.Application.User.Dtos;
 using Usuario.Domain.User.Results;
+using Usuario.Presentation.User.Responses;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,6 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarUserPaginadoRequest, PagedResult<UserResult>> _listarUserPaginadaUseCase;
         private readonly IUseCase<ListarUserRequest, List<UserResult>> _listarUserUseCase;
         private readonly IUseCase<int, UserResult?> _obtenerUserPorIdUseCase;
+        private readonly IPresenterDelivery<PagedResult<UserResult>, LstItemResponse<UserResponse>> _presenterListPage;
+        private readonly IPresenterDelivery<List<UserResult>, LstItemResponse<UserResponse>> _presenterList;
+        private readonly IPresenterDelivery<UserResult, ItemResponse<UserResponse>> _presenterObtenerId;
 
         public UserController(
             IUseCase<CrearUserRequest, SpResultBase> crearUserUseCase,
@@ -26,7 +31,10 @@ namespace Api.Delivery.Rest
             IUseCase<EliminarUserRequest, SpResultBase> eliminarUserUseCase,
             IUseCase<ListarUserPaginadoRequest, PagedResult<UserResult>> listarUserPaginadaUseCase,
             IUseCase<ListarUserRequest, List<UserResult>> listarUserUseCase,
-            IUseCase<int, UserResult?> obtenerUserPorIdUseCase)
+            IUseCase<int, UserResult?> obtenerUserPorIdUseCase,
+            IPresenterDelivery<PagedResult<UserResult>, LstItemResponse<UserResponse>> presenterListPage,
+            IPresenterDelivery<List<UserResult>, LstItemResponse<UserResponse>> presenterList,
+            IPresenterDelivery<UserResult, ItemResponse<UserResponse>> presenterObtenerId)
         {
             _crearUserUseCase = crearUserUseCase;
             _actualizarUserUseCase = actualizarUserUseCase;
@@ -34,6 +42,9 @@ namespace Api.Delivery.Rest
             _listarUserPaginadaUseCase = listarUserPaginadaUseCase;
             _listarUserUseCase = listarUserUseCase;
             _obtenerUserPorIdUseCase = obtenerUserPorIdUseCase;
+            _presenterListPage = presenterListPage;
+            _presenterList = presenterList;
+            _presenterObtenerId = presenterObtenerId;
         }
 
         [HttpPost("crear")]
@@ -69,7 +80,8 @@ namespace Api.Delivery.Rest
             var result = await _listarUserPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterListPage.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar")]
@@ -78,7 +90,8 @@ namespace Api.Delivery.Rest
             var result = await _listarUserUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +100,10 @@ namespace Api.Delivery.Rest
             var result = await _obtenerUserPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            if (result.AsT1 == null)
+                return NotFound();
+            var response = _presenterObtenerId.Present(result.AsT1);
+            return Ok(response);
         }
     }
 }

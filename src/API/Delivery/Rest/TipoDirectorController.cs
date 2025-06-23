@@ -5,6 +5,8 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Application.TipoDirector.Dtos;
 using Empresa.Domain.TipoDirector.Results;
+using Empresa.Presentation.TipoDirector.Responses;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,6 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarTipoDirectorPaginadoRequest, PagedResult<TipoDirectorResult>> _listarTipoDirectorPaginadaUseCase;
         private readonly IUseCase<ListarTipoDirectorRequest, List<TipoDirectorResult>> _listarTipoDirectorUseCase;
         private readonly IUseCase<int, TipoDirectorResult?> _obtenerTipoDirectorPorIdUseCase;
+        private readonly IPresenterDelivery<PagedResult<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> _presenterListPage;
+        private readonly IPresenterDelivery<List<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> _presenterList;
+        private readonly IPresenterDelivery<TipoDirectorResult, ItemResponse<TipoDirectorResponse>> _presenterObtenerId;
 
         public TipoDirectorController(
             IUseCase<CrearTipoDirectorRequest, SpResultBase> crearTipoDirectorUseCase,
@@ -26,7 +31,10 @@ namespace Api.Delivery.Rest
             IUseCase<EliminarTipoDirectorRequest, SpResultBase> eliminarTipoDirectorUseCase,
             IUseCase<ListarTipoDirectorPaginadoRequest, PagedResult<TipoDirectorResult>> listarTipoDirectorPaginadaUseCase,
             IUseCase<ListarTipoDirectorRequest, List<TipoDirectorResult>> listarTipoDirectorUseCase,
-            IUseCase<int, TipoDirectorResult?> obtenerTipoDirectorPorIdUseCase)
+            IUseCase<int, TipoDirectorResult?> obtenerTipoDirectorPorIdUseCase,
+            IPresenterDelivery<PagedResult<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> presenterListPage,
+            IPresenterDelivery<List<TipoDirectorResult>, LstItemResponse<TipoDirectorResponse>> presenterList,
+            IPresenterDelivery<TipoDirectorResult, ItemResponse<TipoDirectorResponse>> presenterObtenerId)
         {
             _crearTipoDirectorUseCase = crearTipoDirectorUseCase;
             _actualizarTipoDirectorUseCase = actualizarTipoDirectorUseCase;
@@ -34,6 +42,9 @@ namespace Api.Delivery.Rest
             _listarTipoDirectorPaginadaUseCase = listarTipoDirectorPaginadaUseCase;
             _listarTipoDirectorUseCase = listarTipoDirectorUseCase;
             _obtenerTipoDirectorPorIdUseCase = obtenerTipoDirectorPorIdUseCase;
+            _presenterListPage = presenterListPage;
+            _presenterList = presenterList;
+            _presenterObtenerId = presenterObtenerId;
         }
 
         [HttpPost("crear")]
@@ -69,7 +80,8 @@ namespace Api.Delivery.Rest
             var result = await _listarTipoDirectorPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterListPage.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar")]
@@ -78,7 +90,8 @@ namespace Api.Delivery.Rest
             var result = await _listarTipoDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +100,10 @@ namespace Api.Delivery.Rest
             var result = await _obtenerTipoDirectorPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            if (result.AsT1 == null)
+                return NotFound();
+            var response = _presenterObtenerId.Present(result.AsT1);
+            return Ok(response);
         }
     }
 }

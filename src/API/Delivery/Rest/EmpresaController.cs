@@ -5,6 +5,8 @@ using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Application.Empresa.Dtos;
 using Empresa.Domain.Empresa.Results;
+using Empresa.Presentation.Empresa.Responses;
+using Shared.ClientV1;
 
 namespace Api.Delivery.Rest
 {
@@ -19,6 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarEmpresaPaginadoRequest, PagedResult<EmpresaResult>> _listarEmpresaPaginadaUseCase;
         private readonly IUseCase<ListarEmpresaRequest, List<EmpresaResult>> _listarEmpresaUseCase;
         private readonly IUseCase<int, EmpresaResult?> _obtenerEmpresaPorIdUseCase;
+        private readonly IPresenterDelivery<PagedResult<EmpresaResult>, LstItemResponse<EmpresaResponse>> _presenterListPage;
+        private readonly IPresenterDelivery<List<EmpresaResult>, LstItemResponse<EmpresaResponse>> _presenterList;
+        private readonly IPresenterDelivery<EmpresaResult, ItemResponse<EmpresaResponse>> _presenterObtenerId;
 
         public EmpresaController(
             IUseCase<CrearEmpresaRequest, SpResultBase> crearEmpresaUseCase,
@@ -26,7 +31,10 @@ namespace Api.Delivery.Rest
             IUseCase<EliminarEmpresaRequest, SpResultBase> eliminarEmpresaUseCase,
             IUseCase<ListarEmpresaPaginadoRequest, PagedResult<EmpresaResult>> listarEmpresaPaginadaUseCase,
             IUseCase<ListarEmpresaRequest, List<EmpresaResult>> listarEmpresaUseCase,
-            IUseCase<int, EmpresaResult?> obtenerEmpresaPorIdUseCase)
+            IUseCase<int, EmpresaResult?> obtenerEmpresaPorIdUseCase,
+            IPresenterDelivery<PagedResult<EmpresaResult>, LstItemResponse<EmpresaResponse>> presenterListPage,
+            IPresenterDelivery<List<EmpresaResult>, LstItemResponse<EmpresaResponse>> presenterList,
+            IPresenterDelivery<EmpresaResult, ItemResponse<EmpresaResponse>> presenterObtenerId)
         {
             _crearEmpresaUseCase = crearEmpresaUseCase;
             _actualizarEmpresaUseCase = actualizarEmpresaUseCase;
@@ -34,6 +42,9 @@ namespace Api.Delivery.Rest
             _listarEmpresaPaginadaUseCase = listarEmpresaPaginadaUseCase;
             _listarEmpresaUseCase = listarEmpresaUseCase;
             _obtenerEmpresaPorIdUseCase = obtenerEmpresaPorIdUseCase;
+            _presenterListPage = presenterListPage;
+            _presenterList = presenterList;
+            _presenterObtenerId = presenterObtenerId;
         }
 
         [HttpPost("crear")]
@@ -69,7 +80,8 @@ namespace Api.Delivery.Rest
             var result = await _listarEmpresaPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterListPage.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar")]
@@ -78,7 +90,8 @@ namespace Api.Delivery.Rest
             var result = await _listarEmpresaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +100,10 @@ namespace Api.Delivery.Rest
             var result = await _obtenerEmpresaPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            if (result.AsT1 == null)
+                return NotFound();
+            var response = _presenterObtenerId.Present(result.AsT1);
+            return Ok(response);
         }
     }
 }
