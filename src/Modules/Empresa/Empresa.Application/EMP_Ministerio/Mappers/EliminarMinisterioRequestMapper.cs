@@ -10,8 +10,8 @@ namespace Empresa.Application.Ministerio.Mappers
         {
             return new EliminarMinisterioParameters
             {
-                MinisterioId = source.MinisterioId,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                MinisterioId = source.nIdMinisterio,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = DateTime.UtcNow
             };
         }

@@ -2,7 +2,7 @@
 {
     public class EliminarMinisterioRequest
     {
-        public int MinisterioId { get; set; }
-        public int UsuarioModificacionId { get; set; }
+        public int nIdMinisterio { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }
