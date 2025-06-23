@@ -37,6 +37,7 @@ using Empresa.Presentation.EMP_TipoDirector;
 using Shared.ClientV1;
 using Shared.Kernel.Responses;
 using Shared.Presenters;
+using Api.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,6 +69,7 @@ builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<int>
 builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
 
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddStorage();
 
 builder.Services.AddAuthApplication();
 builder.Services.AddAuthInfrastructure();

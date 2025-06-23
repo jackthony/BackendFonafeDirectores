@@ -1,37 +1,34 @@
-﻿using Archivo.Application.Archivo.Services;
-using Microsoft.Extensions.Configuration;
+﻿using Api.Settings;
+using Archivo.Application.Archivo.Services;
+using Microsoft.Extensions.Options;
 
 namespace Archivo.Infrastructure.Archivo.Services
 {
-    public class BunnyStorageService : IStorageServiceNet
+    public class BunnyStorageService : IStorageService
     {
+        private readonly BunnyStorageOptions _options;
         private readonly HttpClient _httpClient;
-        private readonly string _zoneName;
-        private readonly string _accessKey;
-        private readonly string _storageBaseUrl;
-        public BunnyStorageService(IConfiguration configuration, HttpClient httpClient)
+
+        public BunnyStorageService(IOptions<BunnyStorageOptions> options)
         {
-            _httpClient = httpClient;
-            _zoneName = configuration["BunnyStorage:ZoneName"]!;
-            _accessKey = configuration["BunnyStorage:AccessKey"]!;
-            _storageBaseUrl = $"https://storage.bunnycdn.com/{_zoneName}";
+            _options = options.Value;
+            _httpClient = new HttpClient();
+            _httpClient.DefaultRequestHeaders.Add("AccessKey", _options.ApiKey);
         }
 
-        public async Task<string> UploadFileAsync(Stream fileStream, string fileName)
+        public async Task<string> SubirArchivoAsync(Stream stream, string rutaArchivo, string contentType)
         {
-            var uploadUrl = $"{_storageBaseUrl}/{fileName}";
-            using var content = new StreamContent(fileStream);
-            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+            var url = $"{_options.BaseUrl}/{_options.StorageZone}/{rutaArchivo}";
 
-            _httpClient.DefaultRequestHeaders.Clear();
-            _httpClient.DefaultRequestHeaders.Add("AccessKey", _accessKey);
+            using var content = new StreamContent(stream);
+            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(contentType);
 
-            var response = await _httpClient.PutAsync(uploadUrl, content);
+            var response = await _httpClient.PutAsync(url, content);
 
             if (!response.IsSuccessStatusCode)
-                throw new Exception($"Error al subir archivo a Bunny Storage: {response.StatusCode}");
+                throw new Exception($"Error al subir archivo: {response.StatusCode}");
 
-            return $"{uploadUrl}";
+            return $"https://{_options.StorageZone}.b-cdn.net/{rutaArchivo}";
         }
     }
 }

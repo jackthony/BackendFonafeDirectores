@@ -36,7 +36,7 @@ namespace Api.Delivery.Rest
         }
 
         [HttpPost("crear")]
-        public async Task<IActionResult> CrearArchivo([FromBody] CrearArchivoRequest request)
+        public async Task<IActionResult> CrearArchivo([FromForm] CrearArchivoRequest request)
         {
             var result = await _crearArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)

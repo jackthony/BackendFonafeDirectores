@@ -1,7 +1,7 @@
 ﻿namespace Archivo.Application.Archivo.Services
 {
-    public interface IStorageServiceNet
+    public interface IStorageService
     {
-        public Task<string> UploadFileAsync(Stream fileStream, string fileName);
+        public Task<string> SubirArchivoAsync(Stream stream, string rutaArchivo, string contentType);
     }
 }
