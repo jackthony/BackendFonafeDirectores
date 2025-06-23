@@ -10,10 +10,10 @@ namespace Usuario.Application.Rol.Mappers
         {
             return new ActualizarRolParameters
             {
-                RolId = source.nIdRol,
+                RolId = source.nRolId,
                 NombreRol = source.sNombreRol,
                 FechaModificacion = source.dtFechaModificacion,
-                UsuarioModificacionId = source.nUsuarioModificacion,
+                UsuarioModificacionId = source.nIdUsuarioModificacion,
             };
         }
     }
