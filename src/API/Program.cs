@@ -37,8 +37,10 @@ using Empresa.Presentation.EMP_TipoDirector;
 using Shared.ClientV1;
 using Shared.Kernel.Responses;
 using Shared.Presenters;
-using Api.Settings;
 using Usuario.Presentation.User;
+using Usuario.Application.Rol;
+using Usuario.Infrastructure.Rol;
+using Usuario.Presentation.SEG_Rol;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,6 +80,10 @@ builder.Services.AddAuthInfrastructure();
 builder.Services.AddUserApplication();
 builder.Services.AddUserInfrastructure();
 builder.Services.AddUserPresenters();
+
+builder.Services.AddRolApplication();
+builder.Services.AddRolInfrastructure();
+builder.Services.AddRolPresenters();
 
 builder.Services.AddCargoApplication();
 builder.Services.AddCargoInfrastructure();

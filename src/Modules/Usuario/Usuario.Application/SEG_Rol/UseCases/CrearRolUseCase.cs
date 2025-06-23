@@ -24,7 +24,6 @@ namespace Usuario.Application.Rol.UseCases
 
         public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(CrearRolRequest request)
         {
-            request.Password = _passwordHasher.Hash(request.Password);
             var parameters = _mapper.Map(request);
 
             var result = await _repository.AddAsync(parameters);

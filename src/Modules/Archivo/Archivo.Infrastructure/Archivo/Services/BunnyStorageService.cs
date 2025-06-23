@@ -74,7 +74,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             }
             catch (Exception ex)
             {
-                return "";
+                return ex.ToString();
             }
         }
     }

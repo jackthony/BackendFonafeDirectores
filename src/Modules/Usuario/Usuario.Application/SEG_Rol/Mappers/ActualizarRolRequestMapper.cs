@@ -8,7 +8,13 @@ namespace Usuario.Application.Rol.Mappers
     {
         public ActualizarRolParameters Map(ActualizarRolRequest source)
         {
-            throw new NotImplementedException();
+            return new ActualizarRolParameters
+            {
+                RolId = source.nIdRol,
+                NombreRol = source.sNombreRol,
+                FechaModificacion = source.dtFechaModificacion,
+                UsuarioModificacionId = source.nUsuarioModificacion,
+            };
         }
     }
 }

@@ -2,16 +2,8 @@
 {
     public class CrearRolParameters
     {
-        // Tabla SEG_Usuario
-        public string Rolname { get; set; } = default!;
-        public string PasswordHash { get; set; } = default!;
-        public string CorreoElectronico { get; set; } = default!;
-        public DateTime FechaRegistro { get; set; }
-        public int UsuarioRegistroId { get; set; }
-
-        // Tabla SEG_UsuarioInfo
-        public string ApellidoPaterno { get; set; } = default!;
-        public string ApellidoMaterno { get; set; } = default!;
-        public string Nombres { get; set; } = default!;
+      public string NombreRol { get; set; } = default!;
+      public int UsuarioRegistroId { get; set; }
+      public DateTime FechaRegistro { get; set; }
     }
 }
