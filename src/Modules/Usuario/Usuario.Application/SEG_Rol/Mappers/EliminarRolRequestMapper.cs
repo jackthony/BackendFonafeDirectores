@@ -8,7 +8,12 @@ namespace Usuario.Application.Rol.Mappers
     {
         public EliminarRolParameters Map(EliminarRolRequest source)
         {
-            throw new NotImplementedException();
+            return new EliminarRolParameters()
+            {
+                CargoId = source.nCargoId,
+                UsuarioModificacion = source.nUsuarioModificacionId,
+                FechaModificacion = source.dtFechaModificacion
+            };
         }
     }
 }

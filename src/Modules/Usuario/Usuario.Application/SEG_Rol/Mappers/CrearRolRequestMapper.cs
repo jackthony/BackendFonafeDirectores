@@ -18,14 +18,9 @@ namespace Usuario.Application.Rol.Mappers
         {
             return new CrearRolParameters
             {
-                Rolname = source.Rolname,
-                PasswordHash = source.Password,
-                CorreoElectronico = source.CorreoElectronico,
+                NombreRol = source.sNombreRol,
+                UsuarioRegistroId = source.nUsuarioRegistro,
                 FechaRegistro = _timeProvider.NowPeru,
-                UsuarioRegistroId = source.UsuarioRegistroId,
-                ApellidoPaterno = source.ApellidoPaterno,
-                ApellidoMaterno = source.ApellidoMaterno,
-                Nombres = source.Nombres
             };
         }
     }
