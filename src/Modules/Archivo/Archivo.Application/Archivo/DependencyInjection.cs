@@ -31,6 +31,7 @@ namespace Archivo.Application.Archivo
             services.AddScoped<IMapper<EliminarArchivoRequest, EliminarArchivoParameters>, EliminarArchivoRequestMapper>();
             services.AddScoped<IMapper<ListarArchivoPaginadoRequest, ListarArchivoPaginadoParameters>, ListarArchivoPaginadoRequestMapper>();
             services.AddScoped<IMapper<ListarArchivoRequest, ListarArchivoParameters>, ListarArchivoRequestMapper>();
+            services.AddScoped<IMapper<ExportFileRequest, ExportParameters>, ExportFileRequestMapper>();
 
             // Validators
             services.AddScoped<IValidator<ActualizarArchivoRequest>, ActualizarArchivoRequestValidator>();

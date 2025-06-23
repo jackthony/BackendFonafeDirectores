@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Empresa.Application.Ubigeo.Dtos
+﻿namespace Empresa.Application.Ubigeo.Dtos
 {
     public class ListarDepartamentoRequest
     {
+        public string? sNombre {  get; set; }
     }
 }

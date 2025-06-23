@@ -7,13 +7,13 @@ using Shared.Kernel.Responses;
 
 namespace Empresa.Presentation.Ubigeo.Presenters
 {
-    public class ListDepartamentoPaginadoResponsePresenter : IPresenterDelivery<PagedResult<DepartamentoResult>, LstItemResponse<DepartamentoResponse>>
+    public class ListProvinciaPaginadoResponsePresenter : IPresenterDelivery<PagedResult<ProvinciaResult>, LstItemResponse<ProvinciaResponse>>
     {
-        public LstItemResponse<DepartamentoResponse> Present(PagedResult<DepartamentoResult> input)
+        public LstItemResponse<ProvinciaResponse> Present(PagedResult<ProvinciaResult> input)
         {
-            return new LstItemResponse<DepartamentoResponse>
+            return new LstItemResponse<ProvinciaResponse>
             {
-                LstItem = DepartamentoResponseMapper.ToListResponse(input.Items),
+                LstItem = ProvinciaResponseMapper.ToListResponse(input.Items),
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,

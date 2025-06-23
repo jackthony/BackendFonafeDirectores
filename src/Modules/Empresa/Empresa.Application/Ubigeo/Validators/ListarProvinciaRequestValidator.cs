@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Empresa.Application.Ubigeo.Validators
 {
-    public class ListarDepartamentoRequestValidator : AbstractValidator<ListarDepartamentoRequest>
+    public class ListarProvinciaRequestValidator : AbstractValidator<ListarProvinciaRequest>
     {
-        public ListarDepartamentoRequestValidator()
+        public ListarProvinciaRequestValidator()
         {
         }
     }

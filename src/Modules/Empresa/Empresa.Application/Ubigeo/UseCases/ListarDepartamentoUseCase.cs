@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Empresa.Application.Ubigeo.Dtos;
+﻿using Empresa.Application.Ubigeo.Dtos;
 using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Repositories;
 using Empresa.Domain.Ubigeo.Results;
@@ -15,11 +10,11 @@ namespace Empresa.Application.Departamento.UseCases
 {
     public class ListarDepartamentoUseCase : IUseCase<ListarDepartamentoRequest, List<DepartamentoResult>>
     {
-        private readonly IDepartamentoRepository _repository;
+        private readonly IUbigeoRepository _repository;
         private readonly IMapper<ListarDepartamentoRequest, ListarDepartamentoParameters> _mapper;
 
         public ListarDepartamentoUseCase(
-            IDepartamentoRepository repository,
+            IUbigeoRepository repository,
             IMapper<ListarDepartamentoRequest, ListarDepartamentoParameters> mapper)
         {
             _repository = repository;
@@ -29,7 +24,7 @@ namespace Empresa.Application.Departamento.UseCases
         public async Task<OneOf<ErrorBase, List<DepartamentoResult>>> ExecuteAsync(ListarDepartamentoRequest request)
         {
             var parameters = _mapper.Map(request);
-            var result = await _repository.ListAsync(parameters);
+            var result = await _repository.ListDepartamentos(parameters);
             return result;
         }
     }

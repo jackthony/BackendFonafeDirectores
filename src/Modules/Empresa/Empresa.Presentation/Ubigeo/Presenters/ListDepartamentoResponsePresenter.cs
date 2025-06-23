@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Empresa.Domain.Ubigeo.Results;
-using Empresa.Presentation.Departamento.Mappers;
+﻿using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Mappers;
 using Empresa.Presentation.Ubigeo.Responses;
 using Shared.ClientV1;

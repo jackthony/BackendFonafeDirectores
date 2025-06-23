@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Empresa.Domain.Ubigeo.Results
+﻿namespace Empresa.Domain.Ubigeo.Results
 {
     public class DepartamentoResult
     {
+        public int DepartamentoId { get; set; }
+        public string NombreDepartamento { get; set; } = string.Empty;
     }
 }

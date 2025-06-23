@@ -44,6 +44,9 @@ using Usuario.Presentation.SEG_Rol;
 using Usuario.Application.PermisoRol;
 using Usuario.Infrastructure.PermisoRol;
 using Usuario.Presentation.PermisoRol;
+using Empresa.Application.Ubigeo;
+using Empresa.Infrastructure.Ubigeo;
+using Empresa.Presentation.Ubigeo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -122,6 +125,9 @@ builder.Services.AddTipoDirectorPresenters();
 builder.Services.AddArchivoApplication();
 builder.Services.AddArchivoInfrastructure();
 
+builder.Services.AddUbigeoApplication();
+builder.Services.AddUbigeoInfrastructure();
+builder.Services.AddUbigeoPresenters();
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
