@@ -21,7 +21,7 @@ namespace Empresa.Presentation.Rubro.Presenters
             }
             return new LstItemResponse<RubroResponse>
             {
-                LstItem = lista,
+                LstItem = listaItems,
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,

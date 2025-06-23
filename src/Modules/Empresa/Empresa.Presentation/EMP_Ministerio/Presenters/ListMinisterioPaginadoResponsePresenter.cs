@@ -21,7 +21,7 @@ namespace Empresa.Presentation.Ministerio.Presenters
             }
             return new LstItemResponse<MinisterioResponse>
             {
-                LstItem = lista,
+                LstItem = listaItems,
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,

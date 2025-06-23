@@ -21,7 +21,7 @@ namespace Empresa.Presentation.TipoDirector.Presenters
             }
             return new LstItemResponse<TipoDirectorResponse>
             {
-                LstItem = lista,
+                LstItem = listaItems,
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,
