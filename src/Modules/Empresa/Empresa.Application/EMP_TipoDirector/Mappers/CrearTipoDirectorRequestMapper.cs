@@ -18,8 +18,8 @@ namespace Empresa.Application.TipoDirector.Mappers
         {
             return new CrearTipoDirectorParameters
             {
-                NombreTipoDirector = source.NombreTipoDirector,
-                UsuarioRegistroId = source.UsuarioRegistroId,
+                NombreTipoDirector = source.sNombreTipoDirector,
+                UsuarioRegistroId = source.nUsuarioRegistro,
                 FechaRegistro = _timeProvider.NowPeru
             };
         }

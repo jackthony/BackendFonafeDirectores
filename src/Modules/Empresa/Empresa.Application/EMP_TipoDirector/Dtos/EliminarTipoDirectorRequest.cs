@@ -2,7 +2,7 @@
 {
     public class EliminarTipoDirectorRequest
     {
-        public int TipoDirectorId { get; set; }
-        public int UsuarioModificacionId { get; set; }
+        public int nIdTipoDirector { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }

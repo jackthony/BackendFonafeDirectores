@@ -2,8 +2,8 @@
 {
     public class ActualizarTipoDirectorRequest
     {
-        public int TipoDirectorId { get; set; }
-        public string NombreTipoDirector { get; set; } = default!;
-        public int UsuarioModificacionId { get; set; }
+        public int nIdTipoDirector { get; set; }
+        public string sNombreTipoDirector { get; set; } = default!;
+        public int nUsuarioModificacion { get; set; }
     }
 }
