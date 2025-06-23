@@ -24,17 +24,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<PagedResult<CargoResult>, LstItemResponse<CargoResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<CargoResult>, LstItemResponse<CargoResponse>> _presenterList;
         private readonly IPresenterDelivery<CargoResult, ItemResponse<CargoResponse>> _presenterObtenerId;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public CargoController(
-            IUseCase<CrearCargoRequest, SpResultBase> crearCargoUseCase,
-            IUseCase<ActualizarCargoRequest, SpResultBase> actualizarCargoUseCase,
-            IUseCase<EliminarCargoRequest, SpResultBase> eliminarCargoUseCase,
-            IUseCase<ListarCargoPaginadoRequest, PagedResult<CargoResult>> listarCargoPaginadaUseCase,
-            IUseCase<ListarCargoRequest, List<CargoResult>> listarCargoUseCase,
-            IUseCase<int, CargoResult?> obtenerCargoPorIdUseCase,
-            IPresenterDelivery<PagedResult<CargoResult>, LstItemResponse<CargoResponse>> presenterListPage,
-            IPresenterDelivery<List<CargoResult>, LstItemResponse<CargoResponse>> presenterList,
-            IPresenterDelivery<CargoResult, ItemResponse<CargoResponse>> presenterObtenerId)
+        public CargoController(IUseCase<CrearCargoRequest, SpResultBase> crearCargoUseCase, IUseCase<ActualizarCargoRequest, SpResultBase> actualizarCargoUseCase, IUseCase<EliminarCargoRequest, SpResultBase> eliminarCargoUseCase, IUseCase<ListarCargoPaginadoRequest, PagedResult<CargoResult>> listarCargoPaginadaUseCase, IUseCase<ListarCargoRequest, List<CargoResult>> listarCargoUseCase, IUseCase<int, CargoResult?> obtenerCargoPorIdUseCase, IPresenterDelivery<PagedResult<CargoResult>, LstItemResponse<CargoResponse>> presenterListPage, IPresenterDelivery<List<CargoResult>, LstItemResponse<CargoResponse>> presenterList, IPresenterDelivery<CargoResult, ItemResponse<CargoResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearCargoUseCase = crearCargoUseCase;
             _actualizarCargoUseCase = actualizarCargoUseCase;
@@ -45,6 +38,8 @@ namespace Api.Delivery.Rest
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
+            _presenterBool = presenterBool;
+            _presenterInt = presenterInt;
         }
 
         [HttpPost("crear")]
@@ -53,7 +48,8 @@ namespace Api.Delivery.Rest
             var result = await _crearCargoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPut("actualizar")]
@@ -62,7 +58,8 @@ namespace Api.Delivery.Rest
             var result = await _actualizarCargoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpDelete("eliminar")]
@@ -71,7 +68,8 @@ namespace Api.Delivery.Rest
             var result = await _eliminarCargoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("listar-paginado")]

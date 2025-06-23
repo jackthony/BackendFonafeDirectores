@@ -2,5 +2,6 @@
 {
     public interface IStorageServiceNet
     {
+        public Task<string> UploadFileAsync(Stream fileStream, string fileName);
     }
 }

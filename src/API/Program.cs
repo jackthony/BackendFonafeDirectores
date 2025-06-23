@@ -34,6 +34,9 @@ using Empresa.Presentation.EMP_Ministerio;
 using Empresa.Presentation.EMP_Rubro;
 using Empresa.Presentation.EMP_Sector;
 using Empresa.Presentation.EMP_TipoDirector;
+using Shared.ClientV1;
+using Shared.Kernel.Responses;
+using Shared.Presenters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,6 +61,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "Boa API", Version = "v1" });
 });
+
+builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<bool>>, ItemResponseMapperBool>();
+builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<int>>, ItemResponseMapperInt>();
 
 builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
 
