@@ -8,6 +8,7 @@ using Empresa.Application.Ubigeo.UseCases;
 using Empresa.Application.Ubigeo.Validators;
 using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Results;
+using Empresa.Application.Departamento.UseCases;
 
 namespace Empresa.Application.Ubigeo
 {
@@ -22,6 +23,7 @@ namespace Empresa.Application.Ubigeo
             services.AddScoped<IUseCase<ListarUbigeoPaginadoRequest, PagedResult<UbigeoResult>>, ListarUbigeoPaginadaUseCase>();
             services.AddScoped<IUseCase<ListarUbigeoRequest, List<UbigeoResult>>, ListarUbigeoUseCase>();
             services.AddScoped<IUseCase<int, UbigeoResult?>, ObtenerUbigeoPorIdUseCase>();
+            services.AddScoped<IUseCase<ListarDepartamentoRequest, List<DepartamentoResult>>, ListarDepartamentoUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarUbigeoRequest, ActualizarUbigeoParameters>, ActualizarUbigeoRequestMapper>();
