@@ -2,14 +2,14 @@
 {
     public class UserResponse
     {
-        public int UsuarioId { get; set; }
-        public string ApellidosYNombres { get; set; } = string.Empty;
-        public string Cargo { get; set; } = string.Empty;
-        public string Perfil { get; set; } = string.Empty;
-        public bool Estado { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public DateTime? UltimaModificacion { get; set; }
-        public string Correo { get; set; } = string.Empty;
+        public int nUsuarioId { get; set; }
+        public string sApellidosYNombres { get; set; } = string.Empty;
+        public string sCargo { get; set; } = string.Empty;
+        public string sPerfil { get; set; } = string.Empty;
+        public bool bEstado { get; set; }
+        public DateTime dtFechaCreacion { get; set; }
+        public DateTime? dtUltimaModificacion { get; set; }
+        public string sCorreo { get; set; } = string.Empty;
         public int indice { get; set; }
     }
 }
