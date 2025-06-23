@@ -12,6 +12,8 @@ namespace Usuario.Application.User.Mappers
             {
                 Page = source.Page,
                 PageSize = source.PageSize,
+                Nombre = source.sNombreCompleto,
+                Estado = source.bIsEstado
             };
         }
     }
