@@ -2,8 +2,8 @@
 {
     public class ActualizarSectorRequest
     {
-        public int nSectorId { get; set; }
+        public int nIdSector { get; set; }
         public string sNombreSector { get; set; } = default!;
-        public int nUsuarioModificacionId { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }
