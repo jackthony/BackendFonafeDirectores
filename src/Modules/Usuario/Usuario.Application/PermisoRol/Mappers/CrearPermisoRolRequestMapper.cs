@@ -18,6 +18,11 @@ namespace Usuario.Application.PermisoRol.Mappers
         {
             return new CrearPermisoRolParameters
             {
+                nRolId = source.nRolId,
+                nModuloId = source.nModuloId,
+                nAccionId = source.nAccionId,
+                nUsuarioRegistroId = source.nUsuarioRegistroId,
+                dtFechaRegistro = _timeProvider.NowPeru
             };
         }
     }

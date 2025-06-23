@@ -10,6 +10,11 @@ namespace Usuario.Application.PermisoRol.Mappers
         {
             return new EliminarPermisoRolParameters
             {
+                nRolId = source.nRolId,
+                nModuloId = source.nModuloId,
+                nAccionId = source.nAccionId,
+                nUsuarioModificacionId = source.nUsuarioModificacionId,
+                dtFechaModificacion = source.dtFechaModificacion
             };
         }
     }
