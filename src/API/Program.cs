@@ -38,6 +38,7 @@ using Shared.ClientV1;
 using Shared.Kernel.Responses;
 using Shared.Presenters;
 using Api.Settings;
+using Usuario.Presentation.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,6 +77,7 @@ builder.Services.AddAuthInfrastructure();
 
 builder.Services.AddUserApplication();
 builder.Services.AddUserInfrastructure();
+builder.Services.AddUserPresenters();
 
 builder.Services.AddCargoApplication();
 builder.Services.AddCargoInfrastructure();
@@ -111,6 +113,7 @@ builder.Services.AddTipoDirectorPresenters();
 
 builder.Services.AddArchivoApplication();
 builder.Services.AddArchivoInfrastructure();
+
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   

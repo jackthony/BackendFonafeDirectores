@@ -11,9 +11,18 @@ namespace Usuario.Presentation.User.Presenters
     {
         public LstItemResponse<UserResponse> Present(PagedResult<UserResult> input)
         {
+            int startIndex = (input.Page - 1) * input.PageSize;
+
+            var lista = UserResponseMapper.ToListResponse(input.Items);
+            var listaItems = lista.ToList();
+            for (int i = 0; i < listaItems.Count; i++)
+            {
+                listaItems[i].indice = startIndex + i + 1;
+            }
+
             return new LstItemResponse<UserResponse>
             {
-                LstItem = UserResponseMapper.ToListResponse(input.Items),
+                LstItem = listaItems,
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,
