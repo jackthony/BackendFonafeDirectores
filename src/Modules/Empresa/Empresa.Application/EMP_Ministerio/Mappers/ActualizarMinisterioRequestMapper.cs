@@ -18,9 +18,9 @@ namespace Empresa.Application.Ministerio.Mappers
         {
             return new ActualizarMinisterioParameters
             {
-                MinisterioId = source.MinisterioId,
-                NombreMinisterio = source.NombreMinisterio,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                MinisterioId = source.nMinisterioId,
+                NombreMinisterio = source.sNombreMinisterio,
+                UsuarioModificacionId = source.nUsuarioModificacionId,
                 FechaModificacion = _timeProvider.NowPeru
             };
         }
