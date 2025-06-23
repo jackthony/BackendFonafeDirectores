@@ -6,6 +6,7 @@ using Shared.Kernel.Responses;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Results;
 using Shared.ClientV1;
+using Archivo.Application.Archivo.UseCases;
 
 namespace Api.Delivery.Rest
 {
@@ -22,8 +23,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<int, ArchivoResult?> _obtenerArchivoPorIdUseCase;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
+        private readonly IUseCase<ExportFileRequest, IFormFile> _exportarFileUseCase;
 
-        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, IFormFile> exportarFileUseCase)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -33,6 +35,20 @@ namespace Api.Delivery.Rest
             _obtenerArchivoPorIdUseCase = obtenerArchivoPorIdUseCase;
             _presenterBool = presenterBool;
             _presenterInt = presenterInt;
+            _exportarFileUseCase = exportarFileUseCase;
+        }
+
+        [HttpPost("exportar")]
+        public async Task<IActionResult> Exportar([FromBody] ExportFileRequest request)
+        {
+            var result = await _exportarFileUseCase.ExecuteAsync(request);
+
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+
+            var file = result.AsT1;
+
+            return File(file.OpenReadStream(), file.ContentType, file.FileName);
         }
 
         [HttpPost("crear")]

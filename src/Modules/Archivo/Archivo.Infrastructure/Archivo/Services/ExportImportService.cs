@@ -54,7 +54,7 @@ namespace Archivo.Infrastructure.Archivo.Services
         ];
 
 
-        public Stream ExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)
+        public Stream ObtenerDatosExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)
         {
             var workbook = new XLWorkbook();
             var worksheet = workbook.AddWorksheet("Empresas");
