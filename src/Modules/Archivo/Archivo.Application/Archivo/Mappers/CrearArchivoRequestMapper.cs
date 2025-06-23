@@ -16,9 +16,22 @@ namespace Archivo.Application.Archivo.Mappers
 
         public CrearArchivoParameters Map(CrearArchivoRequest source)
         {
-            return new CrearArchivoParameters
+            var result = new CrearArchivoParameters
             {
+                IsDocumento = source.IsDocumento,
+                Nombre = source.Nombre,
+                CarpetaPadreId = source.CarpetaPadreId,
+                UsuarioRegistroId = source.UsuarioRegistroId,
+                FechaRegistro = _timeProvider.NowPeru
             };
+
+            if (source.IsDocumento && source.Archivo != null)
+            {
+                result.Peso = source.Archivo.Length;
+                result.TipoMime = source.Archivo.ContentType;
+            }
+
+            return result;
         }
     }
 }
