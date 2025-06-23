@@ -12,6 +12,8 @@ namespace Empresa.Application.Sector.Mappers
             {
                 Page = source.Page,
                 PageSize = source.PageSize,
+                Estado = source.Estado,
+                Nombre = source.Nombre,
             };
         }
     }
