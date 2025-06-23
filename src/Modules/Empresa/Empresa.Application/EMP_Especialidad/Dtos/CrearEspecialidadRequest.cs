@@ -2,7 +2,7 @@
 {
     public class CrearEspecialidadRequest
     {
-        public string NombreEspecialidad { get; set; } = default!;
-        public int UsuarioRegistroId { get; set; }
+        public string sNombreEspecialidad { get; set; } = default!;
+        public int nUsuarioRegistro{ get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class EliminarEspecialidadRequest
     {
-        public int EspecialidadId { get; set; }
-        public int UsuarioModificacionId { get; set; }
+        public int nIdEspecialidad { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }
