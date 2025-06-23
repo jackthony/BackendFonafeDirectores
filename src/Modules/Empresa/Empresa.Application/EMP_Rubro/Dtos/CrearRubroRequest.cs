@@ -2,7 +2,7 @@
 {
     public class CrearRubroRequest
     {
-        public string NombreRubro { get; set; } = default!;
-        public int UsuarioRegistroId { get; set; }
+        public string sNombreRubro { get; set; } = default!;
+        public int nUsuarioRegistroId { get; set; }
     }
 }

@@ -18,8 +18,8 @@ namespace Empresa.Application.Rubro.Mappers
         {
             return new CrearRubroParameters
             {
-                NombreRubro = source.NombreRubro,
-                UsuarioRegistroId = source.UsuarioRegistroId,
+                NombreRubro = source.sNombreRubro,
+                UsuarioRegistroId = source.nUsuarioRegistroId,
                 FechaRegistro = _timeProvider.NowPeru
             };
         }

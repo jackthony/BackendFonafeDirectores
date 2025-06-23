@@ -10,8 +10,8 @@ namespace Empresa.Application.Rubro.Mappers
         {
             return new EliminarRubroParameters
             {
-                RubroId = source.RubroId,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                RubroId = source.nRubroId,
+                UsuarioModificacionId = source.nUsuarioModificacionId,
                 FechaModificacion = DateTime.UtcNow
             };
         }
