@@ -5,7 +5,7 @@ using Usuario.Domain.Rol.Results;
 using Usuario.Presentation.Rol.Mappers;
 using Usuario.Presentation.Rol.Responses;
 
-namespace Empresa.Presentation.Rol.Presenters
+namespace Usuario.Presentation.Rol.Presenters
 {
     public class ListRolPaginadoResponsePresenter : IPresenterDelivery<PagedResult<RolResult>, LstItemResponse<RolResponse>>
     {

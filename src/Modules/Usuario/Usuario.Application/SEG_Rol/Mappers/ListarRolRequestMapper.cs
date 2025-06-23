@@ -8,7 +8,9 @@ namespace Usuario.Application.Rol.Mappers
     {
         public ListarRolParameters Map(ListarRolRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarRolParameters
+            {
+            };
         }
     }
 }
