@@ -2,7 +2,6 @@
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
-using Usuario.Application.Auth.Services;
 using Usuario.Application.PermisoRol.Dtos;
 using Usuario.Domain.PermisoRol.Parameters;
 using Usuario.Domain.PermisoRol.Repositories;
