@@ -1,10 +1,11 @@
 ﻿using Archivo.Application.Archivo.Dtos;
+using Archivo.Domain.Archivo.Results;
 
 namespace Archivo.Application.Archivo.Services
 {
     public interface IExportImportService
     {
-        Task<bool> ImportAsync(ImportFileRequest request);
-        Task<Stream> ExportAsync(ExportFileRequest request);
+        public Stream ExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores);
+        public bool ImportAsync(ImportFileRequest request);
     }
 }
