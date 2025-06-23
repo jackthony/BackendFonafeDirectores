@@ -9,6 +9,9 @@ using Shared.Kernel.Responses;
 
 namespace Api.Delivery.Rest
 {
+    [ApiController]
+    [Route("api/[controller]")]
+    //[Authorize]
     public class RolController : ControllerBase
     {
         private readonly IUseCase<CrearRolRequest, SpResultBase> _crearRolUseCase;
