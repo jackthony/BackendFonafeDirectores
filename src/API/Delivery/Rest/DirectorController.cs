@@ -69,7 +69,7 @@ namespace Api.Delivery.Rest
             var result = await _listarDirectorPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result);
+            return Ok(result.AsT1);
         }
 
         [HttpGet("listar")]
@@ -78,7 +78,7 @@ namespace Api.Delivery.Rest
             var result = await _listarDirectorUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result);
+            return Ok(result.AsT1);
         }
 
         [HttpGet("{id}")]
@@ -86,8 +86,8 @@ namespace Api.Delivery.Rest
         {
             var result = await _obtenerDirectorPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
-                return NotFound();
-            return Ok(result);
+                return ErrorResultMapper.MapError(result.AsT0);
+            return Ok(result.AsT1);
         }
     }
 }
