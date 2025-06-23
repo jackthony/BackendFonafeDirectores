@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Rubro.Dtos
+﻿using Shared.Kernel.Requests;
+
+namespace Empresa.Application.Rubro.Dtos
 {
-    public class ListarRubroPaginadoRequest
+    public class ListarRubroPaginadoRequest : PagedRequest
     {
     }
 }

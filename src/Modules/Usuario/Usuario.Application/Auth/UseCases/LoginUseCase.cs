@@ -1,10 +1,12 @@
 ﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using System.Text.Json;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Services;
 using Usuario.Domain.Auth.Parameters;
 using Usuario.Domain.Auth.Repositories;
+using Usuario.Domain.SEG_Modulo.Models;
 
 namespace Usuario.Application.Auth.UseCases
 {
@@ -46,9 +48,12 @@ namespace Usuario.Application.Auth.UseCases
 
             var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, []);
 
+            var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
+
             return new LoginResponse
             {
                 AccessToken = token,
+                Modulos = modulosPermisos,
                 UsuarioResult = usuario
             };
         }

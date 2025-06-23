@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Cargo.Dtos
+﻿using Shared.Kernel.Requests;
+
+namespace Empresa.Application.Cargo.Dtos
 {
-    public class ListarCargoPaginadoRequest
+    public class ListarCargoPaginadoRequest : PagedRequest
     {
     }
 }

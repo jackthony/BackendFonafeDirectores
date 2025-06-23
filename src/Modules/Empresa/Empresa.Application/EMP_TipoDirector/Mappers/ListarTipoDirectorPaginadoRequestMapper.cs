@@ -10,6 +10,8 @@ namespace Empresa.Application.TipoDirector.Mappers
         {
             return new ListarTipoDirectorPaginadoParameters
             {
+                Page = source.Page,
+                PageSize = source.PageSize,
             };
         }
     }

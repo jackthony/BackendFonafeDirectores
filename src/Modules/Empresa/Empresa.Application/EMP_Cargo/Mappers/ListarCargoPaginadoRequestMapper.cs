@@ -10,6 +10,8 @@ namespace Empresa.Application.Cargo.Mappers
         {
             return new ListarCargoPaginadoParameters
             {
+                Page = source.Page,
+                PageSize = source.PageSize,
             };
         }
     }

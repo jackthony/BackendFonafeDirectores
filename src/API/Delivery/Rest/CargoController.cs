@@ -69,7 +69,7 @@ namespace Api.Delivery.Rest
             var result = await _listarCargoPaginadaUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result);
+            return Ok(result.AsT1);
         }
 
         [HttpGet("listar")]
@@ -78,7 +78,7 @@ namespace Api.Delivery.Rest
             var result = await _listarCargoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result);
+            return Ok(result.AsT1);
         }
 
         [HttpGet("{id}")]
@@ -87,7 +87,7 @@ namespace Api.Delivery.Rest
             var result = await _obtenerCargoPorIdUseCase.ExecuteAsync(id);
             if (result.IsT0)
                 return NotFound();
-            return Ok(result);
+            return Ok(result.AsT1);
         }
     }
 }

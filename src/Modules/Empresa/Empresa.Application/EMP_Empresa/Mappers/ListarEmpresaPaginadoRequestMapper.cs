@@ -10,6 +10,8 @@ namespace Empresa.Application.Empresa.Mappers
         {
             return new ListarEmpresaPaginadoParameters
             {
+                Page = source.Page,
+                PageSize = source.PageSize,
             };
         }
     }

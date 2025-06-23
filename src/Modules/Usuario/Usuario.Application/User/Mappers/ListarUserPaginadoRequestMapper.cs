@@ -8,7 +8,11 @@ namespace Usuario.Application.User.Mappers
     {
         public ListarUserPaginadoParameters Map(ListarUserPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarUserPaginadoParameters
+            {
+                Page = source.Page,
+                PageSize = source.PageSize,
+            };
         }
     }
 }

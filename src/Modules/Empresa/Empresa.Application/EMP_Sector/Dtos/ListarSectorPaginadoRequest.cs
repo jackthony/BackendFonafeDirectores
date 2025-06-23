@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Sector.Dtos
+﻿using Shared.Kernel.Requests;
+
+namespace Empresa.Application.Sector.Dtos
 {
-    public class ListarSectorPaginadoRequest
+    public class ListarSectorPaginadoRequest : PagedRequest
     {
     }
 }

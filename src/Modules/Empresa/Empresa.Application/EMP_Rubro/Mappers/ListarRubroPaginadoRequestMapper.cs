@@ -10,6 +10,8 @@ namespace Empresa.Application.Rubro.Mappers
         {
             return new ListarRubroPaginadoParameters
             {
+                Page = source.Page,
+                PageSize = source.PageSize,
             };
         }
     }

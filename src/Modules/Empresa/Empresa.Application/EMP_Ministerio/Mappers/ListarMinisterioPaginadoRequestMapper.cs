@@ -10,6 +10,8 @@ namespace Empresa.Application.Ministerio.Mappers
         {
             return new ListarMinisterioPaginadoParameters
             {
+                Page = source.Page,
+                PageSize = source.PageSize,
             };
         }
     }

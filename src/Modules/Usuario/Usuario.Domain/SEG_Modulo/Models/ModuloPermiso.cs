@@ -1,7 +1,8 @@
 ﻿namespace Usuario.Domain.SEG_Modulo.Models
 {
-    public class Modulo
+    public class ModuloPermiso
     {
         public string NombreModulo { get; set; } = string.Empty;
+        public List<Permiso> Permisos { get; set; } = [];
     }
 }

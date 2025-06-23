@@ -10,6 +10,8 @@ namespace Empresa.Application.Especialidad.Mappers
         {
             return new ListarEspecialidadPaginadoParameters
             {
+                Page = source.Page,
+                PageSize = source.PageSize,
             };
         }
     }

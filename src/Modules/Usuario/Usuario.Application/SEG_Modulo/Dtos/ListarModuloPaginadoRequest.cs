@@ -1,6 +1,8 @@
-﻿namespace Usuario.Application.Modulo.Dtos
+﻿using Shared.Kernel.Requests;
+
+namespace Usuario.Application.Modulo.Dtos
 {
-    public class ListarModuloPaginadoRequest
+    public class ListarModuloPaginadoRequest : PagedRequest
     {
     }
 }

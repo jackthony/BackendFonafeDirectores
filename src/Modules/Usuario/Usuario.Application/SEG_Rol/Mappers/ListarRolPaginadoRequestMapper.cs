@@ -8,7 +8,11 @@ namespace Usuario.Application.Rol.Mappers
     {
         public ListarRolPaginadoParameters Map(ListarRolPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarRolPaginadoParameters
+            {
+                Page = source.Page,
+                PageSize = source.PageSize,
+            };
         }
     }
 }

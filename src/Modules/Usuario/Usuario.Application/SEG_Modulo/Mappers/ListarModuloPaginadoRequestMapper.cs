@@ -8,7 +8,11 @@ namespace Usuario.Application.Modulo.Mappers
     {
         public ListarModuloPaginadoParameters Map(ListarModuloPaginadoRequest source)
         {
-            throw new NotImplementedException();
+            return new ListarModuloPaginadoParameters
+            {
+                Page = source.Page,
+                PageSize = source.PageSize,
+            };
         }
     }
 }
