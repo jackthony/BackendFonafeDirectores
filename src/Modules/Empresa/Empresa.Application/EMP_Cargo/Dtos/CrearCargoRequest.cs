@@ -2,7 +2,7 @@
 {
     public class CrearCargoRequest
     {
-        public string NombreCargo { get; set; } = default!;
-        public int UsuarioRegistroId { get; set; }
+        public string sNombreCargo { get; set; } = default!;
+        public int nUsuarioRegistro { get; set; }
     }
 }
