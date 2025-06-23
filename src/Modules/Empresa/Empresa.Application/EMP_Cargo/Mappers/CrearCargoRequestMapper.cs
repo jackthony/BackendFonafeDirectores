@@ -18,8 +18,8 @@ namespace Empresa.Application.Cargo.Mappers
         {
             return new CrearCargoParameters
             {
-                NombreCargo = source.NombreCargo,
-                UsuarioRegistroId = source.UsuarioRegistroId,
+                NombreCargo = source.sNombreCargo,
+                UsuarioRegistroId = source.nUsuarioRegistro,
                 FechaRegistro = _timeProvider.NowPeru
             };
         }

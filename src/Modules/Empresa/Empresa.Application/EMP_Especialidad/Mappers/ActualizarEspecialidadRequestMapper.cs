@@ -16,9 +16,9 @@ namespace Empresa.Application.Especialidad.Mappers
         {
             return new ActualizarEspecialidadParameters
             {
-                EspecialidadId = source.EspecialidadId,
-                NombreEspecialidad = source.NombreEspecialidad,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                EspecialidadId = source.nIdEspecialidad,
+                NombreEspecialidad = source.sNombreEspecialidad,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = _timeProvider.NowPeru
             };
         }

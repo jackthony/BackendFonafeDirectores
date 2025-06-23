@@ -10,8 +10,8 @@ namespace Empresa.Application.Especialidad.Mappers
         {
             return new EliminarEspecialidadParameters
             {
-                EspecialidadId = source.EspecialidadId,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                EspecialidadId = source.nIdEspecialidad,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = DateTime.UtcNow
             };
         }

@@ -10,8 +10,8 @@ namespace Empresa.Application.TipoDirector.Mappers
         {
             return new EliminarTipoDirectorParameters
             {
-                TipoDirectorId = source.TipoDirectorId,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                TipoDirectorId = source.nIdTipoDirector,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = DateTime.UtcNow
             };
         }

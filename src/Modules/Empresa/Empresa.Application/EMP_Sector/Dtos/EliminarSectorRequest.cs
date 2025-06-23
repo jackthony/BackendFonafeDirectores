@@ -2,7 +2,7 @@
 {
     public class EliminarSectorRequest
     {
-        public int nSectorId { get; set; }
-        public int nUsuarioModificacionId { get; set; }
+        public int nIdSector { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }

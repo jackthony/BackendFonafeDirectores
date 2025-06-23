@@ -2,7 +2,7 @@
 {
     public class EliminarRubroRequest
     {
-        public int RubroId { get; set; }
-        public int UsuarioModificacionId { get; set; }
+        public int nIdRubro { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }

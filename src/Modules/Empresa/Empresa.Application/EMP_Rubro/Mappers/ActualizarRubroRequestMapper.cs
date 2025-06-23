@@ -18,9 +18,9 @@ namespace Empresa.Application.Rubro.Mappers
         {
             return new ActualizarRubroParameters
             {
-                RubroId = source.RubroId,
-                NombreRubro = source.NombreRubro,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                RubroId = source.nIdRubro,
+                NombreRubro = source.sNombreRubro,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = _timeProvider.NowPeru
             };
         }

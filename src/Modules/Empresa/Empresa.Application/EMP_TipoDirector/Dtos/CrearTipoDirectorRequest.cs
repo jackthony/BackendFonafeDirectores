@@ -2,7 +2,7 @@
 {
     public class CrearTipoDirectorRequest
     {
-        public string NombreTipoDirector { get; set; } = default!;
-        public int UsuarioRegistroId { get; set; }
+        public string sNombreTipoDirector { get; set; } = default!;
+        public int nUsuarioRegistro { get; set; }
     }
 }

@@ -18,9 +18,9 @@ namespace Empresa.Application.Cargo.Mappers
         {
             return new ActualizarCargoParameters
             {
-                CargoId = source.CargoId,
-                NombreCargo = source.NombreCargo,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                CargoId = source.nIdCargo,
+                NombreCargo = source.sNombreCargo,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = _timeProvider.NowPeru
             };
         }

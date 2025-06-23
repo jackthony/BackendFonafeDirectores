@@ -18,9 +18,9 @@ namespace Empresa.Application.TipoDirector.Mappers
         {
             return new ActualizarTipoDirectorParameters
             {
-                TipoDirectorId = source.TipoDirectorId,
-                NombreTipoDirector = source.NombreTipoDirector,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                TipoDirectorId = source.nIdTipoDirector,
+                NombreTipoDirector = source.sNombreTipoDirector,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = _timeProvider.NowPeru
             };
         }

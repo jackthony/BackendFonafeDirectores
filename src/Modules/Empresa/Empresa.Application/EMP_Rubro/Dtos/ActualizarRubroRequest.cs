@@ -2,8 +2,8 @@
 {
     public class ActualizarRubroRequest
     {
-        public int RubroId { get; set; }
-        public string NombreRubro { get; set; } = default!;
-        public int UsuarioModificacionId { get; set; }
+        public int nIdRubro { get; set; }
+        public string sNombreRubro { get; set; } = default!;
+        public int nUsuarioModificacion { get; set; }
     }
 }

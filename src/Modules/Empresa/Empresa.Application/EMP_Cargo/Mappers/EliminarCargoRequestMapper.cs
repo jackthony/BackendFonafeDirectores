@@ -10,8 +10,8 @@ namespace Empresa.Application.Cargo.Mappers
         {
             return new EliminarCargoParameters
             {
-                CargoId = source.CargoId,
-                UsuarioModificacionId = source.UsuarioModificacionId,
+                CargoId = source.nIdCargo,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = DateTime.UtcNow
             };
 

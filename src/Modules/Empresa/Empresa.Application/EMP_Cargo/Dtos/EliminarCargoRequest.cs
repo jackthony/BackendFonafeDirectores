@@ -2,7 +2,7 @@
 {
     public class EliminarCargoRequest
     {
-        public int CargoId { get; set; }
-        public int UsuarioModificacionId { get; set; }
+        public int nIdCargo { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }

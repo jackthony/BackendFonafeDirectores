@@ -18,9 +18,9 @@ namespace Empresa.Application.Sector.Mappers
         {
             return new ActualizarSectorParameters
             {
-                SectorId = source.nSectorId,
+                SectorId = source.nIdSector,
                 NombreSector = source.sNombreSector,
-                UsuarioModificacionId = source.nUsuarioModificacionId,
+                UsuarioModificacionId = source.nUsuarioModificacion,
                 FechaModificacion = _timeProvider.NowPeru
             };
         }
