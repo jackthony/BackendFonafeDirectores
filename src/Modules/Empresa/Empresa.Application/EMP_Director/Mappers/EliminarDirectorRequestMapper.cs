@@ -18,8 +18,8 @@ namespace Empresa.Application.Director.Mappers
             return new EliminarDirectorParameters
             {
                 nDirectorId = source.nDirectorId,
-                dtFechaModificacion = source.dtFechaModificacion,
-                nUsuarioModificacionId = _timeProvider.NowPeru
+                dtFechaModificacion = _timeProvider.NowPeru,
+                nUsuarioModificacionId = source.nUsuarioModificacionId
             };
         }
     }
