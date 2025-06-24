@@ -10,7 +10,7 @@ namespace Empresa.Presentation.Empresa.Mappers
             nIdEmpresa = dto.IdEmpresa,
             sRuc = dto.Ruc,
             sRazonSocial = dto.RazonSocial,
-            nIdProponente = dto.IdSector,
+            nIdSector = dto.IdSector,
             nIdRubroNegocio = dto.IdRubroNegocio,
             sIdDepartamento = dto.IdDepartamento.ToString("D4"),
             sIdProvincia = dto.IdProvincia.ToString("D4"),
