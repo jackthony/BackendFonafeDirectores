@@ -22,7 +22,7 @@
         public string? sCorreoTerciario { get; set; } = string.Empty;
         public int? nCargoId { get; set; }
         public int? nTipoDirectorId { get; set; }
-        public int? nSectorId { get; set; }
+        public int? nIdSector { get; set; }
         public string? sProfesion { get; set; } = string.Empty;
         public decimal? dDieta { get; set; }
         public int? nEspecialidadId { get; set; }

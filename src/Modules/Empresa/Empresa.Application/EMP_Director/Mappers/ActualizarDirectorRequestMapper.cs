@@ -37,7 +37,7 @@ namespace Empresa.Application.Director.Mappers
                 sCorreoTerciario = source.sCorreoTerciario,
                 nCargoId = source.nCargoId,
                 nTipoDirectorId = source.nTipoDirectorId,
-                nSectorId = source.nSectorId,
+                nSectorId = source.nIdSector,
                 sProfesion = source.sProfesion,
                 dDieta = source.dDieta,
                 nEspecialidadId = source.nEspecialidadId,
