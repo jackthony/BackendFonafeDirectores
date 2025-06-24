@@ -1,68 +1,40 @@
-﻿namespace Empresa.Domain.Director.Results
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Empresa.Domain.Director.Results
 {
     public class DirectorResult
     {
-        public int DirectorId { get; set; }
-
-        public int NombreEmpresa { get; set; }
-
-        public int TipoDocumento { get; set; }
-        public int NumeroDocumento { get; set; }
-
-        public string Nombres { get; set; } = string.Empty;
-
-        public string Apellidos { get; set; } = string.Empty;
-
-        public DateTime? FechaNacimiento { get; set; }
-
-        public string Genero { get; set; } = string.Empty;
-
-        public string DistritoNombre { get; set; } = string.Empty;
-
-        public string ProvinciaNombre { get; set; } = string.Empty;
-
-        public string DepartamentoNombre { get; set; } = string.Empty;
-
-        public string? Direccion { get; set; } = string.Empty;
-
-        public string? Telefono { get; set; } = string.Empty;
-
-        public string? TelefonoSecunadario { get; set; } = string.Empty;
-
-        public string? TelefonoTerciario { get; set; } = string.Empty;
-
-        public string? Correo { get; set; } = string.Empty;
-
-        public string? CorreoSecundario { get; set; } = string.Empty;
-
-        public string? CorreoTerciario { get; set; } = string.Empty;
-
-        public string CargoNombre { get; set; } = string.Empty;
-
-        public string TipoDirector { get; set; } = string.Empty;
-
-        public string SectorNombre { get; set; } = string.Empty;
-
-        public string? Profesion { get; set; } = string.Empty;
-
-        public decimal? Dieta { get; set; }
-
-        public string Especialidad { get; set; } = string.Empty;
-
-        public DateTime? FechaNombramiento { get; set; }
-
-        public DateTime? FechaDesignacion { get; set; }
-
-        public DateTime? FechaRenuncia { get; set; }
-
-        public string? Comentario { get; set; } = string.Empty;
-
-        public DateTime FechaRegistro { get; set; }
-
-        public string UsuarioRegistroId { get; set; } = string.Empty;
-
-        public DateTime? FechaModificacion { get; set; }
-
-        public string UsuarioModificacionId { get; set; } = string.Empty;
+        public int nIdRegistro { get; set; }
+        public int nIdEmpresa { get; set; }
+        public int nTipoDocumento { get; set; }
+        public string sNumeroDocumento { get; set; } = default!;
+        public string sNombres { get; set; } = default!;
+        public string sApellidos { get; set; } = default!;
+        public DateTime dFechaNacimiento { get; set; }
+        public int nGenero { get; set; }
+        public string sDistrito { get; set; } = default!;
+        public string sProvincia { get; set; } = default!;
+        public string sDepartamento { get; set; } = default!;
+        public string sDireccion { get; set; } = default!;
+        public string sTelefono { get; set; } = default!;
+        public string? sTelefonoSecundario { get; set; }
+        public string? sTelefonoTerciario { get; set; }
+        public string sCorreo { get; set; } = default!;
+        public string? sCorreoSecundario { get; set; }
+        public string? sCorreoTerciario { get; set; }
+        public int nCargo { get; set; }
+        public int nTipoDirector { get; set; }
+        public int nIdSector { get; set; }
+        public string sProfesion { get; set; } = default!;
+        public decimal mDieta { get; set; }
+        public int nEspecialidad { get; set; }
+        public DateTime dFechaNombramiento { get; set; }
+        public DateTime dFechaDesignacion { get; set; }
+        public DateTime? dFechaRenuncia { get; set; }
+        public string? sComentario { get; set; }
+        public DateTime dtFechaRegistro { get; set; }
+        public int nUsuarioRegistro { get; set; }
+        public DateTime? dtFechaModificacion { get; set; }
+        public int? nUsuarioModificacion { get; set; }
     }
 }
