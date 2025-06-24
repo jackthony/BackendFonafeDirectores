@@ -12,6 +12,8 @@ namespace Empresa.Application.Empresa.Mappers
             {
                 Page = source.Page,
                 PageSize = source.PageSize,
+                RazonSocial = source.sRazonSocial,
+                Estado = source.bEstado
             };
         }
     }

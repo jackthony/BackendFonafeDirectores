@@ -17,22 +17,22 @@ namespace Empresa.Application.Empresa.Mappers
         {
             return new ActualizarEmpresaParameters
             {
-                sRuc = source.sRuc,
-                sRazonSocial = source.sRazonSocial,
-                nSectorId = source.nSectorId,
-                nRubroId = source.nRubroId,
-                nDepartamentoId = source.nDepartamentoId,
-                nProvinciaId = source.nProvinciaId,
-                nDistritoId = source.nDistritoId,
-                sDireccion = source.sDireccion,
-                sComentario = source.sComentario,
-                dIngresosUltimoAnio = source.dIngresosUltimoAnio,
-                dUtilidadUltimoAnio = source.dUtilidadUltimoAnio,
-                dConformacionCapitalSocial = source.dConformacionCapitalSocial,
-                nNumeroMiembros = source.nNumeroMiembros,
-                bRegistradoMercadoValor = source.bRegistradoMercadoValor,
-                dtFechaModificacion = _timeProvider.NowPeru,
-                nUsuarioModificacionId = source.nUsuarioModificacionId
+                IdEmpresa = source.nIdEmpresa,
+                IdRubroNegocio = source.nIdRubroNegocio,
+                IdSector = source.nIdSector,
+                IdDepartamento = int.Parse(source.sIdDepartamento),
+                IdProvincia = int.Parse(source.sIdProvincia),
+                IdDistrito = int.Parse(source.sIdDistrito),
+                Direccion = source.sDireccion,
+                Comentario = source.sComentario,
+                NumeroMiembros = source.nNumeroMiembros,
+                IngresosUltimoAnio = source.mIngresosUltimoAnio,
+                UtilidadUltimoAnio = source.mUtilidadUltimoAnio,
+                ConformacionCapitalSocial = source.mConformacionCapitalSocial,
+                RegistradoMercadoValores = source.bRegistradoMercadoValores,
+                Activo = source.bActivo,
+                UsuarioModificacion = source.nUsuarioModificacion,
+                FechaModificacion = _timeProvider.NowPeru
             };
         }
     }

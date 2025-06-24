@@ -1,69 +1,56 @@
-﻿using FluentValidation;
-using Empresa.Application.Empresa.Dtos;
+﻿using Empresa.Application.Empresa.Dtos;
+using FluentValidation;
 
-namespace Empresa.Application.Empresa.Validators
+public class CrearEmpresaRequestValidator : AbstractValidator<CrearEmpresaRequest>
 {
-    public class CrearEmpresaRequestValidator : AbstractValidator<CrearEmpresaRequest>
+    public CrearEmpresaRequestValidator()
     {
-        public CrearEmpresaRequestValidator()
-        {
-            // Validación para el campo sRuc (obligatorio y con longitud adecuada)
-            RuleFor(x => x.sRuc)
-                .NotEmpty().WithMessage("El campo RUC es obligatorio.")
-                .Length(11).WithMessage("El campo RUC debe tener 11 caracteres.")
-                .Matches(@"^\d{11}$").WithMessage("El campo RUC debe contener solo números.");
+        RuleFor(x => x.sRuc)
+            .NotEmpty().WithMessage("El RUC es obligatorio.")
+            .Length(11).WithMessage("El RUC debe tener 11 dígitos.")
+            .Matches("^[0-9]+$").WithMessage("El RUC solo debe contener números.");
 
-            // Validación para el campo sRazonSocial (obligatorio y con longitud adecuada)
-            RuleFor(x => x.sRazonSocial)
-                .NotEmpty().WithMessage("El campo RazonSocial es obligatorio.")
-                .Length(3, 255).WithMessage("El campo RazonSocial debe tener entre 3 y 255 caracteres.");
+        RuleFor(x => x.sRazonSocial)
+            .NotEmpty().WithMessage("La razón social es obligatoria.")
+            .MaximumLength(200).WithMessage("La razón social no debe exceder los 200 caracteres.");
 
-            // Validación para el campo nSectorId (debe ser mayor que 0)
-            RuleFor(x => x.nSectorId)
-                .GreaterThan(0).WithMessage("El campo SectorId debe ser mayor que 0.");
+        RuleFor(x => x.nIdSector)
+            .GreaterThan(0).WithMessage("El ID del sector debe ser mayor a 0.");
 
-            // Validación para el campo nRubroId (debe ser mayor que 0)
-            RuleFor(x => x.nRubroId)
-                .GreaterThan(0).WithMessage("El campo RubroId debe ser mayor que 0.");
+        RuleFor(x => x.nIdRubroNegocio)
+            .GreaterThan(0).WithMessage("El ID del rubro de negocio debe ser mayor a 0.");
 
-            // Validación para los campos relacionados con la ubicación (Departamento, Provincia, Distrito)
-            RuleFor(x => x.nDepartamentoId)
-                .GreaterThan(0).WithMessage("El campo DepartamentoId debe ser mayor que 0.");
+        RuleFor(x => x.sIdDepartamento)
+            .NotEmpty().WithMessage("El departamento es obligatorio.")
+            .Length(4).WithMessage("El código de departamento debe tener 4 caracteres.");
 
-            RuleFor(x => x.nProvinciaId)
-                .GreaterThan(0).WithMessage("El campo ProvinciaId debe ser mayor que 0.");
+        RuleFor(x => x.sIdProvincia)
+            .NotEmpty().WithMessage("La provincia es obligatoria.")
+            .Length(4).WithMessage("El código de provincia debe tener 4 caracteres.");
 
-            RuleFor(x => x.nDistritoId)
-                .GreaterThan(0).WithMessage("El campo DistritoId debe ser mayor que 0.");
+        RuleFor(x => x.sIdDistrito)
+            .NotEmpty().WithMessage("El distrito es obligatorio.")
+            .Length(4).WithMessage("El código de distrito debe tener 4 caracteres.");
 
-            // Validación para los campos de dirección y comentario (pueden ser nulos pero si se proporcionan deben tener una longitud adecuada)
-            RuleFor(x => x.sDireccion)
-                .MaximumLength(500).WithMessage("El campo Dirección no puede exceder 500 caracteres.");
+        RuleFor(x => x.sDireccion)
+            .MaximumLength(500).WithMessage("La dirección no debe exceder los 500 caracteres.");
 
-            RuleFor(x => x.sComentario)
-                .MaximumLength(1000).WithMessage("El campo Comentario no puede exceder 1000 caracteres.");
+        RuleFor(x => x.sComentario)
+            .MaximumLength(500).WithMessage("El comentario no debe exceder los 500 caracteres.");
 
-            // Validación para los campos de ingresos, utilidad y capital social (deben ser positivos)
-            RuleFor(x => x.dIngresosUltimoAnio)
-                .GreaterThan(0).WithMessage("El campo IngresosUltimoAnio debe ser mayor que 0.");
+        RuleFor(x => x.nNumeroMiembros)
+            .GreaterThanOrEqualTo(0).WithMessage("El número de miembros no puede ser negativo.");
 
-            RuleFor(x => x.dUtilidadUltimoAnio)
-                .GreaterThan(0).WithMessage("El campo UtilidadUltimoAnio debe ser mayor que 0.");
+        RuleFor(x => x.mIngresosUltimoAnio)
+            .GreaterThanOrEqualTo(0).WithMessage("Los ingresos deben ser un número positivo.");
 
-            RuleFor(x => x.dConformacionCapitalSocial)
-                .GreaterThan(0).WithMessage("El campo ConformacionCapitalSocial debe ser mayor que 0.");
+        RuleFor(x => x.mUtilidadUltimoAnio)
+            .GreaterThanOrEqualTo(0).WithMessage("La utilidad debe ser un número positivo.");
 
-            // Validación para el número de miembros (debe ser mayor que 0)
-            RuleFor(x => x.nNumeroMiembros)
-                .GreaterThan(0).WithMessage("El campo NumeroMiembros debe ser mayor que 0.");
+        RuleFor(x => x.mConformacionCapitalSocial)
+            .GreaterThanOrEqualTo(0).WithMessage("La conformación de capital social debe ser un número positivo.");
 
-            // Validación para bRegistradoMercadoValor (booleano obligatorio)
-            RuleFor(x => x.bRegistradoMercadoValor)
-                .NotNull().WithMessage("El campo bRegistradoMercadoValor es obligatorio.");
-
-            // Validación para nUsuarioRegistroId (debe ser mayor que 0)
-            RuleFor(x => x.nUsuarioRegistroId)
-                .GreaterThan(0).WithMessage("El campo UsuarioRegistroId debe ser mayor que 0.");
-        }
+        RuleFor(x => x.nUsuarioRegistro)
+            .GreaterThan(0).WithMessage("El ID del usuario de registro debe ser mayor a 0.");
     }
 }

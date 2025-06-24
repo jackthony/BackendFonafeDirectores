@@ -4,18 +4,19 @@
     {
         public string sRuc { get; set; } = string.Empty;
         public string sRazonSocial { get; set; } = string.Empty;
-        public int nSectorId { get; set; }
-        public int nRubroId { get; set; }
-        public int nDepartamentoId { get; set; }
-        public int nProvinciaId { get; set; }
-        public int nDistritoId { get; set; }
-        public string? sDireccion { get; set; } = string.Empty;
-        public string? sComentario { get; set; } = string.Empty;
-        public decimal dIngresosUltimoAnio { get; set; }
-        public decimal dUtilidadUltimoAnio { get; set; }
-        public decimal dConformacionCapitalSocial { get; set; }
+        public int nIdSector { get; set; }
+        public int nIdRubroNegocio { get; set; }
+        public string sIdDepartamento { get; set; } = string.Empty;
+        public string sIdProvincia { get; set; } = string.Empty;
+        public string sIdDistrito { get; set; } = string.Empty;
+        public string sDireccion { get; set; } = string.Empty;
+        public string sComentario { get; set; } = string.Empty;
         public int nNumeroMiembros { get; set; }
-        public bool bRegistradoMercadoValor { get; set; }
-        public int nUsuarioRegistroId { get; set; }
+        public decimal mIngresosUltimoAnio { get; set; }
+        public decimal mUtilidadUltimoAnio { get; set; }
+        public decimal mConformacionCapitalSocial { get; set; }
+        public bool bRegistradoMercadoValores { get; set; }
+        public bool bActivo { get; set; }
+        public int nUsuarioRegistro { get; set; }
     }
 }

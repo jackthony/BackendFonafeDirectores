@@ -18,22 +18,23 @@ namespace Empresa.Application.Empresa.Mappers
         {
             return new CrearEmpresaParameters
             {
-                sRuc = source.sRuc,
-                sRazonSocial = source.sRazonSocial,
-                nSectorId = source.nSectorId,
-                nRubroId = source.nRubroId,
-                nDepartamentoId = source.nDepartamentoId,
-                nProvinciaId = source.nProvinciaId,
-                nDistritoId = source.nDistritoId,
-                sDireccion = source.sDireccion,
-                sComentario = source.sComentario,
-                dIngresosUltimoAnio = source.dIngresosUltimoAnio,
-                dUtilidadUltimoAnio = source.dUtilidadUltimoAnio,
-                dConformacionCapitalSocial = source.dConformacionCapitalSocial,
-                nNumeroMiembros = source.nNumeroMiembros,
-                bRegistradoMercadoValor = source.bRegistradoMercadoValor,
-                dtFechaRegistro = _timeProvider.NowPeru,
-                nUsuarioRegistroId = source.nUsuarioRegistroId
+                Ruc = source.sRuc,
+                RazonSocial = source.sRazonSocial,
+                IdSector = source.nIdSector,
+                IdRubroNegocio = source.nIdRubroNegocio,
+                IdDepartamento = int.Parse(source.sIdDepartamento),
+                IdProvincia = int.Parse(source.sIdProvincia),
+                IdDistrito = int.Parse(source.sIdDistrito),
+                Direccion = source.sDireccion,
+                Comentario = source.sComentario,
+                NumeroMiembros = source.nNumeroMiembros,
+                IngresosUltimoAnio = source.mIngresosUltimoAnio,
+                UtilidadUltimoAnio = source.mUtilidadUltimoAnio,
+                ConformacionCapitalSocial = source.mConformacionCapitalSocial,
+                RegistradoMercadoValores = source.bRegistradoMercadoValores,
+                Activo = source.bActivo,
+                UsuarioRegistro = source.nUsuarioRegistro,
+                FechaRegistro = _timeProvider.NowPeru
             };
         }
     }

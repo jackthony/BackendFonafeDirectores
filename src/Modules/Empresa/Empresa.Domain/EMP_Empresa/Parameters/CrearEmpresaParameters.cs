@@ -2,21 +2,22 @@
 {
     public class CrearEmpresaParameters
     {
-        public string sRuc { get; set; } = string.Empty;
-        public string sRazonSocial { get; set; } = string.Empty;
-        public int nSectorId { get; set; }
-        public int nRubroId { get; set; }
-        public int nDepartamentoId { get; set; }
-        public int nProvinciaId { get; set; }
-        public int nDistritoId { get; set; }
-        public string? sDireccion { get; set; } = string.Empty;
-        public string? sComentario { get; set; } = string.Empty;
-        public decimal dIngresosUltimoAnio { get; set; }
-        public decimal dUtilidadUltimoAnio { get; set; }
-        public decimal dConformacionCapitalSocial { get; set; }
-        public int nNumeroMiembros { get; set; }
-        public bool bRegistradoMercadoValor { get; set; }
-        public DateTime dtFechaRegistro { get; set; }
-        public int nUsuarioRegistroId { get; set; }
+        public string Ruc { get; set; } = string.Empty;
+        public string RazonSocial { get; set; } = string.Empty;
+        public int IdSector { get; set; }
+        public int IdRubroNegocio { get; set; }
+        public int IdDepartamento { get; set; }
+        public int IdProvincia { get; set; }
+        public int IdDistrito { get; set; }
+        public string Direccion { get; set; } = string.Empty;
+        public string Comentario { get; set; } = string.Empty;
+        public int NumeroMiembros { get; set; }
+        public decimal IngresosUltimoAnio { get; set; }
+        public decimal UtilidadUltimoAnio { get; set; }
+        public decimal ConformacionCapitalSocial { get; set; }
+        public bool RegistradoMercadoValores { get; set; }
+        public bool Activo { get; set; }
+        public int UsuarioRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
     }
 }
