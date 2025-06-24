@@ -7,6 +7,22 @@ namespace Empresa.Application.Cargo.Validators
     {
         public ActualizarCargoRequestValidator()
         {
+            // 1) nIdCargo: PK int NOT NULL
+            RuleFor(x => x.nIdCargo)
+                .GreaterThan(0)
+                .WithMessage("El identificador del cargo es obligatorio y debe ser mayor que cero.");
+
+            // 2) sNombreCargo: varchar(200) NOT NULL
+            RuleFor(x => x.sNombreCargo)
+                .NotEmpty()
+                .WithMessage("El nombre del cargo es obligatorio.")
+                .MaximumLength(200)
+                .WithMessage("El nombre del cargo no puede exceder los 200 caracteres.");
+
+            // 3) nUsuarioModificacion: FK int NOT NULL
+            RuleFor(x => x.nUsuarioModificacion)
+                .GreaterThan(0)
+                .WithMessage("Debe especificar el usuario que realiza la modificación.");
         }
     }
 }
