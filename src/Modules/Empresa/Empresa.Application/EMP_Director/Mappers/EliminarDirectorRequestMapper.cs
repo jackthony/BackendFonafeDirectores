@@ -19,7 +19,7 @@ namespace Empresa.Application.Director.Mappers
             {
                 nDirectorId = source.nDirectorId,
                 dtFechaModificacion = source.dtFechaModificacion,
-                nUsuarioModificacionId = source.nUsuarioModificacionId
+                nUsuarioModificacionId = _timeProvider.NowPeru
             };
         }
     }
