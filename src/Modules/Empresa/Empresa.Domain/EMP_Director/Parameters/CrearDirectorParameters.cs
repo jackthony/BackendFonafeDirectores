@@ -21,6 +21,7 @@
         public string? CorreoTerciario { get; set; }
         public int Cargo { get; set; }
         public int TipoDirector { get; set; }
+        public int nSectorId { get; set; }
         public string Profesion { get; set; } = string.Empty;
         public decimal Dieta { get; set; }
         public int Especialidad { get; set; }
