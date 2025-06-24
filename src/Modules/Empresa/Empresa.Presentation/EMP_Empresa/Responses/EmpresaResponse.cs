@@ -5,7 +5,7 @@
         public int nIdEmpresa { get; set; }
         public string sRuc { get; set; } = string.Empty;
         public string sRazonSocial { get; set; } = string.Empty;
-        public int nIdProponente { get; set; }
+        public int nIdSector { get; set; }
         public int nIdRubroNegocio { get; set; }
         public string sIdDepartamento { get; set; } = string.Empty;
         public string sIdProvincia { get; set; } = string.Empty;
