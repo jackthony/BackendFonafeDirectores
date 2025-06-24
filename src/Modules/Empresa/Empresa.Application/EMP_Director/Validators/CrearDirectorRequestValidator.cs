@@ -131,9 +131,9 @@ namespace Empresa.Application.Director.Validators
             RuleFor(x => x.nTipoDirector)
                 .GreaterThan(0)
                 .WithMessage("Debe seleccionar un tipo de director.");
-            //RuleFor(x => x.nSectorId)
-            //    .GreaterThan(0)
-            //    .WithMessage("Debe seleccionar un sector.");
+            RuleFor(x => x.nSectorId)
+                .GreaterThan(0)
+                .WithMessage("Debe seleccionar un sector.");
 
             //12. Profesión (varchar(250) NULLABLE)
             When(x => !string.IsNullOrEmpty(x.sProfesion), () =>
