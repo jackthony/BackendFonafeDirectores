@@ -7,14 +7,21 @@ namespace Usuario.Presentation.User.Mappers
     {
         public static UserResponse ToResponse(UserResult dto) => new()
         {
-            nUsuarioId = dto.UsuarioId,
-            sApellidosYNombres = dto.ApellidosYNombres,
-            sCargo = dto.Cargo,
-            sPerfil = dto.Perfil,
-            bEstado = dto.Estado,
-            dtFechaCreacion = dto.FechaCreacion,
-            dtUltimaModificacion = dto.UltimaModificacion,
-            sCorreo = dto.Correo,
+            nIdUsuario = dto.IdUsuario,
+            sApellidoPaterno = dto.ApellidoPaterno,
+            sApellidoMaterno = dto.ApellidoMaterno,
+            sNombres = dto.Nombres,
+            nIdCargo = dto.IdCargo,
+            nIdRol = dto.IdRol,
+            sCorreoElectronico = dto.CorreoElectronico,
+            nEstado = dto.Estado,
+            dtFechaRegistro = dto.FechaRegistro,
+            nUsuarioRegistro = dto.UsuarioRegistro,
+            dtFechaModificacion = dto.FechaModificacion,
+            nUsuarioModificacion = dto.UsuarioModificacion,
+            sCargoDescripcion = dto.CargoDescripcion,
+            sPerfilDescripcion = dto.PerfilDescripcion,
+            sEstadoDescripcion = dto.EstadoDescripcion
         };
 
 
