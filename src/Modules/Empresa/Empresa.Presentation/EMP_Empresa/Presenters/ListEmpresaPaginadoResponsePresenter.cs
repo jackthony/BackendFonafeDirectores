@@ -11,9 +11,17 @@ namespace Empresa.Presentation.Empresa.Presenters
     {
         public LstItemResponse<EmpresaResponse> Present(PagedResult<EmpresaResult> input)
         {
+            int startIndex = (input.Page - 1) * input.PageSize;
+
+            var lista = EmpresaResponseMapper.ToListResponse(input.Items);
+            var listaItems = lista.ToList();
+            for (int i = 0; i < listaItems.Count; i++)
+            {
+                listaItems[i].indice = startIndex + i + 1;
+            }
             return new LstItemResponse<EmpresaResponse>
             {
-                LstItem = EmpresaResponseMapper.ToListResponse(input.Items),
+                LstItem = listaItems,
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,

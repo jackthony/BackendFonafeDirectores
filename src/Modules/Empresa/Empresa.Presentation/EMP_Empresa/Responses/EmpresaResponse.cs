@@ -25,5 +25,6 @@
         public string? sDescripcionRubro { get; set; }
         public string? sNombreMinisterio { get; set; }
         public string? sProvinciaDescripcion { get; set; }
+        public int indice { get; set; }
     }
 }
