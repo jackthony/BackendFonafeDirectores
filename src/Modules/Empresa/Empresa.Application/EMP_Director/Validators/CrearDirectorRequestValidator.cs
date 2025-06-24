@@ -131,9 +131,9 @@ namespace Empresa.Application.Director.Validators
             RuleFor(x => x.nTipoDirector)
                 .GreaterThan(0)
                 .WithMessage("Debe seleccionar un tipo de director.");
-            RuleFor(x => x.nSectorId)
-                .GreaterThan(0)
-                .WithMessage("Debe seleccionar un sector.");
+            //RuleFor(x => x.nSectorId)
+            //    .GreaterThan(0)
+            //    .WithMessage("Debe seleccionar un sector.");
 
             //12. Profesión (varchar(250) NULLABLE)
             When(x => !string.IsNullOrEmpty(x.sProfesion), () =>
@@ -154,16 +154,16 @@ namespace Empresa.Application.Director.Validators
                 .WithMessage("Debe seleccionar una especialidad.");
 
             //15. Fechas de nombramiento y designación (DATETIME NULLABLE en BD, pero request es non-nullable)
-            RuleFor(x => x.dFechaNombramiento)
-                .LessThanOrEqualTo(DateTime.Now)
-                .WithMessage("La fecha de nombramiento no puede ser futura.")
-                .GreaterThan(x => x.dFechaNacimiento)
-                .WithMessage("La fecha de nombramiento debe ser posterior a la fecha de nacimiento.");
-            RuleFor(x => x.dFechaDesignacion)
-                .LessThanOrEqualTo(DateTime.Now)
-                .WithMessage("La fecha de designación no puede ser futura.")
-                .GreaterThanOrEqualTo(x => x.dFechaNombramiento)
-                .WithMessage("La fecha de designación debe ser igual o posterior a la de nombramiento.");
+            //RuleFor(x => x.dFechaNombramiento)
+            //    .LessThanOrEqualTo(DateTime.Now)
+            //    .WithMessage("La fecha de nombramiento no puede ser futura.")
+            //    .GreaterThan(x => x.dFechaNacimiento)
+            //    .WithMessage("La fecha de nombramiento debe ser posterior a la fecha de nacimiento.");
+            //RuleFor(x => x.dFechaDesignacion)
+            //    .LessThanOrEqualTo(DateTime.Now)
+            //    .WithMessage("La fecha de designación no puede ser futura.")
+            //    .GreaterThanOrEqualTo(x => x.dFechaNombramiento)
+            //    .WithMessage("La fecha de designación debe ser igual o posterior a la de nombramiento.");
 
             //16. Comentario (varchar(500) NULLABLE)
             When(x => !string.IsNullOrEmpty(x.sComentario), () =>
