@@ -17,8 +17,8 @@ namespace Empresa.Application.Director.Mappers
         {
             return new ActualizarDirectorParameters
             {
-                nIdRegistro = source.nDirectorId,
-                nIdEmpresa = source.nEmpresaId,
+                nDirectorId = source.nIdRegistro,
+                nEmpresaId = source.nIdEmpresa,
                 nTipoDocumentoId = source.nTipoDocumentoId,
                 sNumeroDocumento = source.sNumeroDocumento,
                 sNombres = source.sNombres,

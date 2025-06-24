@@ -2,8 +2,8 @@
 {
     public class ActualizarDirectorParameters
     {
-        public int nIdRegistro { get; set; }
-        public int nIdEmpresa { get; set; }
+        public int nDirectorId { get; set; }
+        public int nEmpresaId { get; set; }
         public int? nTipoDocumentoId { get; set; } // Nullable para que no sea necesario actualizarlo siempre
         public string? sNumeroDocumento { get; set; } = string.Empty;
         public string? sNombres { get; set; } = string.Empty;

@@ -10,12 +10,12 @@ namespace Empresa.Application.Director.Validators
         public ActualizarDirectorRequestValidator()
         {
             // 1. ID del director
-            RuleFor(x => x.nDirectorId)
+            RuleFor(x => x.nIdRegistro)
                 .GreaterThan(0)
                 .WithMessage("El identificador del director es obligatorio y debe ser mayor que cero.");
 
             // 2. Empresa (FK NOT NULL)
-            RuleFor(x => x.nEmpresaId)
+            RuleFor(x => x.nIdEmpresa)
                 .GreaterThan(0)
                 .WithMessage("Debe especificar una empresa válida.");
 

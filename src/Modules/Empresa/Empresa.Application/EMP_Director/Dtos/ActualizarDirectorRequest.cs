@@ -2,8 +2,8 @@
 {
     public class ActualizarDirectorRequest
     {
-        public int nDirectorId { get; set; }
-        public int nEmpresaId { get; set; }
+        public int nIdRegistro { get; set; }
+        public int nIdEmpresa { get; set; }
         public int? nTipoDocumentoId { get; set; }
         public string? sNumeroDocumento { get; set; } = string.Empty;
         public string? sNombres { get; set; } = string.Empty;
