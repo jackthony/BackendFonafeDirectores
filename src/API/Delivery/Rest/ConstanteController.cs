@@ -4,6 +4,9 @@ using Shared.Kernel.Responses;
 
 namespace Api.Delivery.Rest
 {
+    [ApiController]
+    [Route("api/[controller]")]
+    //[Authorize]
     public class ConstanteController : ControllerBase
     {
         [HttpGet("listar")]
