@@ -33,8 +33,8 @@ namespace Api.Delivery.Rest
         };
 
             var resultado = datos
-                .Where(x => x.nConCodigo == nConCodigo         // por código
-                         && x.nConValor != 0)               // omitimos los de valor 0
+                .Where(x => x.nConCodigo == nConCodigo
+                         && x.nConValor != 0)
                 .ToList();
 
             var response = new LstItemResponse<ConstanteItemResponse>
