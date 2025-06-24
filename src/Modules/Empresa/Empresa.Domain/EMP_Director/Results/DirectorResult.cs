@@ -36,5 +36,8 @@ namespace Empresa.Domain.Director.Results
         public int nUsuarioRegistro { get; set; }
         public DateTime? dtFechaModificacion { get; set; }
         public int? nUsuarioModificacion { get; set; }
+        public string sTipoDocumentoDescripcion { get; set; } = default!;
+        public string sCargoDescripcion { get; set; } = default!;
+        public string sTipoDirectorDescripcion { get; set; } = default!;
     }
 }

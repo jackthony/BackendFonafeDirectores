@@ -38,7 +38,10 @@ namespace Empresa.Presentation.Director.Mappers
             dtFechaRegistro = dto.dtFechaRegistro,
             nUsuarioRegistro = dto.nUsuarioRegistro,
             dtFechaModificacion = dto.dtFechaModificacion,
-            nUsuarioModificacion = dto.nUsuarioModificacion
+            nUsuarioModificacion = dto.nUsuarioModificacion,
+            sTipoDocumentoDescripcion = dto.sTipoDocumentoDescripcion,
+            sCargoDescripcion = dto.sCargoDescripcion,
+            sTipoDirectorDescripcion = dto.sTipoDirectorDescripcion
         };
 
 
