@@ -2,8 +2,7 @@
 {
     public class EliminarEmpresaRequest
     {
-        public int nEmpresaId { get; set; }
-        public DateTime? dtFechaModificacion { get; set; } = null;
-        public int? nUsuarioModificacionId { get; set; } = null;
+        public int nIdEmpresa { get; set; }
+        public int nUsuarioModificacion { get; set; }
     }
 }

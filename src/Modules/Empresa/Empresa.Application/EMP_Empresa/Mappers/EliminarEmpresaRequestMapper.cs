@@ -17,9 +17,9 @@ namespace Empresa.Application.Empresa.Mappers
         {
             return new EliminarEmpresaParameters
             {
-                nEmpresaId = source.nEmpresaId,
-                dtFechaModificacion = _timeProvider.NowPeru,
-                nUsuarioModificacionId = source.nUsuarioModificacionId
+                EmpresaId = source.nIdEmpresa,
+                FechaModificacion = _timeProvider.NowPeru,
+                UsuarioModificacionId = source.nUsuarioModificacion
             };
         }
     }

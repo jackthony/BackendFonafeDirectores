@@ -2,8 +2,8 @@
 {
     public class EliminarEmpresaParameters
     {
-        public int nEmpresaId { get; set; }
-        public DateTime? dtFechaModificacion { get; set; } = null;
-        public int? nUsuarioModificacionId { get; set; } = null;
+        public int EmpresaId { get; set; }
+        public DateTime FechaModificacion { get; set; }
+        public int UsuarioModificacionId { get; set; }
     }
 }
