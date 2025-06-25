@@ -40,7 +40,7 @@ namespace Usuario.Application.Auth.UseCases
             var usuario = result.Data;
 
             if (usuario.IntentosFallidos >= 3)
-                return ErrorBase.Validation("Cuenta bloqueada por intentos fallidos. Contacte con el administrador.");
+                return ErrorBase.Validation("Su cuenta se inhabilitó, contactar con el administrador");
 
             var isPasswordValid = _passwordHasher.Verify(request.Password, usuario.PasswordHash);
             if (!isPasswordValid)
@@ -48,9 +48,6 @@ namespace Usuario.Application.Auth.UseCases
                 await _authRepository.IncrementarIntentosFallidosAsync(usuario.UsuarioId);
                 return ErrorBase.Validation("Contraseña incorrecta");
             }
-
-            if (usuario.Status != "1")
-                return ErrorBase.Validation("El usuario no se encuentra activo");
 
             await _authRepository.ResetearIntentosFallidosAsync(usuario.UsuarioId);
 
