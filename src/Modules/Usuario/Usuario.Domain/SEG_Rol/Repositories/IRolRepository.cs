@@ -1,6 +1,7 @@
 ﻿using Shared.Kernel.Responses;
 using Usuario.Domain.Rol.Parameters;
 using Usuario.Domain.Rol.Results;
+using Usuario.Domain.SEG_Rol.Parameters;
 
 namespace Usuario.Domain.Rol.Repositories
 {
@@ -12,5 +13,6 @@ namespace Usuario.Domain.Rol.Repositories
         public Task<List<RolResult>> ListAsync(ListarRolParameters request);
         public Task<RolResult?> GetByIdAsync(int id);
         public Task<PagedResult<RolResult>> ListByPaginationAsync(ListarRolPaginadoParameters request);
+        public Task<SpResultBase> AddPermisosRolesAsync(CrearPermisosRolParameters request);
     }
 }

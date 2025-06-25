@@ -3,7 +3,7 @@
     public class CrearPermisosRolRequest
     {
         public int nRolId { get; set; }
-        public List<PermisolRolRequest> lstPermisos { get; set; } = [];
+        public List<PermisoPorModuloRequest> lstModulos { get; set; } = [];
         public int nUsuarioModificacionId { get; set; }
     }
 }

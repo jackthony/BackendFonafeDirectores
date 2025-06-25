@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Usuario.Application.SEG_Rol.Dtos;
 
 namespace Api.Delivery.Rest
 {
@@ -20,13 +21,14 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ListarRolPaginadoRequest, PagedResult<RolResult>> _listarRolPaginadaUseCase;
         private readonly IUseCase<ListarRolRequest, List<RolResult>> _listarRolUseCase;
         private readonly IUseCase<int, RolResult?> _obtenerRolPorIdUseCase;
+        private readonly IUseCase<CrearPermisosRolRequest, SpResultBase> _crearPermisosRolUseCase;
         private readonly IPresenterDelivery<PagedResult<RolResult>, LstItemResponse<RolResponse>> _presenterListPage;
         private readonly IPresenterDelivery<List<RolResult>, LstItemResponse<RolResponse>> _presenterList;
         private readonly IPresenterDelivery<RolResult, ItemResponse<RolResponse>> _presenterObtenerId;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
 
-        public RolController(IUseCase<CrearRolRequest, SpResultBase> crearRolUseCase, IUseCase<ActualizarRolRequest, SpResultBase> actualizarRolUseCase, IUseCase<EliminarRolRequest, SpResultBase> eliminarRolUseCase, IUseCase<ListarRolPaginadoRequest, PagedResult<RolResult>> listarRolPaginadaUseCase, IUseCase<ListarRolRequest, List<RolResult>> listarRolUseCase, IUseCase<int, RolResult?> obtenerRolPorIdUseCase, IPresenterDelivery<PagedResult<RolResult>, LstItemResponse<RolResponse>> presenterListPage, IPresenterDelivery<List<RolResult>, LstItemResponse<RolResponse>> presenterList, IPresenterDelivery<RolResult, ItemResponse<RolResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
+        public RolController(IUseCase<CrearRolRequest, SpResultBase> crearRolUseCase, IUseCase<ActualizarRolRequest, SpResultBase> actualizarRolUseCase, IUseCase<EliminarRolRequest, SpResultBase> eliminarRolUseCase, IUseCase<ListarRolPaginadoRequest, PagedResult<RolResult>> listarRolPaginadaUseCase, IUseCase<ListarRolRequest, List<RolResult>> listarRolUseCase, IUseCase<int, RolResult?> obtenerRolPorIdUseCase, IUseCase<CrearPermisosRolRequest, SpResultBase> crearPermisosRolUseCase, IPresenterDelivery<PagedResult<RolResult>, LstItemResponse<RolResponse>> presenterListPage, IPresenterDelivery<List<RolResult>, LstItemResponse<RolResponse>> presenterList, IPresenterDelivery<RolResult, ItemResponse<RolResponse>> presenterObtenerId, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt)
         {
             _crearRolUseCase = crearRolUseCase;
             _actualizarRolUseCase = actualizarRolUseCase;
@@ -34,11 +36,22 @@ namespace Api.Delivery.Rest
             _listarRolPaginadaUseCase = listarRolPaginadaUseCase;
             _listarRolUseCase = listarRolUseCase;
             _obtenerRolPorIdUseCase = obtenerRolPorIdUseCase;
+            _crearPermisosRolUseCase = crearPermisosRolUseCase;
             _presenterListPage = presenterListPage;
             _presenterList = presenterList;
             _presenterObtenerId = presenterObtenerId;
             _presenterBool = presenterBool;
             _presenterInt = presenterInt;
+        }
+
+        [HttpPost("crearPermisosRol")]
+        public async Task<IActionResult> CrearRol([FromBody] CrearPermisosRolRequest request)
+        {
+            var result = await _crearPermisosRolUseCase.ExecuteAsync(request);
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+            var response = _presenterBool.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpPost("crear")]

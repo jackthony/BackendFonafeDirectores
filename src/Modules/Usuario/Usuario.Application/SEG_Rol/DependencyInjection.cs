@@ -8,6 +8,7 @@ using Usuario.Application.Rol.UseCases;
 using Usuario.Application.Rol.Validators;
 using Usuario.Application.SEG_Rol.Dtos;
 using Usuario.Application.SEG_Rol.Mappers;
+using Usuario.Application.SEG_Rol.UseCases;
 using Usuario.Domain.Rol.Parameters;
 using Usuario.Domain.Rol.Results;
 using Usuario.Domain.SEG_Rol.Parameters;
@@ -25,6 +26,7 @@ namespace Usuario.Application.Rol
             services.AddScoped<IUseCase<ListarRolPaginadoRequest, PagedResult<RolResult>>, ListarRolPaginadaUseCase>();
             services.AddScoped<IUseCase<ListarRolRequest, List<RolResult>>, ListarRolUseCase>();
             services.AddScoped<IUseCase<int, RolResult?>, ObtenerRolPorIdUseCase>();
+            services.AddScoped<IUseCase<CrearPermisosRolRequest, SpResultBase>, CrearPermisosRolUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarRolRequest, ActualizarRolParameters>, ActualizarRolRequestMapper>();

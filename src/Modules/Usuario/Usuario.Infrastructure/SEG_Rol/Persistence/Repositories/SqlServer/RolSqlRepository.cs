@@ -4,6 +4,7 @@ using System.Data;
 using Usuario.Domain.Rol.Parameters;
 using Usuario.Domain.Rol.Repositories;
 using Usuario.Domain.Rol.Results;
+using Usuario.Domain.SEG_Rol.Parameters;
 
 namespace Usuario.Infrastructure.Rol.Persistence.Repositories.SqlServer
 {
@@ -17,6 +18,33 @@ namespace Usuario.Infrastructure.Rol.Persistence.Repositories.SqlServer
             request,
             "sp_RegistrarRol");
             return spResult;
+        }
+
+        public async Task<SpResultBase> AddPermisosRolesAsync(CrearPermisosRolParameters request)
+        {
+            var tvp = new DataTable();
+            tvp.Columns.Add("nModuloId", typeof(int));
+            tvp.Columns.Add("nAccionId", typeof(int));
+            tvp.Columns.Add("bPermitir", typeof(bool));
+
+            foreach (var permiso in request.Permisos)
+            {
+                tvp.Rows.Add(permiso.ModuloId, permiso.AccionId, permiso.Permitir);
+            }
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@RolId", request.RolId, DbType.Int32);
+            parameters.Add("@Permisos", tvp.AsTableValuedParameter("TVP_PermisoRol"));
+            parameters.Add("@UsuarioModificacionId", request.UsuarioModificacionId, DbType.Int32);
+            parameters.Add("@FechaOperacion", request.FechaOperacion, DbType.DateTime);
+
+            var result = await _connection.QueryFirstOrDefaultAsync<SpResultBase>(
+                "sp_GuardarPermisosRol",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result ?? new SpResultBase { Success = false, Message = "No se recibió respuesta del SP.", Data = 0 };
         }
 
         public async Task<SpResultBase> DeleteAsync(EliminarRolParameters request)

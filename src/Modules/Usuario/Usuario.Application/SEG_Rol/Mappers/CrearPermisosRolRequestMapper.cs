@@ -16,17 +16,21 @@ namespace Usuario.Application.SEG_Rol.Mappers
 
         public CrearPermisosRolParameters Map(CrearPermisosRolRequest source)
         {
+            var permisos = source.lstModulos
+                .SelectMany(modulo => modulo.lstAcciones.Select(accion => new PermisoRolParameter
+                {
+                    ModuloId = modulo.nModuloId,
+                    AccionId = accion.nAccionId,
+                    Permitir = accion.bPermitir
+                }))
+                .ToList();
+
             return new CrearPermisosRolParameters
             {
                 RolId = source.nRolId,
                 UsuarioModificacionId = source.nUsuarioModificacionId,
                 FechaOperacion = _timeProvider.NowPeru,
-                Permisos = source.lstPermisos.Select(p => new PermisoRolParameter
-                {
-                    ModuloId = p.nModuloId,
-                    AccionId = p.nAccionId,
-                    Permitir = p.bPermitir
-                }).ToList()
+                Permisos = permisos
             };
         }
     }

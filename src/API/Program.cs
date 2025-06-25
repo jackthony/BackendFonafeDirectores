@@ -19,11 +19,13 @@ using Empresa.Application.Ministerio;
 using Empresa.Application.Rubro;
 using Empresa.Application.Sector;
 using Empresa.Application.TipoDirector;
+using Empresa.Application.Dieta;
 using Empresa.Infrastructure.Especialidad;
 using Empresa.Infrastructure.Ministerio;
 using Empresa.Infrastructure.Rubro;
 using Empresa.Infrastructure.Sector;
 using Empresa.Infrastructure.TipoDirector;
+using Empresa.Infrastructure.Dieta;
 using Archivo.Application.Archivo;
 using Archivo.Infrastructure.Archivo;
 using Empresa.Presentation.EMP_Cargo;
@@ -34,6 +36,7 @@ using Empresa.Presentation.EMP_Ministerio;
 using Empresa.Presentation.EMP_Rubro;
 using Empresa.Presentation.EMP_Sector;
 using Empresa.Presentation.EMP_TipoDirector;
+using Empresa.Presentation.EMP_Dieta;
 using Shared.ClientV1;
 using Shared.Kernel.Responses;
 using Shared.Presenters;
@@ -47,6 +50,7 @@ using Usuario.Presentation.PermisoRol;
 using Empresa.Application.Ubigeo;
 using Empresa.Infrastructure.Ubigeo;
 using Empresa.Presentation.Ubigeo;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -128,6 +132,10 @@ builder.Services.AddArchivoInfrastructure();
 builder.Services.AddUbigeoApplication();
 builder.Services.AddUbigeoInfrastructure();
 builder.Services.AddUbigeoPresenters();
+
+builder.Services.AddDietaApplication();
+builder.Services.AddDietaInfrastructure();
+builder.Services.AddDietaPresenters();
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
