@@ -18,10 +18,10 @@ namespace Api.Helpers
                 },
                 DatabaseError db => new ProblemDetails
                 {
-                    Title = db.Message,
+                    Title = "Error de validación",
                     Status = StatusCodes.Status503ServiceUnavailable,
                     Type = "https://httpstatuses.com/503",
-                    Detail = "Error al acceder a la base de datos.",
+                    Detail = db.Message ?? "Error al acceder a la base de datos.",
                     Instance = httpContext?.Request.Path
                 },
                 UnexpectedError unexpected => new ProblemDetails
