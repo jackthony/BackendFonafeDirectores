@@ -2,7 +2,6 @@
 {
     public class EmpresaDocResult
     {
-        public int Id { get; set; }
         public string Ruc { get; set; } = string.Empty;
         public string RazonSocial { get; set; } = string.Empty;
         public string Departamento { get; set; } = string.Empty;
@@ -18,5 +17,8 @@
         public string RegistroEnMercado { get; set; } = string.Empty;
         public string Activo { get; set; } = string.Empty;
         public string Comentario { get; set; } = string.Empty;
+
+        // Campos adicionales no mencionados en la lista
+        public int Id { get; set; }
     }
 }

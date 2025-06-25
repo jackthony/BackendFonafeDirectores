@@ -69,7 +69,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             foreach (var item in empresas)
             {
                 var propiedades = item.GetType().GetProperties();
-                for (int col = 0; col < propiedades.Length; col++)
+                for (int col = 0; col < propiedades.Length - 1; col++)
                 {
                     var valor = propiedades[col].GetValue(item);
                     hojaEmpresas.Cell(fila, col + 1).Value = valor?.ToString() ?? "";
@@ -94,7 +94,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                 hojaDirectores.Cell(fila, 2).Value = empresa?.RazonSocial ?? "";
 
                 var propiedades = item.GetType().GetProperties();
-                for (int col = 0; col < propiedades.Length; col++)
+                for (int col = 0; col < propiedades.Length - 3; col++)
                 {
                     var valor = propiedades[col].GetValue(item);
                     hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";
