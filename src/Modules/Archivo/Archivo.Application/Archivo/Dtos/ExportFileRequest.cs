@@ -2,5 +2,6 @@
 {
     public class ExportFileRequest
     {
+        public int sTipoArchivo { get; set; }
     }
 }
