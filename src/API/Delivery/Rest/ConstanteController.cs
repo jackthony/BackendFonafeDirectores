@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Empresa.Domain.EMP_Dieta.Models;
+using Microsoft.AspNetCore.Mvc;
 using Shared.ClientV1;
 using Shared.Kernel.Responses;
 
@@ -8,6 +9,25 @@ namespace Api.Delivery.Rest
     [Route("api/[controller]")]
     public class ConstanteController : ControllerBase
     {
+        [HttpGet("getDieta")]
+        public IActionResult Listar(string sRuc, int nTipoCargo )
+        {
+            var datos = new List<DietaModel>
+            {
+                new("12345859845", 1, 2000),
+                new("12345859845", 2, 4000),
+            };
+
+            var resultado = datos.ToList();
+
+            var response = new LstItemResponse<DietaModel>
+            {
+                LstItem = resultado,
+                IsSuccess = true
+            };
+            return Ok(response);
+        }
+
         [HttpGet("listar")]
         public IActionResult Listar(int nConCodigo)
         {
