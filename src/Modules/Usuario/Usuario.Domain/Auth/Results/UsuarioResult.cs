@@ -10,5 +10,6 @@
         public string PrimerNombre { get; set; } = default!;
         public string Status { get; set; } = default!;
         public string JsonModulos { get; set; } = default!;
+        public int IntentosFallidos {  get; set; } = default!;
     }
 }

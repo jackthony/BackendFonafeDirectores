@@ -39,12 +39,20 @@ namespace Usuario.Application.Auth.UseCases
 
             var usuario = result.Data;
 
+            if (usuario.IntentosFallidos >= 3)
+                return ErrorBase.Validation("Cuenta bloqueada por intentos fallidos. Contacte con el administrador.");
+
             var isPasswordValid = _passwordHasher.Verify(request.Password, usuario.PasswordHash);
             if (!isPasswordValid)
+            {
+                await _authRepository.IncrementarIntentosFallidosAsync(usuario.UsuarioId);
                 return ErrorBase.Validation("Contraseña incorrecta");
+            }
 
             if (usuario.Status != "1")
                 return ErrorBase.Validation("El usuario no se encuentra activo");
+
+            await _authRepository.ResetearIntentosFallidosAsync(usuario.UsuarioId);
 
             var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, []);
 
@@ -57,5 +65,6 @@ namespace Usuario.Application.Auth.UseCases
                 UsuarioResult = usuario
             };
         }
+
     }
 }

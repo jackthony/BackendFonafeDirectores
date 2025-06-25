@@ -6,7 +6,10 @@ namespace Usuario.Domain.Auth.Repositories
 {
     public interface IAuthRepository
     {
-        public Task<SpResult<UsuarioResult>> ObtenerPorCorreoAsync(LoginParameters request);
-        public Task<SpResult<UsuarioResult>> ObtenerPorIdAsync(int usuarioId);
+        Task<SpResult<UsuarioResult>> ObtenerPorCorreoAsync(LoginParameters request);
+        Task<SpResult<UsuarioResult>> ObtenerPorIdAsync(int usuarioId);
+
+        Task IncrementarIntentosFallidosAsync(int usuarioId);
+        Task ResetearIntentosFallidosAsync(int usuarioId);
     }
 }

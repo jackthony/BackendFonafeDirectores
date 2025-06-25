@@ -11,6 +11,24 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
     {
         private readonly IDbConnection _connection = connection;
 
+        public async Task IncrementarIntentosFallidosAsync(int usuarioId)
+        {
+            await _connection.ExecuteAsync(
+                "sp_IncrementarIntentosFallidos",
+                new { UsuarioId = usuarioId },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+        public async Task ResetearIntentosFallidosAsync(int usuarioId)
+        {
+            await _connection.ExecuteAsync(
+                "sp_ResetearIntentosFallidos",
+                new { UsuarioId = usuarioId },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
         public Task<SpResult<UsuarioResult>> ObtenerPorCorreoAsync(LoginParameters request)
         {
             return EjecutarSpConResultadoAsync<UsuarioResult>(
