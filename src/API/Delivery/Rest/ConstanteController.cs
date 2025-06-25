@@ -32,25 +32,29 @@ namespace Api.Delivery.Rest
         public IActionResult Listar(int nConCodigo)
         {
             var datos = new List<ConstanteItemResponse>
-        {
-            new() { nConCodigo = 1, nConValor = 0, sConDescripcion = "Géneros" },
-            new() { nConCodigo = 1, nConValor = 1, sConDescripcion = "Masculino" },
-            new() { nConCodigo = 1, nConValor = 2, sConDescripcion = "Femenino" },
+            {
+                new() { nConCodigo = 1, nConValor = 0, sConDescripcion = "Géneros" },
+                new() { nConCodigo = 1, nConValor = 1, sConDescripcion = "Masculino" },
+                new() { nConCodigo = 1, nConValor = 2, sConDescripcion = "Femenino" },
 
-            new() { nConCodigo = 2, nConValor = 0, sConDescripcion = "Tipo de documento" },
-            new() { nConCodigo = 2, nConValor = 1, sConDescripcion = "DNI" },
-            new() { nConCodigo = 2, nConValor = 2, sConDescripcion = "Carnet de extranjería" },
+                new() { nConCodigo = 2, nConValor = 0, sConDescripcion = "Tipo de documento" },
+                new() { nConCodigo = 2, nConValor = 1, sConDescripcion = "DNI" },
+                new() { nConCodigo = 2, nConValor = 2, sConDescripcion = "Carnet de extranjería" },
 
-            new() { nConCodigo = 10, nConValor = 0, sConDescripcion = "Estado Usuario" },
-            new() { nConCodigo = 10, nConValor = 1, sConDescripcion = "Activo" },
-            new() { nConCodigo = 10, nConValor = 2, sConDescripcion = "Inactivo" },
-            new() { nConCodigo = 10, nConValor = 3, sConDescripcion = "Deshabilitado" },
+                new() { nConCodigo = 10, nConValor = 0, sConDescripcion = "Estado Usuario" },
+                new() { nConCodigo = 10, nConValor = 1, sConDescripcion = "Activo" },
+                new() { nConCodigo = 10, nConValor = 2, sConDescripcion = "Inactivo" },
+                new() { nConCodigo = 10, nConValor = 3, sConDescripcion = "Deshabilitado" },
 
-            new() { nConCodigo = 11, nConValor = 0, sConDescripcion = "Cargo usuario" },
-            new() { nConCodigo = 11, nConValor = 1, sConDescripcion = "Analista" },
-            new() { nConCodigo = 11, nConValor = 2, sConDescripcion = "Gerente" },
-            new() { nConCodigo = 11, nConValor = 3, sConDescripcion = "Especialista" },
-        };
+                new() { nConCodigo = 11, nConValor = 0, sConDescripcion = "Cargo usuario" },
+                new() { nConCodigo = 11, nConValor = 1, sConDescripcion = "Analista" },
+                new() { nConCodigo = 11, nConValor = 2, sConDescripcion = "Gerente" },
+                new() { nConCodigo = 11, nConValor = 3, sConDescripcion = "Especialista" },
+
+                new() { nConCodigo = 12, nConValor = 0, sConDescripcion = "Cargo del director" },
+                new() { nConCodigo = 12, nConValor = 1, sConDescripcion = "Presidente del directorio" },
+                new() { nConCodigo = 12, nConValor = 2, sConDescripcion = "Miembro del directorio" },
+            };
 
             var resultado = datos
                 .Where(x => x.nConCodigo == nConCodigo
@@ -65,5 +69,4 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
     }
-
 }
