@@ -8,7 +8,6 @@ using Archivo.Application.Archivo.UseCases;
 using Archivo.Application.Archivo.Validators;
 using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Results;
-using Microsoft.AspNetCore.Http;
 
 namespace Archivo.Application.Archivo
 {
@@ -23,7 +22,7 @@ namespace Archivo.Application.Archivo
             services.AddScoped<IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>>, ListarArchivoPaginadaUseCase>();
             services.AddScoped<IUseCase<ListarArchivoRequest, List<ArchivoResult>>, ListarArchivoUseCase>();
             services.AddScoped<IUseCase<int, ArchivoResult?>, ObtenerArchivoPorIdUseCase>();
-            services.AddScoped<IUseCase<ExportFileRequest, IFormFile>, ExportFileUseCase>();
+            services.AddScoped<IUseCase<ExportFileRequest, Stream>, ExportFileUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarArchivoRequest, ActualizarArchivoParameters>, ActualizarArchivoRequestMapper>();

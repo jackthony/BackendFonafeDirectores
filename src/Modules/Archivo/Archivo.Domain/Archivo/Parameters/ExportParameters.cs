@@ -2,6 +2,6 @@
 {
     public class ExportParameters
     {
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
     }
 }

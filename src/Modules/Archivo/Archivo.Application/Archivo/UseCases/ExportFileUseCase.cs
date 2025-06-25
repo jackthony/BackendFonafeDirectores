@@ -10,7 +10,7 @@ using Shared.Kernel.Interfaces;
 
 namespace Archivo.Application.Archivo.UseCases
 {
-    public class ExportFileUseCase : IUseCase<ExportFileRequest, IFormFile>
+    public class ExportFileUseCase : IUseCase<ExportFileRequest, Stream>
     {
         private readonly IExportImportService _service;
         private readonly IExportImportRepository _repository;
@@ -23,7 +23,7 @@ namespace Archivo.Application.Archivo.UseCases
             _mapper = mapper;
         }
 
-        public async Task<OneOf<ErrorBase, IFormFile>> ExecuteAsync(ExportFileRequest request)
+        public async Task<OneOf<ErrorBase, Stream>> ExecuteAsync(ExportFileRequest request)
         {
             var parameters = _mapper.Map(request);
 
@@ -37,17 +37,7 @@ namespace Archivo.Application.Archivo.UseCases
 
             var stream = _service.ObtenerDatosExportAsync(empresas, directores);
 
-            var memoryStream = new MemoryStream();
-            await stream.CopyToAsync(memoryStream);
-            memoryStream.Position = 0;
-
-            var file = new FormFile(memoryStream, 0, memoryStream.Length, "file", "reporte.xlsx")
-            {
-                Headers = new HeaderDictionary(),
-                ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            };
-
-            return file;
+            return stream;
         }
     }
 }

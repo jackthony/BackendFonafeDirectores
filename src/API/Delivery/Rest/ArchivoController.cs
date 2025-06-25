@@ -23,9 +23,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<int, ArchivoResult?> _obtenerArchivoPorIdUseCase;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
-        private readonly IUseCase<ExportFileRequest, IFormFile> _exportarFileUseCase;
+        private readonly IUseCase<ExportFileRequest, Stream> _exportarFileUseCase;
 
-        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, IFormFile> exportarFileUseCase)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -46,9 +46,12 @@ namespace Api.Delivery.Rest
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
 
-            var file = result.AsT1;
-
-            return File(file.OpenReadStream(), file.ContentType, file.FileName);
+            var stream = result.AsT1;
+            return File(
+                stream,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "reporte.xlsx"
+            );
         }
 
         [HttpPost("crear")]

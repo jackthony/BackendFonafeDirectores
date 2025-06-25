@@ -2,6 +2,7 @@
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Results;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Bibliography;
 
 namespace Archivo.Infrastructure.Archivo.Services
 {
@@ -53,15 +54,14 @@ namespace Archivo.Infrastructure.Archivo.Services
             "Comentarios"
         ];
 
-
         public Stream ObtenerDatosExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)
         {
             var workbook = new XLWorkbook();
-            var worksheet = workbook.AddWorksheet("Empresas");
+            var hojaEmpresas = workbook.AddWorksheet("Empresas");
 
             for (int i = 0; i < encabezadosEmpresas.Length; i++)
             {
-                worksheet.Cell(1, i + 1).Value = encabezadosEmpresas[i];
+                hojaEmpresas.Cell(1, i + 1).Value = encabezadosEmpresas[i];
             }
 
             int fila = 2;
@@ -72,27 +72,32 @@ namespace Archivo.Infrastructure.Archivo.Services
                 for (int col = 0; col < propiedades.Length; col++)
                 {
                     var valor = propiedades[col].GetValue(item);
-                    worksheet.Cell(fila, col + 1).Value = valor?.ToString() ?? "";
+                    hojaEmpresas.Cell(fila, col + 1).Value = valor?.ToString() ?? "";
                 }
                 fila++;
             }
 
-            worksheet = workbook.AddWorksheet("Directores");
+            var hojaDirectores = workbook.AddWorksheet("Directores");
 
             for (int i = 0; i < encabezadosDirectores.Length; i++)
             {
-                worksheet.Cell(1, i + 1).Value = encabezadosDirectores[i];
+                hojaDirectores.Cell(1, i + 1).Value = encabezadosDirectores[i];
             }
 
             fila = 2;
 
             foreach (var item in directores)
             {
+                var empresa = empresas.FirstOrDefault(e => e.Id == item.IdEmpresa);
+
+                hojaDirectores.Cell(fila, 1).Value = empresa?.Ruc ?? "";
+                hojaDirectores.Cell(fila, 2).Value = empresa?.RazonSocial ?? "";
+
                 var propiedades = item.GetType().GetProperties();
                 for (int col = 0; col < propiedades.Length; col++)
                 {
                     var valor = propiedades[col].GetValue(item);
-                    worksheet.Cell(fila, col + 1).Value = valor?.ToString() ?? "";
+                    hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";
                 }
                 fila++;
             }
