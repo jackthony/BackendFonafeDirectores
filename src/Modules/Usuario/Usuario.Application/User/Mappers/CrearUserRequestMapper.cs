@@ -18,14 +18,16 @@ namespace Usuario.Application.User.Mappers
         {
             return new CrearUserParameters
             {
-                Username = source.Username,
-                PasswordHash = source.Password,
-                CorreoElectronico = source.CorreoElectronico,
+                PasswordHash = source.sContrasena,
+                CorreoElectronico = source.sCorreoElectronico,
                 FechaRegistro = _timeProvider.NowPeru,
-                UsuarioRegistroId = source.UsuarioRegistroId,
-                ApellidoPaterno = source.ApellidoPaterno,
-                ApellidoMaterno = source.ApellidoMaterno,
-                Nombres = source.Nombres
+                UsuarioRegistroId = source.nUsuarioRegistro,
+                CargoId = source.nIdCargo,
+                RolId = source.nIdRol,
+                Estado = source.nEstado,
+                ApellidoPaterno = source.sApellidoPaterno,
+                ApellidoMaterno = source.sApellidoMaterno,
+                Nombres = source.sNombres
             };
         }
     }

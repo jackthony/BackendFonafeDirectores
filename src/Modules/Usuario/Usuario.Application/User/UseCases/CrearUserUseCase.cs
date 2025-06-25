@@ -24,7 +24,7 @@ namespace Usuario.Application.User.UseCases
 
         public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(CrearUserRequest request)
         {
-            request.Password = _passwordHasher.Hash(request.Password);
+            request.sContrasena = _passwordHasher.Hash(request.sContrasena);
             var parameters = _mapper.Map(request);
 
             var result = await _repository.AddAsync(parameters);
