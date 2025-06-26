@@ -60,7 +60,7 @@ namespace Usuario.Application.Auth.UseCases
             await _authRepository.GuardarRefreshToken(refreshMapper);
 
             var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
-
+            usuario.PasswordHash = "";
             return new LoginResponse
             {
                 AccessToken = token,
