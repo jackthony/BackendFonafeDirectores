@@ -12,5 +12,6 @@ namespace Usuario.Domain.Modulo.Repositories
         public Task<List<ModuloResult>> ListAsync(ListarModuloParameters request);
         public Task<ModuloResult?> GetByIdAsync(int id);
         public Task<PagedResult<ModuloResult>> ListByPaginationAsync(ListarModuloPaginadoParameters request);
+        public Task<List<ModuloConAccionesResult>> ListModulosWithAccionsAsync(int rolId);
     }
 }

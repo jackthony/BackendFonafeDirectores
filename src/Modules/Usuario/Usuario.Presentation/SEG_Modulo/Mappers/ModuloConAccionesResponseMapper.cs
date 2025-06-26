@@ -14,12 +14,15 @@ namespace Usuario.Presentation.Modulo.Mappers
             {
                 try
                 {
-                    acciones = JsonSerializer.Deserialize<List<AccionResponse>>(dto.AccionesJson)
-                               ?? [];
+                    var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+                    acciones = JsonSerializer.Deserialize<List<AccionResponse>>(dto.AccionesJson, opciones) ?? [];
                 }
-                catch
+                catch(Exception ex) 
                 {
                     acciones = [];
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.StackTrace);
                 }
             }
 

@@ -71,6 +71,19 @@ namespace Usuario.Infrastructure.Modulo.Persistence.Repositories.SqlServer
             };
         }
 
+        public async Task<List<ModuloConAccionesResult>> ListModulosWithAccionsAsync(int rolId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("RolId", rolId);
+
+            var result = await _connection.QueryAsync<ModuloConAccionesResult>(
+                "sp_ListarModulosConAcciones",
+                parameters,
+                commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+        }
+
         public async Task<SpResultBase> UpdateAsync(ActualizarModuloParameters request)
         {
             var spResult = await ExecAsync<ActualizarModuloParameters, SpResultBase>(

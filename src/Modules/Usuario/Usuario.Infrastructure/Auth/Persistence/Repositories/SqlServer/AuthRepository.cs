@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
+using Usuario.Domain.Auth.Models;
 using Usuario.Domain.Auth.Parameters;
 using Usuario.Domain.Auth.Repositories;
 using Usuario.Domain.Auth.Results;
@@ -20,11 +21,13 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
             );
         }
 
-        public async Task ResetearIntentosFallidosAsync(int usuarioId)
+        public async Task GuardarRefreshToken(RefreshToken refreshToken)
         {
+            var parameters = new DynamicParameters(refreshToken);
+
             await _connection.ExecuteAsync(
-                "sp_ResetearIntentosFallidos",
-                new { UsuarioId = usuarioId },
+                "sp_RegistrarRefreshToken",
+                parameters,
                 commandType: CommandType.StoredProcedure
             );
         }
@@ -76,6 +79,18 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
                 Message = spInfo.Message,
                 Data = data
             };
+        }
+
+        public async Task<RefreshToken> ObtenerRefreshTokenAsync(string token)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("Token", token);
+
+            return await _connection.QueryFirstAsync<RefreshToken>(
+                "sp_ObtenerRefreshToken",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
         }
     }
 }

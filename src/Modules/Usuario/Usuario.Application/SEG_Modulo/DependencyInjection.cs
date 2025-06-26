@@ -22,6 +22,7 @@ namespace Usuario.Application.Modulo
             services.AddScoped<IUseCase<ListarModuloPaginadoRequest, PagedResult<ModuloResult>>, ListarModuloPaginadaUseCase>();
             services.AddScoped<IUseCase<ListarModuloRequest, List<ModuloResult>>, ListarModuloUseCase>();
             services.AddScoped<IUseCase<int, ModuloResult?>, ObtenerModuloPorIdUseCase>();
+            services.AddScoped<IUseCase<int, List<ModuloConAccionesResult>>, ListarModulosConAccionesUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarModuloRequest, ActualizarModuloParameters>, ActualizarModuloRequestMapper>();

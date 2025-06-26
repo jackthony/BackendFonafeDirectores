@@ -4,6 +4,7 @@ using Shared.Kernel.Interfaces;
 using System.Text.Json;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Services;
+using Usuario.Domain.Auth.Models;
 using Usuario.Domain.Auth.Parameters;
 using Usuario.Domain.Auth.Repositories;
 using Usuario.Domain.SEG_Modulo.Models;
@@ -16,16 +17,15 @@ namespace Usuario.Application.Auth.UseCases
         private readonly IPasswordHasher _passwordHasher;
         private readonly ITokenService _tokenService;
         private readonly IMapper<LoginRequest, LoginParameters> _mapper;
-        public LoginUseCase(
-            IAuthRepository authRepository,
-            IPasswordHasher passwordHasher,
-            ITokenService tokenService,
-            IMapper<LoginRequest, LoginParameters> mapper)
+        private readonly IMapper<RefreshTokenCreateRequest, RefreshToken> _mapperRefreshToken;
+
+        public LoginUseCase(IAuthRepository authRepository, IPasswordHasher passwordHasher, ITokenService tokenService, IMapper<LoginRequest, LoginParameters> mapper, IMapper<RefreshTokenCreateRequest, RefreshToken> mapperRefreshToken)
         {
             _authRepository = authRepository;
             _passwordHasher = passwordHasher;
             _tokenService = tokenService;
             _mapper = mapper;
+            _mapperRefreshToken = mapperRefreshToken;
         }
 
         public async Task<OneOf<ErrorBase, LoginResponse>> ExecuteAsync(LoginRequest request)
@@ -49,9 +49,15 @@ namespace Usuario.Application.Auth.UseCases
                 return ErrorBase.Validation("Contraseña incorrecta");
             }
 
-            await _authRepository.ResetearIntentosFallidosAsync(usuario.UsuarioId);
+            var refreshToken = _tokenService.GenerateRefreshToken();
 
             var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, []);
+
+            var refreshTokenRequest = new RefreshTokenCreateRequest { Token = refreshToken , UsuarioId = usuario.UsuarioId };
+
+            var refreshMapper = _mapperRefreshToken.Map(refreshTokenRequest);
+
+            await _authRepository.GuardarRefreshToken(refreshMapper);
 
             var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
 
