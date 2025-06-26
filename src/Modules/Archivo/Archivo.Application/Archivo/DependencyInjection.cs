@@ -23,6 +23,7 @@ namespace Archivo.Application.Archivo
             services.AddScoped<IUseCase<ListarArchivoRequest, List<ArchivoResult>>, ListarArchivoUseCase>();
             services.AddScoped<IUseCase<int, ArchivoResult?>, ObtenerArchivoPorIdUseCase>();
             services.AddScoped<IUseCase<ExportFileRequest, Stream>, ExportFileUseCase>();
+            services.AddScoped<IUseCase<ExportFileRequest, Stream>, ExportFileUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarArchivoRequest, ActualizarArchivoParameters>, ActualizarArchivoRequestMapper>();

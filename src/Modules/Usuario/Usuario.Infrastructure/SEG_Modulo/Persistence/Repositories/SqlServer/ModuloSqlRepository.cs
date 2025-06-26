@@ -81,7 +81,7 @@ namespace Usuario.Infrastructure.Modulo.Persistence.Repositories.SqlServer
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            return result.ToList();
+            return [.. result];
         }
 
         public async Task<SpResultBase> UpdateAsync(ActualizarModuloParameters request)

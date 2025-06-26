@@ -113,8 +113,8 @@ namespace Archivo.Infrastructure.Archivo.Services
             {
                 var director = new DirectorDocResult
                 {
-                    IdRegistro = row.Cell(1).GetValue<int>(),
-                    IdEmpresa = row.Cell(2).GetValue<int>(),
+                    Ruc = row.Cell(1).GetValue<string>(),
+                    Empresa = row.Cell(2).GetValue<string>(),
                     TipoDocumento = row.Cell(3).GetValue<string>(),
                     Documento = row.Cell(4).GetValue<string>(),
                     Departamento = row.Cell(5).GetValue<string>(),
@@ -132,11 +132,10 @@ namespace Archivo.Infrastructure.Archivo.Services
                     Sector = row.Cell(17).GetValue<string>(),
                     Profesion = row.Cell(18).GetValue<string>(),
                     Dieta = row.Cell(19).GetValue<decimal?>(),
-                    Especialidad = row.Cell(20).GetValue<string>(),
-                    FechaNombramiento = row.Cell(21).GetDateTime(),
-                    FechaDesignacion = row.Cell(22).GetDateTime(),
-                    FechaRenuncia = row.Cell(23).GetValue<string>(),
-                    Comentarios = row.Cell(24).GetValue<string>()
+                    FechaNombramiento = row.Cell(20).GetDateTime(),
+                    FechaDesignacion = row.Cell(21).GetDateTime(),
+                    FechaRenuncia = row.Cell(22).GetValue<string>(),
+                    Comentarios = row.Cell(23).GetValue<string>()
                 };
 
                 directores.Add(director);
