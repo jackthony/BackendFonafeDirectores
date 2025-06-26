@@ -7,5 +7,7 @@ namespace Archivo.Domain.Archivo.Repositories
     {
         public Task<List<EmpresaDocResult>> GetEmpresas(ExportParameters request);
         public Task<List<DirectorDocResult>> GetDirectores(ExportParameters request);
+        public Task InsertEmpresasAsync(List<EmpresaDocResult> empresas);
+        public Task InsertDirectoresAsync(List<DirectorDocResult> directores);
     }
 }

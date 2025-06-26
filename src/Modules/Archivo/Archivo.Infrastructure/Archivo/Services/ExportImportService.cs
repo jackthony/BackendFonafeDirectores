@@ -72,7 +72,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             }
         }
 
-        public bool ImportAsync(ImportFileRequest request)
+        public ImportFileResult ImportAsync(ImportFileRequest request)
         {
             using var stream = request.Archivo.OpenReadStream();
             using var workbook = new XLWorkbook(stream);
@@ -142,7 +142,9 @@ namespace Archivo.Infrastructure.Archivo.Services
                 directores.Add(director);
             }
 
-            return true;
+            var result = new ImportFileResult { Directores = directores , Empresas = empresas };
+
+            return result;
         }
 
         private Stream GenerarExcel(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)

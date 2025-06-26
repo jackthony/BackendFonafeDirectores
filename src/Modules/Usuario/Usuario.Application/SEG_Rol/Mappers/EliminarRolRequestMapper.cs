@@ -11,8 +11,7 @@ namespace Usuario.Application.Rol.Mappers
             return new EliminarRolParameters()
             {
                 RolId = source.nRolId,
-                UsuarioModificacionId = source.nIdUsuarioModificacion,
-                FechaModificacion = source.dtFechaModificacion
+                UsuarioModificacionId = source.nUsuarioModificacionId
             };
         }
     }

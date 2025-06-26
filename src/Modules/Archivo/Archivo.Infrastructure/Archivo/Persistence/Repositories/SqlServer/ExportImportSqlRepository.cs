@@ -33,5 +33,15 @@ namespace Archivo.Infrastructure.Archivo.Persistence.Repositories.SqlServer
 
             return result.ToList();
         }
+
+        public Task InsertDirectoresAsync(List<DirectorDocResult> directores)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task InsertEmpresasAsync(List<EmpresaDocResult> empresas)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
