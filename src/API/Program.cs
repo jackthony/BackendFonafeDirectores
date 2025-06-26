@@ -50,7 +50,9 @@ using Usuario.Presentation.PermisoRol;
 using Empresa.Application.Ubigeo;
 using Empresa.Infrastructure.Ubigeo;
 using Empresa.Presentation.Ubigeo;
-
+using Usuario.Application.Modulo;
+using Usuario.Infrastructure.Modulo;
+using Usuario.Presentation.Modulo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -136,6 +138,10 @@ builder.Services.AddUbigeoPresenters();
 builder.Services.AddDietaApplication();
 builder.Services.AddDietaInfrastructure();
 builder.Services.AddDietaPresenters();
+
+builder.Services.AddModuloApplication();
+builder.Services.AddModuloInfrastructure();
+builder.Services.AddModuloPresenters();
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   

@@ -58,6 +58,37 @@ namespace Usuario.Infrastructure.Auth.Services
             return Convert.ToBase64String(randomBytes);
         }
 
+        public int? GetUserIdFromExpiredToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var validationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSecret)),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = false,
+                ClockSkew = TimeSpan.Zero
+            };
+
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
+
+                var userIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier);
+
+                if (userIdClaim != null && int.TryParse(userIdClaim.Value, out var userId))
+                    return userId;
+
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public ClaimsPrincipal? ValidateAccessToken(string token)
         {
             try

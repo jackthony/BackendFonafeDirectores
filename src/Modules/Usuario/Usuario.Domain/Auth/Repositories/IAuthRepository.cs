@@ -1,4 +1,5 @@
 ﻿using Shared.Kernel.Responses;
+using Usuario.Domain.Auth.Models;
 using Usuario.Domain.Auth.Parameters;
 using Usuario.Domain.Auth.Results;
 
@@ -10,6 +11,8 @@ namespace Usuario.Domain.Auth.Repositories
         Task<SpResult<UsuarioResult>> ObtenerPorIdAsync(int usuarioId);
 
         Task IncrementarIntentosFallidosAsync(int usuarioId);
-        Task ResetearIntentosFallidosAsync(int usuarioId);
+        Task GuardarRefreshToken(RefreshToken refreshToken);
+        Task<RefreshToken> ObtenerRefreshTokenAsync(string token);
+
     }
 }
