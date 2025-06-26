@@ -17,6 +17,7 @@
         public string? sCargoDescripcion { get; set; }
         public string? sPerfilDescripcion { get; set; }
         public string? sEstadoDescripcion { get; set; }
+        public string? sApellidosYNombres { get; set; }
         public int indice { get; set; }
     }
 }

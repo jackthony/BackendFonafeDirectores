@@ -2,8 +2,6 @@
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Repositories;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
@@ -35,7 +33,7 @@ namespace Archivo.Application.Archivo.UseCases
             if (directores == null || directores.Count == 0)
                 return ErrorBase.NotFound();
 
-            var stream = _service.ObtenerDatosExportAsync(empresas, directores);
+            var stream = _service.ObtenerDatosExportAsync(empresas, directores, request.nTipoArchivo);
 
             return stream;
         }

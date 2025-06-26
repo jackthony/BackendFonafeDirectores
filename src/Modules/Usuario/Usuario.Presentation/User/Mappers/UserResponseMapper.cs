@@ -21,7 +21,8 @@ namespace Usuario.Presentation.User.Mappers
             nUsuarioModificacion = dto.UsuarioModificacion,
             sCargoDescripcion = dto.CargoDescripcion,
             sPerfilDescripcion = dto.PerfilDescripcion,
-            sEstadoDescripcion = dto.EstadoDescripcion
+            sEstadoDescripcion = dto.EstadoDescripcion,
+            sApellidosYNombres = $"{dto.ApellidoPaterno} {dto.ApellidoMaterno} {dto.Nombres}"
         };
 
 

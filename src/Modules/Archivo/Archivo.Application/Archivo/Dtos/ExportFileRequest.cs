@@ -2,6 +2,6 @@
 {
     public class ExportFileRequest
     {
-        public int sTipoArchivo { get; set; }
+        public int nTipoArchivo { get; set; }
     }
 }

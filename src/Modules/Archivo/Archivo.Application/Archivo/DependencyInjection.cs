@@ -38,6 +38,7 @@ namespace Archivo.Application.Archivo
             services.AddScoped<IValidator<EliminarArchivoRequest>, EliminarArchivoRequestValidator>();
             services.AddScoped<IValidator<ListarArchivoPaginadoRequest>, ListarArchivoPaginadoRequestValidator>();
             services.AddScoped<IValidator<ListarArchivoRequest>, ListarArchivoRequestValidator>();
+            services.AddScoped<IValidator<ExportFileRequest>, ExportFileRequestValidator>();
 
             return services;
         }

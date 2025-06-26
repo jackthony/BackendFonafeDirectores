@@ -5,7 +5,7 @@ namespace Archivo.Application.Archivo.Services
 {
     public interface IExportImportService
     {
-        public Stream ObtenerDatosExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores);
+        public Stream ObtenerDatosExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores, int tipo);
         public bool ImportAsync(ImportFileRequest request);
     }
 }

@@ -6,7 +6,6 @@ using Shared.Kernel.Responses;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Results;
 using Shared.ClientV1;
-using Archivo.Application.Archivo.UseCases;
 
 namespace Api.Delivery.Rest
 {
@@ -47,10 +46,11 @@ namespace Api.Delivery.Rest
                 return ErrorResultMapper.MapError(result.AsT0);
 
             var stream = result.AsT1;
+            string extension = request.nTipoArchivo == 1 ? ".xlsx" : ".pdf";
             return File(
                 stream,
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                "reporte.xlsx"
+                $"reporte{extension}"
             );
         }
 

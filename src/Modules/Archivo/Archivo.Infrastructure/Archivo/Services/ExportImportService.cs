@@ -2,7 +2,13 @@
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Results;
 using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Spreadsheet;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using System.ComponentModel;
+using Colors = QuestPDF.Helpers.Colors;
+using IContainer = QuestPDF.Infrastructure.IContainer;
 
 namespace Archivo.Infrastructure.Archivo.Services
 {
@@ -54,58 +60,16 @@ namespace Archivo.Infrastructure.Archivo.Services
             "Comentarios"
         ];
 
-        public Stream ObtenerDatosExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)
+        public Stream ObtenerDatosExportAsync(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores, int tipo)
         {
-            var workbook = new XLWorkbook();
-            var hojaEmpresas = workbook.AddWorksheet("Empresas");
-
-            for (int i = 0; i < encabezadosEmpresas.Length; i++)
+            if (tipo == 1)
             {
-                hojaEmpresas.Cell(1, i + 1).Value = encabezadosEmpresas[i];
+                return GenerarExcel(empresas, directores);
             }
-
-            int fila = 2;
-
-            foreach (var item in empresas)
+            else
             {
-                var propiedades = item.GetType().GetProperties();
-                for (int col = 0; col < propiedades.Length - 1; col++)
-                {
-                    var valor = propiedades[col].GetValue(item);
-                    hojaEmpresas.Cell(fila, col + 1).Value = valor?.ToString() ?? "";
-                }
-                fila++;
+                return GenerarPdf(empresas, directores);
             }
-
-            var hojaDirectores = workbook.AddWorksheet("Directores");
-
-            for (int i = 0; i < encabezadosDirectores.Length; i++)
-            {
-                hojaDirectores.Cell(1, i + 1).Value = encabezadosDirectores[i];
-            }
-
-            fila = 2;
-
-            foreach (var item in directores)
-            {
-                var empresa = empresas.FirstOrDefault(e => e.Id == item.IdEmpresa);
-
-                hojaDirectores.Cell(fila, 1).Value = empresa?.Ruc ?? "";
-                hojaDirectores.Cell(fila, 2).Value = empresa?.RazonSocial ?? "";
-
-                var propiedades = item.GetType().GetProperties();
-                for (int col = 0; col < propiedades.Length - 3; col++)
-                {
-                    var valor = propiedades[col].GetValue(item);
-                    hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";
-                }
-                fila++;
-            }
-
-            var stream = new MemoryStream();
-            workbook.SaveAs(stream);
-            stream.Position = 0;
-            return stream;
         }
 
         public bool ImportAsync(ImportFileRequest request)
@@ -179,6 +143,171 @@ namespace Archivo.Infrastructure.Archivo.Services
             }
 
             return true;
+        }
+
+        private Stream GenerarExcel(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)
+        {
+            var workbook = new XLWorkbook();
+            var hojaEmpresas = workbook.AddWorksheet("Empresas");
+
+            for (int i = 0; i < encabezadosEmpresas.Length; i++)
+            {
+                hojaEmpresas.Cell(1, i + 1).Value = encabezadosEmpresas[i];
+            }
+
+            int fila = 2;
+
+            foreach (var item in empresas)
+            {
+                var propiedades = item.GetType().GetProperties();
+                for (int col = 0; col < propiedades.Length - 1; col++)
+                {
+                    var valor = propiedades[col].GetValue(item);
+                    hojaEmpresas.Cell(fila, col + 1).Value = valor?.ToString() ?? "";
+                }
+                fila++;
+            }
+
+            var hojaDirectores = workbook.AddWorksheet("Directores");
+
+            for (int i = 0; i < encabezadosDirectores.Length; i++)
+            {
+                hojaDirectores.Cell(1, i + 1).Value = encabezadosDirectores[i];
+            }
+
+            fila = 2;
+
+            foreach (var item in directores)
+            {
+                var empresa = empresas.FirstOrDefault(e => e.Id == item.IdEmpresa);
+
+                hojaDirectores.Cell(fila, 1).Value = empresa?.Ruc ?? "";
+                hojaDirectores.Cell(fila, 2).Value = empresa?.RazonSocial ?? "";
+
+                var propiedades = item.GetType().GetProperties();
+                for (int col = 0; col < propiedades.Length - 3; col++)
+                {
+                    var valor = propiedades[col].GetValue(item);
+                    hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";
+                }
+                fila++;
+            }
+
+            var stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            stream.Position = 0;
+            return stream;
+        }
+
+        private Stream GenerarPdf(List<EmpresaDocResult> empresas, List<DirectorDocResult> directores)
+        {
+            var listaEmpresas = empresas.ToList();
+            var listaDirectores = directores.ToList();
+
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            var documento = Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    var propiedadesEmpresas = typeof(EmpresaDocResult)
+                        .GetProperties()
+                        .Where(p => p.Name != "Id")
+                        .ToArray();
+
+                    page.Size(PageSizes.A4.Landscape());
+                    page.Margin(20);
+                    page.DefaultTextStyle(x => x.FontSize(7));
+                    page.Header().Text("Lista de Empresas").SemiBold().FontSize(14).AlignCenter();
+
+                    page.Content().Table(table =>
+                    {
+                        table.ColumnsDefinition(columns =>
+                        {
+                            for (int i = 0; i < encabezadosEmpresas.Length; i++)
+                                columns.RelativeColumn(1);
+                        });
+
+                        table.Header(header =>
+                        {
+                            foreach (var h in encabezadosEmpresas)
+                                header.Cell().Element(CellStyle).Text(h);
+                        });
+
+                        foreach (var item in listaEmpresas)
+                        {
+                            foreach (var propiedad in propiedadesEmpresas)
+                            {
+                                var valor = propiedad.GetValue(item);
+                                var texto = valor is decimal d ? d.ToString("N2") : valor?.ToString() ?? "";
+                                table.Cell().Element(CellStyle).Text(texto);
+                            }
+                        }
+                    });
+                });
+
+                container.Page(page =>
+                {
+
+                    var propiedadesDirectores = typeof(DirectorDocResult)
+                        .GetProperties()
+                        .Where(p => p.Name != "IdEmpresa" && p.Name != "IdRegistro")
+                        .ToArray();
+
+                    page.Size(PageSizes.A4.Landscape());
+                    page.Margin(20);
+                    page.DefaultTextStyle(x => x.FontSize(6));
+                    page.Header().Text("Lista de Directores").SemiBold().FontSize(14).AlignCenter();
+
+                    page.Content().Table(table =>
+                    {
+                        table.ColumnsDefinition(columns =>
+                        {
+                            for (int i = 0; i < encabezadosDirectores.Length; i++)
+                                columns.RelativeColumn(1);
+                        });
+
+                        table.Header(header =>
+                        {
+                            foreach (var h in encabezadosDirectores)
+                                header.Cell().Element(CellStyle).Text(h);
+                        });
+
+                        foreach (var director in listaDirectores)
+                        {
+                            var empresa = listaEmpresas.FirstOrDefault(e => e.Id == director.IdEmpresa);
+                            table.Cell().Element(CellStyle).Text(empresa?.Ruc ?? "");
+                            table.Cell().Element(CellStyle).Text(empresa?.RazonSocial ?? "");
+
+                            foreach (var propiedad in propiedadesDirectores)
+                            {
+                                var valor = propiedad.GetValue(director);
+                                string texto = valor switch
+                                {
+                                    DateTime dt => dt.ToString("yyyy-MM-dd"),
+                                    decimal d => d.ToString("N2"),
+                                    _ => valor?.ToString() ?? ""
+                                };
+                                table.Cell().Element(CellStyle).Text(texto);
+                            }
+                        }
+                    });
+                });
+            });
+
+            var stream = new MemoryStream();
+            documento.GeneratePdf(stream);
+            stream.Position = 0;
+            return stream;
+        }
+
+        static IContainer CellStyle(IContainer container)
+        {
+            return container
+                .Padding(0)
+                .Border(1)
+                .BorderColor(Colors.Grey.Lighten2)
+                .AlignMiddle();
         }
     }
 }
