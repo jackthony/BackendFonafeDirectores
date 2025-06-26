@@ -32,6 +32,7 @@ namespace Usuario.Presentation.Modulo.Mappers
                 sNombre = dto.Nombre,
                 sRuta = dto.Ruta,
                 sIcono = dto.Icono,
+                bModuloPermitido = dto.ModuloPermitido,
                 acciones = acciones
             };
         }

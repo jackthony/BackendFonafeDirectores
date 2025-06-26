@@ -12,25 +12,58 @@ namespace Archivo.Application.Archivo.UseCases
     {
         private readonly IExportImportService _service;
         private readonly IExportImportRepository _repository;
+        private readonly IValidarReferenciaService _validador;
 
-        public ImportFileUseCase(IExportImportService service, IExportImportRepository repository)
+        public ImportFileUseCase(
+            IExportImportService service,
+            IExportImportRepository repository,
+            IValidarReferenciaService validador)
         {
             _service = service;
             _repository = repository;
+            _validador = validador;
         }
 
         public async Task<OneOf<ErrorBase, ImportFileResult>> ExecuteAsync(ImportFileRequest request)
         {
+            // Paso 1: Leer Excel
             var result = _service.ImportAsync(request);
 
             if (result.Empresas.Count == 0 && result.Directores.Count == 0)
                 return ErrorBase.Validation("El archivo no contiene datos válidos.");
 
-            await _repository.InsertEmpresasAsync(result.Empresas);
+            // Paso 2: Cargar referencias para validación
+            await _validador.CargarReferenciasAsync();
 
-            await _repository.InsertDirectoresAsync(result.Directores);
+            // Paso 3: Validar empresas
+            var empresasValidadas = _validador.ValidarEmpresas(result.Empresas, request.nUsuarioId);
 
-            return result;
+            await _repository.InsertEmpresasAsync(empresasValidadas.RegistrosValidos);
+
+            await _validador.CargarEmpresasAsync();
+
+            // Paso 4: Validar directores
+            var directoresValidados = _validador.ValidarDirectores(result.Directores, request.nUsuarioId);
+
+            // Paso 5: Validar errores
+            if (empresasValidadas.TieneErrores || directoresValidados.TieneErrores)
+            {
+                var errores = empresasValidadas.Errores
+                    .Concat(directoresValidados.Errores)
+                    .ToList();
+
+                return ErrorBase.Validation(string.Join("\n", errores));
+            }
+
+            // Paso 6: Guardar en la base de datos
+            await _repository.InsertDirectoresAsync(directoresValidados.RegistrosValidos);
+
+            // Paso 7: Retornar resultado final
+            return new ImportFileResult
+            {
+                Empresas = result.Empresas,
+                Directores = result.Directores
+            };
         }
     }
 }
