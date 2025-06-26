@@ -8,6 +8,7 @@
         public DateTime FechaRegistro { get; set; }
         public int UsuarioRegistroId { get; set; }
         public int CargoId { get; set; }
+        public int nTipoPersonal { get; set; }
         public int RolId { get; set; }
         public int Estado { get; set; }
         // Tabla SEG_UsuarioInfo

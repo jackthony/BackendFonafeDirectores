@@ -9,6 +9,7 @@
         public required string sApellidoMaterno { get; set; }
         public required string sNombres { get; set; }
         public int nIdCargo { get; set; }
+        public int nTipoPersonal { get; set; }
         public int nIdRol {  get; set; }
         public int nEstado { get; set; }
     }

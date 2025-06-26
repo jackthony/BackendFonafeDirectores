@@ -25,6 +25,7 @@ namespace Usuario.Application.User.Mappers
                 CargoId = source.nIdCargo,
                 RolId = source.nIdRol,
                 Estado = source.nEstado,
+                nTipoPersonal = source.nTipoPersonal,
                 ApellidoPaterno = source.sApellidoPaterno,
                 ApellidoMaterno = source.sApellidoMaterno,
                 Nombres = source.sNombres

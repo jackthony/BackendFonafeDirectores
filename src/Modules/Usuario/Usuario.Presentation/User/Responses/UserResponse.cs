@@ -7,6 +7,7 @@
         public string sApellidoMaterno { get; set; } = string.Empty;
         public string sNombres { get; set; } = string.Empty;
         public int nIdCargo { get; set; }
+        public int nTipoPersonal { get; set; }
         public int nIdRol { get; set; }
         public string sCorreoElectronico { get; set; } = string.Empty;
         public int nEstado { get; set; }
@@ -18,6 +19,7 @@
         public string? sPerfilDescripcion { get; set; }
         public string? sEstadoDescripcion { get; set; }
         public string? sApellidosYNombres { get; set; }
+        public string? tipoPersonalDescripcion { get; set; }
         public int indice { get; set; }
     }
 }

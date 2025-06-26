@@ -7,6 +7,7 @@
         public string ApellidoMaterno { get; set; } = string.Empty;
         public string Nombres { get; set; } = string.Empty;
         public int IdCargo { get; set; }
+        public int nTipoPersonal { get; set; }
         public int IdRol { get; set; }
         public string CorreoElectronico { get; set; } = string.Empty;
         public int Estado { get; set; }
@@ -17,5 +18,6 @@
         public string? CargoDescripcion { get; set; }
         public string? PerfilDescripcion { get; set; }
         public string? EstadoDescripcion { get; set; }
+        public string? tipoPersonalDescripcion { get; set; }
     }
 }

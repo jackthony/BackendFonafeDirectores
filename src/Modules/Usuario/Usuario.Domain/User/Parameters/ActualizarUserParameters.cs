@@ -7,6 +7,7 @@
         public int RolId { get; set; }
         public int Estado { get; set; }
         public int CargoId { get; set; }
+        public int nTipoPersonal { get; set; }
         public DateTime FechaModificacion { get; set; }
     }
 }

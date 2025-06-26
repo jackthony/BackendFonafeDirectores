@@ -15,6 +15,7 @@ namespace Usuario.Application.User.Mappers
                 RolId = source.nIdRol,
                 Estado = source.nEstado,
                 CargoId = source.nIdCargo,
+                nTipoPersonal = source.nTipoPersonal,
                 FechaModificacion = DateTime.UtcNow
             };
         }
