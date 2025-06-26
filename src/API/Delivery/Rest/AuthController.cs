@@ -1,6 +1,7 @@
 ﻿using Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
 using Usuario.Application.Auth.Dtos;
 
 namespace Api.Delivery.Rest
@@ -12,12 +13,14 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<LoginRequest, LoginResponse> _loginUseCase;
         private readonly IUseCase<VerifyTokenRequest, LoginResponse> _verifyTokenUseCase;
         private readonly IUseCase<RefreshTokenRequest, LoginResponse> _refreshTokenUseCase;
+        private readonly IUseCase<ChangePasswordRequest, SpResultBase> _changePasswordUseCase;
 
-        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase)
+        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase)
         {
             _loginUseCase = loginUseCase;
             _verifyTokenUseCase = verifyTokenUseCase;
             _refreshTokenUseCase = refreshTokenUseCase;
+            _changePasswordUseCase = changePasswordUseCase;
         }
 
         [HttpPost("login")]
@@ -49,6 +52,16 @@ namespace Api.Delivery.Rest
                 return ErrorResultMapper.MapError(result.AsT0);
 
             return Ok(result.AsT1);
+        }
+
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
+        {
+            var result = await _changePasswordUseCase.ExecuteAsync(request);
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+            return Ok(result.AsT1);
+
         }
     }
 }

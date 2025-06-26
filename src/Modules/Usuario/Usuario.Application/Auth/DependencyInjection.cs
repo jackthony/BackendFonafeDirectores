@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Mappers;
 using Usuario.Application.Auth.UseCases;
@@ -16,6 +17,8 @@ namespace Usuario.Application.Auth
             services.AddScoped<IUseCase<LoginRequest, LoginResponse>, LoginUseCase>();
             services.AddScoped<IUseCase<VerifyTokenRequest, LoginResponse>, VerifyTokenUseCase>();
             services.AddScoped<IUseCase<RefreshTokenRequest, LoginResponse>, RefreshTokenUseCase>();
+            // Cambio de contraseña
+            services.AddScoped<IUseCase<ChangePasswordRequest, SpResultBase>, ChangePasswordUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<LoginRequest, LoginParameters>, LoginRequestMapper>();

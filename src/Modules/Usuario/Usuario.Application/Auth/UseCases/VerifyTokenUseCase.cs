@@ -40,6 +40,9 @@ namespace Usuario.Application.Auth.UseCases
                 return ErrorBase.Database(result.Message);
 
             var usuario = result.Data;
+            // Verificar que el usuario es el que hace la solicitud
+            if (userId != usuario.UsuarioId)
+                return ErrorBase.Validation("El token no pertenece a este usuario.");
 
             if (usuario.Status != "1")
                 return ErrorBase.Validation("El usuario no se encuentra activo");

@@ -13,6 +13,7 @@ namespace Usuario.Infrastructure.Auth
             services.AddScoped<IPasswordHasher, PasswordHasherBCrypt>();
             services.AddScoped<ITokenService, JwtTokenService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ICaptchaService, VerificarCaptchaService>();
             return services;
         }
     }
