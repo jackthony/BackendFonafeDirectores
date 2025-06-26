@@ -54,6 +54,12 @@ namespace Api.Delivery.Rest
                 new() { nConCodigo = 12, nConValor = 0, sConDescripcion = "Cargo del director" },
                 new() { nConCodigo = 12, nConValor = 1, sConDescripcion = "Presidente del directorio" },
                 new() { nConCodigo = 12, nConValor = 2, sConDescripcion = "Miembro del directorio" },
+
+                new() { nConCodigo = 13, nConValor = 0, sConDescripcion = "Tipo de Personal" },
+                new() { nConCodigo = 13, nConValor = 1, sConDescripcion = "FONAFE" },
+                new() { nConCodigo = 13, nConValor = 2, sConDescripcion = "Terceros" },
+
+
             };
 
             var resultado = datos
