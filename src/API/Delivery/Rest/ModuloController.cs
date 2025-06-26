@@ -10,6 +10,8 @@ using Usuario.Presentation.Modulo.Responses;
 
 namespace Api.Delivery.Rest
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class ModuloController : ControllerBase
     {
         private readonly IUseCase<int, List<ModuloConAccionesResult>> _listarModulosConAccionesUseCase;
