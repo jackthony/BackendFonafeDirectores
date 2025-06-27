@@ -103,7 +103,5 @@ namespace Api.Delivery.Rest
             return Ok(result.AsT1);  // Respuesta exitosa con el mensaje del caso de uso
         }
 
-
-
     }
 }
