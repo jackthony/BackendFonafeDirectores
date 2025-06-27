@@ -15,6 +15,7 @@ namespace Usuario.Infrastructure.Auth.Services
         private readonly string _issuer;
         private readonly string _audience;
         private readonly int _tokenExpiryMinutes;
+        private readonly int _refreshTokenExpiryMinutes;
 
         public JwtTokenService(IConfiguration configuration)
         {
@@ -23,16 +24,17 @@ namespace Usuario.Infrastructure.Auth.Services
             _issuer = _configuration["Jwt:Issuer"]!;
             _audience = _configuration["Jwt:Audience"]!;
             _tokenExpiryMinutes = int.Parse(_configuration["Jwt:AccessTokenMinutes"]!);
+            _refreshTokenExpiryMinutes = int.Parse(_configuration["Jwt:RefreshTokenMinutes"]!);
         }
 
         public string GenerateAccessToken(int userId, string email, IList<string> roles)
         {
             var claims = new List<Claim>
-        {
-            new(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new(JwtRegisteredClaimNames.Email, email),
-            new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+            {
+                new(JwtRegisteredClaimNames.Sub, userId.ToString()),
+                new(JwtRegisteredClaimNames.Email, email),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
 
             claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
@@ -116,8 +118,6 @@ namespace Usuario.Infrastructure.Auth.Services
                 return null;
             }
         }
-
-
 
         // Nuevo método para generar el token de restablecimiento
         public string GenerateResetPasswordToken(int userId)
