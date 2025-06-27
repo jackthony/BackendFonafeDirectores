@@ -65,7 +65,7 @@ namespace Usuario.Application.Auth.UseCases
             // 6) Devolver la respuesta de éxito
             return new ResetPasswordResponse
             {
-                Success = true,
+                isSuccess = true,
                 Message = "Contraseña restablecida con éxito."
             };
         }
