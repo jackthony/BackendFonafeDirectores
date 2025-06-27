@@ -23,8 +23,9 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterBool;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
         private readonly IUseCase<ExportFileRequest, Stream> _exportarFileUseCase;
+        private readonly IUseCase<ImportFileRequest, ImportFileResult> _importarFileUseCase;
 
-        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -35,6 +36,18 @@ namespace Api.Delivery.Rest
             _presenterBool = presenterBool;
             _presenterInt = presenterInt;
             _exportarFileUseCase = exportarFileUseCase;
+            _importarFileUseCase = importarFileUseCase;
+        }
+
+        [HttpPost("importar")]
+        public async Task<IActionResult> Importar([FromForm] ImportFileRequest request)
+        {
+            var result = await _importarFileUseCase.ExecuteAsync(request);
+
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+
+            return Ok(result.AsT1);
         }
 
         [HttpPost("exportar")]

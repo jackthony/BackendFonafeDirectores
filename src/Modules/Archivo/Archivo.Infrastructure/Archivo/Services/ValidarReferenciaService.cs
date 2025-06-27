@@ -128,8 +128,8 @@ namespace Archivo.Infrastructure.Archivo.Services
                 if (!Existe(e.Rubro, _rubros))
                     errores.Add($"Rubro inválido: '{e.Rubro}'");
 
-                if (!Existe(e.Ministerio, _ministerios))
-                    errores.Add($"Ministerio inválido: '{e.Ministerio}'");
+                if (!Existe(e.Sector, _sectores))
+                    errores.Add($"Sector inválido: '{e.Sector}'");
 
                 if (errores.Count != 0)
                 {
@@ -146,7 +146,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                     IdDistrito = ObtenerId(e.Distrito, _distritos),
                     Direccion = e.Direccion,
                     IdRubroNegocio = ObtenerId(e.Rubro, _rubros),
-                    IdSector = ObtenerId(e.Ministerio, _ministerios),
+                    IdSector = ObtenerId(e.Sector, _sectores),
                     IngresosUltimoAnio = e.Ingresos,
                     UtilidadUltimoAnio = e.Utilidades,
                     ConformacionCapitalSocial = e.CapitalSocial,
