@@ -14,6 +14,7 @@ namespace Usuario.Infrastructure.Auth
             services.AddScoped<ITokenService, JwtTokenService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ICaptchaService, VerificarCaptchaService>();
+            services.AddScoped<IEmailService, EmailService>();
             return services;
         }
     }

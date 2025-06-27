@@ -8,5 +8,6 @@ namespace Usuario.Application.Auth.Services
         public string GenerateRefreshToken();
         public ClaimsPrincipal? ValidateAccessToken(string token);
         public int? GetUserIdFromExpiredToken(string token);
+        public string GenerateResetPasswordToken(int userId);
     }
 }

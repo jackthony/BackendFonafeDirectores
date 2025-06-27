@@ -116,5 +116,32 @@ namespace Usuario.Infrastructure.Auth.Services
                 return null;
             }
         }
+
+
+
+        // Nuevo método para generar el token de restablecimiento
+        public string GenerateResetPasswordToken(int userId)
+        {
+            // Aquí generamos un token con un tiempo de expiración corto, por ejemplo, 1 hora
+            var claims = new List<Claim>
+            {
+                new(JwtRegisteredClaimNames.Sub, userId.ToString()),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            // El token expirará en 1 hora
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSecret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _issuer,
+                audience: _audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),  // Expira en 1 hora
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
     }
 }

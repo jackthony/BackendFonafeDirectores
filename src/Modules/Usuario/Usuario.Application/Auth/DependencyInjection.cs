@@ -19,6 +19,8 @@ namespace Usuario.Application.Auth
             services.AddScoped<IUseCase<RefreshTokenRequest, LoginResponse>, RefreshTokenUseCase>();
             // Cambio de contraseña
             services.AddScoped<IUseCase<ChangePasswordRequest, SpResultBase>, ChangePasswordUseCase>();
+            services.AddScoped<IUseCase<ForgotPasswordRequest, ForgotPasswordResponse>, ForgotPasswordUseCase>();
+            services.AddScoped<IUseCase<ResetPasswordRequest, ResetPasswordResponse>, ResetPasswordUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<LoginRequest, LoginParameters>, LoginRequestMapper>();
