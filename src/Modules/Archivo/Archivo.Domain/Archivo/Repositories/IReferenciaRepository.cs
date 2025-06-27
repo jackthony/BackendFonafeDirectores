@@ -1,4 +1,5 @@
-﻿using Empresa.Domain.Empresa.Results;
+﻿using Archivo.Domain.Archivo.Results;
+using Empresa.Domain.Empresa.Results;
 using Empresa.Domain.Especialidad.Results;
 using Empresa.Domain.Ministerio.Results;
 using Empresa.Domain.Rubro.Results;
@@ -10,17 +11,18 @@ namespace Archivo.Domain.Archivo.Repositories
 {
     public interface IReferenciaRepository
     {
-        Task<List<EmpresaResult>> GetEmpresasAsync();
-        Task<List<ProvinciaResult>> GetProvinciasAsync();
-        Task<List<DepartamentoResult>> GetDepartamentosAsync();
-        Task<List<DistritoResult>> GetDistritosAsync();
-        Task<List<RubroResult>> GetRubrosAsync();
-        Task<List<MinisterioResult>> GetMinisteriosAsync();
-        Task<List<ConstanteItemResponse>> GetGenerosAsync();
-        Task<List<ConstanteItemResponse>> GetTiposDocumentoAsync();
-        Task<List<ConstanteItemResponse>> GetCargosDirectorAsync();
-        Task<List<ConstanteItemResponse>> GetTiposPersonalAsync();
-        Task<List<SectorResult>> GetSectoresAsync();
-        Task<List<EspecialidadResult>> GetEspecialidadesAsync();
+        Task<List<ReferenciaResult>> GetEmpresasAsync();
+        Task<List<ReferenciaResult>> GetProvinciasAsync();
+        Task<List<ReferenciaResult>> GetDepartamentosAsync();
+        Task<List<ReferenciaResult>> GetDistritosAsync();
+        Task<List<ReferenciaResult>> GetRubrosAsync();
+        Task<List<ReferenciaResult>> GetMinisteriosAsync();
+        Task<List<ReferenciaResult>> GetGenerosAsync();
+        Task<List<ReferenciaResult>> GetTiposDocumentoAsync();
+        Task<List<ReferenciaResult>> GetCargosDirectorAsync();
+        Task<List<ReferenciaResult>> GetTiposPersonalAsync();
+        Task<List<ReferenciaResult>> GetSectoresAsync();
+        Task<List<ReferenciaResult>> GetEspecialidadesAsync();
+        Task<List<ReferenciaResult>> GetCargosAsync();
     }
 }

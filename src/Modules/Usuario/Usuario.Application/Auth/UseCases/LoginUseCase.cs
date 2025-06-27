@@ -7,6 +7,7 @@ using Usuario.Application.Auth.Services;
 using Usuario.Domain.Auth.Models;
 using Usuario.Domain.Auth.Parameters;
 using Usuario.Domain.Auth.Repositories;
+using Usuario.Domain.Rol.Results;
 using Usuario.Domain.SEG_Modulo.Models;
 
 namespace Usuario.Application.Auth.UseCases
@@ -49,23 +50,27 @@ namespace Usuario.Application.Auth.UseCases
                 return ErrorBase.Validation("Contraseña incorrecta");
             }
 
+            var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
+
+            List<RolResult> roles = JsonSerializer.Deserialize<List<RolResult>>(usuario.JsonRoles) ?? [];
+
+            List<string> nombresRoles = roles.Select(r => r.NombreRol).ToList();
+
+            var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, nombresRoles);
+            //token de refresco que se almacenará en bd
             var refreshToken = _tokenService.GenerateRefreshToken();
-
-            var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, []);
-
             var refreshTokenRequest = new RefreshTokenCreateRequest { Token = refreshToken , UsuarioId = usuario.UsuarioId };
-
             var refreshMapper = _mapperRefreshToken.Map(refreshTokenRequest);
 
             await _authRepository.GuardarRefreshToken(refreshMapper);
 
-            var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
             usuario.PasswordHash = "";
             return new LoginResponse
             {
                 AccessToken = token,
                 Modulos = modulosPermisos,
-                UsuarioResult = usuario
+                UsuarioResult = usuario,
+                RefreshToken = refreshToken
             };
         }
 

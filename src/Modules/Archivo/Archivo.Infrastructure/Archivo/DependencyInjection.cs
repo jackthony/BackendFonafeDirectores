@@ -13,10 +13,12 @@ namespace Archivo.Infrastructure.Archivo
             // Repositories
             services.AddScoped<IArchivoRepository, ArchivoSqlRepository>();
             services.AddScoped<IExportImportRepository, ExportImportSqlRepository>();
+            services.AddScoped<IReferenciaRepository, ReferenciaRepository>();
 
             // Services
             services.AddScoped<IStorageService, BunnyStorageService>();
             services.AddScoped<IExportImportService, ExportImportService>();
+            services.AddScoped<IValidarReferenciaService, ValidarReferenciaService>();
             return services;
         }
     }

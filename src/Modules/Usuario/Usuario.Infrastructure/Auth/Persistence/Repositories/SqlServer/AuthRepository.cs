@@ -51,6 +51,64 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
             );
         }
 
+
+        // ─────────── Nuevos métodos para gestión de contraseña ───────────
+        public async Task<SpResultBase> UpdatePasswordAsync(ChangePasswordParameters parameters)
+        {
+            var spResult = await ExecAsync<ChangePasswordParameters, SpResultBase>(
+                parameters,
+                "sp_ActualizarPassword"
+            );
+            return spResult;
+        }
+
+        public async Task<SpResultBase> ClearFailedAttemptsAsync(ClearFailedAttemptsParameters parameters)
+        {
+            var spResult = await ExecAsync<ClearFailedAttemptsParameters, SpResultBase>(
+                parameters,
+                "sp_LimpiarIntentosFallidos"
+            );
+            return spResult;
+        }
+
+        //public async Task LogPasswordChangeAsync(int usuarioId, string actor)
+        //{
+        //    var parameters = new DynamicParameters();
+        //    parameters.Add("UsuarioId", usuarioId);
+        //    parameters.Add("Actor", actor);
+        //    parameters.Add("ChangeDate", DateTime.UtcNow);
+
+        //    await _connection.ExecuteAsync(
+        //        "sp_RegistrarCambioContrasena",
+        //        parameters,
+        //        commandType: CommandType.StoredProcedure
+        //    );
+        //}
+
+        // ──────────────────────────────────────────────────────────────────
+
+
+
+        // Store para revocar token
+        public async Task<SpResultBase> RevocarRefreshTokenAsync (LogoutParameters parameters)
+        {
+            var spResult = await ExecAsync<LogoutParameters, SpResultBase>(
+                parameters,
+                "sp_RevocarToken"
+            );
+            return spResult;
+        }
+
+        protected async Task<TResponse> ExecAsync<TRequest, TResponse>(TRequest request, string storedProcedure)
+        {
+            var parameters = new DynamicParameters(request);
+
+            return await _connection.QueryFirstAsync<TResponse>(
+                storedProcedure,
+                parameters,
+                commandType: CommandType.StoredProcedure);
+        }
+
         private async Task<SpResult<T>> EjecutarSpConResultadoAsync<T>(string storedProcedure, object parameters)
         {
             using var multi = await _connection.QueryMultipleAsync(

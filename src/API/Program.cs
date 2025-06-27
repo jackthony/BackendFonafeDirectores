@@ -72,6 +72,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "Boa API", Version = "v1" });
 });
+builder.Services.AddHttpClient();
 
 builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<bool>>, ItemResponseMapperBool>();
 builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<int>>, ItemResponseMapperInt>();

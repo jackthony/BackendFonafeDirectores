@@ -27,5 +27,7 @@
         public int IdEmpresa { get; set; }
         public int IdRegistro { get; set; }
         public string Especialidad { get; set; } = string.Empty;
+        public string Ruc { get; set; } = string.Empty;
+        public string Empresa { get; set; } = string.Empty;
     }
 }
