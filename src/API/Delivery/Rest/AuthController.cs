@@ -99,9 +99,5 @@ namespace Api.Delivery.Rest
                 return ErrorResultMapper.MapError(result.AsT0);
             return Ok(result.AsT1);
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 653461479f5ce9b1da508fb9c9913c47f23d33f0
     }
 }

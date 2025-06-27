@@ -9,6 +9,7 @@
         public string NombreVisual { get; set; } = default!;
         public string PrimerNombre { get; set; } = default!;
         public string Status { get; set; } = default!;
+        public string SessionState { get; set; } = default!;
         public string JsonModulos { get; set; } = default!;
         public string JsonRoles { get; set; } = default!;
         public int IntentosFallidos {  get; set; } = default!;
