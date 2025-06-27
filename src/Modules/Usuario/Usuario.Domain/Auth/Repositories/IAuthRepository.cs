@@ -24,6 +24,7 @@ namespace Usuario.Domain.Auth.Repositories
         /// Resetea el contador de intentos fallidos tras un cambio exitoso de contraseña.
         /// </summary>
         Task<SpResultBase> ClearFailedAttemptsAsync(ClearFailedAttemptsParameters parameters);
+        Task<SpResultBase> RevocarRefreshTokenAsync(LogoutParameters parameters);
 
         /// <summary>
         /// Registra un log de auditoría de cambio de contraseña (opcional).

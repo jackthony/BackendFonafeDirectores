@@ -57,7 +57,7 @@ namespace Api.Delivery.Rest
 
                 new() { nConCodigo = 13, nConValor = 0, sConDescripcion = "Tipo de Personal" },
                 new() { nConCodigo = 13, nConValor = 1, sConDescripcion = "FONAFE" },
-                new() { nConCodigo = 13, nConValor = 2, sConDescripcion = "Terceros" },
+                new() { nConCodigo = 13, nConValor = 2, sConDescripcion = "EXTERNOS" },
 
 
             };
