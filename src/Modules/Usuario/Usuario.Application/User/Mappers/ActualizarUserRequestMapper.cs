@@ -8,7 +8,20 @@ namespace Usuario.Application.User.Mappers
     {
         public ActualizarUserParameters Map(ActualizarUserRequest source)
         {
+<<<<<<< HEAD
             throw new NotImplementedException();
+=======
+            return new ActualizarUserParameters
+            {
+                UsuarioId = source.nIdUsuario,
+                UsuarioModificacionId = source.nUsuarioModificacion,
+                RolId = source.nIdRol,
+                Estado = source.nEstado,
+                CargoId = source.nIdCargo,
+                nTipoPersonal = source.nTipoPersonal,
+                FechaModificacion = DateTime.UtcNow
+            };
+>>>>>>> origin/masterboa
         }
     }
 }

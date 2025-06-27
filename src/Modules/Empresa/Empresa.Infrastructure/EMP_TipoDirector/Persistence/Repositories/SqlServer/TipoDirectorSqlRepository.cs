@@ -1,33 +1,59 @@
 ﻿using Dapper;
+<<<<<<< HEAD
 using Empresa.Application.EMP_TipoDirector.Dtos;
 using Empresa.Application.EMP_TipoDirector.Repositories;
 using Empresa.Domain.EMP_TipoDirector.Models;
 using Empresa.Domain.EMP_TipoDirector.Repositories;
+=======
+>>>>>>> origin/masterboa
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.TipoDirector.Parameters;
+using Empresa.Domain.TipoDirector.Repositories;
+using Empresa.Domain.TipoDirector.Results;
 
+<<<<<<< HEAD
 namespace Empresa.Infrastructure.EMP_TipoDirector.Persistence.Repositories.SqlServer
+=======
+namespace Empresa.Infrastructure.TipoDirector.Persistence.Repositories.SqlServer
+>>>>>>> origin/masterboa
 {
-    public class TipoDirectorSqlRepository(IDbConnection connection) : IWriteTipoDirectorRepository<SpResultBase>, IReadTipoDirectorRepository
+    public class TipoDirectorSqlRepository(IDbConnection connection) : ITipoDirectorRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<TipoDirectorDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearTipoDirectorParameters request)
+        {
+            var spResult = await ExecAsync<CrearTipoDirectorParameters, SpResultBase>(
+            request,
+            "sp_RegistrarTipoDirector");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarTipoDirectorParameters request)
+        {
+            var spResult = await ExecAsync<EliminarTipoDirectorParameters, SpResultBase>(
+            request,
+            "sp_EliminarTipoDirector");
+            return spResult;
+        }
+
+        public async Task<TipoDirectorResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
             parameters.Add("IdTipoDirector", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<TipoDirectorDto>(
+            return await _connection.QueryFirstOrDefaultAsync<TipoDirectorResult>(
                 "sp_ObtenerTipoDirectorPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<TipoDirectorDto>> ListAsync(ListarTipoDirectorRequest request)
+        public async Task<List<TipoDirectorResult>> ListAsync(ListarTipoDirectorParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<TipoDirectorDto>(
+            var result = await _connection.QueryAsync<TipoDirectorResult>(
                 "sp_ListarTipoDirector",
                 parameters,
                 commandType: CommandType.StoredProcedure);
@@ -35,7 +61,7 @@ namespace Empresa.Infrastructure.EMP_TipoDirector.Persistence.Repositories.SqlSe
             return result.ToList();
         }
 
-        public async Task<PagedResult<TipoDirectorDto>> ListByPaginationAsync(ListarTipoDirectorPaginadoRequest request)
+        public async Task<PagedResult<TipoDirectorResult>> ListByPaginationAsync(ListarTipoDirectorPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
@@ -44,10 +70,10 @@ namespace Empresa.Infrastructure.EMP_TipoDirector.Persistence.Repositories.SqlSe
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<TipoDirectorDto>()).ToList();
+            var items = (await multi.ReadAsync<TipoDirectorResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<TipoDirectorDto>()
+            return new PagedResult<TipoDirectorResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,25 +82,9 @@ namespace Empresa.Infrastructure.EMP_TipoDirector.Persistence.Repositories.SqlSe
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearTipoDirectorData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarTipoDirectorParameters request)
         {
-            var spResult = await ExecAsync<CrearTipoDirectorData, SpResultBase>(
-            request,
-            "sp_RegistrarTipoDirector");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarTipoDirectorData request)
-        {
-            var spResult = await ExecAsync<EliminarTipoDirectorData, SpResultBase>(
-            request,
-            "sp_EliminarTipoDirector");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarTipoDirectorData request)
-        {
-            var spResult = await ExecAsync<ActualizarTipoDirectorData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarTipoDirectorParameters, SpResultBase>(
             request,
             "sp_ActualizarTipoDirector");
             return spResult;

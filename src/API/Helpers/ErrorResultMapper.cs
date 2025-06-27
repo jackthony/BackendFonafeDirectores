@@ -11,17 +11,18 @@ namespace Api.Helpers
             {
                 ValidationError validation => new ValidationProblemDetails(validation.Errors ?? [])
                 {
-                    Title = validation.Message,
+                    Title = "Error de validación",
                     Status = StatusCodes.Status400BadRequest,
                     Type = "https://httpstatuses.com/400",
+                    Detail = validation.Message ?? "Error de validación",
                     Instance = httpContext?.Request.Path
                 },
                 DatabaseError db => new ProblemDetails
                 {
-                    Title = db.Message,
+                    Title = "Error de base de datos",
                     Status = StatusCodes.Status503ServiceUnavailable,
                     Type = "https://httpstatuses.com/503",
-                    Detail = "Error al acceder a la base de datos.",
+                    Detail = db.Message ?? "Error al acceder a la base de datos.",
                     Instance = httpContext?.Request.Path
                 },
                 UnexpectedError unexpected => new ProblemDetails

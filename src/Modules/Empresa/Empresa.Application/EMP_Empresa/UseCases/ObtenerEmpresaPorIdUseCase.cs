@@ -1,21 +1,21 @@
-﻿using Empresa.Application.EMP_Empresa.Dtos;
-using Empresa.Application.EMP_Empresa.Repositories;
-using OneOf;
+﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+using Empresa.Domain.Empresa.Repositories;
+using Empresa.Domain.Empresa.Results;
 
-namespace Empresa.Application.EMP_Empresa.UseCases
+namespace Empresa.Application.Empresa.UseCases
 {
-    public class ObtenerEmpresaPorIdUseCase : IUseCase<long, EmpresaDto?>
+    public class ObtenerEmpresaPorIdUseCase : IUseCase<int, EmpresaResult?>
     {
-        private readonly IReadEmpresaRepository _repository;
+        private readonly IEmpresaRepository _repository;
 
-        public ObtenerEmpresaPorIdUseCase(IReadEmpresaRepository repository)
+        public ObtenerEmpresaPorIdUseCase(IEmpresaRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<OneOf<ErrorBase, EmpresaDto?>> ExecuteAsync(long request)
+        public async Task<OneOf<ErrorBase, EmpresaResult?>> ExecuteAsync(int request)
         {
             var result = await _repository.GetByIdAsync(request);
             if (result == null) return ErrorBase.NotFound();

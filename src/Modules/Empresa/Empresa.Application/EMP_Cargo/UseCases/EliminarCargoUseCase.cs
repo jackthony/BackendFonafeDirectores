@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Empresa.Domain.EMP_Cargo.Models;
 using Empresa.Domain.EMP_Cargo.Repositories;
 using OneOf;
@@ -20,6 +21,39 @@ namespace Empresa.Application.EMP_Cargo.UseCases
         {
             var result = await _repository.DeleteAsync(request);
             if (!result.Success) return ErrorBase.Database(result.Message);
+=======
+﻿using OneOf;
+using Shared.Kernel.Errors;
+using Shared.Kernel.Interfaces;
+using Shared.Kernel.Responses;
+using Empresa.Application.Cargo.Dtos;
+using Empresa.Domain.Cargo.Parameters;
+using Empresa.Domain.Cargo.Repositories;
+
+namespace Empresa.Application.Cargo.UseCases
+{
+    public class EliminarCargoUseCase : IUseCase<EliminarCargoRequest, SpResultBase>
+    {
+        private readonly ICargoRepository _repository;
+        private readonly IMapper<EliminarCargoRequest, EliminarCargoParameters> _mapper;
+
+        public EliminarCargoUseCase(
+            ICargoRepository repository,
+            IMapper<EliminarCargoRequest, EliminarCargoParameters> mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
+        public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(EliminarCargoRequest request)
+        {
+            var parameters = _mapper.Map(request);
+
+            var result = await _repository.DeleteAsync(parameters);
+
+            if (!result.Success) return ErrorBase.Database(result.Message);
+
+>>>>>>> origin/masterboa
             return result;
         }
     }

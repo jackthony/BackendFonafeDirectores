@@ -1,5 +1,8 @@
 ﻿using Dapper;
+<<<<<<< HEAD
 using OneOf.Types;
+=======
+>>>>>>> origin/masterboa
 using Shared.Kernel.Responses;
 using System.Data;
 using Usuario.Domain.Auth.Models;
@@ -13,11 +16,116 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
     {
         private readonly IDbConnection _connection = connection;
 
+<<<<<<< HEAD
         public async Task<SpResult<UsuarioResult>> ObtenerPorCorreoAsync(LoginParameters request)
         {
             using var multi = await _connection.QueryMultipleAsync(
                 "sp_ProcesarLogin",
                 request,
+=======
+        public async Task IncrementarIntentosFallidosAsync(int usuarioId)
+        {
+            await _connection.ExecuteAsync(
+                "sp_IncrementarIntentosFallidos",
+                new { UsuarioId = usuarioId },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+        public async Task GuardarRefreshToken(RefreshToken refreshToken)
+        {
+            var parameters = new DynamicParameters(refreshToken);
+
+            await _connection.ExecuteAsync(
+                "sp_RegistrarRefreshToken",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+        public Task<SpResult<UsuarioResult>> ObtenerPorCorreoAsync(LoginParameters request)
+        {
+            return EjecutarSpConResultadoAsync<UsuarioResult>(
+                "sp_ProcesarLogin",
+                request
+            );
+        }
+
+        public Task<SpResult<UsuarioResult>> ObtenerPorIdAsync(int usuarioId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("UsuarioId", usuarioId);
+
+            return EjecutarSpConResultadoAsync<UsuarioResult>(
+                "sp_ProcesarLoginById",
+                parameters
+            );
+        }
+
+
+        // ─────────── Nuevos métodos para gestión de contraseña ───────────
+        public async Task<SpResultBase> UpdatePasswordAsync(ChangePasswordParameters parameters)
+        {
+            var spResult = await ExecAsync<ChangePasswordParameters, SpResultBase>(
+                parameters,
+                "sp_ActualizarPassword"
+            );
+            return spResult;
+        }
+
+        public async Task<SpResultBase> ClearFailedAttemptsAsync(ClearFailedAttemptsParameters parameters)
+        {
+            var spResult = await ExecAsync<ClearFailedAttemptsParameters, SpResultBase>(
+                parameters,
+                "sp_LimpiarIntentosFallidos"
+            );
+            return spResult;
+        }
+
+        //public async Task LogPasswordChangeAsync(int usuarioId, string actor)
+        //{
+        //    var parameters = new DynamicParameters();
+        //    parameters.Add("UsuarioId", usuarioId);
+        //    parameters.Add("Actor", actor);
+        //    parameters.Add("ChangeDate", DateTime.UtcNow);
+
+        //    await _connection.ExecuteAsync(
+        //        "sp_RegistrarCambioContrasena",
+        //        parameters,
+        //        commandType: CommandType.StoredProcedure
+        //    );
+        //}
+
+        // ──────────────────────────────────────────────────────────────────
+
+
+
+        // Store para revocar token
+        public async Task<SpResultBase> RevocarRefreshTokenAsync (LogoutParameters parameters)
+        {
+            var spResult = await ExecAsync<LogoutParameters, SpResultBase>(
+                parameters,
+                "sp_RevocarToken"
+            );
+            return spResult;
+        }
+
+        protected async Task<TResponse> ExecAsync<TRequest, TResponse>(TRequest request, string storedProcedure)
+        {
+            var parameters = new DynamicParameters(request);
+
+            return await _connection.QueryFirstAsync<TResponse>(
+                storedProcedure,
+                parameters,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        private async Task<SpResult<T>> EjecutarSpConResultadoAsync<T>(string storedProcedure, object parameters)
+        {
+            using var multi = await _connection.QueryMultipleAsync(
+                storedProcedure,
+                parameters,
+>>>>>>> origin/masterboa
                 commandType: CommandType.StoredProcedure
             );
 
@@ -25,6 +133,7 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
 
             if (spInfo is null || !spInfo.Success)
             {
+<<<<<<< HEAD
                 return new SpResult<UsuarioResult>
                 {
                     Success = false,
@@ -42,5 +151,36 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
                 Data = usuario
             };
         }
+=======
+                return new SpResult<T>
+                {
+                    Success = false,
+                    Message = spInfo?.Message ?? "Error desconocido",
+                    Data = default
+                };
+            }
+
+            var data = await multi.ReadFirstOrDefaultAsync<T>();
+
+            return new SpResult<T>
+            {
+                Success = true,
+                Message = spInfo.Message,
+                Data = data
+            };
+        }
+
+        public async Task<RefreshToken> ObtenerRefreshTokenAsync(string token)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("Token", token);
+
+            return await _connection.QueryFirstAsync<RefreshToken>(
+                "sp_ObtenerRefreshToken",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+        }
+>>>>>>> origin/masterboa
     }
 }

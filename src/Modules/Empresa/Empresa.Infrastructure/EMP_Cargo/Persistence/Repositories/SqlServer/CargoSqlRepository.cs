@@ -1,33 +1,59 @@
 ﻿using Dapper;
+<<<<<<< HEAD
 using Empresa.Application.EMP_Cargo.Dtos;
 using Empresa.Application.EMP_Cargo.Repositories;
 using Empresa.Domain.EMP_Cargo.Models;
 using Empresa.Domain.EMP_Cargo.Repositories;
+=======
+>>>>>>> origin/masterboa
 using Shared.Kernel.Responses;
 using System.Data;
+using Empresa.Domain.Cargo.Parameters;
+using Empresa.Domain.Cargo.Repositories;
+using Empresa.Domain.Cargo.Results;
 
+<<<<<<< HEAD
 namespace Empresa.Infrastructure.EMP_Cargo.Persistence.Repositories.SqlServer
+=======
+namespace Empresa.Infrastructure.Cargo.Persistence.Repositories.SqlServer
+>>>>>>> origin/masterboa
 {
-    public class CargoSqlRepository(IDbConnection connection) : IWriteCargoRepository<SpResultBase>, IReadCargoRepository
+    public class CargoSqlRepository(IDbConnection connection) : ICargoRepository
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task<CargoDto?> GetByIdAsync(long id)
+        public async Task<SpResultBase> AddAsync(CrearCargoParameters request)
+        {
+            var spResult = await ExecAsync<CrearCargoParameters, SpResultBase>(
+            request,
+            "sp_RegistrarCargo");
+            return spResult;
+        }
+
+        public async Task<SpResultBase> DeleteAsync(EliminarCargoParameters request)
+        {
+            var spResult = await ExecAsync<EliminarCargoParameters, SpResultBase>(
+            request,
+            "sp_EliminarCargo");
+            return spResult;
+        }
+
+        public async Task<CargoResult?> GetByIdAsync(int id)
         {
             var parameters = new DynamicParameters();
             parameters.Add("IdCargo", id);
 
-            return await _connection.QueryFirstOrDefaultAsync<CargoDto>(
+            return await _connection.QueryFirstOrDefaultAsync<CargoResult>(
                 "sp_ObtenerCargoPorId",
                 parameters,
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<CargoDto>> ListAsync(ListarCargoRequest request)
+        public async Task<List<CargoResult>> ListAsync(ListarCargoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
-            var result = await _connection.QueryAsync<CargoDto>(
+            var result = await _connection.QueryAsync<CargoResult>(
                 "sp_ListarCargo",
                 parameters,
                 commandType: CommandType.StoredProcedure);
@@ -35,7 +61,7 @@ namespace Empresa.Infrastructure.EMP_Cargo.Persistence.Repositories.SqlServer
             return result.ToList();
         }
 
-        public async Task<PagedResult<CargoDto>> ListByPaginationAsync(ListarCargoPaginadoRequest request)
+        public async Task<PagedResult<CargoResult>> ListByPaginationAsync(ListarCargoPaginadoParameters request)
         {
             var parameters = new DynamicParameters(request);
 
@@ -44,10 +70,10 @@ namespace Empresa.Infrastructure.EMP_Cargo.Persistence.Repositories.SqlServer
                 parameters,
                 commandType: CommandType.StoredProcedure);
 
-            var items = (await multi.ReadAsync<CargoDto>()).ToList();
+            var items = (await multi.ReadAsync<CargoResult>()).ToList();
             var total = await multi.ReadFirstAsync<int>();
 
-            return new PagedResult<CargoDto>()
+            return new PagedResult<CargoResult>()
             {
                 Items = items,
                 Page = request.Page,
@@ -56,25 +82,9 @@ namespace Empresa.Infrastructure.EMP_Cargo.Persistence.Repositories.SqlServer
             };
         }
 
-        public async Task<SpResultBase> AddAsync(CrearCargoData request)
+        public async Task<SpResultBase> UpdateAsync(ActualizarCargoParameters request)
         {
-            var spResult = await ExecAsync<CrearCargoData, SpResultBase>(
-            request,
-            "sp_RegistrarCargo");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> DeleteAsync(EliminarCargoData request)
-        {
-            var spResult = await ExecAsync<EliminarCargoData, SpResultBase>(
-            request,
-            "sp_EliminarCargo");
-            return spResult;
-        }
-
-        public async Task<SpResultBase> UpdateAsync(ActualizarCargoData request)
-        {
-            var spResult = await ExecAsync<ActualizarCargoData, SpResultBase>(
+            var spResult = await ExecAsync<ActualizarCargoParameters, SpResultBase>(
             request,
             "sp_ActualizarCargo");
             return spResult;

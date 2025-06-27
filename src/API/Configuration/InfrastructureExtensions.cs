@@ -19,5 +19,17 @@ namespace Api.Common
 
             return services;
         }
+
+        public static IServiceCollection AddStorage(this IServiceCollection services)
+        {
+            var bunnyConfig = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("bunny.settings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            services.Configure<BunnyStorageOptions>(bunnyConfig);
+
+            return services;
+        }
     }
 }

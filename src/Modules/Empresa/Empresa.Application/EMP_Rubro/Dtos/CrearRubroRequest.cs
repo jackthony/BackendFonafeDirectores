@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 ﻿namespace Empresa.Application.EMP_Rubro.Dtos
 {
     public class CrearRubroRequest
     {
+=======
+﻿namespace Empresa.Application.Rubro.Dtos
+{
+    public class CrearRubroRequest
+    {
+        public string sNombreRubro { get; set; } = default!;
+        public int nUsuarioRegistro { get; set; }
+>>>>>>> origin/masterboa
     }
 }

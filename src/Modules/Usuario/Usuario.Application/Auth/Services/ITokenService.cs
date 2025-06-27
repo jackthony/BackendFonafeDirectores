@@ -7,5 +7,10 @@ namespace Usuario.Application.Auth.Services
         public string GenerateAccessToken(int userId, string email, IList<string> roles);
         public string GenerateRefreshToken();
         public ClaimsPrincipal? ValidateAccessToken(string token);
+<<<<<<< HEAD
+=======
+        public int? GetUserIdFromExpiredToken(string token);
+        public string GenerateResetPasswordToken(int userId);
+>>>>>>> origin/masterboa
     }
 }

@@ -9,7 +9,11 @@ namespace Usuario.Infrastructure.Auth.Services
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
+<<<<<<< HEAD
         public bool Verify(string hashedPassword, string plainPassword)
+=======
+        public bool Verify(string plainPassword, string hashedPassword)
+>>>>>>> origin/masterboa
         {
             return BCrypt.Net.BCrypt.Verify(plainPassword, hashedPassword);
         }

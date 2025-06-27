@@ -13,6 +13,11 @@ namespace Usuario.Infrastructure.Auth
             services.AddScoped<IPasswordHasher, PasswordHasherBCrypt>();
             services.AddScoped<ITokenService, JwtTokenService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+<<<<<<< HEAD
+=======
+            services.AddScoped<ICaptchaService, VerificarCaptchaService>();
+            services.AddScoped<IEmailService, EmailService>();
+>>>>>>> origin/masterboa
             return services;
         }
     }

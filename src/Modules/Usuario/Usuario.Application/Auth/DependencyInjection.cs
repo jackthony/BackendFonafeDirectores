@@ -1,8 +1,16 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
+<<<<<<< HEAD
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Mappers;
 using Usuario.Application.Auth.UseCases;
+=======
+using Shared.Kernel.Responses;
+using Usuario.Application.Auth.Dtos;
+using Usuario.Application.Auth.Mappers;
+using Usuario.Application.Auth.UseCases;
+using Usuario.Domain.Auth.Models;
+>>>>>>> origin/masterboa
 using Usuario.Domain.Auth.Parameters;
 
 namespace Usuario.Application.Auth
@@ -13,9 +21,22 @@ namespace Usuario.Application.Auth
         {
             // UseCases
             services.AddScoped<IUseCase<LoginRequest, LoginResponse>, LoginUseCase>();
+<<<<<<< HEAD
 
             // Mappers
             services.AddScoped<IMapper<LoginRequest, LoginParameters>, LoginRequestMapper>();
+=======
+            services.AddScoped<IUseCase<VerifyTokenRequest, LoginResponse>, VerifyTokenUseCase>();
+            services.AddScoped<IUseCase<RefreshTokenRequest, LoginResponse>, RefreshTokenUseCase>();
+            // Cambio de contraseña
+            services.AddScoped<IUseCase<ChangePasswordRequest, SpResultBase>, ChangePasswordUseCase>();
+            services.AddScoped<IUseCase<ForgotPasswordRequest, ForgotPasswordResponse>, ForgotPasswordUseCase>();
+            services.AddScoped<IUseCase<ResetPasswordRequest, ResetPasswordResponse>, ResetPasswordUseCase>();
+            services.AddScoped<IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse>, AdminResetPasswordUseCase>();
+            // Mappers
+            services.AddScoped<IMapper<LoginRequest, LoginParameters>, LoginRequestMapper>();
+            services.AddScoped<IMapper<RefreshTokenCreateRequest, RefreshToken>, RefreshTokenRequestMapper>();
+>>>>>>> origin/masterboa
 
             return services;
         }

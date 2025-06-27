@@ -8,7 +8,17 @@ namespace Usuario.Application.User.Mappers
     {
         public ListarUserPaginadoParameters Map(ListarUserPaginadoRequest source)
         {
+<<<<<<< HEAD
             throw new NotImplementedException();
+=======
+            return new ListarUserPaginadoParameters
+            {
+                Page = source.Page,
+                PageSize = source.PageSize,
+                Nombre = source.sNombreCompleto,
+                Estado = source.bIsEstado
+            };
+>>>>>>> origin/masterboa
         }
     }
 }

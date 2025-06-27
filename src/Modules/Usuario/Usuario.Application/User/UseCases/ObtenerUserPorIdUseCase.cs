@@ -1,8 +1,11 @@
 ﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
+<<<<<<< HEAD
 using Usuario.Application.Dtos;
 using Usuario.Application.Repositories;
+=======
+>>>>>>> origin/masterboa
 using Usuario.Domain.User.Repositories;
 using Usuario.Domain.User.Results;
 

@@ -28,7 +28,9 @@
 	<ProjectReference Include="..\Modules\Empresa\Empresa.Presentation\Empresa.Presentation.csproj" />
 	<ProjectReference Include="..\Modules\Empresa\Empresa.Application\Empresa.Application.csproj" />
 	<ProjectReference Include="..\Modules\Empresa\Empresa.Infrastructure\Empresa.Infrastructure.csproj" />
-
+	<ProjectReference Include="..\Modules\Archivo\Archivo.Presentation\Archivo.Presentation.csproj" />
+	<ProjectReference Include="..\Modules\Archivo\Archivo.Application\Archivo.Application.csproj" />
+	<ProjectReference Include="..\Modules\Archivo\Archivo.Infrastructure\Archivo.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
