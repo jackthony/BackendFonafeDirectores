@@ -84,22 +84,21 @@ namespace Archivo.Infrastructure.Archivo.Services
             {
                 var empresa = new EmpresaDocResult
                 {
-                    Id = row.Cell(1).GetValue<int>(),
-                    Ruc = row.Cell(2).GetValue<string>(),
-                    RazonSocial = row.Cell(3).GetValue<string>(),
-                    Departamento = row.Cell(4).GetValue<string>(),
-                    Provincia = row.Cell(5).GetValue<string>(),
-                    Distrito = row.Cell(6).GetValue<string>(),
-                    Direccion = row.Cell(7).GetValue<string>(),
-                    Rubro = row.Cell(8).GetValue<string>(),
-                    Ministerio = row.Cell(9).GetValue<string>(),
-                    Ingresos = row.Cell(10).GetValue<decimal>(),
-                    Utilidades = row.Cell(11).GetValue<decimal>(),
-                    CapitalSocial = row.Cell(12).GetValue<decimal>(),
-                    CantidadMiembros = row.Cell(13).GetValue<int>(),
-                    RegistroEnMercado = row.Cell(14).GetValue<string>(),
-                    Activo = row.Cell(15).GetValue<string>(),
-                    Comentario = row.Cell(16).GetValue<string>()
+                    Ruc = row.Cell(1).GetValue<string>(),
+                    RazonSocial = row.Cell(2).GetValue<string>(),
+                    Departamento = row.Cell(3).GetValue<string>(),
+                    Provincia = row.Cell(4).GetValue<string>(),
+                    Distrito = row.Cell(5).GetValue<string>(),
+                    Direccion = row.Cell(6).GetValue<string>(),
+                    Rubro = row.Cell(7).GetValue<string>(),
+                    Sector = row.Cell(8).GetValue<string>(),
+                    Ingresos = row.Cell(9).GetValue<decimal>(),
+                    Utilidades = row.Cell(10).GetValue<decimal>(),
+                    CapitalSocial = row.Cell(11).GetValue<decimal>(),
+                    CantidadMiembros = row.Cell(12).GetValue<int>(),
+                    RegistroEnMercado = row.Cell(13).GetValue<string>(),
+                    Activo = row.Cell(14).GetValue<string>(),
+                    Comentario = row.Cell(15).GetValue<string>()
                 };
 
                 empresas.Add(empresa);
@@ -111,6 +110,23 @@ namespace Archivo.Infrastructure.Archivo.Services
 
             foreach (var row in worksheet.RowsUsed().Skip(1))
             {
+                string? fechaNacimientoTexto = row.Cell(11).GetFormattedString()?.Trim();
+                string? fechaNombramientoTexto = row.Cell(20).GetFormattedString()?.Trim();
+                string? fechaDesignacionTexto = row.Cell(21).GetFormattedString()?.Trim();
+
+                DateTime? fechaNacimiento = null;
+                DateTime? fechaNombramiento = null;
+                DateTime? fechaDesignacion = null;
+
+                if (DateTime.TryParse(fechaNacimientoTexto, out var fn))
+                    fechaNacimiento = fn;
+
+                if (DateTime.TryParse(fechaNombramientoTexto, out var fno))
+                    fechaNombramiento = fno;
+
+                if (DateTime.TryParse(fechaDesignacionTexto, out var fd))
+                    fechaDesignacion = fd;
+
                 var director = new DirectorDocResult
                 {
                     Ruc = row.Cell(1).GetValue<string>(),
@@ -123,7 +139,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                     Direccion = row.Cell(8).GetValue<string>(),
                     Nombres = row.Cell(9).GetValue<string>(),
                     Apellidos = row.Cell(10).GetValue<string>(),
-                    FechaNacimiento = row.Cell(11).GetDateTime(),
+                    FechaNacimiento = fechaNacimiento,
                     Genero = row.Cell(12).GetValue<string>(),
                     Telefono = row.Cell(13).GetValue<string>(),
                     Correo = row.Cell(14).GetValue<string>(),
@@ -132,8 +148,8 @@ namespace Archivo.Infrastructure.Archivo.Services
                     Sector = row.Cell(17).GetValue<string>(),
                     Profesion = row.Cell(18).GetValue<string>(),
                     Dieta = row.Cell(19).GetValue<decimal?>(),
-                    FechaNombramiento = row.Cell(20).GetDateTime(),
-                    FechaDesignacion = row.Cell(21).GetDateTime(),
+                    FechaNombramiento = fechaNombramiento,
+                    FechaDesignacion = fechaDesignacion,
                     FechaRenuncia = row.Cell(22).GetValue<string>(),
                     Comentarios = row.Cell(23).GetValue<string>()
                 };

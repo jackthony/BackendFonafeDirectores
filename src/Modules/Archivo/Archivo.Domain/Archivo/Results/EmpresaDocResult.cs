@@ -9,7 +9,7 @@
         public string Distrito { get; set; } = string.Empty;
         public string Direccion { get; set; } = string.Empty;
         public string Rubro { get; set; } = string.Empty;
-        public string Ministerio { get; set; } = string.Empty;
+        public string Sector { get; set; } = string.Empty;
         public decimal Ingresos { get; set; }
         public decimal Utilidades { get; set; }
         public decimal CapitalSocial { get; set; }

@@ -24,6 +24,7 @@ namespace Archivo.Application.Archivo
             services.AddScoped<IUseCase<int, ArchivoResult?>, ObtenerArchivoPorIdUseCase>();
             services.AddScoped<IUseCase<ExportFileRequest, Stream>, ExportFileUseCase>();
             services.AddScoped<IUseCase<ExportFileRequest, Stream>, ExportFileUseCase>();
+            services.AddScoped<IUseCase<ImportFileRequest, ImportFileResult>, ImportFileUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarArchivoRequest, ActualizarArchivoParameters>, ActualizarArchivoRequestMapper>();

@@ -77,9 +77,8 @@ namespace Api.Delivery.Rest
         {
             var result = await _forgotPasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0); // Mapea el error si lo hay
-
-            return Ok(result.AsT1);  // Si todo es exitoso, retornamos la respuesta del caso de uso
+                return ErrorResultMapper.MapError(result.AsT0);
+            return Ok(result.AsT1);
         }
 
 
@@ -88,9 +87,8 @@ namespace Api.Delivery.Rest
         {
             var result = await _resetPasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0); // Mapea el error si lo hay
-
-            return Ok(result.AsT1);  // Si todo es exitoso, retornamos la respuesta del caso de uso
+                return ErrorResultMapper.MapError(result.AsT0);
+            return Ok(result.AsT1);
         }
 
         [HttpPost("admin/reset-password")]
@@ -99,11 +97,7 @@ namespace Api.Delivery.Rest
             var result = await _adminResetPasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-
-            return Ok(result.AsT1);  // Respuesta exitosa con el mensaje del caso de uso
+            return Ok(result.AsT1);
         }
-
-
-
     }
 }

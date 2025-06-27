@@ -134,8 +134,9 @@ namespace Archivo.Infrastructure.Archivo.Persistence.Repositories.SqlServer
             table.Columns.Add("nNumeroMiembros", typeof(int));
             table.Columns.Add("bRegistradoMercadoValores", typeof(bool));
             table.Columns.Add("bActivo", typeof(bool));
-            table.Columns.Add("nUsuarioRegistroId", typeof(int));
             table.Columns.Add("dtFechaRegistro", typeof(DateTime));
+            table.Columns.Add("nUsuarioRegistroId", typeof(int));
+
 
             foreach (var empresa in empresas)
             {
@@ -149,14 +150,14 @@ namespace Archivo.Infrastructure.Archivo.Persistence.Repositories.SqlServer
                     empresa.IdDistrito,
                     empresa.Direccion,
                     empresa.Comentario,
-                    empresa.NumeroMiembros,
                     empresa.IngresosUltimoAnio,
                     empresa.UtilidadUltimoAnio,
                     empresa.ConformacionCapitalSocial,
+                    empresa.NumeroMiembros,
                     empresa.RegistradoMercadoValores,
                     empresa.Activo,
-                    empresa.UsuarioRegistro,
-                    empresa.FechaRegistro
+                    empresa.FechaRegistro,
+                    empresa.UsuarioRegistro
                 );
             }
 
