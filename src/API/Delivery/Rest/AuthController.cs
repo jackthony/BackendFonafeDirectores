@@ -17,8 +17,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ChangePasswordRequest, SpResultBase> _changePasswordUseCase;
         private readonly IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> _forgotPasswordUseCase;
         private readonly IUseCase<ResetPasswordRequest, ResetPasswordResponse> _resetPasswordUseCase;
+        private readonly IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> _adminResetPasswordUseCase;
 
-        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase)
+        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase)
         {
             _loginUseCase = loginUseCase;
             _verifyTokenUseCase = verifyTokenUseCase;
@@ -26,6 +27,7 @@ namespace Api.Delivery.Rest
             _changePasswordUseCase = changePasswordUseCase;
             _forgotPasswordUseCase = forgotPasswordUseCase;
             _resetPasswordUseCase = resetPasswordUseCase;
+            _adminResetPasswordUseCase = adminResetPasswordUseCase;
         }
 
         [HttpPost("login")]
@@ -89,6 +91,16 @@ namespace Api.Delivery.Rest
                 return ErrorResultMapper.MapError(result.AsT0); // Mapea el error si lo hay
 
             return Ok(result.AsT1);  // Si todo es exitoso, retornamos la respuesta del caso de uso
+        }
+
+        [HttpPost("admin/reset-password")]
+        public async Task<IActionResult> AdminResetPassword([FromBody] AdminResetPasswordRequest request)
+        {
+            var result = await _adminResetPasswordUseCase.ExecuteAsync(request);
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+
+            return Ok(result.AsT1);  // Respuesta exitosa con el mensaje del caso de uso
         }
 
 
