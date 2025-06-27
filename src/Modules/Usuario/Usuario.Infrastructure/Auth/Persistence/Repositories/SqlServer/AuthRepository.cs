@@ -87,6 +87,18 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
 
         // ──────────────────────────────────────────────────────────────────
 
+
+
+        // Store para revocar token
+        public async Task<SpResultBase> RevocarRefreshTokenAsync (LogoutParameters parameters)
+        {
+            var spResult = await ExecAsync<LogoutParameters, SpResultBase>(
+                parameters,
+                "sp_RevocarToken"
+            );
+            return spResult;
+        }
+
         protected async Task<TResponse> ExecAsync<TRequest, TResponse>(TRequest request, string storedProcedure)
         {
             var parameters = new DynamicParameters(request);
