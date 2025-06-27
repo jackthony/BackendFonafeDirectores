@@ -31,9 +31,9 @@ namespace Usuario.Application.Auth.UseCases
             if (claimsPrincipal == null)
                 return ErrorBase.Validation("Token inválido o expirado");
 
-            var adminRole = claimsPrincipal.FindFirst("role")?.Value;
-            if (adminRole != "admin")
-                return ErrorBase.Validation("No tienes permiso para realizar esta acción");
+            //var adminRole = claimsPrincipal.FindFirst("role")?.Value;
+            //if (adminRole != "admin")
+            //    return ErrorBase.Validation("No tienes permiso para realizar esta acción");
 
             // 2. Buscar al usuario por ID
             var userResult = await _authRepository.ObtenerPorIdAsync(request.UsuarioId);
