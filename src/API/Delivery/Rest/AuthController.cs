@@ -1,5 +1,6 @@
 ﻿using Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Usuario.Application.Auth.Dtos;
@@ -18,8 +19,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> _forgotPasswordUseCase;
         private readonly IUseCase<ResetPasswordRequest, ResetPasswordResponse> _resetPasswordUseCase;
         private readonly IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> _adminResetPasswordUseCase;
+        private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterDelivery;
 
-        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase)
+        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterDelivery)
         {
             _loginUseCase = loginUseCase;
             _verifyTokenUseCase = verifyTokenUseCase;
@@ -28,6 +30,7 @@ namespace Api.Delivery.Rest
             _forgotPasswordUseCase = forgotPasswordUseCase;
             _resetPasswordUseCase = resetPasswordUseCase;
             _adminResetPasswordUseCase = adminResetPasswordUseCase;
+            _presenterDelivery = presenterDelivery;
         }
 
         [HttpPost("login")]
@@ -67,7 +70,8 @@ namespace Api.Delivery.Rest
             var result = await _changePasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);
+            var response = _presenterDelivery.Present(result.AsT1);
+            return Ok(response);
 
         }
 
