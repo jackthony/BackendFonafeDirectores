@@ -73,7 +73,7 @@ namespace Usuario.Application.Auth.UseCases
             // 8. Responder al administrador
             return new AdminResetPasswordResponse
             {
-                Success = true,
+                isSuccess = true,
                 Message = "Contraseña restablecida con éxito"
             };
         }
