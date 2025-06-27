@@ -41,6 +41,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             _cargos = await _referenciaRepository.GetCargosAsync();
             _sectores = await _referenciaRepository.GetSectoresAsync();
             _especialidades = await _referenciaRepository.GetEspecialidadesAsync();
+            _empresas = await _referenciaRepository.GetEmpresasAsync();
         }
 
         public async Task CargarEmpresasAsync()
@@ -115,6 +116,12 @@ namespace Archivo.Infrastructure.Archivo.Services
             foreach (var e in empresas)
             {
                 var errores = new List<string>();
+
+                if (!Existe(e.Ruc, _empresas))
+                    errores.Add($"La empresa ya esta registrada: '{e.Ruc}'");
+
+                if (!Existe(e.RazonSocial, _empresas))
+                    errores.Add($"La empresa ya esta registrada: '{e.RazonSocial}'");
 
                 if (!Existe(e.Departamento, _departamentos))
                     errores.Add($"Departamento inválido: '{e.Departamento}'");
