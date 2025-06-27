@@ -2,9 +2,11 @@
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using System.Security.Claims;
+using System.Text.Json;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Services;
 using Usuario.Domain.Auth.Repositories;
+using Usuario.Domain.SEG_Modulo.Models;
 
 namespace Usuario.Application.Auth.UseCases
 {
@@ -47,9 +49,12 @@ namespace Usuario.Application.Auth.UseCases
             if (usuario.Status != "1")
                 return ErrorBase.Validation("El usuario no se encuentra activo");
 
+            var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
+            usuario.PasswordHash = "";
             return new LoginResponse
             {
                 AccessToken = request.Token,
+                Modulos = modulosPermisos,
                 UsuarioResult = usuario
             };
         }
