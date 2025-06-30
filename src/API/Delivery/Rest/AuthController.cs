@@ -41,7 +41,7 @@ namespace Api.Delivery.Rest
             var result = await _loginUseCase.ExecuteAsync(request);
 
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
 
             return Ok(result.AsT1);
         }
@@ -61,7 +61,7 @@ namespace Api.Delivery.Rest
         {
             var result = await _verifyTokenUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
 
             return Ok(result.AsT1);
         }
@@ -71,7 +71,7 @@ namespace Api.Delivery.Rest
         {
             var result = await _refreshTokenUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
 
             return Ok(result.AsT1);
         }
@@ -81,7 +81,7 @@ namespace Api.Delivery.Rest
         {
             var result = await _changePasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
             var response = _presenterDelivery.Present(result.AsT1);
             return Ok(response);
 
@@ -93,7 +93,7 @@ namespace Api.Delivery.Rest
         {
             var result = await _forgotPasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
             return Ok(result.AsT1);
         }
 
@@ -103,7 +103,7 @@ namespace Api.Delivery.Rest
         {
             var result = await _resetPasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
             return Ok(result.AsT1);
         }
 
@@ -112,7 +112,7 @@ namespace Api.Delivery.Rest
         {
             var result = await _adminResetPasswordUseCase.ExecuteAsync(request);
             if (result.IsT0)
-                return ErrorResultMapper.MapError(result.AsT0);
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
             return Ok(result.AsT1);
         }
     }
