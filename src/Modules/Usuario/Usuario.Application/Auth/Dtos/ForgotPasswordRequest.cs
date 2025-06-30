@@ -9,6 +9,6 @@ namespace Usuario.Application.Auth.Dtos
     public class ForgotPasswordRequest
     {
         public required string Email { get; set; }  // Correo electrónico del usuario
-        public required string CaptchaResponse { get; set; }  // Respuesta del CAPTCHA
+        public required string captchaResponse { get; set; }  // Respuesta del CAPTCHA
     }
 }

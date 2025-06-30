@@ -17,20 +17,28 @@ namespace Usuario.Application.Auth.UseCases
         private readonly IAuthRepository _authRepository;
         private readonly IPasswordHasher _passwordHasher;
         private readonly ITokenService _tokenService;
+        private readonly ICaptchaService _captchaService;
         private readonly IMapper<LoginRequest, LoginParameters> _mapper;
         private readonly IMapper<RefreshTokenCreateRequest, RefreshToken> _mapperRefreshToken;
 
-        public LoginUseCase(IAuthRepository authRepository, IPasswordHasher passwordHasher, ITokenService tokenService, IMapper<LoginRequest, LoginParameters> mapper, IMapper<RefreshTokenCreateRequest, RefreshToken> mapperRefreshToken)
+        public LoginUseCase(IAuthRepository authRepository, IPasswordHasher passwordHasher, ITokenService tokenService, ICaptchaService captchaService, IMapper<LoginRequest, LoginParameters> mapper, IMapper<RefreshTokenCreateRequest, RefreshToken> mapperRefreshToken)
         {
             _authRepository = authRepository;
             _passwordHasher = passwordHasher;
             _tokenService = tokenService;
+            _captchaService = captchaService;
             _mapper = mapper;
             _mapperRefreshToken = mapperRefreshToken;
         }
 
         public async Task<OneOf<ErrorBase, LoginResponse>> ExecuteAsync(LoginRequest request)
         {
+            //Validacion Capcha
+            if (string.IsNullOrWhiteSpace(request.captchaResponse))
+                return ErrorBase.Validation("Captcha es requerido");
+            if (!await _captchaService.ValidateCaptchaAsync(request.captchaResponse))
+                return ErrorBase.Validation("Captcha inválido o expirado");
+
             var parameters = _mapper.Map(request);
 
             var result = await _authRepository.ObtenerPorCorreoAsync(parameters);
@@ -40,7 +48,7 @@ namespace Usuario.Application.Auth.UseCases
 
             var usuario = result.Data;
 
-            if (usuario.IntentosFallidos >= 2)
+            if (usuario.IntentosFallidos >= 3)
                 return ErrorBase.Validation("Clave incorrecta, 'Su cuenta se inhabilitó, contactar con el administrador.");
 
             var isPasswordValid = _passwordHasher.Verify(request.Password, usuario.PasswordHash);

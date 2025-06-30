@@ -31,6 +31,8 @@ namespace Usuario.Application.Auth.UseCases
         public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(ChangePasswordRequest request)
         {
             // 1) Validar CAPTCHA
+            if (string.IsNullOrWhiteSpace(request.CaptchaResponse))
+                return ErrorBase.Validation("Captcha es requerido");
             if (!await _captchaService.ValidateCaptchaAsync(request.CaptchaResponse))
                 return ErrorBase.Validation("Captcha inválido o expirado");
 

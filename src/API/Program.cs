@@ -53,6 +53,7 @@ using Empresa.Presentation.Ubigeo;
 using Usuario.Application.Modulo;
 using Usuario.Infrastructure.Modulo;
 using Usuario.Presentation.Modulo;
+using Usuario.Infrastructure.Auth.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,6 +79,10 @@ builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<bool
 builder.Services.AddTransient<IPresenterDelivery<SpResultBase, ItemResponse<int>>, ItemResponseMapperInt>();
 
 builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
+
+// Configuración para EmailSettings
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
 
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddStorage();

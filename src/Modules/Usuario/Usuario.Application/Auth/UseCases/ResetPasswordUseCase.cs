@@ -19,19 +19,29 @@ namespace Usuario.Application.Auth.UseCases
         private readonly ITokenService _tokenService;
         private readonly IAuthRepository _authRepository;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly ICaptchaService _captchaService;
+
 
         public ResetPasswordUseCase(
             ITokenService tokenService,
             IAuthRepository authRepository,
-            IPasswordHasher passwordHasher)
+            IPasswordHasher passwordHasher,
+            ICaptchaService captchaService)
         {
             _tokenService = tokenService;
             _authRepository = authRepository;
             _passwordHasher = passwordHasher;
+            _captchaService = captchaService;
         }
 
         public async Task<OneOf<ErrorBase, ResetPasswordResponse>> ExecuteAsync(ResetPasswordRequest request)
         {
+            //Validacion Capcha
+            if (string.IsNullOrWhiteSpace(request.captchaResponse))
+                return ErrorBase.Validation("Captcha es requerido");
+            if (!await _captchaService.ValidateCaptchaAsync(request.captchaResponse))
+                return ErrorBase.Validation("Captcha inválido o expirado");
+
             // 1) Validar token de restablecimiento
             var claimsPrincipal = _tokenService.ValidateAccessToken(request.Token);
             if (claimsPrincipal == null)
