@@ -46,8 +46,8 @@ namespace Api.Delivery.Rest
 
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-
-            return Ok(result.AsT1);
+            var response = _presenterInt.Present(new SpResultBase { Success = true, Message = "Importación exitosa", Data =  1});
+            return Ok(response);
         }
 
         [HttpPost("exportar")]

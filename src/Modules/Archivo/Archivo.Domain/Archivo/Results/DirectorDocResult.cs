@@ -19,6 +19,7 @@
         public string Sector { get; set; } = string.Empty;
         public string Profesion { get; set; } = string.Empty;
         public decimal? Dieta { get; set; }
+        public string Especialidad { get; set; } = string.Empty;
         public DateTime? FechaNombramiento { get; set; }
         public DateTime? FechaDesignacion { get; set; }
         public string FechaRenuncia { get; set; } = string.Empty;
@@ -26,7 +27,6 @@
 
         public int IdEmpresa { get; set; }
         public int IdRegistro { get; set; }
-        public string Especialidad { get; set; } = string.Empty;
         public string Ruc { get; set; } = string.Empty;
         public string Empresa { get; set; } = string.Empty;
     }

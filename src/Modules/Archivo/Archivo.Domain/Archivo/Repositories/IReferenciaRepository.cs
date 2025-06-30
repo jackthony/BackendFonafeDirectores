@@ -24,5 +24,6 @@ namespace Archivo.Domain.Archivo.Repositories
         Task<List<ReferenciaResult>> GetSectoresAsync();
         Task<List<ReferenciaResult>> GetEspecialidadesAsync();
         Task<List<ReferenciaResult>> GetCargosAsync();
+        Task<List<ReferenciaResult>> GetTiposDirectorAsync();
     }
 }

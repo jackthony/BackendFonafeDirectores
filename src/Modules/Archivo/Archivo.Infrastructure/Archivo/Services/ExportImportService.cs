@@ -54,6 +54,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             "Sector",
             "Profesión",
             "Dieta",
+            "Especialidad",
             "Fec.Nombramiento",
             "Fec. de designación",
             "Fec. de renuncia",
@@ -111,8 +112,8 @@ namespace Archivo.Infrastructure.Archivo.Services
             foreach (var row in worksheet.RowsUsed().Skip(1))
             {
                 string? fechaNacimientoTexto = row.Cell(11).GetFormattedString()?.Trim();
-                string? fechaNombramientoTexto = row.Cell(20).GetFormattedString()?.Trim();
-                string? fechaDesignacionTexto = row.Cell(21).GetFormattedString()?.Trim();
+                string? fechaNombramientoTexto = row.Cell(21).GetFormattedString()?.Trim();
+                string? fechaDesignacionTexto = row.Cell(22).GetFormattedString()?.Trim();
 
                 DateTime? fechaNacimiento = null;
                 DateTime? fechaNombramiento = null;
@@ -148,10 +149,11 @@ namespace Archivo.Infrastructure.Archivo.Services
                     Sector = row.Cell(17).GetValue<string>(),
                     Profesion = row.Cell(18).GetValue<string>(),
                     Dieta = row.Cell(19).GetValue<decimal?>(),
+                    Especialidad = row.Cell(20).GetValue<string>(),
                     FechaNombramiento = fechaNombramiento,
                     FechaDesignacion = fechaDesignacion,
-                    FechaRenuncia = row.Cell(22).GetValue<string>(),
-                    Comentarios = row.Cell(23).GetValue<string>()
+                    FechaRenuncia = row.Cell(23).GetValue<string>(),
+                    Comentarios = row.Cell(24).GetValue<string>()
                 };
 
                 directores.Add(director);
@@ -202,7 +204,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                 hojaDirectores.Cell(fila, 2).Value = empresa?.RazonSocial ?? "";
 
                 var propiedades = item.GetType().GetProperties();
-                for (int col = 0; col < propiedades.Length - 3; col++)
+                for (int col = 0; col < propiedades.Length - 4; col++)
                 {
                     var valor = propiedades[col].GetValue(item);
                     hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";

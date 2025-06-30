@@ -27,6 +27,7 @@ namespace Archivo.Infrastructure.Archivo.Services
         private List<ReferenciaResult> _sectores = [];
         private List<ReferenciaResult> _especialidades = [];
         private List<ReferenciaResult> _empresas = [];
+        private List<ReferenciaResult> _tiposDirector = [];
 
         public async Task CargarReferenciasAsync()
         {
@@ -42,6 +43,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             _sectores = await _referenciaRepository.GetSectoresAsync();
             _especialidades = await _referenciaRepository.GetEspecialidadesAsync();
             _empresas = await _referenciaRepository.GetEmpresasAsync();
+            _tiposDirector = await _referenciaRepository.GetTiposDirectorAsync();
         }
 
         public async Task CargarEmpresasAsync()
@@ -66,6 +68,42 @@ namespace Archivo.Infrastructure.Archivo.Services
                         resultado.Errores.Add($"No se encontró empresa con RUC '{e.Ruc}' para el director '{e.Nombres} {e.Apellidos}' (ID Registro: {e.IdRegistro})");
                         continue;
                     }
+
+                    var errores = new List<string>();
+
+                    if (!Existe(e.TipoDocumento, _tiposDocumento))
+                        errores.Add($"Tipo de documento inválido: '{e.TipoDocumento}'");
+
+                    if (!Existe(e.Departamento, _departamentos))
+                        errores.Add($"Departamento inválido: '{e.Departamento}'");
+
+                    if (!Existe(e.Provincia, _provincias))
+                        errores.Add($"Provincia inválida: '{e.Provincia}'");
+
+                    if (!Existe(e.Distrito, _distritos))
+                        errores.Add($"Distrito inválido: '{e.Distrito}'");
+
+                    if (!Existe(e.Genero, _generos))
+                        errores.Add($"Género inválido: '{e.Genero}'");
+
+                    if (!Existe(e.Cargo, _cargosDirector))
+                        errores.Add($"Cargo inválido: '{e.Cargo}'");
+
+                    if (!Existe(e.TipoDirector, _tiposDirector))
+                        errores.Add($"Tipo director: '{e.TipoDirector}'");
+
+                    if (!Existe(e.Sector, _sectores))
+                        errores.Add($"Sector inválido: '{e.Sector}'");
+
+                    if (!Existe(e.Especialidad, _especialidades))
+                        errores.Add($"Especialidad inválida: '{e.Especialidad}'");
+
+                    if (errores.Count != 0)
+                    {
+                        resultado.Errores.Add($"Director '{e.Nombres} {e.Apellidos}': " + string.Join(", ", errores));
+                        continue;
+                    }
+
                     var item = new CrearDirectorParameters
                     {
                         IdEmpresa = e.IdEmpresa,
@@ -85,8 +123,8 @@ namespace Archivo.Infrastructure.Archivo.Services
                         TelefonoTerciario = null,
                         CorreoSecundario = null,
                         CorreoTerciario = null,
-                        Cargo = ObtenerId(e.Cargo, _cargos),
-                        TipoDirector = ObtenerId(e.TipoDirector, _cargosDirector),
+                        Cargo = ObtenerId(e.Cargo, _cargosDirector),
+                        TipoDirector = ObtenerId(e.TipoDirector, _tiposDirector),
                         nSectorId = ObtenerId(e.Sector, _sectores),
                         Profesion = e.Profesion,
                         Dieta = e.Dieta ?? 0,
