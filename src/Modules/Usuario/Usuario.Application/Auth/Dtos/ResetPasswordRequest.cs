@@ -10,5 +10,6 @@ namespace Usuario.Application.Auth.Dtos
     {
         public required string Token { get; set; }        // Token de restablecimiento recibido en el enlace del correo
         public required string NewPassword { get; set; }   // Nueva contraseña proporcionada por el usuario
+        public required string captchaResponse { get; set; }  // Respuesta del CAPTCHA para validar la solicitud
     }
 }

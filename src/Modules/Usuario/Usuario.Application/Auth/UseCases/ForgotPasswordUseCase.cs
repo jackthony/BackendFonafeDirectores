@@ -34,9 +34,12 @@ namespace Usuario.Application.Auth.UseCases
 
         public async Task<OneOf<ErrorBase, ForgotPasswordResponse>> ExecuteAsync(ForgotPasswordRequest request)
         {
-            // 1. Validar CAPTCHA
-            if (!await _captchaService.ValidateCaptchaAsync(request.CaptchaResponse))
+            //Validacion Capcha
+            if (string.IsNullOrWhiteSpace(request.captchaResponse))
+                return ErrorBase.Validation("Captcha es requerido");
+            if (!await _captchaService.ValidateCaptchaAsync(request.captchaResponse))
                 return ErrorBase.Validation("Captcha inválido o expirado");
+
 
             var parameters = new LoginParameters{Correo = request.Email};
             // 2. Buscar al usuario por correo electrónico
