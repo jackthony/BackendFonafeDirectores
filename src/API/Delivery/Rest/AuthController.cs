@@ -21,8 +21,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> _adminResetPasswordUseCase;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterDelivery;
         private readonly IUseCase<string, SpResultBase> _confirmUseCase;
+        private readonly IUseCase<RecoveryAccountRequest, SpResultBase> _recoveryAccountUseCase;
 
-        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterDelivery, IUseCase<string, SpResultBase> confirmUseCase)
+        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterDelivery, IUseCase<string, SpResultBase> confirmUseCase, IUseCase<RecoveryAccountRequest, SpResultBase> recoveryAccountUseCase)
         {
             _loginUseCase = loginUseCase;
             _verifyTokenUseCase = verifyTokenUseCase;
@@ -33,6 +34,7 @@ namespace Api.Delivery.Rest
             _adminResetPasswordUseCase = adminResetPasswordUseCase;
             _presenterDelivery = presenterDelivery;
             _confirmUseCase = confirmUseCase;
+            _recoveryAccountUseCase = recoveryAccountUseCase;
         }
 
         [HttpPost("login")]
@@ -44,6 +46,17 @@ namespace Api.Delivery.Rest
                 return ErrorResultMapper.MapError(result.AsT0, showToast: false);
 
             return Ok(result.AsT1);
+        }
+
+        [HttpGet("recovery-account")]
+        public async Task<IActionResult> RecoveryAccount(RecoveryAccountRequest request)
+        {
+            var result = await _recoveryAccountUseCase.ExecuteAsync(request);
+
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0, showToast: false);
+            var response = _presenterDelivery.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("confirm-account")]

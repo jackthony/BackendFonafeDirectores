@@ -163,5 +163,12 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
                 commandType: CommandType.StoredProcedure
             );
         }
+
+        public async Task<List<string>> RecoveryAdminsAsync()
+        {
+            var query = "SELECT sCorreoElectronico FROM SEG_Usuario u INNER JOIN SEG_UsuarioRol ur ON u.nUsuarioId = ur.nUsuarioId INNER JOIN SEG_Rol r ON r.nRolId = ur.nRolId WHERE r.nRolId = 1";
+            var result = await _connection.QueryAsync<string>(query);
+            return [.. result];
+        }
     }
 }
