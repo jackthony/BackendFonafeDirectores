@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Org.BouncyCastle.Asn1.Ocsp;
 using Shared.Kernel.Responses;
 using System.Data;
 using Usuario.Domain.Auth.Models;
@@ -146,6 +147,18 @@ namespace Usuario.Infrastructure.Auth.Persistence.Repositories.SqlServer
 
             return await _connection.QueryFirstAsync<RefreshToken>(
                 "sp_ObtenerRefreshToken",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+        public async Task<SpResultBase> ConfirmarCuentaAsync(int userId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("UsuarioId", userId);
+
+            return await _connection.QueryFirstAsync<SpResultBase>(
+                "sp_ConfirmarCuenta",
                 parameters,
                 commandType: CommandType.StoredProcedure
             );

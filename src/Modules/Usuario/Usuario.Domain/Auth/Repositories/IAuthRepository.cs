@@ -13,6 +13,7 @@ namespace Usuario.Domain.Auth.Repositories
         Task IncrementarIntentosFallidosAsync(int usuarioId);
         Task GuardarRefreshToken(RefreshToken refreshToken);
         Task<RefreshToken> ObtenerRefreshTokenAsync(string token);
+        Task<SpResultBase> ConfirmarCuentaAsync(int userId);
 
         // --- Nuevos métodos para cambio de contraseña ---
         /// <summary>

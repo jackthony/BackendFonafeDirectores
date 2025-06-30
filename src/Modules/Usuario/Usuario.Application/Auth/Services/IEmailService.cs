@@ -9,5 +9,6 @@ namespace Usuario.Application.Auth.Services
     public interface IEmailService
     {
         Task SendPasswordResetEmailAsync(string to, string resetLink, CancellationToken ct = default);
+        Task SendConfirmationEmailAsync(string to, string resetLink, CancellationToken ct = default);
     }
 }

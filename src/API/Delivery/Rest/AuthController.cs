@@ -20,8 +20,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ResetPasswordRequest, ResetPasswordResponse> _resetPasswordUseCase;
         private readonly IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> _adminResetPasswordUseCase;
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<bool>> _presenterDelivery;
+        private readonly IUseCase<string, SpResultBase> _confirmUseCase;
 
-        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterDelivery)
+        public AuthController(IUseCase<LoginRequest, LoginResponse> loginUseCase, IUseCase<VerifyTokenRequest, LoginResponse> verifyTokenUseCase, IUseCase<RefreshTokenRequest, LoginResponse> refreshTokenUseCase, IUseCase<ChangePasswordRequest, SpResultBase> changePasswordUseCase, IUseCase<ForgotPasswordRequest, ForgotPasswordResponse> forgotPasswordUseCase, IUseCase<ResetPasswordRequest, ResetPasswordResponse> resetPasswordUseCase, IUseCase<AdminResetPasswordRequest, AdminResetPasswordResponse> adminResetPasswordUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterDelivery, IUseCase<string, SpResultBase> confirmUseCase)
         {
             _loginUseCase = loginUseCase;
             _verifyTokenUseCase = verifyTokenUseCase;
@@ -31,6 +32,7 @@ namespace Api.Delivery.Rest
             _resetPasswordUseCase = resetPasswordUseCase;
             _adminResetPasswordUseCase = adminResetPasswordUseCase;
             _presenterDelivery = presenterDelivery;
+            _confirmUseCase = confirmUseCase;
         }
 
         [HttpPost("login")]
@@ -42,6 +44,16 @@ namespace Api.Delivery.Rest
                 return ErrorResultMapper.MapError(result.AsT0);
 
             return Ok(result.AsT1);
+        }
+
+        [HttpGet("confirm-account")]
+        public async Task<IActionResult> ConfirmAccount(string token)
+        {
+            var result = await _confirmUseCase.ExecuteAsync(token);
+
+            if (result.IsT0)
+                return BadRequest(result.AsT0.Message);
+            return Ok(result.AsT1.Message);
         }
 
         [HttpPost("verify-token")]

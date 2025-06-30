@@ -143,5 +143,49 @@ namespace Usuario.Infrastructure.Auth.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public string GenerateConfirmationToken(int userId)
+        {
+            var claims = new List<Claim>
+            {
+                new(JwtRegisteredClaimNames.Sub, userId.ToString()),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSecret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _issuer,
+                audience: _audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public int? GetUsuarioIdFromClaims(ClaimsPrincipal? claimsPrincipal)
+        {
+            if (claimsPrincipal == null)
+            {
+                return null;
+            }
+
+            var usuarioIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (usuarioIdClaim == null || string.IsNullOrWhiteSpace(usuarioIdClaim.Value))
+            {
+                return null;
+            }
+
+            if (!int.TryParse(usuarioIdClaim.Value, out var userId))
+            {
+                return null;
+            }
+
+            return userId;
+        }
     }
 }
