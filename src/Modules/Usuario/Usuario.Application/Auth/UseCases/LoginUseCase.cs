@@ -40,7 +40,7 @@ namespace Usuario.Application.Auth.UseCases
 
             var usuario = result.Data;
 
-            if (usuario.IntentosFallidos >= 2)
+            if (usuario.IntentosFallidos >= 3)
                 return ErrorBase.Validation("Clave incorrecta, 'Su cuenta se inhabilitó, contactar con el administrador.");
 
             var isPasswordValid = _passwordHasher.Verify(request.Password, usuario.PasswordHash);

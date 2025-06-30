@@ -8,6 +8,6 @@ namespace Usuario.Application.Auth.Services
 {
     public interface IEmailService
     {
-        Task SendPasswordResetEmailAsync(string email, string resetLink);
+        Task SendPasswordResetEmailAsync(string to, string resetLink, CancellationToken ct = default);
     }
 }
