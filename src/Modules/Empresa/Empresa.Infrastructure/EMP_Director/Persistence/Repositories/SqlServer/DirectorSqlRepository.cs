@@ -39,6 +39,13 @@ namespace Empresa.Infrastructure.Director.Persistence.Repositories.SqlServer
                 commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<int> GetNumeroMiembros(int empresaId)
+        {
+            var query = "SELECT nNumeroMiembros FROM EMP_Empresa WHERE nEmpresaId = @EmpresaId";
+            var result = await _connection.ExecuteScalarAsync<int>(query, new { EmpresaId = empresaId });
+            return result;
+        }
+
         public async Task<List<DirectorResult>> ListAsync(ListarDirectorParameters request)
         {
             var parameters = new DynamicParameters(request);

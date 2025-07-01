@@ -12,5 +12,6 @@ namespace Empresa.Domain.Director.Repositories
         public Task<List<DirectorResult>> ListAsync(ListarDirectorParameters request);
         public Task<DirectorResult?> GetByIdAsync(int id);
         public Task<PagedResult<DirectorResult>> ListByPaginationAsync(ListarDirectorPaginadoParameters request);
+        public Task<int> GetNumeroMiembros(int empresaId);
     }
 }

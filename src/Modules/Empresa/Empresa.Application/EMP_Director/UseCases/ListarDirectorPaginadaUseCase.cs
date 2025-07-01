@@ -26,6 +26,28 @@ namespace Empresa.Application.Director.UseCases
         {
             var parameters = _mapper.Map(request);
             var result = await _repository.ListByPaginationAsync(parameters);
+            if (request.nIdEmpresa != null)
+            {
+                var count = await _repository.GetNumeroMiembros(request.nIdEmpresa ?? 0);
+
+                int cantidadReal = result.Items.Count;
+                int cantidadMaxima = count;
+                int pageSize = result.PageSize;
+
+                int vacantesDisponibles = cantidadMaxima - cantidadReal;
+
+                int vacantesARellenar = Math.Min(pageSize - cantidadReal, vacantesDisponibles);
+
+                for (int i = cantidadReal; i < vacantesARellenar; i++)
+                {
+                    var director = new DirectorResult
+                    {
+                        sNombres = "Vacante disponible"
+                    };
+                    result.Items.Add(director);
+                }
+
+            }
             return result;
         }
     }
