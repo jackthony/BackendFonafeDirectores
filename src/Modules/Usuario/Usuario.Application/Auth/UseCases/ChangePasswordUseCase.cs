@@ -3,6 +3,7 @@ using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
+using Shared.Time;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Services;
 using Usuario.Domain.Auth.Parameters;
@@ -16,16 +17,15 @@ namespace Usuario.Application.Auth.UseCases
         private readonly IAuthRepository _authRepository;
         private readonly ICaptchaService _captchaService;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly ITimeProvider _timeProvider;
 
-        public ChangePasswordUseCase(ITokenService tokenService, 
-            IAuthRepository authRepository,
-            ICaptchaService captchaService, 
-            IPasswordHasher passwordHasher)
+        public ChangePasswordUseCase(ITokenService tokenService, IAuthRepository authRepository, ICaptchaService captchaService, IPasswordHasher passwordHasher, ITimeProvider timeProvider)
         {
             _tokenService = tokenService;
             _authRepository = authRepository;
             _captchaService = captchaService;
             _passwordHasher = passwordHasher;
+            _timeProvider = timeProvider;
         }
 
         public async Task<OneOf<ErrorBase, SpResultBase>> ExecuteAsync(ChangePasswordRequest request)
@@ -74,7 +74,9 @@ namespace Usuario.Application.Auth.UseCases
             var parameters = new ChangePasswordParameters
             {
                 UsuarioId = request.UsuarioId,
-                newPasswordHash = newHash
+                newPasswordHash = newHash,
+                UsuarioModificaId = request.UsuarioId,
+                FechaModificacion = _timeProvider.NowPeru
             };
 
             // 6) Actualizar la contraseña

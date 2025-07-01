@@ -9,6 +9,7 @@ namespace Usuario.Application.Auth.Dtos
     public class ChangePasswordRequest
     {
         public int UsuarioId { get; set; }               // ID del usuario
+        public int UsuarioModificaId { get; set; }       // ID del usuario que modifica la contraseña
         public string PasswordActual { get; set; }       // Contraseña actual del usuario
         public string PasswordNueva { get; set; }        // Nueva contraseña
         public string CaptchaResponse { get; set; }      // Respuesta del CAPTCHA (verificada en el backend)
