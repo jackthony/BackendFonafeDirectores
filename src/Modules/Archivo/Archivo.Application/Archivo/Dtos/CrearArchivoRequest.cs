@@ -4,9 +4,10 @@ namespace Archivo.Application.Archivo.Dtos
 {
     public class CrearArchivoRequest
     {
-        public bool IsDocumento { get; set; }
+        public required bool IsDocumento { get; set; }
         public IFormFile? Archivo { get; set; }
-        public string Nombre { get; set; } = string.Empty;
+        public required string Nombre { get; set; } = string.Empty;
+        public required string EmpresaId {  get; set; }
         public int? CarpetaPadreId { get; set; }
         public int UsuarioRegistroId { get; set; }
     }

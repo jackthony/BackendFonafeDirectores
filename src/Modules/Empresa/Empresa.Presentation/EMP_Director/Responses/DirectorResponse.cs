@@ -38,7 +38,7 @@
         public string sCargoDescripcion { get; set; } = default!;
         public string sTipoDirectorDescripcion { get; set; } = default!;
         public int indice { get; set; }
-        public string sNombreCompleto => $"{sNombres} {sApellidos}";
+        public string sNombreCompleto => $"{sApellidos} {sNombres}";
 
     }
 }
