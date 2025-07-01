@@ -22,7 +22,8 @@ namespace Archivo.Application.Archivo.Mappers
                 Nombre = source.Nombre,
                 CarpetaPadreId = source.CarpetaPadreId,
                 UsuarioRegistroId = source.UsuarioRegistroId,
-                FechaRegistro = _timeProvider.NowPeru
+                FechaRegistro = _timeProvider.NowPeru,
+                EmpresaId = source.EmpresaId,
             };
 
             if (source.IsDocumento && source.Archivo != null)
