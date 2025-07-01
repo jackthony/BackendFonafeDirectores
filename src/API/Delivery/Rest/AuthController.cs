@@ -1,15 +1,16 @@
 ﻿using Api.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Usuario.Application.Auth.Dtos;
-using Usuario.Application.Auth.UseCases;
 
 namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class AuthController : ControllerBase
     {
         private readonly IUseCase<LoginRequest, LoginResponse> _loginUseCase;

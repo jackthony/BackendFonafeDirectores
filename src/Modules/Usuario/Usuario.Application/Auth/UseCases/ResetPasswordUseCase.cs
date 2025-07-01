@@ -45,12 +45,12 @@ namespace Usuario.Application.Auth.UseCases
             // 1) Validar token de restablecimiento
             var claimsPrincipal = _tokenService.ValidateAccessToken(request.Token);
             if (claimsPrincipal == null)
-                return ErrorBase.Validation("Token inválido o expirado");
+                return ErrorBase.Validation("Enlace expirado");
 
             // 2) Obtener usuario a partir del token (usualmente almacenado en el JWT)
             var userId = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId) || !int.TryParse(userId, out var usuarioId))
-                return ErrorBase.Validation("Token inválido.");
+                return ErrorBase.Validation("Enlace inválido.");
 
             // 3) Buscar usuario por ID
             var result = await _authRepository.ObtenerPorIdAsync(usuarioId);

@@ -12,7 +12,6 @@ namespace Api.Delivery.Rest
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
     public class CargoController : ControllerBase
     {
         private readonly IUseCase<CrearCargoRequest, SpResultBase> _crearCargoUseCase;
