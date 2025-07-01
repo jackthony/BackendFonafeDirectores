@@ -32,17 +32,17 @@ namespace Empresa.Application.Director.UseCases
 
                 int cantidadReal = result.Items.Count;
                 int cantidadMaxima = count;
-                int pageSize = result.PageSize;
+                int pageSize = request.PageSize;
 
                 int vacantesDisponibles = cantidadMaxima - cantidadReal;
 
                 int vacantesARellenar = Math.Min(pageSize - cantidadReal, vacantesDisponibles);
 
-                for (int i = cantidadReal; i < vacantesARellenar; i++)
+                for (int i = 0; i < vacantesARellenar; i++)
                 {
                     var director = new DirectorResult
                     {
-                        sNombres = "Vacante disponible"
+                        sNombres = "VACANTE DISPONIBLE"
                     };
                     result.Items.Add(director);
                 }
