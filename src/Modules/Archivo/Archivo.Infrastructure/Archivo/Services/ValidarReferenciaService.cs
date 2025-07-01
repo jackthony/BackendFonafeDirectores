@@ -173,7 +173,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                 if (!Existe(e.Rubro, _rubros))
                     errores.Add($"Rubro inválido: '{e.Rubro}'");
 
-                if (!Existe(e.Sector, _sectores))
+                if (!Existe(e.Sector, _ministerios))
                     errores.Add($"Sector inválido: '{e.Sector}'");
 
                 if (errores.Count != 0)
