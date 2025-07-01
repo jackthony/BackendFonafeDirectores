@@ -42,7 +42,8 @@ namespace Empresa.Application.Director.UseCases
                 {
                     var director = new DirectorResult
                     {
-                        sNombres = "VACANTE DISPONIBLE"
+                        sNombres = "DISPONIBLE",
+                        sApellidos = "VACANTE"
                     };
                     result.Items.Add(director);
                 }
