@@ -48,14 +48,21 @@ namespace Usuario.Application.Auth.UseCases
 
             var usuario = result.Data;
 
-            if (usuario.IntentosFallidos >= 3)
-                return ErrorBase.Validation("Clave incorrecta, 'Su cuenta se inhabilitó, contactar con el administrador.");
-
             var isPasswordValid = _passwordHasher.Verify(request.Password, usuario.PasswordHash);
             if (!isPasswordValid)
             {
-                await _authRepository.IncrementarIntentosFallidosAsync(usuario.UsuarioId);
-                return ErrorBase.Validation($"Clave incorrecta, intento {usuario.IntentosFallidos + 1} de 3");
+                if (usuario.IntentosFallidos < 3)
+                {
+                    await _authRepository.IncrementarIntentosFallidosAsync(usuario.UsuarioId);
+                }
+                if (usuario.IntentosFallidos >= 2)
+                {
+                    return ErrorBase.Validation("Clave incorrecta, 'Su cuenta se bloqueo");
+                }
+                else
+                {
+                    return ErrorBase.Validation($"Clave incorrecta, intento {usuario.IntentosFallidos + 1} de 3");
+                }
             }
 
             var modulosPermisos = JsonSerializer.Deserialize<List<ModuloPermiso>>(usuario.JsonModulos) ?? [];
