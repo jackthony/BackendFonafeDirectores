@@ -184,10 +184,10 @@ builder.Services.AddAuthentication("Bearer")
     });
 
 // Filtro global
-builder.Services.AddControllers(options =>
+/*builder.Services.AddControllers(options =>
 {
     options.Filters.Add(new Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter());
-});
+});*/
 
 var app = builder.Build();
 
