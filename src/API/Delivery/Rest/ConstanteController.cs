@@ -45,6 +45,7 @@ namespace Api.Delivery.Rest
                 new() { nConCodigo = 10, nConValor = 1, sConDescripcion = "Activo" },
                 new() { nConCodigo = 10, nConValor = 2, sConDescripcion = "Inactivo" },
                 new() { nConCodigo = 10, nConValor = 3, sConDescripcion = "Deshabilitado" },
+                new() { nConCodigo = 10, nConValor = 4, sConDescripcion = "Bloqueado" },
 
                 new() { nConCodigo = 11, nConValor = 0, sConDescripcion = "Cargo usuario" },
                 new() { nConCodigo = 11, nConValor = 1, sConDescripcion = "Analista" },
