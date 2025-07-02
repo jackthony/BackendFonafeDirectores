@@ -6,6 +6,10 @@ using Shared.Kernel.Responses;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Results;
 using Shared.ClientV1;
+using Microsoft.AspNetCore.StaticFiles;
+using Empresa.Domain.Cargo.Results;
+using Empresa.Presentation.Cargo.Responses;
+using Archivo.Presentation.Archivo.Responses;
 
 namespace Api.Delivery.Rest
 {
@@ -24,8 +28,10 @@ namespace Api.Delivery.Rest
         private readonly IPresenterDelivery<SpResultBase, ItemResponse<int>> _presenterInt;
         private readonly IUseCase<ExportFileRequest, Stream> _exportarFileUseCase;
         private readonly IUseCase<ImportFileRequest, ImportFileResult> _importarFileUseCase;
+        private readonly IUseCase<string, Stream> _descargarArchivoUseCase;
+        private readonly IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> _presenterList;
 
-        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase, IUseCase<string, Stream> descargarArchivoUseCase, IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> presenterList)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -37,6 +43,8 @@ namespace Api.Delivery.Rest
             _presenterInt = presenterInt;
             _exportarFileUseCase = exportarFileUseCase;
             _importarFileUseCase = importarFileUseCase;
+            _descargarArchivoUseCase = descargarArchivoUseCase;
+            _presenterList = presenterList;
         }
 
         [HttpPost("importar")]
@@ -77,6 +85,25 @@ namespace Api.Delivery.Rest
             return Ok(response);
         }
 
+        [HttpGet("descargar")]
+        public async Task<IActionResult> DescargarArchivo([FromQuery] string url)
+        {
+            var result = await _descargarArchivoUseCase.ExecuteAsync(url);
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+            var stream = result.AsT1;
+
+            var provider = new FileExtensionContentTypeProvider();
+            if (!provider.TryGetContentType(url, out var contentType))
+            {
+                contentType = "application/octet-stream";
+            }
+
+            var nombreArchivo = Path.GetFileName(url);
+
+            return File(stream, contentType, nombreArchivo);
+        }
+
         [HttpPost("actualizar")]
         public async Task<IActionResult> ActualizarArchivo([FromBody] ActualizarArchivoRequest request)
         {
@@ -107,46 +134,13 @@ namespace Api.Delivery.Rest
         }
 
         [HttpGet("listar")]
-        public IActionResult ListarArchivo([FromQuery] ListarArchivoRequest request)
+        public async Task<IActionResult> ListarArchivo([FromQuery] ListarArchivoRequest request)
         {
-            /*var result = await _listarArchivoUseCase.ExecuteAsync(request);
+            var result = await _listarArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            return Ok(result.AsT1);*/
-            var raiz = new Carpeta
-            {
-                ElementoId = 1,
-                Nombre = "Raíz",
-                Hijos = new List<ElementoBase>
-        {
-            new Carpeta
-            {
-                ElementoId = 2,
-                Nombre = "Carpeta 1",
-                Hijos = new List<ElementoBase>
-                {
-                    new Documento
-                    {
-                        ElementoId = 3,
-                        Nombre = "archivo1.pdf",
-                        Peso = 123456,
-                        TipoMime = "application/pdf",
-                        UrlStorage = "https://fake-url.com/archivo1.pdf"
-                    }
-                }
-            },
-            new Documento
-            {
-                ElementoId = 4,
-                Nombre = "archivo2.docx",
-                Peso = 98765,
-                TipoMime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                UrlStorage = "https://fake-url.com/archivo2.docx"
-            }
-        }
-            };
-
-            return Ok(raiz);
+            var response = _presenterList.Present(result.AsT1);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]

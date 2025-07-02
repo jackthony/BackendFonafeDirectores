@@ -27,6 +27,7 @@ using Empresa.Infrastructure.Sector;
 using Empresa.Infrastructure.TipoDirector;
 using Empresa.Infrastructure.Dieta;
 using Archivo.Application.Archivo;
+using Archivo.Presentation.Archivo;
 using Archivo.Infrastructure.Archivo;
 using Empresa.Presentation.EMP_Cargo;
 using Empresa.Presentation.EMP_Director;
@@ -138,6 +139,7 @@ builder.Services.AddTipoDirectorPresenters();
 
 builder.Services.AddArchivoApplication();
 builder.Services.AddArchivoInfrastructure();
+builder.Services.AddArchivoPresenters();
 
 builder.Services.AddUbigeoApplication();
 builder.Services.AddUbigeoInfrastructure();

@@ -13,7 +13,7 @@ namespace Archivo.Presentation.Archivo.Presenters
         {
             return new LstItemResponse<ArchivoResponse>
             {
-                LstItem = ArchivoResponseMapper.ToListResponse(input.Items),
+                //LstItem = ArchivoResponseMapper.ToListResponse(input.Items),
                 Pagination = new Pagination
                 {
                     PageIndex = input.Page,
