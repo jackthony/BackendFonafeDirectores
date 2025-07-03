@@ -30,7 +30,7 @@ namespace Archivo.Presentation.Archivo.Mappers
                 id = dto.ElementoId,
                 name = dto.Nombre,
                 codeParent = dto.CarpetaPadreId ?? 0,
-                status = 1,
+                status = dto.EsDocumento ? 1 : 0,
                 element = ToDetalle(dto),
                 hasChildren = false,
                 Children = []
