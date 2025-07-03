@@ -23,6 +23,7 @@ namespace Archivo.Application.Archivo.Mappers
                 UsuarioRegistroId = source.UsuarioRegistroId,
                 FechaRegistro = _timeProvider.NowPeru,
                 EmpresaId = source.EmpresaId,
+                DirectorId = source.DirectorId,
             };
 
             if (source.IsDocumento && source.Archivo != null)

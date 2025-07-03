@@ -2,7 +2,7 @@
 {
     public class ValidationProblemDetailsOur : ProblemDetailsOur
     {
-        public IDictionary<string, string[]> Errors { get; } = new Dictionary<string, string[]>(StringComparer.Ordinal);
+        public IDictionary<string, string[]> Errors { get; set;  } = new Dictionary<string, string[]>(StringComparer.Ordinal);
 
         public ValidationProblemDetailsOur()
         {

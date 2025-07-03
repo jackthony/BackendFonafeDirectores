@@ -7,6 +7,7 @@
         public int? CarpetaPadreId { get; set; }
         public int UsuarioRegistroId { get; set; }
         public required string EmpresaId { get; set; }
+        public int? DirectorId { get; set; }
         public DateTime FechaRegistro { get; set; }
         public long? Peso { get; set; }
         public string? TipoMime { get; set; }
