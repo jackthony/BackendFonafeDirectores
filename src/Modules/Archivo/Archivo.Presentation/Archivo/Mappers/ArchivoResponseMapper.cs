@@ -49,7 +49,6 @@ namespace Archivo.Presentation.Archivo.Mappers
                 }
                 else if (dict.TryGetValue(nodo.nCarpetaPadreId.Value, out var padre) && padre is ArchivoCarpeta carpeta)
                 {
-                    Console.WriteLine("entro aquiiii");
                     carpeta.ltHijos.Add(nodo);
                 }
             }

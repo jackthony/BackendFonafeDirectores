@@ -13,6 +13,7 @@ namespace Archivo.Presentation.Archivo
         {
 
             services.AddScoped<IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>>, ListArchivoResponsePresenter>();
+            services.AddScoped<IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>>, ListElementoResponsePresenter>();
 
             return services;
         }

@@ -30,8 +30,9 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ImportFileRequest, ImportFileResult> _importarFileUseCase;
         private readonly IUseCase<string, Stream> _descargarArchivoUseCase;
         private readonly IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> _presenterList;
+        private readonly IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>> _presenterListElement;
 
-        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase, IUseCase<string, Stream> descargarArchivoUseCase, IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> presenterList)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase, IUseCase<string, Stream> descargarArchivoUseCase, IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> presenterList, IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>> presenterListElement)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -45,6 +46,7 @@ namespace Api.Delivery.Rest
             _importarFileUseCase = importarFileUseCase;
             _descargarArchivoUseCase = descargarArchivoUseCase;
             _presenterList = presenterList;
+            _presenterListElement = presenterListElement;
         }
 
         [HttpPost("importar")]
@@ -139,7 +141,7 @@ namespace Api.Delivery.Rest
             var result = await _listarArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            var response = _presenterList.Present(result.AsT1);
+            var response = _presenterListElement.Present(result.AsT1);
             return Ok(response);
         }
 
