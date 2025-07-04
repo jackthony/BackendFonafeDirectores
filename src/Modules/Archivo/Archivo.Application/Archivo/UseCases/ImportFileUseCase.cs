@@ -39,6 +39,8 @@ namespace Archivo.Application.Archivo.UseCases
             var empresasValidadas = _validador.ValidarEmpresas(result.Empresas, request.nUsuarioId);
 
             await _repository.InsertEmpresasAsync(empresasValidadas.RegistrosValidos);
+            
+            await _repository.UpdateEmpresasAsync(empresasValidadas.RegistrosUpdate);
 
             await _validador.CargarEmpresasAsync();
 
@@ -57,6 +59,8 @@ namespace Archivo.Application.Archivo.UseCases
 
             // Paso 6: Guardar en la base de datos
             await _repository.InsertDirectoresAsync(directoresValidados.RegistrosValidos);
+
+            await _repository.UpdateDirectoresAsync(directoresValidados.RegistrosUpdate);
 
             // Paso 7: Retornar resultado final
             return new ImportFileResult

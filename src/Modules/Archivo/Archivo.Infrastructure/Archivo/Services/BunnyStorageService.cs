@@ -1,4 +1,5 @@
 ﻿using Api.Settings;
+using Archivo.Application.Archivo.Dtos;
 using Archivo.Application.Archivo.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
@@ -17,6 +18,28 @@ namespace Archivo.Infrastructure.Archivo.Services
             _httpClient.DefaultRequestHeaders.Add("AccessKey", _options.ApiKey);
         }
 
+        public async Task<Stream> DescargarArchivoAsync(string rutaCompleta)
+        {
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Get, rutaCompleta);
+                request.Headers.Add("AccessKey", _options.ApiKey);
+
+                var response = await _httpClient.SendAsync(request);
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Error al descargar el archivo: {response.StatusCode}");
+                }
+
+                var stream = await response.Content.ReadAsStreamAsync();
+                return stream;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al descargar el archivo", ex);
+            }
+        }
+
         public async Task<string> SubirArchivoAsync(Stream stream, string rutaArchivo, string contentType)
         {
             var url = $"{_options.BaseUrl}/{_options.StorageZone}/{rutaArchivo}";
@@ -32,50 +55,41 @@ namespace Archivo.Infrastructure.Archivo.Services
             return $"https://{_options.StorageZone}.b-cdn.net/{rutaArchivo}";
         }
 
-        public async Task<string> SubirPrueba(IFormFile file, string remotePath = "")
+        public async Task<DataArchivoDto?> SubirPrueba(IFormFile file, string remotePath = "")
         {
             if (file == null || file.Length == 0)
-            {
-                return "";
-            }
+                return null;
 
             try
             {
-                using (var httpClient = new HttpClient())
+                using var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Add("AccessKey", _options.ApiKey);
+
+                string fileName = string.IsNullOrEmpty(remotePath) ? file.FileName : remotePath;
+                string uploadUrl = $"{_options.BaseUrl}/{_options.StorageZone}/{fileName.TrimStart('/')}";
+
+                using var fileStream = file.OpenReadStream();
+                using var content = new StreamContent(fileStream);
+
+                var response = await httpClient.PutAsync(uploadUrl, content);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    httpClient.DefaultRequestHeaders.Add("AccessKey", _options.ApiKey);
-
-                    // Si no se especifica ruta remota, usamos el nombre original
-                    if (string.IsNullOrEmpty(remotePath))
+                    return new DataArchivoDto
                     {
-                        remotePath = file.FileName;
-                    }
-
-                    // Construir la URL de destino
-                    string uploadUrl = $"{_options.BaseUrl}/{_options.StorageZone}/{remotePath.TrimStart('/')}";
-
-                    // Leer el archivo subido
-                    using (var fileStream = file.OpenReadStream())
-                    using (var content = new StreamContent(fileStream))
-                    {
-                        // Enviar el archivo a Bunny
-                        var response = await httpClient.PutAsync(uploadUrl, content);
-
-                        if (response.IsSuccessStatusCode)
-                        {
-                            return $"https://{_options.StorageZone}.b-cdn.net/{remotePath}";
-                        }
-                        else
-                        {
-                            return "";
-                        }
-                    }
+                        Url = uploadUrl,
+                        Name = fileName
+                    };
                 }
+
+                return null;
             }
             catch (Exception ex)
             {
-                return ex.ToString();
+                Console.WriteLine(ex);
+                return null;
             }
         }
+
     }
 }

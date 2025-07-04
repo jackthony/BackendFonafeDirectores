@@ -1,7 +1,6 @@
 ﻿using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
-using Shared.Kernel.Responses;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Repositories;

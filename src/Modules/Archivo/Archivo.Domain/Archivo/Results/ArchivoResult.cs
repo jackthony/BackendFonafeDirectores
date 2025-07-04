@@ -2,6 +2,16 @@
 {
     public class ArchivoResult
     {
+        public int ElementoId { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public bool EsDocumento { get; set; }
+        public int? CarpetaPadreId { get; set; }
+        public int EmpresaId { get; set; }
+        public int UsuarioRegistroId { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public long? Peso { get; set; }
+        public string? TipoMime { get; set; }
+        public string? UrlStorage { get; set; }
     }
     public abstract class ElementoBase
     {

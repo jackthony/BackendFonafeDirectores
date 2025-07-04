@@ -6,7 +6,6 @@ using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Repositories;
 using Archivo.Application.Archivo.Services;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Archivo.Application.Archivo.UseCases
 {
@@ -28,12 +27,14 @@ namespace Archivo.Application.Archivo.UseCases
             var parameters = _mapper.Map(request);
             if (request.IsDocumento && request.Archivo != null)
             {
-                var url = await _storageService.SubirPrueba(request.Archivo);
-                parameters.UrlStorage = url ?? "";
-                /*var ruta = $"archivos/{Guid.NewGuid()}_{request.Nombre}";
-                var url = await _storageService.SubirArchivoAsync(request.Archivo.OpenReadStream(), ruta, request.Archivo.ContentType);
-                parameters.UrlStorage = url;*/
-            }            
+                var resultado = await _storageService.SubirPrueba(request.Archivo);
+
+                if (resultado is null)
+                    return ErrorBase.Validation("Error al subir el archivo al almacenamiento.");
+
+                parameters.UrlStorage = resultado.Url;
+                parameters.Nombre = resultado.Name;
+            }
             var result = await _repository.AddAsync(parameters);
             if (!result.Success) return ErrorBase.Database(result.Message);
             return result;

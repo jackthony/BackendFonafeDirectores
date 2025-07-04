@@ -28,6 +28,7 @@ namespace Archivo.Infrastructure.Archivo.Services
         private List<ReferenciaResult> _especialidades = [];
         private List<ReferenciaResult> _empresas = [];
         private List<ReferenciaResult> _tiposDirector = [];
+        private List<ReferenciaResult> _directores = [];
 
         public async Task CargarReferenciasAsync()
         {
@@ -44,6 +45,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             _especialidades = await _referenciaRepository.GetEspecialidadesAsync();
             _empresas = await _referenciaRepository.GetEmpresasAsync();
             _tiposDirector = await _referenciaRepository.GetTiposDirectorAsync();
+            _directores = await _referenciaRepository.GetDirectoresAsync();
         }
 
         public async Task CargarEmpresasAsync()
@@ -55,7 +57,6 @@ namespace Archivo.Infrastructure.Archivo.Services
         public ValidacionResultado<CrearDirectorParameters> ValidarDirectores(List<DirectorDocResult> directores, int usuarioId)
         {
             var resultado = new ValidacionResultado<CrearDirectorParameters>();
-            var lista = new List<CrearDirectorParameters>();
 
             foreach (var e in directores)
             {
@@ -90,7 +91,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                         errores.Add($"Cargo inválido: '{e.Cargo}'");
 
                     if (!Existe(e.TipoDirector, _tiposDirector))
-                        errores.Add($"Tipo director: '{e.TipoDirector}'");
+                        errores.Add($"Tipo director inválido: '{e.TipoDirector}'");
 
                     if (!Existe(e.Sector, _sectores))
                         errores.Add($"Sector inválido: '{e.Sector}'");
@@ -106,7 +107,7 @@ namespace Archivo.Infrastructure.Archivo.Services
 
                     var item = new CrearDirectorParameters
                     {
-                        IdEmpresa = e.IdEmpresa,
+                        IdEmpresa = empresa.Id,
                         TipoDocumento = ObtenerId(e.TipoDocumento, _tiposDocumento),
                         NumeroDocumento = e.Documento,
                         Nombres = e.Nombres,
@@ -136,7 +137,10 @@ namespace Archivo.Infrastructure.Archivo.Services
                         UsuarioRegistro = usuarioId
                     };
 
-                    lista.Add(item);
+                    if (_directores.Any(d => d.Nombre == e.Documento))
+                        resultado.RegistrosUpdate.Add(item);
+                    else
+                        resultado.RegistrosValidos.Add(item);
                 }
                 catch (Exception ex)
                 {
@@ -147,6 +151,7 @@ namespace Archivo.Infrastructure.Archivo.Services
             return resultado;
         }
 
+
         public ValidacionResultado<CrearEmpresaParameters> ValidarEmpresas(List<EmpresaDocResult> empresas, int usuarioId)
         {
             var resultado = new ValidacionResultado<CrearEmpresaParameters>();
@@ -154,12 +159,12 @@ namespace Archivo.Infrastructure.Archivo.Services
             foreach (var e in empresas)
             {
                 var errores = new List<string>();
+                var esDuplicado = false;
 
-                if (!Existe(e.Ruc, _empresas))
-                    errores.Add($"La empresa ya esta registrada: '{e.Ruc}'");
-
-                if (!Existe(e.RazonSocial, _empresas))
-                    errores.Add($"La empresa ya esta registrada: '{e.RazonSocial}'");
+                if (Existe(e.Ruc, _empresas) || Existe(e.RazonSocial, _empresas))
+                {
+                    esDuplicado = true;
+                }
 
                 if (!Existe(e.Departamento, _departamentos))
                     errores.Add($"Departamento inválido: '{e.Departamento}'");
@@ -191,7 +196,7 @@ namespace Archivo.Infrastructure.Archivo.Services
                     IdDistrito = ObtenerId(e.Distrito, _distritos),
                     Direccion = e.Direccion,
                     IdRubroNegocio = ObtenerId(e.Rubro, _rubros),
-                    IdSector = ObtenerId(e.Sector, _sectores),
+                    IdSector = ObtenerId(e.Sector, _ministerios),
                     IngresosUltimoAnio = e.Ingresos,
                     UtilidadUltimoAnio = e.Utilidades,
                     ConformacionCapitalSocial = e.CapitalSocial,
@@ -203,7 +208,10 @@ namespace Archivo.Infrastructure.Archivo.Services
                     FechaRegistro = _timeProvider.NowPeru
                 };
 
-                resultado.RegistrosValidos.Add(item);
+                if (esDuplicado)
+                    resultado.RegistrosUpdate.Add(item);
+                else
+                    resultado.RegistrosValidos.Add(item);
             }
 
             return resultado;

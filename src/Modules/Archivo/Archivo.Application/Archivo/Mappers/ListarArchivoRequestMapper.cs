@@ -10,6 +10,9 @@ namespace Archivo.Application.Archivo.Mappers
         {
             return new ListarArchivoParameters
             {
+                CarpetaPadreId = source.nCarpetaPadreId,
+                DirectorId = source.nDirectorId,
+                IdEmpresa = source.nIdEmpresa,
             };
         }
     }

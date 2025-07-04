@@ -6,8 +6,8 @@ namespace Archivo.Application.Archivo.Dtos
     {
         public required bool IsDocumento { get; set; }
         public IFormFile? Archivo { get; set; }
-        public required string Nombre { get; set; } = string.Empty;
         public required string EmpresaId {  get; set; }
+        public int? DirectorId {  get; set; }
         public int? CarpetaPadreId { get; set; }
         public int UsuarioRegistroId { get; set; }
     }

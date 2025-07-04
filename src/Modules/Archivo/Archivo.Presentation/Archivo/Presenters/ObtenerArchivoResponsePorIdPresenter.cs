@@ -12,7 +12,7 @@ namespace Archivo.Presentation.Archivo.Mappers
             return new ItemResponse<ArchivoResponse>
             {
                 IsSuccess = true,
-                Item = ArchivoResponseMapper.ToResponse(input),
+                //Item = ArchivoResponseMapper.ToResponse(input),
             };
         }
     }

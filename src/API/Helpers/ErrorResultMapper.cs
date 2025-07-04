@@ -36,7 +36,8 @@ namespace Api.Helpers
                     Type = "https://httpstatuses.com/400",
                     Detail = validation.Message ?? "Error de validación",
                     Instance = httpContext?.Request.Path,
-                    showToast = resolvedShowToast
+                    showToast = resolvedShowToast,
+                    Errors = validation.Errors ?? [],
                 },
                 UnexpectedError unexpected => new ProblemDetailsOur
                 {
