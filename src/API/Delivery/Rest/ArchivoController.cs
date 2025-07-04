@@ -118,32 +118,32 @@ namespace Api.Delivery.Rest
                 ElementoId = 1,
                 Nombre = "Raíz",
                 Hijos = new List<ElementoBase>
-        {
-            new Carpeta
-            {
-                ElementoId = 2,
-                Nombre = "Carpeta 1",
-                Hijos = new List<ElementoBase>
                 {
+                    new Carpeta
+                    {
+                        ElementoId = 2,
+                        Nombre = "Carpeta 1",
+                        Hijos = new List<ElementoBase>
+                        {
+                            new Documento
+                            {
+                                ElementoId = 3,
+                                Nombre = "archivo1.pdf",
+                                Peso = 123456,
+                                TipoMime = "application/pdf",
+                                UrlStorage = "https://fake-url.com/archivo1.pdf"
+                            }
+                        }
+                    },
                     new Documento
                     {
-                        ElementoId = 3,
-                        Nombre = "archivo1.pdf",
-                        Peso = 123456,
-                        TipoMime = "application/pdf",
-                        UrlStorage = "https://fake-url.com/archivo1.pdf"
+                        ElementoId = 4,
+                        Nombre = "archivo2.docx",
+                        Peso = 98765,
+                        TipoMime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        UrlStorage = "https://fake-url.com/archivo2.docx"
                     }
                 }
-            },
-            new Documento
-            {
-                ElementoId = 4,
-                Nombre = "archivo2.docx",
-                Peso = 98765,
-                TipoMime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                UrlStorage = "https://fake-url.com/archivo2.docx"
-            }
-        }
             };
 
             return Ok(raiz);
