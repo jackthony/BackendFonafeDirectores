@@ -4,5 +4,6 @@
     {
         public required int Id { get; set; }
         public required string Nombre { get; set; }
+        public int ReferenceId { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Archivo.Infrastructure.Archivo.Persistence.Repositories.SqlServer
 
         public async Task<List<ReferenciaResult>> GetProvinciasAsync()
         {
-            var query = "SELECT nProvinciaId AS Id, sNombreProvincia AS Nombre FROM CAT_Provincia";
+            var query = "SELECT nProvinciaId AS Id, sNombreProvincia AS Nombre, nDepartamentoId AS ReferenceId FROM CAT_Provincia";
             var result = await _connection.QueryAsync<ReferenciaResult>(query);
             return [.. result];
         }
@@ -32,7 +32,7 @@ namespace Archivo.Infrastructure.Archivo.Persistence.Repositories.SqlServer
 
         public async Task<List<ReferenciaResult>> GetDistritosAsync()
         {
-            var query = "SELECT nDistritoId AS Id, sNombreDistrito AS Nombre FROM CAT_Distrito";
+            var query = "SELECT nDistritoId AS Id, sNombreDistrito AS Nombre, nProvinciaId AS ReferenceId FROM CAT_Distrito";
             var result = await _connection.QueryAsync<ReferenciaResult>(query);
             return [.. result];
         }

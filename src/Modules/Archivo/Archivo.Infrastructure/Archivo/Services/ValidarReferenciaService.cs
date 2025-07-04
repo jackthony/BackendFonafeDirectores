@@ -57,7 +57,7 @@ namespace Archivo.Infrastructure.Archivo.Services
         public ValidacionResultado<CrearDirectorParameters> ValidarDirectores(List<DirectorDocResult> directores, int usuarioId)
         {
             var resultado = new ValidacionResultado<CrearDirectorParameters>();
-
+            int departamentoId, provinciaId, distritoId;
             foreach (var e in directores)
             {
                 try
@@ -75,13 +75,14 @@ namespace Archivo.Infrastructure.Archivo.Services
                     if (!Existe(e.TipoDocumento, _tiposDocumento))
                         errores.Add($"Tipo de documento inválido: '{e.TipoDocumento}'");
 
-                    if (!Existe(e.Departamento, _departamentos))
+
+                    if (!TryObtenerId(e.Departamento, _departamentos, out departamentoId))
                         errores.Add($"Departamento inválido: '{e.Departamento}'");
 
-                    if (!Existe(e.Provincia, _provincias))
+                    if (!TryObtenerId(e.Provincia, [.. _provincias.Where(p => p.ReferenceId == departamentoId)], out provinciaId))
                         errores.Add($"Provincia inválida: '{e.Provincia}'");
 
-                    if (!Existe(e.Distrito, _distritos))
+                    if (!TryObtenerId(e.Distrito, [.. _distritos.Where(d => d.ReferenceId == provinciaId)], out distritoId))
                         errores.Add($"Distrito inválido: '{e.Distrito}'");
 
                     if (!Existe(e.Genero, _generos))
@@ -114,9 +115,9 @@ namespace Archivo.Infrastructure.Archivo.Services
                         Apellidos = e.Apellidos,
                         FechaNacimiento = e.FechaNacimiento ?? throw new Exception("FechaNacimiento es requerida"),
                         Genero = ObtenerId(e.Genero, _generos),
-                        Departamento = ObtenerId(e.Departamento, _departamentos),
-                        Provincia = ObtenerId(e.Provincia, _provincias),
-                        Distrito = ObtenerId(e.Distrito, _distritos),
+                        Departamento = departamentoId,
+                        Provincia = provinciaId,
+                        Distrito = distritoId,
                         Direccion = e.Direccion,
                         Telefono = e.Telefono,
                         Correo = e.Correo,
@@ -155,7 +156,7 @@ namespace Archivo.Infrastructure.Archivo.Services
         public ValidacionResultado<CrearEmpresaParameters> ValidarEmpresas(List<EmpresaDocResult> empresas, int usuarioId)
         {
             var resultado = new ValidacionResultado<CrearEmpresaParameters>();
-
+            int departamentoId, provinciaId, distritoId;
             foreach (var e in empresas)
             {
                 var errores = new List<string>();
@@ -166,13 +167,13 @@ namespace Archivo.Infrastructure.Archivo.Services
                     esDuplicado = true;
                 }
 
-                if (!Existe(e.Departamento, _departamentos))
+                if (!TryObtenerId(e.Departamento, _departamentos, out departamentoId))
                     errores.Add($"Departamento inválido: '{e.Departamento}'");
 
-                if (!Existe(e.Provincia, _provincias))
+                if (!TryObtenerId(e.Provincia, [.. _provincias.Where(p => p.ReferenceId == departamentoId)], out provinciaId))
                     errores.Add($"Provincia inválida: '{e.Provincia}'");
 
-                if (!Existe(e.Distrito, _distritos))
+                if (!TryObtenerId(e.Distrito, [.. _distritos.Where(d => d.ReferenceId == provinciaId)], out distritoId))
                     errores.Add($"Distrito inválido: '{e.Distrito}'");
 
                 if (!Existe(e.Rubro, _rubros))
@@ -191,9 +192,9 @@ namespace Archivo.Infrastructure.Archivo.Services
                 {
                     Ruc = e.Ruc,
                     RazonSocial = e.RazonSocial,
-                    IdDepartamento = ObtenerId(e.Departamento, _departamentos),
-                    IdProvincia = ObtenerId(e.Provincia, _provincias),
-                    IdDistrito = ObtenerId(e.Distrito, _distritos),
+                    IdDepartamento = departamentoId,
+                    IdProvincia = provinciaId,
+                    IdDistrito = distritoId,
                     Direccion = e.Direccion,
                     IdRubroNegocio = ObtenerId(e.Rubro, _rubros),
                     IdSector = ObtenerId(e.Sector, _ministerios),
@@ -215,6 +216,21 @@ namespace Archivo.Infrastructure.Archivo.Services
             }
 
             return resultado;
+        }
+
+        private static bool TryObtenerId(string? valor, List<ReferenciaResult> lista, out int id)
+        {
+            var normalizado = Normalizar(valor);
+            var item = lista.FirstOrDefault(x => Normalizar(x.Nombre) == normalizado);
+
+            if (item != null)
+            {
+                id = item.Id;
+                return true;
+            }
+
+            id = 0;
+            return false;
         }
 
         private static string Normalizar(string? texto)
