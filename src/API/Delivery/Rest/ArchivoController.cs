@@ -1,5 +1,4 @@
 ﻿using Api.Helpers;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
@@ -7,8 +6,6 @@ using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Results;
 using Shared.ClientV1;
 using Microsoft.AspNetCore.StaticFiles;
-using Empresa.Domain.Cargo.Results;
-using Empresa.Presentation.Cargo.Responses;
 using Archivo.Presentation.Archivo.Responses;
 
 namespace Api.Delivery.Rest
@@ -141,46 +138,8 @@ namespace Api.Delivery.Rest
             var result = await _listarArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-<<<<<<< HEAD
-            return Ok(result.AsT1);*/
-            var raiz = new Carpeta
-            {
-                ElementoId = 1,
-                Nombre = "Raíz",
-                Hijos = new List<ElementoBase>
-                {
-                    new Carpeta
-                    {
-                        ElementoId = 2,
-                        Nombre = "Carpeta 1",
-                        Hijos = new List<ElementoBase>
-                        {
-                            new Documento
-                            {
-                                ElementoId = 3,
-                                Nombre = "archivo1.pdf",
-                                Peso = 123456,
-                                TipoMime = "application/pdf",
-                                UrlStorage = "https://fake-url.com/archivo1.pdf"
-                            }
-                        }
-                    },
-                    new Documento
-                    {
-                        ElementoId = 4,
-                        Nombre = "archivo2.docx",
-                        Peso = 98765,
-                        TipoMime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                        UrlStorage = "https://fake-url.com/archivo2.docx"
-                    }
-                }
-            };
-
-            return Ok(raiz);
-=======
             var response = _presenterListElement.Present(result.AsT1);
             return Ok(response);
->>>>>>> ee3ca28c5aa9455053f9a148e7253447b1aa78ad
         }
 
         [HttpGet("{id}")]
