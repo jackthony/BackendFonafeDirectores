@@ -10,6 +10,8 @@ namespace Archivo.Domain.Archivo.Repositories
         public Task<List<EmpresaDocResult>> GetEmpresas(ExportParameters request);
         public Task<List<DirectorDocResult>> GetDirectores(ExportParameters request);
         public Task InsertEmpresasAsync(List<CrearEmpresaParameters> empresas);
+        public Task UpdateEmpresasAsync(List<CrearEmpresaParameters> empresas);
         public Task InsertDirectoresAsync(List<CrearDirectorParameters> directores);
+        public Task UpdateDirectoresAsync(List<CrearDirectorParameters> directores);
     }
 }

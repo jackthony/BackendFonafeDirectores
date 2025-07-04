@@ -206,9 +206,33 @@ namespace Archivo.Infrastructure.Archivo.Services
                 var propiedades = item.GetType().GetProperties();
                 for (int col = 0; col < propiedades.Length - 4; col++)
                 {
-                    var valor = propiedades[col].GetValue(item);
-                    hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";
+                    var prop = propiedades[col];
+                    var valor = prop.GetValue(item);
+
+                    if (valor is DateTime fecha)
+                    {
+                        hojaDirectores.Cell(fila, col + 3).Value = fecha;
+                        hojaDirectores.Cell(fila, col + 3).Style.DateFormat.Format = "dd/MM/yyyy";
+                    }
+                    else if (valor != null && prop.PropertyType == typeof(DateTime?))
+                    {
+                        var fechaHere = (DateTime?)valor;
+                        if (fechaHere.HasValue)
+                        {
+                            hojaDirectores.Cell(fila, col + 3).Value = fechaHere.Value;
+                            hojaDirectores.Cell(fila, col + 3).Style.DateFormat.Format = "dd/MM/yyyy";
+                        }
+                        else
+                        {
+                            hojaDirectores.Cell(fila, col + 3).Value = "";
+                        }
+                    }
+                    else
+                    {
+                        hojaDirectores.Cell(fila, col + 3).Value = valor?.ToString() ?? "";
+                    }
                 }
+
                 fila++;
             }
 

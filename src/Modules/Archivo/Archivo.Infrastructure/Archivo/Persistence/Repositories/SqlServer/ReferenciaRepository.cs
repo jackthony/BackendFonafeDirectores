@@ -72,6 +72,13 @@ namespace Archivo.Infrastructure.Archivo.Persistence.Repositories.SqlServer
             return [.. result];
         }
 
+        public async Task<List<ReferenciaResult>> GetDirectoresAsync()
+        {
+            var query = "SELECT nDirectorId AS Id, sNumeroDocumento AS Nombre FROM EMP_Director";
+            var result = await _connection.QueryAsync<ReferenciaResult>(query);
+            return [.. result];
+        }
+
         public async Task<List<ReferenciaResult>> GetCargosDirectorAsync()
         {
             var query = "SELECT nValor AS Id, sDescripcion AS Nombre FROM Constantes where nCodigo = 12 and nValor <> 0";
