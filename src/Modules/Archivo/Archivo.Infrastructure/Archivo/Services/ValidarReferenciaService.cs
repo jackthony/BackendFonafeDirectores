@@ -57,9 +57,9 @@ namespace Archivo.Infrastructure.Archivo.Services
         public ValidacionResultado<CrearDirectorParameters> ValidarDirectores(List<DirectorDocResult> directores, int usuarioId)
         {
             var resultado = new ValidacionResultado<CrearDirectorParameters>();
-            int departamentoId, provinciaId, distritoId;
             foreach (var e in directores)
             {
+                int departamentoId, provinciaId, distritoId;
                 try
                 {
                     var empresa = _empresas.FirstOrDefault(x => Normalizar(x.Nombre) == Normalizar(e.Ruc));
@@ -156,9 +156,10 @@ namespace Archivo.Infrastructure.Archivo.Services
         public ValidacionResultado<CrearEmpresaParameters> ValidarEmpresas(List<EmpresaDocResult> empresas, int usuarioId)
         {
             var resultado = new ValidacionResultado<CrearEmpresaParameters>();
-            int departamentoId, provinciaId, distritoId;
             foreach (var e in empresas)
             {
+                int departamentoId, provinciaId, distritoId;
+
                 var errores = new List<string>();
                 var esDuplicado = false;
 
