@@ -162,7 +162,7 @@ builder.Services.AddLogInfrastructure();
 builder.Services.AddTrackableApplication();
 
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
-builder.Services.Decorate(typeof(IUseCase<,>), typeof(AuditoriaUseCaseDecorator<,>));
+builder.Services.Decorate(typeof(IUseCase<,>), typeof(SistemaUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(TrazabilidadUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ValidationUseCaseDecorator<,>));

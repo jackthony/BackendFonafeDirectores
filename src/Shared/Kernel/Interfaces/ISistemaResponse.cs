@@ -1,8 +1,8 @@
 ﻿namespace Shared.Kernel.Interfaces
 {
-    public interface IAuditableResponse
+    public interface ISistemaResponse
     {
         int? UsuarioId { get; }
-        string? DetallesAuditoria => null;
+        string? GetSessionId { get; }
     }
 }

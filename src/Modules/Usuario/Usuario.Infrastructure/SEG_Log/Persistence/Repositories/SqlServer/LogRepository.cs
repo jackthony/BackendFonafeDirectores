@@ -9,12 +9,6 @@ namespace Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer
     {
         private readonly IDbConnection _connection = connection;
 
-        public async Task RegistrarAuditoriaAsync(LogAuditoriaParameters parameters)
-        {
-            var query = "sp_RegistrarAuditoria";
-            await _connection.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
-        }
-
         public async Task RegistrarSistemaAsync(LogSistemaParameters parameters)
         {
             var query = "sp_RegistrarLogSistema";

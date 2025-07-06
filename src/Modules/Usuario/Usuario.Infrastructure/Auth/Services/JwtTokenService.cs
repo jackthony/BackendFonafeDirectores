@@ -27,16 +27,15 @@ namespace Usuario.Infrastructure.Auth.Services
             _refreshTokenExpiryMinutes = int.Parse(_configuration["Jwt:RefreshTokenMinutes"]!);
         }
 
-        public string GenerateAccessToken(int userId, string email, IList<string> roles)
+        public string GenerateAccessToken(int userId, string email, IList<string> roles, string sessionGuid)
         {
-            var sessionId = Guid.NewGuid().ToString();
 
             var claims = new List<Claim>
             {
                 new(JwtRegisteredClaimNames.Sub, userId.ToString()),
                 new(JwtRegisteredClaimNames.Email, email),
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new("sid", sessionId)
+                new("sid", sessionGuid)
             };
 
             claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));

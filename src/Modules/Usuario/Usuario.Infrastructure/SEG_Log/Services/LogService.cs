@@ -17,31 +17,19 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             _logRepository = logRepository;
         }
 
-        public async Task RegistrarAuditoriaAsync(LogAuditoriaRequest request)
-        {
-            var parameters = new LogAuditoriaParameters
-            {
-                UsuarioId = request.UsuarioId ?? 0,
-                Accion = request.Accion,
-                Detalles = request.Detalles,
-                Fecha = _timeProvider.NowPeru
-            };
-
-            await _logRepository.RegistrarAuditoriaAsync(parameters);
-        }
-
         public async Task RegistrarSistemaAsync(LogSistemaRequest request)
         {
             var parameters = new LogSistemaParameters
             {
-                /*UsuarioId = dto.UsuarioId,
-                TipoEvento = dto.TipoEvento,
-                Mensaje = dto.Mensaje,
-                StackTrace = dto.StackTrace,
-                Origen = dto.Origen,
-                Endpoint = dto.Endpoint,
-                Estado = dto.Estado,
-                Fecha = _timeProvider.Now*/
+                UsuarioId = request.UsuarioId ?? 0,
+                TipoEvento = request.TipoEvento,
+                Mensaje = request.Mensaje,
+                IdSession = request.IdSession,
+                Ip = request.Ip,
+                Origen = request.Origen,
+                StackTrace = request.StackTrace,
+                Estado = request.Estado ?? 0,
+                Fecha = _timeProvider.NowPeru
             };
 
             await _logRepository.RegistrarSistemaAsync(parameters);

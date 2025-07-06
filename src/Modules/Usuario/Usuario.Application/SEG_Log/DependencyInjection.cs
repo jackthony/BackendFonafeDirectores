@@ -8,8 +8,8 @@ namespace Usuario.Application.SEG_Log
     {
         public static IServiceCollection AddLogApplication(this IServiceCollection services)
         {
-            services.AddScoped<IAuditableRequest, LoginRequest>();
-            services.AddScoped<IAuditableResponse, LoginResponse>();
+            services.AddScoped<ISistemaRequest, LoginRequest>();
+            services.AddScoped<ISistemaResponse, LoginResponse>();
 
             return services;
         }

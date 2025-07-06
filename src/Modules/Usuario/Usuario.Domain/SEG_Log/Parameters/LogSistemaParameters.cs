@@ -10,5 +10,6 @@
         public string? Origen { get; set; }
         public int? Estado { get; set; }
         public string? Ip { get; set; }
+        public string? IdSession { get; set; }
     }
 }

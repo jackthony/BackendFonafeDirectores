@@ -2,14 +2,16 @@
 
 namespace Usuario.Application.Auth.Dtos
 {
-    public class LoginRequest : IAuditableRequest
+    public class LoginRequest : ISistemaRequest
     {
         public required string Email { get; set; }
         public required string Password { get; set; }
         public required string captchaResponse { get; set; }
 
         public int? UsuarioId => null;
-        public string AccionAuditable => "Login";
-        public string? DetallesAuditoria => $"Intento de login con email: {Email}";
+        public string? Origen => "Auth";
+        public int? Estado => 1;
+        public string? Mensaje => "Intento de incio de sesión";
+        public string? TipoEvento => "Login";
     }
 }

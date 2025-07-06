@@ -63,7 +63,8 @@ namespace Usuario.Application.Auth.UseCases
             // 6. Obtener permisos para reconstruir la respuesta igual que en login
 
             var usuarioResult = await _authRepository.ObtenerPorIdAsync(refreshTokenResult.UsuarioId);
-            var newAccessToken = _tokenService.GenerateAccessToken(refreshTokenResult.UsuarioId, usuarioResult.Data!.CorreoElectronico, []);
+            var sessionId = Guid.NewGuid().ToString();
+            var newAccessToken = _tokenService.GenerateAccessToken(refreshTokenResult.UsuarioId, usuarioResult.Data!.CorreoElectronico, [], sessionId);
 
             if (!usuarioResult.Success || usuarioResult.Data is null)
                 return ErrorBase.Database("No se pudo obtener el usuario");

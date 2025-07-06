@@ -71,7 +71,8 @@ namespace Usuario.Application.Auth.UseCases
 
             List<string> nombresRoles = roles.Select(r => r.NombreRol).ToList();
 
-            var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, nombresRoles);
+            var sessionId = Guid.NewGuid().ToString();
+            var token = _tokenService.GenerateAccessToken(usuario.UsuarioId, usuario.CorreoElectronico, nombresRoles, sessionId);
             //token de refresco que se almacenará en bd
             var refreshToken = _tokenService.GenerateRefreshToken();
             var refreshTokenRequest = new RefreshTokenCreateRequest { Token = refreshToken , UsuarioId = usuario.UsuarioId };
@@ -85,7 +86,8 @@ namespace Usuario.Application.Auth.UseCases
                 AccessToken = token,
                 Modulos = modulosPermisos,
                 UsuarioResult = usuario,
-                RefreshToken = refreshToken
+                RefreshToken = refreshToken,
+                SessionId = sessionId
             };
         }
 
