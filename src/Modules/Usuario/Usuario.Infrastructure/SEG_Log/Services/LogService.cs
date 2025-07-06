@@ -57,6 +57,7 @@ namespace Usuario.Infrastructure.SEG_Log.Services
                 Movimiento = request.Movimiento,
                 DatosAntes = request.DatosAntes,
                 DatosDespues = request.DatosDespues,
+                IdSession = request.IdSesion,
                 Fecha = _timeProvider.NowPeru,
                 Detalles = request.Detalles
             };

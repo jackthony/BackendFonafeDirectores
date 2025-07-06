@@ -29,11 +29,14 @@ namespace Usuario.Infrastructure.Auth.Services
 
         public string GenerateAccessToken(int userId, string email, IList<string> roles)
         {
+            var sessionId = Guid.NewGuid().ToString();
+
             var claims = new List<Claim>
             {
                 new(JwtRegisteredClaimNames.Sub, userId.ToString()),
                 new(JwtRegisteredClaimNames.Email, email),
-                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new("sid", sessionId)
             };
 
             claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));

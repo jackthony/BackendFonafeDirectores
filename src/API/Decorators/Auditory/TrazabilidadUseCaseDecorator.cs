@@ -4,21 +4,25 @@ using Shared.Kernel.Interfaces;
 using Usuario.Application.SEG_Log.Dtos;
 using Usuario.Application.SEG_Log.Services;
 using Usuario.Domain.SEG_Log.Repositories;
+using Microsoft.AspNetCore.Http; // para IHttpContextAccessor
 
 public class TrazabilidadUseCaseDecorator<TRequest, TResponse> : IUseCase<TRequest, TResponse>
 {
     private readonly IUseCase<TRequest, TResponse> _inner;
     private readonly ILogService _logService;
     private readonly ITrazabilidadInspector _inspector;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public TrazabilidadUseCaseDecorator(
         IUseCase<TRequest, TResponse> inner,
         ILogService logService,
-        ITrazabilidadInspector inspector)
+        ITrazabilidadInspector inspector,
+        IHttpContextAccessor httpContextAccessor)
     {
         _inner = inner;
         _logService = logService;
         _inspector = inspector;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public async Task<OneOf<ErrorBase, TResponse>> ExecuteAsync(TRequest request)
@@ -55,6 +59,8 @@ public class TrazabilidadUseCaseDecorator<TRequest, TResponse> : IUseCase<TReque
                     trackableRequest.ValorId);
             }
 
+            string? sessionId = _httpContextAccessor.HttpContext?.User.FindFirst("sid")?.Value;
+
             var logDto = new LogTrazabilidadRequest
             {
                 UsuarioId = trackableRequest.UsuarioId,
@@ -63,7 +69,8 @@ public class TrazabilidadUseCaseDecorator<TRequest, TResponse> : IUseCase<TReque
                 Movimiento = trackableRequest.Movimiento,
                 DatosAntes = datosAntes,
                 DatosDespues = datosDespues,
-                Detalles = trackableRequest.DetallesTrazabilidad
+                Detalles = trackableRequest.DetallesTrazabilidad,
+                IdSesion = sessionId
             };
 
             await _logService.RegistrarTrazabilidadAsync(logDto);
