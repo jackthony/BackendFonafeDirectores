@@ -89,7 +89,7 @@ builder.Services.AddSingleton<ITimeProvider, PeruTimeProvider>();
 // Configuración para EmailSettings
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddStorage();
 
