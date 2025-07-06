@@ -37,6 +37,7 @@ namespace Empresa.Application.Director.Mappers
                 nEspecialidadId = source.nEspecialidad,
                 dtFechaNombramiento = source.dFechaNombramiento,
                 dtFechaDesignacion = source.dFechaDesignacion,
+                dtFechaRenuncia = source.dFechaRenuncia,
                 sComentario = source.sComentario,
                 dtFechaModificacion = _timeProvider.NowPeru,
                 nUsuarioModificacionId = source.nUsuarioModificacion,

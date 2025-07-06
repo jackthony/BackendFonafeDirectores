@@ -22,6 +22,7 @@
         public int nEspecialidad { get; set; }
         public DateTime dFechaNombramiento { get; set; }
         public DateTime dFechaDesignacion { get; set; }
+        public DateTime dFechaRenuncia { get; set; }
         public string sComentario { get; set; }
         public int nUsuarioModificacion { get; set; }
     }

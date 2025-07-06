@@ -43,6 +43,7 @@ namespace Empresa.Application.Director.Mappers
                 Especialidad = source.nEspecialidad,
                 FechaNombramiento = source.dFechaNombramiento,
                 FechaDesignacion = source.dFechaDesignacion,
+                FechaRenuncia = source.dFechaRenuncia,
                 Comentario = source.sComentario,
                 UsuarioRegistro = source.nUsuarioRegistro,
                 FechaRegistro = _timeProvider.NowPeru

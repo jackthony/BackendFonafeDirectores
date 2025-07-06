@@ -22,6 +22,7 @@
         public int? nEspecialidadId { get; set; }
         public DateTime? dtFechaNombramiento { get; set; }
         public DateTime? dtFechaDesignacion { get; set; }
+        public DateTime? dtFechaRenuncia { get; set; }
         public string? sComentario { get; set; } = string.Empty;
         public DateTime? dtFechaModificacion { get; set; }
         public int? nUsuarioModificacionId { get; set; }
