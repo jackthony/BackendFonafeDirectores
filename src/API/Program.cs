@@ -57,6 +57,9 @@ using Usuario.Presentation.Modulo;
 using Usuario.Infrastructure.Auth.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Usuario.Application.SEG_Log;
+using Usuario.Infrastructure.SEG_Log;
+using Api.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -153,7 +156,14 @@ builder.Services.AddModuloApplication();
 builder.Services.AddModuloInfrastructure();
 builder.Services.AddModuloPresenters();
 
+builder.Services.AddLogApplication();
+builder.Services.AddLogInfrastructure();
+
+builder.Services.AddTrackableApplication();
+
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
+builder.Services.Decorate(typeof(IUseCase<,>), typeof(AuditoriaUseCaseDecorator<,>));
+builder.Services.Decorate(typeof(IUseCase<,>), typeof(TrazabilidadUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ValidationUseCaseDecorator<,>));
 

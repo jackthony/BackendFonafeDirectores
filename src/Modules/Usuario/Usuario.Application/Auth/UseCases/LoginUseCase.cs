@@ -34,10 +34,10 @@ namespace Usuario.Application.Auth.UseCases
         public async Task<OneOf<ErrorBase, LoginResponse>> ExecuteAsync(LoginRequest request)
         {
             //Validacion Capcha
-            if (string.IsNullOrWhiteSpace(request.captchaResponse))
+            /*if (string.IsNullOrWhiteSpace(request.captchaResponse))
                 return ErrorBase.Validation("Captcha es requerido");
             if (!await _captchaService.ValidateCaptchaAsync(request.captchaResponse))
-                return ErrorBase.Validation("Captcha inválido o expirado");
+                return ErrorBase.Validation("Captcha inválido o expirado");*/
 
             var parameters = _mapper.Map(request);
 
