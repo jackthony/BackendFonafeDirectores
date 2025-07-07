@@ -7,6 +7,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System.ComponentModel;
+using System.Globalization;
 using Colors = QuestPDF.Helpers.Colors;
 using IContainer = QuestPDF.Infrastructure.IContainer;
 
@@ -119,13 +120,13 @@ namespace Archivo.Infrastructure.Archivo.Services
                 DateTime? fechaNombramiento = null;
                 DateTime? fechaDesignacion = null;
 
-                if (DateTime.TryParse(fechaNacimientoTexto, out var fn))
+                if (DateTime.TryParseExact(fechaNacimientoTexto, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var fn))
                     fechaNacimiento = fn;
 
-                if (DateTime.TryParse(fechaNombramientoTexto, out var fno))
+                if (DateTime.TryParseExact(fechaNombramientoTexto, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var fno))
                     fechaNombramiento = fno;
 
-                if (DateTime.TryParse(fechaDesignacionTexto, out var fd))
+                if (DateTime.TryParseExact(fechaDesignacionTexto, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var fd))
                     fechaDesignacion = fd;
 
                 var director = new DirectorDocResult
