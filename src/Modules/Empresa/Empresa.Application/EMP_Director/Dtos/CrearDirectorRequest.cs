@@ -29,7 +29,7 @@ namespace Empresa.Application.Director.Dtos
         public int nEspecialidad { get; set; }
         public DateTime dFechaNombramiento { get; set; }
         public DateTime dFechaDesignacion { get; set; }
-        public DateTime dFechaRenuncia { get; set; }
+        public DateTime? dFechaRenuncia { get; set; }
         public string sComentario { get; set; } = string.Empty;
         public int nUsuarioRegistro { get; set; }
 
