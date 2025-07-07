@@ -27,7 +27,7 @@
         public int Especialidad { get; set; }
         public DateTime FechaNombramiento { get; set; }
         public DateTime FechaDesignacion { get; set; }
-        public DateTime FechaRenuncia { get; set; }
+        public DateTime? FechaRenuncia { get; set; }
         public string Comentario { get; set; } = string.Empty;
         public DateTime FechaRegistro { get; set; }
         public int UsuarioRegistro { get; set; }
