@@ -6,5 +6,6 @@ namespace Usuario.Domain.SEG_Log.Repositories
     public interface IExportLogsRepository
     {
         Task<List<AuditLogEstadoUsuarioResult>> ObtenerAuditoriaUsuariosAsync(ObtenerAuditoriaUsuariosRequest request);
+        Task<List<UsuarioPorTipoUsuarioResult>> ObtenerUsuariosPorTipoUsuarioAsync(ObtenerUsuariosPorTipoUsuarioRequest request);
     }
 }

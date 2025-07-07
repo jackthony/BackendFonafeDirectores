@@ -22,5 +22,18 @@ namespace Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer
 
             return result.ToList();
         }
+
+        public async Task<List<UsuarioPorTipoUsuarioResult>> ObtenerUsuariosPorTipoUsuarioAsync(ObtenerUsuariosPorTipoUsuarioRequest request)
+        {
+            var parameters = new DynamicParameters(request);
+
+            var result = await _connection.QueryAsync<UsuarioPorTipoUsuarioResult>(
+                "ObtenerUsuariosPorTipoUsuario",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result.ToList();
+        }
     }
 }

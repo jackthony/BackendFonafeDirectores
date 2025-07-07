@@ -5,5 +5,6 @@ namespace Usuario.Application.SEG_Log.Services
     public interface IExportLogsService
     {
         Stream ExportarAuditoriaUsuariosExcel(List<AuditLogEstadoUsuarioResult> usuarios);
+        Stream ExportarUsuariosPorTipoUsuarioExcel(List<UsuarioPorTipoUsuarioResult> usuarios);
     }
 }

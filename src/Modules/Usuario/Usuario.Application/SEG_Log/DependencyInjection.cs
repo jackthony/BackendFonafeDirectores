@@ -12,7 +12,9 @@ namespace Usuario.Application.SEG_Log
         {
             services.AddScoped<ISistemaRequest, LoginRequest>();
             services.AddScoped<ISistemaResponse, LoginResponse>();
+
             services.AddScoped<IUseCase<ObtenerAuditoriaUsuariosRequest, Stream>, ExportAuditoriaUsuariosUseCase>();
+            services.AddScoped<IUseCase<ObtenerUsuariosPorTipoUsuarioRequest, Stream>, ExportUsuariosPorTipoUsuarioUseCase>();
 
             return services;
         }
