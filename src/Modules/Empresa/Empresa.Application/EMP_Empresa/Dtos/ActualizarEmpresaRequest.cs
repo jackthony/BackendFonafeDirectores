@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Empresa.Dtos
+﻿using Shared.Kernel.Interfaces;
+
+namespace Empresa.Application.Empresa.Dtos
 {
-    public class ActualizarEmpresaRequest
+    public class ActualizarEmpresaRequest : ITrackableRequest
     {
         public int nIdEmpresa { get; set; }
         public int nIdRubroNegocio { get; set; }
@@ -17,5 +19,12 @@
         public bool bRegistradoMercadoValores { get; set; }
         public bool bActivo { get; set; }
         public int nUsuarioModificacion { get; set; }
+
+        public int UsuarioId => nUsuarioModificacion;
+        public string Modulo => "EMPRESA";
+        public string Tabla => "EMP_Empresa";
+        public string CampoId => "nEmpresaId";
+        public int? ValorId => nIdEmpresa;
+        public string Movimiento => "Update";
     }
 }

@@ -12,7 +12,8 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             "Correo Electrónico",
             "Apellido Paterno",
             "Apellido Materno",
-            "Nombres"
+            "Nombres",
+            "Estado"
         ];
 
         private readonly string[] _encabezadosPorTipoUsuario =
@@ -22,13 +23,15 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             "Rol",
             "Apellido Paterno",
             "Apellido Materno",
-            "Nombres"
+            "Nombres",
+            "Estado"
         ];
 
         private readonly string[] _encabezadosLogSistema =
         [
             "Id",
             "UsuarioId",
+            "CorreoElectronico",
             "TipoEvento",
             "Mensaje",
             "StackTrace",
@@ -43,6 +46,7 @@ namespace Usuario.Infrastructure.SEG_Log.Services
         [
             "Id",
             "UsuarioId",
+            "CorreoElectronico",
             "Modulo",
             "Entidad",
             "Movimiento",
@@ -72,6 +76,7 @@ namespace Usuario.Infrastructure.SEG_Log.Services
                 worksheet.Cell(fila, 3).Value = user.ApellidoPaterno;
                 worksheet.Cell(fila, 4).Value = user.ApellidoMaterno;
                 worksheet.Cell(fila, 5).Value = user.Nombres;
+                worksheet.Cell(fila, 6).Value = user.Estado;
                 fila++;
             }
 
@@ -103,6 +108,7 @@ namespace Usuario.Infrastructure.SEG_Log.Services
                 worksheet.Cell(fila, 4).Value = user.ApellidoPaterno;
                 worksheet.Cell(fila, 5).Value = user.ApellidoMaterno;
                 worksheet.Cell(fila, 6).Value = user.Nombres;
+                worksheet.Cell(fila, 7).Value = user.Estado;
                 fila++;
             }
 
@@ -130,14 +136,15 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             {
                 worksheet.Cell(fila, 1).Value = log.Id;
                 worksheet.Cell(fila, 2).Value = log.UsuarioId;
-                worksheet.Cell(fila, 3).Value = log.TipoEvento;
-                worksheet.Cell(fila, 4).Value = log.Mensaje;
-                worksheet.Cell(fila, 5).Value = log.StackTrace;
-                worksheet.Cell(fila, 6).Value = log.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
-                worksheet.Cell(fila, 7).Value = log.Origen;
-                worksheet.Cell(fila, 8).Value = log.Estado;
-                worksheet.Cell(fila, 9).Value = log.Ip;
-                worksheet.Cell(fila, 10).Value = log.IdSession;
+                worksheet.Cell(fila, 3).Value = log.CorreoElectronico;
+                worksheet.Cell(fila, 4).Value = log.TipoEvento;
+                worksheet.Cell(fila, 5).Value = log.Mensaje;
+                worksheet.Cell(fila, 6).Value = log.StackTrace;
+                worksheet.Cell(fila, 7).Value = log.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
+                worksheet.Cell(fila, 8).Value = log.Origen;
+                worksheet.Cell(fila, 9).Value = log.Estado;
+                worksheet.Cell(fila, 10).Value = log.Ip;
+                worksheet.Cell(fila, 11).Value = log.IdSession;
                 fila++;
             }
 
@@ -165,14 +172,15 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             {
                 worksheet.Cell(fila, 1).Value = log.Id;
                 worksheet.Cell(fila, 2).Value = log.UsuarioId;
-                worksheet.Cell(fila, 3).Value = log.Modulo;
-                worksheet.Cell(fila, 4).Value = log.Entidad;
-                worksheet.Cell(fila, 5).Value = log.Movimiento;
-                worksheet.Cell(fila, 6).Value = log.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
-                worksheet.Cell(fila, 7).Value = log.IdSession;
-                worksheet.Cell(fila, 8).Value = log.DatosAntes;
-                worksheet.Cell(fila, 9).Value = log.DatosDespues;
-                worksheet.Cell(fila, 10).Value = log.Detalles;
+                worksheet.Cell(fila, 3).Value = log.CorreoElectronico;
+                worksheet.Cell(fila, 4).Value = log.Modulo;
+                worksheet.Cell(fila, 5).Value = log.Entidad;
+                worksheet.Cell(fila, 6).Value = log.Movimiento;
+                worksheet.Cell(fila, 7).Value = log.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
+                worksheet.Cell(fila, 8).Value = log.IdSession;
+                worksheet.Cell(fila, 9).Value = log.DatosAntes;
+                worksheet.Cell(fila, 10).Value = log.DatosDespues;
+                worksheet.Cell(fila, 11).Value = log.Detalles;
                 fila++;
             }
 

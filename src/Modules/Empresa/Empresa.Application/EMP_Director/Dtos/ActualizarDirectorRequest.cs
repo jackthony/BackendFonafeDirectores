@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Director.Dtos
+﻿using Shared.Kernel.Interfaces;
+
+namespace Empresa.Application.Director.Dtos
 {
-    public class ActualizarDirectorRequest
+    public class ActualizarDirectorRequest : ITrackableRequest
     {
         public int nIdRegistro { get; set; }
         public int nIdEmpresa { get; set; }
@@ -25,5 +27,12 @@
         public DateTime dFechaRenuncia { get; set; }
         public string sComentario { get; set; } = string.Empty;
         public int nUsuarioModificacion { get; set; }
+
+        public int UsuarioId => nUsuarioModificacion;
+        public string Modulo => "EMPRESA";
+        public string Tabla => "EMP_Director";
+        public string CampoId => "nDirectorId";
+        public int? ValorId => nIdRegistro;
+        public string Movimiento => "Update";
     }
 }

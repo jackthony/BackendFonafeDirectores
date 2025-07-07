@@ -7,7 +7,7 @@ namespace Shared.Kernel.Interfaces
         public string Modulo { get; }
         public string Tabla { get; }
         public string CampoId { get; }
-        public int ValorId { get; }
+        public int? ValorId { get; }
         public string Movimiento { get; }
         public string? DetallesTrazabilidad => null;
     }

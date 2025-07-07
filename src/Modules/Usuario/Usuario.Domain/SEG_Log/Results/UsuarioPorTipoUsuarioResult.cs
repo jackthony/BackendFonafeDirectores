@@ -8,5 +8,6 @@
         public string ApellidoPaterno { get; set; } = default!;
         public string ApellidoMaterno { get; set; } = default!;
         public string Nombres { get; set; } = default!;
+        public string Estado { get; set; } = default!;
     }
 }

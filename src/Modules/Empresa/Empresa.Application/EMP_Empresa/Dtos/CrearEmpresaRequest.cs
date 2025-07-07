@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Empresa.Dtos
+﻿using Shared.Kernel.Interfaces;
+
+namespace Empresa.Application.Empresa.Dtos
 {
-    public class CrearEmpresaRequest
+    public class CrearEmpresaRequest : ITrackableRequest
     {
         public string sRuc { get; set; } = string.Empty;
         public string sRazonSocial { get; set; } = string.Empty;
@@ -18,5 +20,12 @@
         public bool bRegistradoMercadoValores { get; set; }
         public bool bActivo { get; set; }
         public int nUsuarioRegistro { get; set; }
+
+        public int UsuarioId => nUsuarioRegistro;
+        public string Modulo => "EMPRESA";
+        public string Tabla => "EMP_Empresa";
+        public string CampoId => "nEmpresaId";
+        public int? ValorId => null;
+        public string Movimiento => "Create";
     }
 }

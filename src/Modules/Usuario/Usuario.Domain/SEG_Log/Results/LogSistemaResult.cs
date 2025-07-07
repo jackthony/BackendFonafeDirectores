@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public int? UsuarioId { get; set; }
+        public string? CorreoElectronico { get; set; }
         public string? TipoEvento { get; set; }
         public string? Mensaje { get; set; }
         public string? StackTrace { get; set; }

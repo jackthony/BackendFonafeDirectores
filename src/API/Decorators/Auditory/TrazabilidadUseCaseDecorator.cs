@@ -4,7 +4,6 @@ using Shared.Kernel.Interfaces;
 using Usuario.Application.SEG_Log.Dtos;
 using Usuario.Application.SEG_Log.Services;
 using Usuario.Domain.SEG_Log.Repositories;
-using Microsoft.AspNetCore.Http; // para IHttpContextAccessor
 
 public class TrazabilidadUseCaseDecorator<TRequest, TResponse> : IUseCase<TRequest, TResponse>
 {
@@ -40,7 +39,7 @@ public class TrazabilidadUseCaseDecorator<TRequest, TResponse> : IUseCase<TReque
                 datosAntes = await _inspector.ObtenerEstadoActualAsync(
                     trackableRequest.Tabla,
                     trackableRequest.CampoId,
-                    trackableRequest.ValorId);
+                    trackableRequest.ValorId ?? 0);
             }
         }
         catch
@@ -53,10 +52,19 @@ public class TrazabilidadUseCaseDecorator<TRequest, TResponse> : IUseCase<TReque
         {
             if (trackableRequest.Movimiento != "Delete")
             {
+                var valorId = trackableRequest.ValorId ?? 0;
+                if (response.IsT1)
+                {
+                    var success = response.AsT1;
+                    if (success is ITrackableResponse trackableResponse)
+                    {
+                        valorId = trackableResponse.ValorId;
+                    }
+                }
                 datosDespues = await _inspector.ObtenerEstadoActualAsync(
                     trackableRequest.Tabla,
                     trackableRequest.CampoId,
-                    trackableRequest.ValorId);
+                    valorId);
             }
 
             string? sessionId = _httpContextAccessor.HttpContext?.User.FindFirst("sid")?.Value;

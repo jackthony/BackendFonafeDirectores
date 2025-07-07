@@ -1,6 +1,8 @@
-﻿namespace Empresa.Application.Director.Dtos
+﻿using Shared.Kernel.Interfaces;
+
+namespace Empresa.Application.Director.Dtos
 {
-    public class CrearDirectorRequest
+    public class CrearDirectorRequest : ITrackableRequest
     {
         public int nIdEmpresa { get; set; }
         public int nTipoDocumento { get; set; }
@@ -21,7 +23,7 @@
         public string? sCorreoTerciario { get; set; }
         public int nCargo { get; set; }
         public int nTipoDirector { get; set; }
-        public int nIdSector  { get; set; }
+        public int nIdSector { get; set; }
         public string sProfesion { get; set; } = string.Empty;
         public decimal mDieta { get; set; }
         public int nEspecialidad { get; set; }
@@ -31,5 +33,11 @@
         public string sComentario { get; set; } = string.Empty;
         public int nUsuarioRegistro { get; set; }
 
+        public int UsuarioId => nUsuarioRegistro;
+        public string Modulo => "EMPRESA";
+        public string Tabla => "EMP_Director";
+        public string CampoId => "nDirectorId";
+        public int? ValorId => null;
+        public string Movimiento => "Create";
     }
 }

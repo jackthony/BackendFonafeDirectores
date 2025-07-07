@@ -9,7 +9,15 @@ namespace Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer
         private readonly IDbConnection _connection = connection;
         private readonly HashSet<string> _tablasPermitidas =
         [
-            "EMP_Sector", "EMP_Empresa", "EMP_Cargo"
+            "EMP_Sector",
+            "EMP_Empresa",
+            "EMP_Cargo",
+            "EMP_TipoDirector",
+            "EMP_Rubro",
+            "EMP_Ministerio",
+            "EMP_Especialidad",
+            "Elemento",
+            "EMP_Director"
         ];
         public async Task<string?> ObtenerEstadoActualAsync(string tabla, string campoId, int valorId)
         {
