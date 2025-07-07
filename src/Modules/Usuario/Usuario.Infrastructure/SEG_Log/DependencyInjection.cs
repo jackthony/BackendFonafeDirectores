@@ -13,6 +13,9 @@ namespace Usuario.Infrastructure.SEG_Log
             services.AddScoped<ILogService, LogService>();
             services.AddScoped<ILogRepository, LogRepository>();
             services.AddScoped<ITrazabilidadInspector, TrazabilidadInspector>();
+            services.AddScoped<IExportLogsRepository, ExportLogsRepository>();
+            
+            services.AddScoped<IExportLogsService, ExportLogsService>();
 
             return services;
         }

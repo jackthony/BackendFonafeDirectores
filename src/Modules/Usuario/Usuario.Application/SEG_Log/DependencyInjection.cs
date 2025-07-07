@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Usuario.Application.Auth.Dtos;
+using Usuario.Application.SEG_Log.UseCases;
+using Usuario.Domain.SEG_Log.Parameters;
 
 namespace Usuario.Application.SEG_Log
 {
@@ -10,6 +12,7 @@ namespace Usuario.Application.SEG_Log
         {
             services.AddScoped<ISistemaRequest, LoginRequest>();
             services.AddScoped<ISistemaResponse, LoginResponse>();
+            services.AddScoped<IUseCase<ObtenerAuditoriaUsuariosRequest, Stream>, ExportAuditoriaUsuariosUseCase>();
 
             return services;
         }

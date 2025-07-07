@@ -1,0 +1,9 @@
+﻿using Usuario.Domain.SEG_Log.Results;
+
+namespace Usuario.Application.SEG_Log.Services
+{
+    public interface IExportLogsService
+    {
+        Stream ExportarAuditoriaUsuariosExcel(List<AuditLogEstadoUsuarioResult> usuarios);
+    }
+}
