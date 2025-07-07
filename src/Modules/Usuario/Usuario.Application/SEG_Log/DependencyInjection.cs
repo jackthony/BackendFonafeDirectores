@@ -15,6 +15,8 @@ namespace Usuario.Application.SEG_Log
 
             services.AddScoped<IUseCase<ObtenerAuditoriaUsuariosRequest, Stream>, ExportAuditoriaUsuariosUseCase>();
             services.AddScoped<IUseCase<ObtenerUsuariosPorTipoUsuarioRequest, Stream>, ExportUsuariosPorTipoUsuarioUseCase>();
+            services.AddScoped<IUseCase<ObtenerLogSistemaPorFechasRequest, Stream>, ExportLogSistemaUseCase>();
+            services.AddScoped<IUseCase<ObtenerLogTrazabilidadRequest, Stream>, ExportLogTrazabilidadUseCase>();
 
             return services;
         }

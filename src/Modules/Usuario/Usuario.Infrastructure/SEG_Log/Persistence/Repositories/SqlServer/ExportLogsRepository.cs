@@ -35,5 +35,31 @@ namespace Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer
 
             return result.ToList();
         }
+
+        public async Task<List<LogSistemaResult>> ObtenerLogSistemaPorFechasAsync(ObtenerLogSistemaPorFechasRequest request)
+        {
+            var parameters = new DynamicParameters(request);
+
+            var result = await _connection.QueryAsync<LogSistemaResult>(
+                "sp_ObtenerLogSistemaPorFechas",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result.ToList();
+        }
+
+        public async Task<List<LogTrazabilidadResult>> ObtenerLogTrazabilidadAsync(ObtenerLogTrazabilidadRequest request)
+        {
+            var parameters = new DynamicParameters(request);
+
+            var result = await _connection.QueryAsync<LogTrazabilidadResult>(
+                "sp_ObtenerLogTrazabilidadPorFechas",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result.ToList();
+        }
     }
 }

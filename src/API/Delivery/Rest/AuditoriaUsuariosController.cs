@@ -12,13 +12,19 @@ namespace Api.Delivery.Rest
     {
         private readonly IUseCase<ObtenerAuditoriaUsuariosRequest, Stream> _exportarAuditoriaUseCase;
         private readonly IUseCase<ObtenerUsuariosPorTipoUsuarioRequest, Stream> _exportarPorTipoUsuarioUseCase;
+        private readonly IUseCase<ObtenerLogSistemaPorFechasRequest, Stream> _exportarLogSistemaUseCase;
+        private readonly IUseCase<ObtenerLogTrazabilidadRequest, Stream> _exportarLogTrazabilidadUseCase;
 
         public AuditoriaUsuariosController(
             IUseCase<ObtenerAuditoriaUsuariosRequest, Stream> exportarAuditoriaUseCase,
-            IUseCase<ObtenerUsuariosPorTipoUsuarioRequest, Stream> exportarPorTipoUsuarioUseCase)
+            IUseCase<ObtenerUsuariosPorTipoUsuarioRequest, Stream> exportarPorTipoUsuarioUseCase,
+            IUseCase<ObtenerLogSistemaPorFechasRequest, Stream> exportarLogSistemaUseCase,
+            IUseCase<ObtenerLogTrazabilidadRequest, Stream> exportarLogTrazabilidadUseCase)
         {
             _exportarAuditoriaUseCase = exportarAuditoriaUseCase;
             _exportarPorTipoUsuarioUseCase = exportarPorTipoUsuarioUseCase;
+            _exportarLogSistemaUseCase = exportarLogSistemaUseCase;
+            _exportarLogTrazabilidadUseCase = exportarLogTrazabilidadUseCase;
         }
 
         [HttpPost("exportar-auditoria-estado")]
@@ -47,6 +53,36 @@ namespace Api.Delivery.Rest
             var stream = result.AsT1;
             var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             var fileName = $"usuarios-por-rol-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+            return File(stream, contentType, fileName);
+        }
+
+        [HttpPost("exportar-log-sistema")]
+        public async Task<IActionResult> ExportarLogSistema([FromBody] ObtenerLogSistemaPorFechasRequest request)
+        {
+            var result = await _exportarLogSistemaUseCase.ExecuteAsync(request);
+
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+
+            var stream = result.AsT1;
+            var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            var fileName = $"log-sistema-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+            return File(stream, contentType, fileName);
+        }
+
+        [HttpPost("exportar-log-trazabilidad")]
+        public async Task<IActionResult> ExportarLogTrazabilidad([FromBody] ObtenerLogTrazabilidadRequest request)
+        {
+            var result = await _exportarLogTrazabilidadUseCase.ExecuteAsync(request);
+
+            if (result.IsT0)
+                return ErrorResultMapper.MapError(result.AsT0);
+
+            var stream = result.AsT1;
+            var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            var fileName = $"log-trazabilidad-{DateTime.Now:yyyyMMddHHmmss}.xlsx";
 
             return File(stream, contentType, fileName);
         }

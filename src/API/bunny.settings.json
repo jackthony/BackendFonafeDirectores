@@ -1,5 +1,6 @@
 ﻿{
-  "StorageZone": "fonafe-storage",
-  "ApiKey": "49a73dad-b3e7-43f3-96b2e19c91e6-72c2-47c3",
-  "BaseUrl": "https://ny.storage.bunnycdn.com"
+  "StorageZone": "fonafe-v2",
+  "ApiKey": "e9b0be9e-1b7e-4baa-9dad44bd3380-839d-4002",
+  //"BaseUrl": "https://ny.storage.bunnycdn.com"
+  "BaseUrl": "https://storage.bunnycdn.com"
 }

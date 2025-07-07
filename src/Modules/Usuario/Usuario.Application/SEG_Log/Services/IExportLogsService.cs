@@ -6,5 +6,7 @@ namespace Usuario.Application.SEG_Log.Services
     {
         Stream ExportarAuditoriaUsuariosExcel(List<AuditLogEstadoUsuarioResult> usuarios);
         Stream ExportarUsuariosPorTipoUsuarioExcel(List<UsuarioPorTipoUsuarioResult> usuarios);
+        Stream ExportarLogSistemaExcel(List<LogSistemaResult> logs);
+        Stream ExportarLogTrazabilidadExcel(List<LogTrazabilidadResult> logs);
     }
 }

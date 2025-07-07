@@ -7,5 +7,7 @@ namespace Usuario.Domain.SEG_Log.Repositories
     {
         Task<List<AuditLogEstadoUsuarioResult>> ObtenerAuditoriaUsuariosAsync(ObtenerAuditoriaUsuariosRequest request);
         Task<List<UsuarioPorTipoUsuarioResult>> ObtenerUsuariosPorTipoUsuarioAsync(ObtenerUsuariosPorTipoUsuarioRequest request);
+        Task<List<LogSistemaResult>> ObtenerLogSistemaPorFechasAsync(ObtenerLogSistemaPorFechasRequest request);
+        Task<List<LogTrazabilidadResult>> ObtenerLogTrazabilidadAsync(ObtenerLogTrazabilidadRequest request);
     }
 }
