@@ -24,8 +24,8 @@ namespace Usuario.Application.SEG_Log.UseCases
         {
             var usuarios = await _repository.ObtenerAuditoriaUsuariosAsync(request);
 
-            if (usuarios == null || usuarios.Count == 0)
-                return ErrorBase.Validation("No se encontraron usuarios para los filtros especificados.");
+            /*if (usuarios == null || usuarios.Count == 0)
+                return ErrorBase.Validation("No se encontraron usuarios para los filtros especificados.");*/
 
             var stream = _exportService.ExportarAuditoriaUsuariosExcel(usuarios);
 

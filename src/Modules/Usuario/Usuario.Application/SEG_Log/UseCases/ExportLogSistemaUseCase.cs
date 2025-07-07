@@ -24,8 +24,8 @@ namespace Usuario.Application.SEG_Log.UseCases
         {
             var logs = await _repository.ObtenerLogSistemaPorFechasAsync(request);
 
-            if (logs == null || logs.Count == 0)
-                return ErrorBase.Validation("No se encontraron registros de log para las fechas indicadas.");
+            /*if (logs == null || logs.Count == 0)
+                return ErrorBase.Validation("No se encontraron registros de log para las fechas indicadas.");*/
 
             var stream = _exportService.ExportarLogSistemaExcel(logs);
 

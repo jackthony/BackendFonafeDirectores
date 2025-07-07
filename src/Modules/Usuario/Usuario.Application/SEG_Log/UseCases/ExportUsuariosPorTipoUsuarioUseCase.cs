@@ -24,8 +24,8 @@ namespace Usuario.Application.SEG_Log.UseCases
         {
             var usuarios = await _repository.ObtenerUsuariosPorTipoUsuarioAsync(request);
 
-            if (usuarios == null || usuarios.Count == 0)
-                return ErrorBase.Validation("No se encontraron usuarios con el tipo especificado.");
+            /*if (usuarios == null || usuarios.Count == 0)
+                return ErrorBase.Validation("No se encontraron usuarios con el tipo especificado.");*/
 
             var stream = _exportService.ExportarUsuariosPorTipoUsuarioExcel(usuarios);
 
