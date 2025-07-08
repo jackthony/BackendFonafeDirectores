@@ -15,7 +15,7 @@ namespace Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer
             var parameters = new DynamicParameters(request);
 
             var result = await _connection.QueryAsync<AuditLogEstadoUsuarioResult>(
-                "AuditarUsuarios",
+                "AuditarUsuariosHistorico",
                 parameters,
                 commandType: CommandType.StoredProcedure
             );

@@ -13,7 +13,8 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             "Apellido Paterno",
             "Apellido Materno",
             "Nombres",
-            "Estado"
+            "EstadoHistorico",
+            "FechaCambio"
         ];
 
         private readonly string[] _encabezadosPorTipoUsuario =
@@ -76,7 +77,8 @@ namespace Usuario.Infrastructure.SEG_Log.Services
                 worksheet.Cell(fila, 3).Value = user.ApellidoPaterno;
                 worksheet.Cell(fila, 4).Value = user.ApellidoMaterno;
                 worksheet.Cell(fila, 5).Value = user.Nombres;
-                worksheet.Cell(fila, 6).Value = user.Estado;
+                worksheet.Cell(fila, 6).Value = user.EstadoHistorico;
+                worksheet.Cell(fila, 7).Value = user.FechaCambio.ToString("yyyy-MM-dd HH:mm:ss");
                 fila++;
             }
 
@@ -87,6 +89,7 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             stream.Position = 0;
             return stream;
         }
+
 
         public Stream ExportarUsuariosPorTipoUsuarioExcel(List<UsuarioPorTipoUsuarioResult> usuarios)
         {

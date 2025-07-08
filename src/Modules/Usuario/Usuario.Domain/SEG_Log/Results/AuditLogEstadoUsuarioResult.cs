@@ -7,6 +7,7 @@
         public string ApellidoPaterno { get; set; } = null!;
         public string ApellidoMaterno { get; set; } = null!;
         public string Nombres { get; set; } = null!;
-        public string Estado { get; set; } = null!;
+        public string EstadoHistorico { get; set; } = null!;
+        public DateTime FechaCambio { get; set; }
     }
 }
