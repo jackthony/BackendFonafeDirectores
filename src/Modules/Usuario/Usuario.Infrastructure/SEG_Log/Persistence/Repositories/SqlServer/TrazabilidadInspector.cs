@@ -17,7 +17,8 @@ namespace Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer
             "EMP_Ministerio",
             "EMP_Especialidad",
             "Elemento",
-            "EMP_Director"
+            "EMP_Director",
+            "SEG_Usuario"
         ];
         public async Task<string?> ObtenerEstadoActualAsync(string tabla, string campoId, int valorId)
         {

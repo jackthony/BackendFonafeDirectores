@@ -1,6 +1,8 @@
-﻿namespace Usuario.Application.User.Dtos
+﻿using Shared.Kernel.Interfaces;
+
+namespace Usuario.Application.User.Dtos
 {
-    public class CrearUserRequest
+    public class CrearUserRequest : ITrackableRequest
     {
         public required string sContrasena { get; set; } = default!;
         public required string sCorreoElectronico { get; set; } = default!;
@@ -10,7 +12,14 @@
         public required string sNombres { get; set; }
         public int nIdCargo { get; set; }
         public int nTipoPersonal { get; set; }
-        public int nIdRol {  get; set; }
+        public int nIdRol { get; set; }
         public int nEstado { get; set; }
+
+        public int UsuarioId => nUsuarioRegistro;
+        public string Modulo => "USUARIO";
+        public string Tabla => "SEG_Usuario";
+        public string CampoId => "nUsuarioId";
+        public int? ValorId => null;
+        public string Movimiento => "Create";
     }
 }
