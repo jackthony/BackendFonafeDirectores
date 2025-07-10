@@ -1,4 +1,16 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  UserController.cs
+ * Descripción:         Controlador REST para gestionar usuarios. Expone endpoints para crear,
+ *                      actualizar, eliminar, listar (paginado y sin paginación) y obtener un usuario
+ *                      por su identificador. Utiliza casos de uso y presentadores para mapear
+ *                      la lógica de negocio con las respuestas del cliente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del controlador con endpoints CRUD.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;

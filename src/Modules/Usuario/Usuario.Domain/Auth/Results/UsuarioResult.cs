@@ -1,4 +1,15 @@
-﻿namespace Usuario.Domain.Auth.Results
+﻿/***********
+* Nombre del archivo: UsuarioResult.cs
+* Descripción:        Clase que representa el resultado de un usuario para fines de autenticación y autorización.
+*                     Contiene información esencial del usuario como credenciales, datos personales,
+*                     estado de sesión y permisos en formato JSON.
+* Autor:              Daniel Alva
+* Fecha de creación:  09/07/2025
+* Última modificación:09/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para definir el resultado de usuario para autenticación.
+***********/
+
+namespace Usuario.Domain.Auth.Results
 {
     public class UsuarioResult
     {

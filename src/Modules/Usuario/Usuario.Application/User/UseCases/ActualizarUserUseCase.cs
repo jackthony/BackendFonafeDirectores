@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ActualizarUserUseCase.cs
+* Descripción:        Caso de uso para la actualización de un usuario existente.
+*                     Orquesta el proceso de actualizar la información de un usuario, transformando
+*                     la solicitud a parámetros de dominio y utilizando el repositorio para ejecutar
+*                     la operación de actualización.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para actualizar un usuario.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -1,4 +1,16 @@
-﻿namespace Usuario.Domain.SEG_Log.Results
+﻿/***********
+ * Nombre del archivo:  AuditLogEstadoUsuarioResult.cs
+ * Descripción:         Clase que representa el resultado del log de auditoría del estado de un usuario.
+ *                      Contiene información personal del usuario y detalles sobre el cambio de estado histórico,
+ *                      incluyendo la fecha en que se realizó dicho cambio.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial para capturar y mostrar cambios históricos en el estado del usuario.
+ ***********/
+
+namespace Usuario.Domain.SEG_Log.Results
 {
     public class AuditLogEstadoUsuarioResult
     {

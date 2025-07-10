@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListTipoDirectorPaginadoResponsePresenter.cs
+ * Descripción:         Presentador encargado de transformar un resultado paginado de TipoDirectorResult
+ *                      en una respuesta de tipo LstItemResponse<TipoDirectorResponse>, incluyendo la
+ *                      información de paginación y el índice secuencial de cada elemento.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para listar TipoDirector con paginación.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.TipoDirector.Results;

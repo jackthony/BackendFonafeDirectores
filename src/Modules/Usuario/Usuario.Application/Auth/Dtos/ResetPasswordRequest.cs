@@ -1,8 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***********
+ * Nombre del archivo:  ResetPasswordRequest.cs
+ * Descripción:         DTO de solicitud para el restablecimiento de contraseña.
+ *                      Contiene el token recibido, la nueva contraseña y la validación CAPTCHA.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del DTO para manejar solicitudes de cambio de contraseña vía token.
+ ***********/
 
 namespace Usuario.Application.Auth.Dtos
 {

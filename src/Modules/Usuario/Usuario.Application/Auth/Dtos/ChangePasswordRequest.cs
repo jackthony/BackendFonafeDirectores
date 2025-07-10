@@ -1,8 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***********
+ * Nombre del archivo:  ChangePasswordRequest.cs
+ * Descripción:         DTO que representa la solicitud para cambiar la contraseña de un usuario.
+ *                      Contiene la contraseña actual, la nueva, un token opcional y la respuesta CAPTCHA.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del modelo de solicitud para cambio de contraseña.
+ ***********/
 
 namespace Usuario.Application.Auth.Dtos
 {

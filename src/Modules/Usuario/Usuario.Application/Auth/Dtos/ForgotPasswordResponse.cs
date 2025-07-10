@@ -1,8 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***********
+ * Nombre del archivo:  ForgotPasswordResponse.cs
+ * Descripción:         DTO de respuesta utilizado en el flujo de recuperación de contraseña.
+ *                      Informa si el proceso fue exitoso y proporciona un mensaje descriptivo.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del modelo de respuesta para recuperación de contraseña.
+ ***********/
 
 namespace Usuario.Application.Auth.Dtos
 {

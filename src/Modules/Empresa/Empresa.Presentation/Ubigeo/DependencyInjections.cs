@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.Ubigeo.Results;
+﻿/***********
+ * Nombre del archivo:  DependencyInjections.cs
+ * Descripción:         Clase estática que registra los presentadores de Ubigeo en el contenedor de dependencias.
+ *                      Asocia cada tipo de resultado (Departamento, Provincia, Distrito) con su respectivo presentador.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Registro de presentadores de Ubigeo para departamentos, provincias y distritos.
+ ***********/
+
+using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Presenters;
 using Empresa.Presentation.Ubigeo.Responses;
 using Microsoft.Extensions.DependencyInjection;

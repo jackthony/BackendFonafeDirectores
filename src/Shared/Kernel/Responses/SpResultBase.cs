@@ -1,4 +1,15 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+ * Nombre del archivo:  SpResultBase.cs
+ * Descripción:         Clase base para encapsular resultados de procedimientos almacenados. Implementa
+ *                      interfaces de trazabilidad y sistema, incluyendo propiedades como éxito, mensaje,
+ *                      y datos asociados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ ***********/
+
+using Shared.Kernel.Interfaces;
 
 namespace Shared.Kernel.Responses
 {

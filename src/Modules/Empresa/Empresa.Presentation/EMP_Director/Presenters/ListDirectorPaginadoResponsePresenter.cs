@@ -1,4 +1,18 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListDirectorPaginadoResponsePresenter.cs
+ * Descripción:         Clase que implementa la interfaz IPresenterDelivery para transformar
+ *                      un resultado paginado de DirectorResult en un LstItemResponse que contiene
+ *                      una lista paginada de DirectorResponse, asignando índices
+ *                      correspondientes a la paginación y facilitando la entrega paginada
+ *                      de datos del módulo Director al cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presenter ListDirectorPaginadoResponsePresenter.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.Director.Results;

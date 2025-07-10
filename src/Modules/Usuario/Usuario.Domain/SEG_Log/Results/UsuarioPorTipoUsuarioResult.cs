@@ -1,4 +1,15 @@
-﻿namespace Usuario.Domain.SEG_Log.Results
+﻿/***********
+ * Nombre del archivo:  UsuarioPorTipoUsuarioResult.cs
+ * Descripción:         Clase que representa el resultado de la consulta de usuarios filtrados por tipo de usuario.
+ *                      Contiene datos básicos del usuario como nombre, correo, rol y estado.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial para resultados de consulta de usuarios por tipo.
+ ***********/
+
+namespace Usuario.Domain.SEG_Log.Results
 {
     public class UsuarioPorTipoUsuarioResult
     {

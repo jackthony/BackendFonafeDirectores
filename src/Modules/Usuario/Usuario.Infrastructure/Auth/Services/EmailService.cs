@@ -1,4 +1,16 @@
-﻿using MimeKit;
+﻿/***********
+ * Nombre del archivo:  EmailService.cs
+ * Descripción:         Servicio de envío de correos electrónicos utilizando MailKit y MimeKit.
+ *                      Permite enviar correos para recuperación de cuenta, confirmación de cuenta
+ *                      y restablecimiento de contraseña. Usa configuración externa definida en EmailSettings.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de lógica de envío de correos para distintos propósitos del sistema.
+ ***********/
+
+using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Options;

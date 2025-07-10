@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.EMP_Dieta.Models;
+﻿/***********
+ * Nombre del archivo:  ConstanteController.cs
+ * Descripción:         Controlador REST para gestionar datos constantes o valores fijos del sistema.
+ *                      Proporciona endpoints para listar dietas según parámetros y obtener listas de constantes
+ *                      filtradas por código (como géneros, tipos de documento, estados de usuario, cargos, etc.).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial con datos fijos simulados para dietas y constantes.
+ ***********/
+
+using Empresa.Domain.EMP_Dieta.Models;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ClientV1;
 using Shared.Kernel.Responses;

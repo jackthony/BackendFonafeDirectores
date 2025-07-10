@@ -1,4 +1,16 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+* Nombre del archivo: CrearUserRequestMapper.cs
+* Descripción:        Implementación del mapeador para transformar una 'CrearUserRequest' (DTO de aplicación)
+*                     a 'CrearUserParameters' (parámetros de dominio). Este mapper se encarga
+*                     de convertir los datos de la solicitud de creación de usuario para que sean
+*                     utilizables por la capa de dominio, incluyendo la asignación de la fecha de registro.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase mapper para solicitudes de creación de usuario.
+***********/
+
+using Shared.Kernel.Interfaces;
 using Shared.Time;
 using Usuario.Application.User.Dtos;
 using Usuario.Domain.User.Parameters;

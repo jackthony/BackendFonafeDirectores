@@ -1,4 +1,16 @@
-﻿namespace Usuario.Application.Auth.Services
+﻿/***********
+* Nombre del archivo: IPasswordHasher.cs
+* Descripción:        **Define la interfaz para el servicio de hashing y verificación de contraseñas**.
+*                     Proporciona métodos para **hashear una contraseña** (transformarla en una cadena segura y unidireccional)
+*                     y para **verificar si una contraseña en texto plano coincide con una contraseña hasheada** almacenada.
+*                     Esto es fundamental para la seguridad en la gestión de credenciales de usuario.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la interfaz IPasswordHasher.
+***********/
+
+namespace Usuario.Application.Auth.Services
 {
     public interface IPasswordHasher
     {

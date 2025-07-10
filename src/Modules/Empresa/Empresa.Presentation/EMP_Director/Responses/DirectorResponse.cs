@@ -1,4 +1,18 @@
-﻿namespace Empresa.Presentation.Director.Responses
+﻿/***********
+ * Nombre del archivo:  DirectorResponse.cs
+ * Descripción:         Clase DTO que representa la respuesta del módulo Director.
+ *                      Contiene propiedades que describen la información de un director,
+ *                      incluyendo datos personales, contacto, cargos, fechas relevantes,
+ *                      estado, descripciones asociadas y un índice auxiliar.
+ *                      Además, expone una propiedad calculada para obtener el nombre completo.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Definición inicial del DTO DirectorResponse.
+ ***********/
+
+namespace Empresa.Presentation.Director.Responses
 {
     public class DirectorResponse
     {

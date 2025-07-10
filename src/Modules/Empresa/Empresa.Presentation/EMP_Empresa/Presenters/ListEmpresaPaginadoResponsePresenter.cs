@@ -1,4 +1,18 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListEmpresaPaginadoResponsePresenter.cs
+ * Descripción:         Clase que implementa la interfaz IPresenterDelivery para transformar
+ *                      un resultado paginado de EmpresaResult en un LstItemResponse que contiene
+ *                      una lista paginada de EmpresaResponse, asignando índices
+ *                      correspondientes a la paginación y facilitando la entrega paginada
+ *                      de datos del módulo Empresa al cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presenter ListEmpresaPaginadoResponsePresenter.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.Empresa.Results;

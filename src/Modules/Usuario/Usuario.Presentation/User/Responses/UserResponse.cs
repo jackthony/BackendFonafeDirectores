@@ -1,4 +1,15 @@
-﻿namespace Usuario.Presentation.User.Responses
+﻿/***********
+ * Nombre del archivo:   UserResponse.cs
+ * Descripción:          Clase que representa la estructura de datos de respuesta para un usuario.
+ *                       Contiene propiedades con información detallada de un usuario, incluyendo datos personales,
+ *                       roles, estados y campos de auditoría.
+ * Autor:                Daniel Alva
+ * Fecha de creación:    09/07/2025
+ * Última modificación:  09/07/2025 por Daniel Alva
+ * Cambios recientes:    Creación inicial de la clase para definir la respuesta de usuario.
+ **********/
+
+namespace Usuario.Presentation.User.Responses
 {
     public class UserResponse
     {

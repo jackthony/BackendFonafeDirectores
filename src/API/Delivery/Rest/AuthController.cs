@@ -1,4 +1,16 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  AuthController.cs
+ * Descripción:         Controlador REST para gestionar autenticación y administración de usuarios.
+ *                      Incluye endpoints para login, verificación y renovación de tokens,
+ *                      recuperación y restablecimiento de contraseña, confirmación de cuenta,
+ *                      y cambio de contraseña (usuario y administrador).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de operaciones de autenticación y seguridad.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ClientV1;

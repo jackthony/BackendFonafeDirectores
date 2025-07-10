@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.Rubro.Results;
+﻿/***********
+ * Nombre del archivo:  RubroResponseMapper.cs
+ * Descripción:         Clase estática responsable de mapear objetos RubroResult del dominio a RubroResponse 
+ *                      utilizados en la capa de presentación. Incluye métodos para mapear uno o varios elementos.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de métodos de mapeo para la entidad Rubro.
+ ***********/
+
+using Empresa.Domain.Rubro.Results;
 using Empresa.Presentation.Rubro.Responses;
 
 namespace Empresa.Presentation.Rubro.Mappers

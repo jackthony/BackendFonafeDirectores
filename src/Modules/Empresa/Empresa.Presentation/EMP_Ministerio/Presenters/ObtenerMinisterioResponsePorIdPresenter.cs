@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ObtenerMinisterioResponsePorIdPresenter.cs
+ * Descripción:         Presentador que transforma un resultado de dominio (MinisterioResult)
+ *                      en una respuesta de presentación (MinisterioResponse) envuelta en un
+ *                      ItemResponse para ser enviada al cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para obtener ministerio por ID.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Ministerio.Results;
 using Empresa.Presentation.Ministerio.Responses;

@@ -1,4 +1,18 @@
-﻿using Shared.ClientV1;
+﻿/***********
+* Nombre del archivo: ListCargoPaginadoResponsePresenter.cs
+* Descripción:        **Implementación del presentador** para transformar un resultado paginado de cargos
+*                     (`PagedResult<CargoResult>`) en una respuesta de presentación (`LstItemResponse<CargoResponse>`)
+*                     para ser enviada al cliente. Este presentador se encarga de mapear los elementos de la lista
+*                     a `CargoResponse` utilizando `CargoResponseMapper.ToListResponse`, asignar un índice secuencial
+*                     a cada elemento dentro de la paginación, y construir la estructura de respuesta final
+*                     que incluye los datos paginados y la información de la paginación.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase presentadora para listar cargos paginados.
+***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.Cargo.Results;

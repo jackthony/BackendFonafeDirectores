@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.Sector.Results;
+﻿/***********
+ * Nombre del archivo:  SectorResponseMapper.cs
+ * Descripción:         Clase estática responsable de mapear entidades del dominio (`SectorResult`)
+ *                      a DTOs de respuesta (`SectorResponse`) para la capa de presentación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del mapeador de sectores.
+ ***********/
+
+using Empresa.Domain.Sector.Results;
 using Empresa.Presentation.Sector.Responses;
 
 namespace Empresa.Presentation.Sector.Mappers

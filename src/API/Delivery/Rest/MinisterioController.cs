@@ -1,4 +1,14 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  MinisterioController.cs
+ * Descripción:         Controlador REST para gestionar operaciones CRUD y consultas sobre Ministerios.
+ *                      Implementa endpoints para crear, actualizar, eliminar, listar (con y sin paginación) y obtener Ministerios por ID.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de CRUD para Ministerio.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;

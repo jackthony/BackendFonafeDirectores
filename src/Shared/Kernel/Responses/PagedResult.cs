@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***********
+ * Nombre del archivo:  PagedResult.cs
+ * Descripción:         Clase genérica que representa una respuesta paginada. Contiene la lista de elementos,
+ *                      el total de ítems, la página actual y el tamaño de página.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ ***********/
 
 namespace Shared.Kernel.Responses
 {

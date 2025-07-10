@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.Ubigeo.Results;
+﻿/***********
+ * Nombre del archivo:  ListDistritoResponsePresenter.cs
+ * Descripción:         Presenter responsable de convertir una lista de DistritoResult
+ *                      en una respuesta estructurada LstItemResponse<DistritoResponse>.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para distritos.
+ ***********/
+
+using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Mappers;
 using Empresa.Presentation.Ubigeo.Responses;
 using Shared.ClientV1;

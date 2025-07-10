@@ -1,8 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***********
+ * Nombre del archivo:  DependencyInjections.cs
+ * Descripción:         Clase estática que registra los presentadores (presenters) del módulo PermisoRol
+ *                      en el contenedor de inyección de dependencias.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Registro de presentadores para paginación, listado y obtención por ID.
+ ***********/
+
 using Microsoft.Extensions.DependencyInjection;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;

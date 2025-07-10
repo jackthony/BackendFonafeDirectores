@@ -1,4 +1,16 @@
-﻿namespace Usuario.Domain.PermisoRol.Parameters
+﻿/***********
+ * Nombre del archivo:  EliminarPermisoRolParameters.cs
+ * Descripción:         Clase que encapsula los parámetros necesarios
+ *                      para eliminar un permiso asignado a un rol,
+ *                      incluyendo identificadores y datos de modificación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de la clase de parámetros.
+ ***********/
+
+namespace Usuario.Domain.PermisoRol.Parameters
 {
     public class EliminarPermisoRolParameters
     {

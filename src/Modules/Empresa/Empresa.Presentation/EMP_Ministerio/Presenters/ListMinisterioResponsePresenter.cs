@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListMinisterioResponsePresenter.cs
+ * Descripción:         Presentador encargado de transformar una lista de objetos de dominio 
+ *                      (MinisterioResult) en una respuesta de presentación (LstItemResponse<MinisterioResponse>)
+ *                      para su consumo en el cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para listar ministerios.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Ministerio.Results;
 using Empresa.Presentation.Ministerio.Responses;

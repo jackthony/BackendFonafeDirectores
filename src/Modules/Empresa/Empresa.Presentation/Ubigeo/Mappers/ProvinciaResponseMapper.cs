@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.Ubigeo.Results;
+﻿/***********
+ * Nombre del archivo:  ProvinciaResponseMapper.cs
+ * Descripción:         Mapper estático que transforma objetos de tipo ProvinciaResult
+ *                      a respuestas del tipo ProvinciaResponse, utilizados en la capa de presentación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de métodos de mapeo para provincias.
+ ***********/
+
+using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Responses;
 
 namespace Empresa.Presentation.Ubigeo.Mappers

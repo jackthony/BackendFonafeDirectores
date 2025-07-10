@@ -1,4 +1,15 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+ * Nombre del archivo:  LoginRequest.cs
+ * Descripción:         DTO utilizado para enviar las credenciales del usuario en el proceso de autenticación.
+ *                      Incluye integración con trazabilidad del sistema mediante la interfaz ISistemaRequest.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Inclusión de campos para trazabilidad y validación de captcha.
+ ***********/
+
+using Shared.Kernel.Interfaces;
 
 namespace Usuario.Application.Auth.Dtos
 {

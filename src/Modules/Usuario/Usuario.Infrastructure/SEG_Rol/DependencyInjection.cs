@@ -1,4 +1,16 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/***********
+ * Nombre del archivo:  DependencyInjections.cs
+ * Descripción:         Clase estática que gestiona la inyección de dependencias para 
+ *                      la infraestructura del módulo de roles. Registra las implementaciones 
+ *                      concretas del repositorio de roles.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Registro del repositorio RolSqlRepository como implementación de IRolRepository.
+ ***********/
+
+using Microsoft.Extensions.DependencyInjection;
 using Usuario.Domain.Rol.Repositories;
 using Usuario.Infrastructure.Rol.Persistence.Repositories.SqlServer;
 

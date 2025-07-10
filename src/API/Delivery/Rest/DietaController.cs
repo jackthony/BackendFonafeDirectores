@@ -1,4 +1,14 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  DietaController.cs
+ * Descripción:         Controlador REST para obtener información de Dietas mediante consultas.
+ *                      Implementa endpoint para obtener una Dieta según criterios de búsqueda.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del endpoint para obtener Dieta.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;
 using Shared.ClientV1;

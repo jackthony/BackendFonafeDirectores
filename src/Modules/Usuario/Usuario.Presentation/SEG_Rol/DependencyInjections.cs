@@ -1,4 +1,16 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/***********
+ * Nombre del archivo:   DependencyInjections.cs
+ * Descripción:          Clase de extensión que configura la inyección de dependencias para los presentadores
+ *                       de roles. Facilita la resolución de interfaces de presentadores con sus
+ *                       implementaciones concretas para la capa de presentación de roles.
+ * Autor:                Daniel Alva
+ * Fecha de creación:    09/07/2025
+ * Última modificación:  09/07/2025 por Daniel Alva
+ * Cambios recientes:    Creación inicial de la clase para la configuración de inyección de dependencias
+ *                       de presentadores de roles.
+ **********/
+
+using Microsoft.Extensions.DependencyInjection;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

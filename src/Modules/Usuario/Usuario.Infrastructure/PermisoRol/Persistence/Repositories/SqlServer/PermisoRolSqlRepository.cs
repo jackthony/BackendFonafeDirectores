@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  PermisoRolSqlRepository.cs
+ * Descripción:         Implementación del repositorio para la gestión de permisos por rol. 
+ *                      Incluye operaciones CRUD y consultas paginadas usando procedimientos almacenados y Dapper.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa del repositorio SQL para PermisoRol.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Usuario.Domain.PermisoRol.Parameters;

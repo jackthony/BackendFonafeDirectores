@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  UserSqlRepository.cs
+ * Descripción:         Implementación del repositorio de usuarios para SQL Server utilizando Dapper.
+ *                      Proporciona operaciones CRUD y consultas paginadas a través de stored procedures.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa de operaciones: crear, actualizar, eliminar, listar y obtener por ID.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Usuario.Domain.User.Parameters;

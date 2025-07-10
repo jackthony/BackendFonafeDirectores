@@ -1,4 +1,16 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  TipoDirectorController.cs
+ * Descripción:         Controlador REST que gestiona operaciones CRUD para el catálogo de Tipos de Director.
+ *                      Expone endpoints para crear, actualizar, eliminar, listar (con y sin paginación)
+ *                      y obtener por ID. Utiliza casos de uso encapsulados y presentadores para devolver
+ *                      respuestas estandarizadas al cliente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del controlador y endpoints principales.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;

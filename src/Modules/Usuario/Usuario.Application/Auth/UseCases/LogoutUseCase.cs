@@ -1,4 +1,16 @@
-﻿using System.Security.Claims;
+﻿/***********
+* Nombre del archivo: LogoutUseCase.cs
+* Descripción:        **Caso de uso** para gestionar el proceso de cierre de sesión de un usuario.
+*                     Orquesta la validación del token de acceso para extraer el ID del usuario
+*                     y, posteriormente, revocar el token de refresco asociado a dicho usuario
+*                     en el **repositorio de autenticación**, invalidando así la sesión activa.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para el cierre de sesión.
+***********/
+
+using System.Security.Claims;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;

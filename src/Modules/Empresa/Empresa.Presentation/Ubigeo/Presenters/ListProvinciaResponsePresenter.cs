@@ -1,4 +1,15 @@
-﻿using Empresa.Domain.Ubigeo.Results;
+﻿/***********
+ * Nombre del archivo:  ListProvinciaResponsePresenter.cs
+ * Descripción:         Presenter que transforma una lista de ProvinciaResult
+ *                      a una respuesta estructurada LstItemResponse con elementos ProvinciaResponse.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para provincias.
+ ***********/
+
+using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Mappers;
 using Empresa.Presentation.Ubigeo.Responses;
 using Shared.ClientV1;

@@ -1,4 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/***********
+* Nombre del archivo: DependencyInjection.cs
+* Descripción:        Clase de extensión que configura la inyección de dependencias para la **capa de aplicación del módulo de autenticación (Auth)**.
+*                     Registra los **casos de uso (UseCases)** encargados de gestionar operaciones como el login,
+*                     verificación y refresco de tokens, confirmación y recuperación de cuentas, y gestión de contraseñas.
+*                     Además, configura los **mapeadores (Mappers)** necesarios para transformar los DTOs de solicitud
+*                     en parámetros de dominio.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias del módulo de autenticación.
+***********/
+
+using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Usuario.Application.Auth.Dtos;

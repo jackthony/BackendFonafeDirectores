@@ -1,4 +1,14 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  PermisoRolController.cs
+ * Descripción:         Controlador REST para la gestión de permisos por rol en el sistema.
+ *                      Permite crear, actualizar, eliminar y consultar los permisos asignados a cada rol.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa de endpoints CRUD para PermisoRol.
+ ***********/
+
+using Api.Helpers;
 using Usuario.Application.PermisoRol.Dtos;
 using Usuario.Domain.PermisoRol.Results;
 using Usuario.Presentation.PermisoRol.Responses;

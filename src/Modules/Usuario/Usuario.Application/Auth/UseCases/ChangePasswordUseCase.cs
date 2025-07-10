@@ -1,4 +1,17 @@
-﻿using System.Security.Claims;
+﻿/***********
+* Nombre del archivo: ChangePasswordUseCase.cs
+* Descripción:        **Caso de uso** para el cambio de contraseña de un usuario.
+*                     Orquesta la validación del **CAPTCHA**, la verificación del **token de acceso** para asegurar
+*                     que la solicitud proviene del usuario correcto, la obtención del usuario desde el **repositorio**,
+*                     la comprobación de la contraseña actual, el hashing de la nueva contraseña y su actualización
+*                     en la base de datos. También se encarga de resetear el contador de intentos fallidos.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para el cambio de contraseña.
+***********/
+
+using System.Security.Claims;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;

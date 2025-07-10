@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: CrearModuloUseCase.cs
+* Descripción:        **Caso de uso** para la creación de un nuevo módulo.
+*                     Orquesta el proceso de añadir un nuevo módulo, transformando la solicitud
+*                     a parámetros de dominio y utilizando el **repositorio** para ejecutar la operación
+*                     de adición, manejando el resultado de la misma.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para crear un módulo.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

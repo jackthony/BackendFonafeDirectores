@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ListarRolUseCase.cs
+* Descripción:        Caso de uso para listar roles sin paginación.
+*                     Coordina la obtención de una colección de roles basándose en los parámetros
+*                     de solicitud, utilizando un mapper para transformar la petición y un repositorio
+*                     para acceder a los datos.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para listar roles.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ListarUserUseCase.cs
+* Descripción:        Caso de uso para listar usuarios sin paginación.
+*                     Coordina la obtención de una colección de usuarios basándose en los parámetros
+*                     de solicitud, utilizando un mapper para transformar la petición y un repositorio
+*                     para acceder a los datos.
+* Autor:              Daniel Alva
+* Fecha de creación:  09/07/2025
+* Última modificación:09/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para listar usuarios.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

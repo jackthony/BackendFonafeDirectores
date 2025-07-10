@@ -1,4 +1,16 @@
-﻿using FluentValidation;
+﻿/***********
+* Nombre del archivo: DependencyInjection.cs
+* Descripción:        Clase de extensión para configurar la inyección de dependencias de la capa de aplicación
+*                     del módulo. Registra los casos de uso (UseCases), mappers y validadores
+*                     relacionados con las operaciones de gestión de módulos.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias
+*                     de la capa de aplicación del módulo.
+***********/
+
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

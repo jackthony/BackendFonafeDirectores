@@ -1,4 +1,16 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+* Nombre del archivo: CrearUserRequest.cs
+* Descripción:        DTO (Data Transfer Object) para la solicitud de creación de un nuevo usuario.
+*                     Implementa 'ITrackableRequest' para fines de auditoría y contiene todos los
+*                     campos necesarios para registrar un usuario, incluyendo credenciales, datos personales,
+*                     roles y estado, así como metadatos para el seguimiento.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase DTO para solicitudes de creación de usuario.
+***********/
+
+using Shared.Kernel.Interfaces;
 
 namespace Usuario.Application.User.Dtos
 {

@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListMinisterioPaginadoResponsePresenter.cs
+ * Descripción:         Presentador que convierte un resultado paginado de MinisterioResult
+ *                      en una respuesta paginada de presentación (LstItemResponse<MinisterioResponse>),
+ *                      asignando índices para la paginación y estructurando la respuesta para el cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para listado paginado de ministerios.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.Ministerio.Results;

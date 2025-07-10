@@ -1,4 +1,15 @@
-﻿namespace Usuario.Domain.Auth.Models
+﻿/***********
+* Nombre del archivo: RefreshToken.cs
+* Descripción:        Clase que representa el modelo de un token de refresco utilizado para mantener
+*                     las sesiones de usuario. Contiene información sobre el token, su expiración,
+*                     estado de revocación y el usuario asociado.
+* Autor:              Daniel Alva
+* Fecha de creación:  09/07/2025
+* Última modificación:09/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para el modelo de RefreshToken.
+***********/
+
+namespace Usuario.Domain.Auth.Models
 {
     public class RefreshToken
     {

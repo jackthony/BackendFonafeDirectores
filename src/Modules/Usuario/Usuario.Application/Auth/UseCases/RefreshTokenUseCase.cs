@@ -1,11 +1,26 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: RefreshTokenUseCase.cs
+* Descripción:        **Caso de uso** para el refresco de tokens de acceso y de refresco.
+*                     Este caso de uso permite a un usuario obtener un nuevo token de acceso válido
+*                     utilizando un token de refresco existente, sin necesidad de volver a autenticarse
+*                     con credenciales. Gestiona la validación del token de acceso expirado para obtener
+*                     el ID del usuario, recupera y valida el token de refresco desde el repositorio,
+*                     y genera un nuevo par de tokens (acceso y refresco). Finalmente, construye una
+*                     respuesta de login con los nuevos tokens y la información del usuario, incluyendo
+*                     sus módulos y permisos.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para el refresco de tokens.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Time;
 using System.Text.Json;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Services;
-using Usuario.Domain.Auth.Models;
 using Usuario.Domain.Auth.Repositories;
 using Usuario.Domain.SEG_Modulo.Models;
 

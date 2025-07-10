@@ -1,8 +1,18 @@
-﻿namespace Shared.Kernel.Errors
+﻿/***********
+ * Nombre del archivo:  ValidationProblemDetailsOur.cs
+ * Descripción:         Clase que extiende `ProblemDetailsOur` para representar errores de validación
+ *                      estructurados, permitiendo agrupar múltiples errores por campo en un diccionario.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ ***********/
+
+namespace Shared.Kernel.Errors
 {
     public class ValidationProblemDetailsOur : ProblemDetailsOur
     {
-        public IDictionary<string, string[]> Errors { get; set;  } = new Dictionary<string, string[]>(StringComparer.Ordinal);
+        public IDictionary<string, string[]> Errors { get; set; } = new Dictionary<string, string[]>(StringComparer.Ordinal);
 
         public ValidationProblemDetailsOur()
         {

@@ -1,4 +1,15 @@
-﻿using Empresa.Application.Sector.Dtos;
+﻿/***********
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Clase auxiliar para registrar dependencias en el contenedor de servicios.
+ *                      En este caso, se registra una implementación concreta de `ITrackableRequest`
+ *                      usada para auditoría o trazabilidad en la aplicación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del método `AddTrackableApplication`.
+ ***********/
+
+using Empresa.Application.Sector.Dtos;
 using Shared.Kernel.Interfaces;
 
 namespace Api.Helpers

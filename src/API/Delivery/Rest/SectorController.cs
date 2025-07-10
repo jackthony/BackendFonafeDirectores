@@ -1,4 +1,16 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  SectorController.cs
+ * Descripción:         Controlador REST encargado de gestionar las operaciones relacionadas con el catálogo
+ *                      de Sectores empresariales. Provee endpoints para crear, actualizar, eliminar, listar 
+ *                      (con y sin paginación) y obtener por ID, utilizando casos de uso y presentadores para 
+ *                      estructurar la respuesta al cliente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa del CRUD para el recurso Sector.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;

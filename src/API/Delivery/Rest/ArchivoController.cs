@@ -1,4 +1,15 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  ArchivoController.cs
+ * Descripción:         Controlador REST para la gestión completa de archivos.
+ *                      Implementa endpoints para crear, actualizar, eliminar, listar (con y sin paginación),
+ *                      importar y exportar archivos, así como descargar archivos desde una URL.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de funcionalidades CRUD y gestión avanzada de archivos.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

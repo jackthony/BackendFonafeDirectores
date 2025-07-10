@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/***********
+ * Nombre del archivo:  ExceptionHandlingUseCaseDecorator.cs
+ * Descripción:         Decorador para casos de uso que captura y maneja excepciones no controladas.
+ *                      Registra el error y devuelve una respuesta estándar de error inesperado,
+ *                      evitando que las excepciones propaguen directamente y asegurando una respuesta controlada.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del manejo global de excepciones para casos de uso.
+ ***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 

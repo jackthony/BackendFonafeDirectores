@@ -1,4 +1,15 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListRubroPaginadoResponsePresenter.cs
+ * Descripción:         Presentador que transforma una respuesta paginada de RubroResult en una 
+ *                      respuesta LstItemResponse<RubroResponse>, incluyendo la lógica para el cálculo de índice.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación del presentador para paginación de rubros.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.Rubro.Results;

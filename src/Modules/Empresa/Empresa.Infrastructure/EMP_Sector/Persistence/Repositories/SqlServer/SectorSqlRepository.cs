@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  SectorSqlRepository.cs
+ * Descripción:         Implementación del repositorio de Sector utilizando Dapper y SQL Server.
+ *                      Contiene operaciones para registrar, actualizar, eliminar, listar y paginar sectores
+ *                      mediante procedimientos almacenados. Incluye un método genérico para ejecutar SPs.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con operaciones de mantenimiento y consulta.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Sector.Parameters;

@@ -1,4 +1,15 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListModuloPaginadoResponsePresenter.cs
+ * Descripción:         Presenter responsable de convertir una respuesta paginada de ModuloResult
+ *                      en un objeto LstItemResponse<ModuloResponse> con información de paginación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial para presentar listados paginados de módulos.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Usuario.Domain.Modulo.Results;

@@ -1,4 +1,17 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+* Nombre del archivo: ListarPermisoRolRequestMapper.cs
+* Descripción:        **Implementación del mapeador** para transformar una **`ListarPermisoRolRequest`** (DTO de aplicación)
+*                     a **`ListarPermisoRolParameters`** (parámetros de dominio). Este mapeador es responsable
+*                     de convertir los datos de la solicitud de listar permisos de rol para que sean
+*                     utilizables por la capa de dominio. Actualmente, se inicializa sin mapeo de propiedades,
+*                     indicando que la solicitud podría no contener filtros específicos y simplemente se usa para invocar la lista completa.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase mapeadora.
+***********/
+
+using Shared.Kernel.Interfaces;
 using Usuario.Application.PermisoRol.Dtos;
 using Usuario.Domain.PermisoRol.Parameters;
 

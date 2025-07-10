@@ -1,4 +1,17 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: CrearUserUseCase.cs
+* Descripción:        Caso de uso para la creación de un nuevo usuario en el sistema.
+*                     Coordina el hashing de la contraseña, el mapeo de la solicitud a parámetros de dominio,
+*                     la adición del usuario a la base de datos, y el envío de un correo electrónico
+*                     de confirmación de cuenta con un token de verificación.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para crear un usuario,
+*                     incluyendo el manejo de contraseña, persistencia y envío de correo de confirmación.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

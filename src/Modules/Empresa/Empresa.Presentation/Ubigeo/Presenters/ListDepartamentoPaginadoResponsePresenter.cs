@@ -1,4 +1,16 @@
-﻿using Empresa.Domain.Ubigeo.Results;
+﻿/***********
+ * Nombre del archivo:  ListDepartamentoPaginadoResponsePresenter.cs
+ * Descripción:         Presenter encargado de mapear una respuesta paginada de tipo 
+ *                      PagedResult<DepartamentoResult> a un objeto de tipo 
+ *                      LstItemResponse<DepartamentoResponse>, incluyendo información de paginación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador paginado para departamentos.
+ ***********/
+
+using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Mappers;
 using Empresa.Presentation.Ubigeo.Responses;
 using Shared.ClientV1;

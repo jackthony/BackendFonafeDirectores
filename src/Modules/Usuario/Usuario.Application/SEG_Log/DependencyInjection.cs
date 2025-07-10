@@ -1,4 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/***********
+* Nombre del archivo: DependencyInjection.cs
+* Descripción:        Clase de extensión para configurar la inyección de dependencias de la capa de aplicación
+*                     del módulo de logs. Registra servicios relacionados con el seguimiento y la auditoría,
+*                     incluyendo interfaces de solicitud y respuesta, así como casos de uso para la exportación
+*                     de diferentes tipos de registros (auditoría de usuarios, logs de sistema y trazabilidad).
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias
+* de la capa de aplicación del módulo de logs.
+***********/
+
+using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Usuario.Application.Auth.Dtos;
 using Usuario.Application.SEG_Log.UseCases;

@@ -1,4 +1,18 @@
-﻿using Empresa.Domain.Cargo.Results;
+﻿/***********
+* Nombre del archivo: DependencyInjections.cs
+* Descripción:        Clase de extensión que configura la inyección de dependencias para los **presentadores**
+*                     del módulo `EMP_Cargo`. Se encarga de registrar las implementaciones de `IPresenterDelivery`
+*                     para transformar los resultados del dominio (`CargoResult`, `PagedResult<CargoResult>`)
+*                     en respuestas adecuadas para la capa de presentación (`LstItemResponse<CargoResponse>`, `ItemResponse<CargoResponse>`).
+*                     Esto asegura una clara separación entre la lógica de negocio y la presentación de datos al cliente.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias
+* de los presentadores del módulo `EMP_Cargo`.
+***********/
+
+using Empresa.Domain.Cargo.Results;
 using Empresa.Presentation.Cargo.Mappers;
 using Empresa.Presentation.Cargo.Presenters;
 using Empresa.Presentation.Cargo.Responses;

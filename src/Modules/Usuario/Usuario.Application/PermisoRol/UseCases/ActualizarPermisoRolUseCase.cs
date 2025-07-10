@@ -1,4 +1,17 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ActualizarPermisoRolUseCase.cs
+* Descripción:        **Caso de uso** para la actualización de un permiso de rol existente.
+*                     Orquesta el proceso de actualizar la información de un permiso de rol, transformando
+*                     la solicitud a parámetros de dominio y utilizando el **repositorio** para ejecutar
+*                     la operación de actualización. Maneja el resultado de la operación, retornando
+*                     un error de base de datos si la actualización no fue exitosa.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para actualizar un permiso de rol.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

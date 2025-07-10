@@ -1,4 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/***********
+ * Nombre del archivo:  ErrorResultMapper.cs
+ * Descripción:         Clase auxiliar que transforma objetos de error (`ErrorBase` y derivados) en respuestas
+ *                      HTTP apropiadas (`IActionResult`) usando `ProblemDetailsOur`. Facilita el manejo
+ *                      centralizado de errores en los controladores de la API.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ ***********/
+
+using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Errors;
 
 namespace Api.Helpers

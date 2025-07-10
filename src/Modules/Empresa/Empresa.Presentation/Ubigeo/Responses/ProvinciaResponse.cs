@@ -1,4 +1,15 @@
-﻿namespace Empresa.Presentation.Ubigeo.Responses
+﻿/***********
+ * Nombre del archivo:  ProvinciaResponse.cs
+ * Descripción:         Clase DTO para representar la respuesta de una provincia.
+ *                      Contiene el código de la provincia, su nombre y el código del departamento al que pertenece.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del DTO ProvinciaResponse.
+ ***********/
+
+namespace Empresa.Presentation.Ubigeo.Responses
 {
     public class ProvinciaResponse
     {

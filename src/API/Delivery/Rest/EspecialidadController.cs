@@ -1,4 +1,15 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  EspecialidadController.cs
+ * Descripción:         Controlador REST para la gestión de Especialidades.
+ *                      Contiene endpoints para crear, actualizar, eliminar,
+ *                      listar (con y sin paginación) y obtener una Especialidad por ID.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del CRUD para Especialidad.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;

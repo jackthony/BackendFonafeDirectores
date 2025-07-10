@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  TrazabilidadInspector.cs
+ * Descripción:         Implementación que inspecciona el estado actual de una entidad específica en tablas permitidas,
+ *                      generando su representación en JSON para ser utilizada en logs de trazabilidad.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de método para obtener el estado de una fila como JSON, validando contra una lista blanca de tablas.
+ ***********/
+
+using Dapper;
 using System.Data;
 using Usuario.Domain.SEG_Log.Repositories;
 

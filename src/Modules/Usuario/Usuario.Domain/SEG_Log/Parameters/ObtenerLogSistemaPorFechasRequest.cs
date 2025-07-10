@@ -1,4 +1,15 @@
-﻿namespace Usuario.Domain.SEG_Log.Parameters
+﻿/***********
+ * Nombre del archivo:  ObtenerLogSistemaPorFechasRequest.cs
+ * Descripción:         DTO para solicitar logs de sistema en un rango
+ *                      de fechas específico.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación del request para consulta de logs de sistema.
+ ***********/
+
+namespace Usuario.Domain.SEG_Log.Parameters
 {
     public class ObtenerLogSistemaPorFechasRequest
     {

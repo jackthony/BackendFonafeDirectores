@@ -1,4 +1,15 @@
-﻿namespace Usuario.Domain.SEG_Log.Parameters
+﻿/***********
+ * Nombre del archivo:  ObtenerAuditoriaUsuariosRequest.cs
+ * Descripción:         DTO para solicitar la auditoría de usuarios,
+ *                      filtrando por rango de fechas y estado.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación del request para consulta de auditoría de usuarios.
+ ***********/
+
+namespace Usuario.Domain.SEG_Log.Parameters
 {
     public class ObtenerAuditoriaUsuariosRequest
     {

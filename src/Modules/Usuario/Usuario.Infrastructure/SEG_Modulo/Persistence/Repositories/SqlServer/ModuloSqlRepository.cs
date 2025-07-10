@@ -1,4 +1,16 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  ModuloSqlRepository.cs
+ * Descripción:         Implementación del repositorio IModuloRepository para la gestión de módulos.
+ *                      Utiliza Dapper para ejecutar procedimientos almacenados que permiten operaciones
+ *                      CRUD, paginación y la obtención de módulos con sus acciones según el rol.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa de métodos para la interacción con la base de datos.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Usuario.Domain.Modulo.Parameters;

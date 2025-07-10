@@ -1,4 +1,18 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: AdminResetPasswordUseCase.cs
+* Descripción:        **Caso de uso** para que un administrador restablezca la contraseña de otro usuario.
+*                     Orquesta la validación del **token del administrador** para asegurar los permisos,
+*                     la búsqueda del usuario objetivo por ID en el **repositorio de autenticación**,
+*                     el hashing de la nueva contraseña proporcionada por el administrador,
+*                     y la actualización de la contraseña del usuario en la base de datos.
+*                     Además, se encarga de limpiar el contador de intentos fallidos del usuario cuya contraseña fue restablecida.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para que un administrador restablezca contraseñas.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Usuario.Application.Auth.Dtos;

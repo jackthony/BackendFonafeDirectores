@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListSectorPaginadoResponsePresenter.cs
+ * Descripción:         Presentador encargado de transformar una lista paginada de resultados de sectores
+ *                      en una respuesta de tipo `LstItemResponse<SectorResponse>`, incluyendo información
+ *                      de paginación y numeración de filas.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación del presentador para listar sectores paginados.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Empresa.Domain.Sector.Results;

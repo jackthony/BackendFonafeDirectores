@@ -1,9 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿/***********
+* Nombre del archivo: ResetPasswordUseCase.cs
+* Descripción:        **Caso de uso** para restablecer la contraseña de un usuario utilizando un token de restablecimiento.
+*                     Orquesta el proceso de validación del captcha, verificación del token de restablecimiento,
+*                     búsqueda del usuario asociado, hashing de la nueva contraseña y actualización de la misma
+*                     en el repositorio de autenticación.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para restablecer la contraseña.
+***********/
+
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;

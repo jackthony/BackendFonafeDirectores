@@ -1,4 +1,15 @@
-﻿namespace Api.Middlewares
+﻿/***********
+ * Nombre del archivo:  ExceptionHandlingMiddleware.cs
+ * Descripción:         Middleware para el manejo global de excepciones no controladas en la API.
+ *                      Captura errores durante el procesamiento de las solicitudes, los registra
+ *                      y devuelve una respuesta genérica al cliente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del middleware.
+ ***********/
+
+namespace Api.Middlewares
 {
     public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
     {

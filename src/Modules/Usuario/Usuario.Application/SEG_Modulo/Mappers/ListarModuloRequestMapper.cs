@@ -1,4 +1,16 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+* Nombre del archivo: ListarModuloRequestMapper.cs
+* Descripción:        **Implementación del mapeador** para transformar una **`ListarModuloRequest`** (DTO de aplicación)
+*                     a **`ListarModuloParameters`** (parámetros de dominio). Este mapeador es responsable
+*                     de convertir los datos de la solicitud de listar módulos para que sean
+*                     utilizables por la capa de dominio. Actualmente, su implementación está pendiente.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase mapeadora.
+***********/
+
+using Shared.Kernel.Interfaces;
 using Usuario.Application.Modulo.Dtos;
 using Usuario.Domain.Modulo.Parameters;
 

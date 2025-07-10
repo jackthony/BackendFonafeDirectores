@@ -1,4 +1,15 @@
-﻿namespace Usuario.Domain.User.Results
+﻿/***********
+ * Nombre del archivo:  UserResult.cs
+ * Descripción:         DTO de salida que representa la información de un usuario.
+ *                      Contiene datos personales, de rol, cargo y metainformación de registro y modificación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Estructura inicial del DTO con descripciones extendidas para uso en vistas.
+ ***********/
+
+namespace Usuario.Domain.User.Results
 {
     public class UserResult
     {

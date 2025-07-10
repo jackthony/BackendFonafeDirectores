@@ -1,4 +1,15 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListRolResponsePresenter.cs
+ * Descripción:         Presentador encargado de transformar una lista de resultados de dominio (RolResult)
+ *                      en una respuesta de presentación (LstItemResponse<RolResponse>).
+ *                      Se utiliza para retornar la lista completa de roles.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación del presentador para el listado de roles.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Usuario.Domain.Rol.Results;
 using Usuario.Presentation.Rol.Responses;

@@ -1,4 +1,19 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: LoginUseCase.cs
+* Descripción:        **Caso de uso** para el proceso de inicio de sesión de un usuario.
+*                     Orquesta la validación del captcha, la recuperación de la información del usuario
+*                     desde el **repositorio** basada en el correo electrónico, la verificación de la contraseña,
+*                     la gestión de intentos fallidos de login (incluyendo el bloqueo de la cuenta),
+*                     la generación de tokens de acceso y de refresco, y el almacenamiento del token de refresco.
+*                     Finalmente, construye una respuesta de login con el token de acceso, los módulos
+*                     y permisos del usuario, y el token de refresco.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para el proceso de login.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using System.Text.Json;

@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ExportLogSistemaUseCase.cs
+* Descripción:        **Caso de uso** para exportar el log del sistema, filtrado por fechas, a un archivo Excel.
+*                     Orquesta la obtención de los registros del sistema desde el **repositorio**
+*                     y luego utiliza un **servicio de exportación** para generar un flujo (stream)
+*                     de datos en formato Excel, listo para ser descargado o procesado.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para exportar el log del sistema a Excel.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Usuario.Application.SEG_Log.Services;
@@ -23,9 +35,6 @@ namespace Usuario.Application.SEG_Log.UseCases
         public async Task<OneOf<ErrorBase, Stream>> ExecuteAsync(ObtenerLogSistemaPorFechasRequest request)
         {
             var logs = await _repository.ObtenerLogSistemaPorFechasAsync(request);
-
-            /*if (logs == null || logs.Count == 0)
-                return ErrorBase.Validation("No se encontraron registros de log para las fechas indicadas.");*/
 
             var stream = _exportService.ExportarLogSistemaExcel(logs);
 

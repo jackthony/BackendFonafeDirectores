@@ -1,4 +1,17 @@
-﻿using Empresa.Domain.Director.Results;
+﻿/***********
+ * Nombre del archivo:  DirectorResponseMapper.cs
+ * Descripción:         Clase estática que contiene métodos para mapear objetos
+ *                      del tipo DirectorResult (modelo de dominio) a DirectorResponse
+ *                      (DTO de presentación), incluyendo mapeo individual y de listas.
+ *                      Se encargan de transformar los datos para ser consumidos por la capa de presentación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del mapper DirectorResponseMapper.
+ ***********/
+
+using Empresa.Domain.Director.Results;
 using Empresa.Presentation.Director.Responses;
 
 namespace Empresa.Presentation.Director.Mappers

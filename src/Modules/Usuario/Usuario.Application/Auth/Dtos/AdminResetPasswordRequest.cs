@@ -1,4 +1,15 @@
-﻿namespace Usuario.Application.Auth.Dtos
+﻿/***********
+ * Nombre del archivo:  AdminResetPasswordRequest.cs
+ * Descripción:         DTO que representa la solicitud para que un administrador restablezca la contraseña de un usuario.
+ *                      Incluye el ID del usuario objetivo, la nueva contraseña y un token de autenticación del administrador.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del modelo de solicitud para reinicio de contraseña por administrador.
+ ***********/
+
+namespace Usuario.Application.Auth.Dtos
 {
     public class AdminResetPasswordRequest
     {

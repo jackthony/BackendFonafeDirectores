@@ -1,4 +1,15 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  RubroController.cs
+ * Descripción:         Controlador REST para la gestión del catálogo de Rubros empresariales. Proporciona
+ *                      endpoints para operaciones de creación, actualización, eliminación, obtención por ID
+ *                      y listado (con y sin paginación), delegando la lógica a los casos de uso y mapeadores.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación CRUD completa para el módulo Rubro.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Kernel.Interfaces;

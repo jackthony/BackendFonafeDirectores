@@ -1,4 +1,17 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IPermisoRolRepository.cs
+ * Descripción:         Interfaz que define los métodos para
+ *                      manejar permisos asociados a roles,
+ *                      incluyendo operaciones CRUD y listados con
+ *                      o sin paginación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Definición inicial de la interfaz.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Usuario.Domain.PermisoRol.Parameters;
 using Usuario.Domain.PermisoRol.Results;
 

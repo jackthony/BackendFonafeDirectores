@@ -1,4 +1,16 @@
-﻿using Shared.Time;
+﻿/***********
+ * Nombre del archivo:  LogService.cs
+ * Descripción:         Implementación del servicio de registro de logs del sistema y trazabilidad.
+ *                      Utiliza un proveedor de tiempo para estampar la fecha de registro y
+ *                      delega la persistencia al repositorio correspondiente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de métodos para registrar logs del sistema y trazabilidad.
+ ***********/
+
+using Shared.Time;
 using Usuario.Application.SEG_Log.Dtos;
 using Usuario.Application.SEG_Log.Services;
 using Usuario.Domain.SEG_Log.Repositories;

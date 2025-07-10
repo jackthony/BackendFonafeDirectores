@@ -1,4 +1,16 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IModuloRepository.cs
+ * Descripción:         Interfaz que define las operaciones para el repositorio de módulos.
+ *                      Incluye métodos para agregar, actualizar, eliminar, listar y obtener módulos,
+ *                      así como para listar módulos junto con sus acciones asociadas por rol.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial con todos los métodos CRUD y consulta específica para módulos con acciones.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Usuario.Domain.Modulo.Parameters;
 using Usuario.Domain.Modulo.Results;
 

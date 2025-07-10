@@ -1,4 +1,16 @@
-﻿using System.Security.Claims;
+﻿/***********
+* Nombre del archivo: ITokenService.cs
+* Descripción:        **Define la interfaz para los servicios de gestión de tokens** (JWT y Refresh Tokens)
+*                     en la aplicación de autenticación. Proporciona métodos para generar, validar y extraer
+*                     información de tokens de acceso, tokens de refresco, tokens de restablecimiento de contraseña
+*                     y tokens de confirmación de cuenta, facilitando la seguridad y la gestión de sesiones.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la interfaz ITokenService.
+***********/
+
+using System.Security.Claims;
 
 namespace Usuario.Application.Auth.Services
 {

@@ -1,4 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/***********
+ * Nombre del archivo:  DependencyInjections.cs
+ * Descripción:         Configuración de inyección de dependencias para el módulo de permisos por rol.
+ *                      Registra la implementación concreta del repositorio de permisos de rol.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Registro de PermisoRolSqlRepository como implementación de IPermisoRolRepository.
+ ***********/
+
+using Microsoft.Extensions.DependencyInjection;
 using Usuario.Domain.PermisoRol.Repositories;
 using Usuario.Infrastructure.PermisoRol.Persistence.Repositories.SqlServer;
 

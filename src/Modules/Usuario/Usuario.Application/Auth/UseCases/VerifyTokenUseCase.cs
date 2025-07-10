@@ -1,4 +1,17 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: VerifyTokenUseCase.cs
+* Descripción:        **Caso de uso** para la verificación de un token de acceso (JWT).
+*                     Orquesta el proceso de validar un token de acceso, extrayendo la información del usuario
+*                     contenida en el token y confirmando su validez y estado en la base de datos.
+*                     Si el token es válido y el usuario está activo, construye una respuesta de login
+*                     con el token, los módulos y permisos asociados, y los datos del usuario.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para la verificación de tokens.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using System.Security.Claims;

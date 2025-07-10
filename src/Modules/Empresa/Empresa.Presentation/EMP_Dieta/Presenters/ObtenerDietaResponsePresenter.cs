@@ -1,4 +1,17 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ObtenerDietaResponsePresenter.cs
+ * Descripción:         Clase que implementa la interfaz IPresenterDelivery para transformar
+ *                      un objeto DietaResult en un ItemResponse que contiene
+ *                      un DietaResponse, facilitando la entrega de la respuesta
+ *                      del módulo Dieta al cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presenter ObtenerDietaResponsePresenter.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Dieta.Results;
 using Empresa.Presentation.Dieta.Responses;

@@ -1,4 +1,17 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  RolSqlRepository.cs
+ * Descripción:         Implementación del repositorio de roles utilizando Dapper con SQL Server.
+ *                      Permite operaciones CRUD sobre la entidad Rol, incluyendo la gestión de permisos
+ *                      y consultas paginadas a través de stored procedures.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa de métodos: Add, Update, Delete, List, ListByPagination,
+ *                      GetById y AddPermisosRoles.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Usuario.Domain.Rol.Parameters;

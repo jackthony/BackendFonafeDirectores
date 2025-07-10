@@ -1,4 +1,17 @@
-﻿using Empresa.Domain.Empresa.Results;
+﻿/***********
+ * Nombre del archivo:  EmpresaResponseMapper.cs
+ * Descripción:         Clase estática que contiene métodos para mapear objetos
+ *                      del tipo EmpresaResult (modelo de dominio) a EmpresaResponse
+ *                      (DTO de presentación), incluyendo mapeo individual y de listas.
+ *                      Se encargan de transformar los datos para ser consumidos por la capa de presentación.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del mapper EmpresaResponseMapper.
+ ***********/
+
+using Empresa.Domain.Empresa.Results;
 using Empresa.Presentation.Empresa.Responses;
 
 namespace Empresa.Presentation.Empresa.Mappers

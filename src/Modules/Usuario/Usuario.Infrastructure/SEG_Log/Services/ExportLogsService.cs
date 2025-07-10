@@ -1,4 +1,16 @@
-﻿using ClosedXML.Excel;
+﻿/***********
+ * Nombre del archivo:  ExportLogsService.cs
+ * Descripción:         Implementación del servicio encargado de exportar distintos tipos de logs
+ *                      (auditoría de usuarios, por tipo de usuario, logs del sistema, trazabilidad)
+ *                      en formato Excel utilizando la librería ClosedXML.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Desarrollo de métodos para exportar cada tipo de log en hojas de cálculo Excel.
+ ***********/
+
+using ClosedXML.Excel;
 using Usuario.Application.SEG_Log.Services;
 using Usuario.Domain.SEG_Log.Results;
 

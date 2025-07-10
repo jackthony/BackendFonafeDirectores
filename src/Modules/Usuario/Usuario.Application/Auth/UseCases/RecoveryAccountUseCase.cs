@@ -1,4 +1,18 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: RecoveryAccountUseCase.cs
+* Descripción:        **Caso de uso** para la recuperación de cuentas.
+*                     Este caso de uso orquesta el envío de notificaciones por correo electrónico a los administradores
+*                     cuando un usuario solicita la recuperación de su cuenta. Recupera la lista de administradores
+*                     desde el **repositorio** y, para cada uno, invoca el **servicio de correo electrónico**
+*                     para enviar un aviso, incluyendo el nombre del usuario y su dirección de correo electrónico.
+*                     Finaliza siempre con una respuesta de éxito, indicando que el mensaje fue enviado.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para la recuperación de cuentas.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

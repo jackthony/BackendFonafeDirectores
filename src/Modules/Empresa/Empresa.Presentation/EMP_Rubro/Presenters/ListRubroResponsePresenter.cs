@@ -1,4 +1,15 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListRubroResponsePresenter.cs
+ * Descripción:         Presentador que transforma una lista de resultados RubroResult a una respuesta 
+ *                      tipo LstItemResponse<RubroResponse>, utilizada para mostrar múltiples rubros.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación del presentador para listar rubros.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Rubro.Results;
 using Empresa.Presentation.Rubro.Responses;

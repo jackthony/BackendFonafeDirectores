@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: EliminarUserUseCase.cs
+* Descripción:        Caso de uso para la eliminación de un usuario.
+*                     Orquesta el proceso de eliminar un usuario, transformando la solicitud
+*                     a parámetros de dominio y utilizando el repositorio para ejecutar la operación
+*                     de eliminación, manejando el resultado de la misma.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para eliminar un usuario.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

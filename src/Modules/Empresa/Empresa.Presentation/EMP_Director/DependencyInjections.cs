@@ -1,4 +1,16 @@
-﻿using Empresa.Domain.Director.Results;
+﻿/***********
+ * Nombre del archivo:  DependencyInjections.cs
+ * Descripción:         Clase estática para configurar la inyección de dependencias
+ *                      de los presenters del módulo Director, registrando los servicios
+ *                      necesarios para la presentación de datos paginados, listas y por ID.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de la configuración de inyección de dependencias para el módulo Director.
+ ***********/
+
+using Empresa.Domain.Director.Results;
 using Empresa.Presentation.Director.Mappers;
 using Empresa.Presentation.Director.Presenters;
 using Empresa.Presentation.Director.Responses;

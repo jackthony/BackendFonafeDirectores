@@ -1,4 +1,17 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+* Nombre del archivo: ActualizarUserRequest.cs
+* Descripción:        DTO (Data Transfer Object) para la solicitud de actualización de un usuario existente.
+*                     Implementa 'ITrackableRequest' para fines de auditoría y contiene los
+*                     campos necesarios para modificar la información de un usuario, incluyendo
+*                     el identificador del usuario a modificar, el de quien realiza la modificación,
+*                     y los metadatos para el seguimiento de la operación.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase DTO para solicitudes de actualización de usuario.
+***********/
+
+using Shared.Kernel.Interfaces;
 
 namespace Usuario.Application.User.Dtos
 {

@@ -1,4 +1,14 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  UbigeoSqlRepository.cs
+ * Descripción:         Implementación del repositorio de Ubigeo utilizando Dapper y SQL Server.
+ *                      Expone métodos para listar departamentos, provincias y distritos mediante procedimientos almacenados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con métodos de consulta.
+ ***********/
+
+using Dapper;
 using System.Data;
 using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Repositories;

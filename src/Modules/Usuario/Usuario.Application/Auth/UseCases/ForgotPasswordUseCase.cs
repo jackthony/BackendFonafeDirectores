@@ -1,4 +1,17 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ForgotPasswordUseCase.cs
+* Descripción:        **Caso de uso** para el proceso de "Olvidé mi contraseña".
+*                     Orquesta la validación de un **captcha**, la búsqueda de un usuario por su correo electrónico
+*                     en el **repositorio de autenticación**, la generación de un **token de restablecimiento de contraseña**,
+*                     y el envío de un correo electrónico con un enlace para restablecer la contraseña a la dirección
+*                     del usuario.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para la funcionalidad de "Olvidé mi contraseña".
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Usuario.Application.Auth.Dtos;

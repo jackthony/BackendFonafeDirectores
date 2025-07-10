@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  TipoDirectorSqlRepository.cs
+ * Descripción:         Implementación del repositorio de TipoDirector usando Dapper y SQL Server.
+ *                      Contiene operaciones CRUD y consultas paginadas a través de procedimientos almacenados.
+ *                      Incluye un método genérico para ejecución de procedimientos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con métodos de mantenimiento y consulta.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.TipoDirector.Parameters;

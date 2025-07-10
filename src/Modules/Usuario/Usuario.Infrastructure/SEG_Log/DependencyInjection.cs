@@ -1,4 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/***********
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Clase estática encargada de registrar las dependencias del módulo de logs,
+ *                      incluyendo servicios e implementaciones de repositorios relacionados a
+ *                      auditoría, trazabilidad y exportación de logs.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Registro de LogService, LogRepository, TrazabilidadInspector,
+ *                      ExportLogsRepository e ExportLogsService.
+ ***********/
+
+using Microsoft.Extensions.DependencyInjection;
 using Usuario.Application.SEG_Log.Services;
 using Usuario.Domain.SEG_Log.Repositories;
 using Usuario.Infrastructure.SEG_Log.Persistence.Repositories.SqlServer;

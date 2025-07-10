@@ -1,4 +1,14 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ItemResponseMapperInt.cs
+ * Descripción:         Presentador que transforma un resultado base (`SpResultBase`) en una respuesta
+ *                      estándar con un item de tipo entero (`ItemResponse<int>`).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 

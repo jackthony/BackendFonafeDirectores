@@ -1,4 +1,16 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿/***********
+ * Nombre del archivo:  JwtTokenService.cs
+ * Descripción:         Servicio encargado de generar y validar tokens JWT para autenticación y autorización.
+ *                      Provee métodos para generar access tokens, refresh tokens, tokens de restablecimiento
+ *                      de contraseña y confirmación de cuenta, además de validaciones asociadas.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación completa de la lógica de tokens para autenticación.
+ ***********/
+
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

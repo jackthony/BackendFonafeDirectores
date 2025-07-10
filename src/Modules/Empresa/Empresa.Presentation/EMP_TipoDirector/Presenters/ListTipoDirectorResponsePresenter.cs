@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListTipoDirectorResponsePresenter.cs
+ * Descripción:         Presentador encargado de transformar una lista de objetos TipoDirectorResult
+ *                      en una respuesta de tipo LstItemResponse<TipoDirectorResponse>, que representa
+ *                      una colección de TipoDirector para entregar al cliente.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del presentador para listar TipoDirector.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.TipoDirector.Results;
 using Empresa.Presentation.TipoDirector.Responses;

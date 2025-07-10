@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: ListarRolPaginadaUseCase.cs
+* Descripción:        Caso de uso para listar roles con paginación.
+*                     Orquesta la lógica para obtener una colección paginada de roles,
+*                     transformando la solicitud a parámetros de dominio y utilizando el repositorio
+*                     para acceder a los datos.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para listar roles paginados.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

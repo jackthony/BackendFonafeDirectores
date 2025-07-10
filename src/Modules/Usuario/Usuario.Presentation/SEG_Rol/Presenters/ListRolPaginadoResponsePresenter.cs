@@ -1,4 +1,16 @@
-﻿using Shared.ClientV1;
+﻿/***********
+ * Nombre del archivo:  ListRolPaginadoResponsePresenter.cs
+ * Descripción:         Presentador encargado de transformar un resultado paginado de dominio (PagedResult<RolResult>)
+ *                      en una respuesta de presentación paginada (LstItemResponse<RolResponse>).
+ *                      También asigna un índice correlativo a cada ítem de la lista.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación del presentador para el listado paginado de roles.
+ ***********/
+
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
 using Usuario.Domain.Rol.Results;

@@ -1,4 +1,15 @@
-﻿using System.Text.Json;
+﻿/***********
+ * Nombre del archivo:  ModuloConAccionesResponseMapper.cs
+ * Descripción:         Mapeador que convierte objetos ModuloConAccionesResult en respuestas
+ *                      ModuloConAccionesResponse, deserializando acciones desde JSON.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del mapeador con soporte para deserialización de acciones.
+ ***********/
+
+using System.Text.Json;
 using Usuario.Domain.Modulo.Results;
 using Usuario.Presentation.Modulo.Responses;
 

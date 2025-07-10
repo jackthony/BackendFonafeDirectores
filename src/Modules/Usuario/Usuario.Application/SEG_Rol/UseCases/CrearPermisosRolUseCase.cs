@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+* Nombre del archivo: CrearPermisosRolUseCase.cs
+* Descripción:        Caso de uso para la creación de permisos asociados a un rol.
+*                     Orquesta el proceso de asignar o actualizar los permisos de un rol,
+*                     transformando la solicitud a parámetros de dominio y utilizando el repositorio
+*                     para persistir los cambios, manejando el resultado de la operación.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase de caso de uso para crear permisos de rol.
+***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

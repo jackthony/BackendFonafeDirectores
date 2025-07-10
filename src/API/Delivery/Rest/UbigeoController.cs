@@ -1,4 +1,15 @@
-﻿using Api.Helpers;
+﻿/***********
+ * Nombre del archivo:  UbigeoController.cs
+ * Descripción:         Controlador REST encargado de exponer endpoints relacionados con la estructura 
+ *                      geográfica del Perú (departamentos, provincias y distritos). Utiliza casos de uso
+ *                      específicos y presentadores para mapear la lógica de negocio a respuestas estándar.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del controlador con endpoints de listado por nivel geográfico.
+ ***********/
+
+using Api.Helpers;
 using Empresa.Application.Ubigeo.Dtos;
 using Empresa.Domain.Ubigeo.Results;
 using Empresa.Presentation.Ubigeo.Responses;

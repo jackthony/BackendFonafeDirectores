@@ -1,4 +1,17 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/***********
+* Nombre del archivo: ActualizarPermisoRolRequestMapper.cs
+* Descripción:        **Implementación del mapeador** para transformar una **`ActualizarPermisoRolRequest`** (DTO de aplicación)
+*                     a **`ActualizarPermisoRolParameters`** (parámetros de dominio). Este mapeador se encarga
+*                     de convertir los datos de la solicitud de actualización de un permiso de rol para que sean
+*                     utilizables por la capa de dominio, incluyendo los IDs de rol, módulo, acción,
+*                     el ID del usuario que modifica y la fecha de modificación.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase mapeadora para solicitudes de actualización de permisos de rol.
+***********/
+
+using Shared.Kernel.Interfaces;
 using Usuario.Application.PermisoRol.Dtos;
 using Usuario.Domain.PermisoRol.Parameters;
 

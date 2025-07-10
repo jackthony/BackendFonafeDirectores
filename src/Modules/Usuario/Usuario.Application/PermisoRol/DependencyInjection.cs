@@ -1,4 +1,16 @@
-﻿using FluentValidation;
+﻿/***********
+* Nombre del archivo: DependencyInjection.cs
+* Descripción:        Clase de extensión para configurar la inyección de dependencias de la capa de aplicación
+*                     del módulo `PermisoRol`. Se encarga de registrar todos los **casos de uso (UseCases)**,
+*                     **mapeadores (Mappers)** y **validadores (Validators)** relacionados con la gestión de permisos de roles.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias
+*                     del módulo `PermisoRol`.
+***********/
+
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

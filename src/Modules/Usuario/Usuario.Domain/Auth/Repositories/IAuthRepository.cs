@@ -1,4 +1,16 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+* Nombre del archivo: IAuthRepository.cs
+* Descripción:        Define la interfaz para el repositorio de autenticación y autorización.
+*                     Proporciona contratos para operaciones relacionadas con la gestión de usuarios,
+*                     tokens de refresco, intentos de inicio de sesión, y cambios de contraseña.
+* Autor:              Daniel Alva
+* Fecha de creación:  09/07/2025
+* Última modificación:09/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la interfaz del repositorio de autenticación,
+*                     e inclusión de métodos para el manejo de contraseñas.
+***********/
+
+using Shared.Kernel.Responses;
 using Usuario.Domain.Auth.Models;
 using Usuario.Domain.Auth.Parameters;
 using Usuario.Domain.Auth.Results;

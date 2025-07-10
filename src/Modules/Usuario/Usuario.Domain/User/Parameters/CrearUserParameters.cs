@@ -1,4 +1,16 @@
-﻿namespace Usuario.Domain.User.Parameters
+﻿/***********
+ * Nombre del archivo:  CrearUserParameters.cs
+ * Descripción:         Clase de parámetros utilizada para registrar un nuevo usuario.
+ *                      Contiene datos de la tabla SEG_Usuario y SEG_UsuarioInfo, incluyendo
+ *                      información personal, credenciales y estado del usuario.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del modelo de entrada para el registro de usuarios.
+ ***********/
+
+namespace Usuario.Domain.User.Parameters
 {
     public class CrearUserParameters
     {

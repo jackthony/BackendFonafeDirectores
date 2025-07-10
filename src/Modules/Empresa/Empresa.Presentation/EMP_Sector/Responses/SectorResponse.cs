@@ -1,4 +1,15 @@
-﻿namespace Empresa.Presentation.Sector.Responses
+﻿/***********
+ * Nombre del archivo:  SectorResponse.cs
+ * Descripción:         Clase DTO utilizada para exponer la información del sector hacia la capa de presentación.
+ *                      Incluye datos como nombre, estado, fechas de registro y modificación, así como el índice de fila.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del DTO para respuestas del módulo Sector.
+ ***********/
+
+namespace Empresa.Presentation.Sector.Responses
 {
     public class SectorResponse
     {

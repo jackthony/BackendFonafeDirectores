@@ -1,10 +1,17 @@
-﻿using Api.Helpers;
-using Empresa.Application.Cargo.Dtos;
-using Empresa.Application.Cargo.UseCases;
+﻿/***********
+ * Nombre del archivo:  ModuloController.cs
+ * Descripción:         Controlador REST para la obtención de módulos con sus respectivas acciones asociadas a un rol.
+ *                      Expone el endpoint para listar los módulos disponibles con sus permisos asignables.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación del endpoint para listar módulos con acciones por rol.
+ ***********/
+
+using Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
-using Shared.Kernel.Responses;
 using Usuario.Domain.Modulo.Results;
 using Usuario.Presentation.Modulo.Responses;
 

@@ -1,4 +1,17 @@
-﻿namespace Empresa.Presentation.Especialidad.Responses
+﻿/***********
+ * Nombre del archivo:  EspecialidadResponse.cs
+ * Descripción:         Clase DTO que representa la respuesta del módulo Especialidad.
+ *                      Contiene propiedades que describen la información de una especialidad,
+ *                      incluyendo su identificador, nombre, estado, fechas de registro y modificación,
+ *                      así como los usuarios responsables y un índice auxiliar.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Definición inicial del DTO EspecialidadResponse.
+ ***********/
+
+namespace Empresa.Presentation.Especialidad.Responses
 {
     public class EspecialidadResponse
     {

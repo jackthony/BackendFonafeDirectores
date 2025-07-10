@@ -1,4 +1,14 @@
-﻿namespace Shared.Kernel.Responses
+﻿/***********
+ * Nombre del archivo:  ConstanteItemResponse.cs
+ * Descripción:         Clase que representa un ítem constante utilizado comúnmente para listas desplegables
+ *                      o configuraciones fijas, incluyendo código, valor y descripción.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ ***********/
+
+namespace Shared.Kernel.Responses
 {
     public class ConstanteItemResponse
     {

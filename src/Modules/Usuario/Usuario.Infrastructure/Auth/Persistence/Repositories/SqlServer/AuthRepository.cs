@@ -1,4 +1,16 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  AuthRepository.cs
+ * Descripción:         Implementación del repositorio de autenticación que gestiona el login de usuarios,
+ *                      manejo de tokens (refresh, revocación), intentos fallidos, cambio de contraseña,
+ *                      y recuperación de administradores. Utiliza procedimientos almacenados y Dapper.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Inclusión de lógica para recuperación de cuenta, cambio de contraseña y validación por token.
+ ***********/
+
+using Dapper;
 using Org.BouncyCastle.Asn1.Ocsp;
 using Shared.Kernel.Responses;
 using System.Data;

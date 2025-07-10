@@ -1,4 +1,15 @@
-﻿namespace Usuario.Application.Rol.Dtos
+﻿/***********
+* Nombre del archivo: ActualizarRolRequest.cs
+* Descripción:        DTO (Data Transfer Object) para la solicitud de actualización de un rol existente.
+*                     Contiene el identificador del rol a modificar, el ID del usuario que
+*                     realiza la modificación, la fecha de modificación y el nuevo nombre del rol.
+* Autor:              Daniel Alva
+* Fecha de creación:  10/07/2025
+* Última modificación:10/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la clase DTO para la solicitud de actualización de rol.
+***********/
+
+namespace Usuario.Application.Rol.Dtos
 {
     public class ActualizarRolRequest
     {

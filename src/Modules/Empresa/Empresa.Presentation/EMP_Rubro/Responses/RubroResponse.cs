@@ -1,4 +1,16 @@
-﻿namespace Empresa.Presentation.Rubro.Responses
+﻿/***********
+ * Nombre del archivo:  RubroResponse.cs
+ * Descripción:         Clase DTO que representa la respuesta del módulo Rubro.
+ *                      Contiene propiedades que describen la información de un rubro, incluyendo
+ *                      su estado, fechas de registro/modificación y usuario responsable.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Definición inicial del DTO RubroResponse.
+ ***********/
+
+namespace Empresa.Presentation.Rubro.Responses
 {
     public class RubroResponse
     {

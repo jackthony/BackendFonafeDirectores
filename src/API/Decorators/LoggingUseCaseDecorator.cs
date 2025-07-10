@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/***********
+ * Nombre del archivo:  LoggingUseCaseDecorator.cs
+ * Descripción:         Decorador para casos de uso que agrega funcionalidad de logging.
+ *                      Registra información al iniciar la ejecución del caso de uso,
+ *                      así como logs diferenciados para errores y ejecuciones exitosas.
+ *                      Facilita el seguimiento y diagnóstico de las operaciones en la capa de aplicación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del decorador para logging en casos de uso.
+ ***********/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 

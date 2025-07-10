@@ -1,4 +1,15 @@
-﻿using System;
+﻿/***********
+ * Nombre del archivo:  VerificarCaptchaService.cs
+ * Descripción:         Servicio encargado de validar el token de reCAPTCHA v2/v3 con los servidores de Google. 
+ *                      Utiliza `HttpClient` y la clave secreta configurada para comprobar si el captcha es válido.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial de validación de captcha.
+ ***********/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

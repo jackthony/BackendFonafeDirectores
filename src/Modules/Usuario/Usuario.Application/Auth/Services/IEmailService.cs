@@ -1,8 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***********
+* Nombre del archivo: IEmailService.cs
+* Descripción:        **Define la interfaz para el servicio de envío de correos electrónicos** en la aplicación.
+*                     Proporciona métodos para enviar diferentes tipos de notificaciones por correo,
+*                     como correos de restablecimiento de contraseña, correos de confirmación de cuenta
+*                     y correos de recuperación de cuenta dirigidos a administradores.
+*                     Facilita la comunicación con los usuarios y administradores de forma desacoplada y eficiente.
+* Autor:              Daniel Alva
+* Fecha de creación:  11/07/2025
+* Última modificación:11/07/2025 por Daniel Alva
+* Cambios recientes:  Creación inicial de la interfaz IEmailService.
+***********/
 
 namespace Usuario.Application.Auth.Services
 {

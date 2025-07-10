@@ -1,4 +1,15 @@
-﻿namespace Usuario.Presentation.PermisoRol.Responses
+﻿/***********
+ * Nombre del archivo:  PermisoRolResponse.cs
+ * Descripción:         Clase de respuesta que representa los permisos asignados a un rol,
+ *                      incluyendo información sobre el módulo, acción y trazabilidad.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Definición inicial de la estructura de respuesta para los permisos por rol.
+ ***********/
+
+namespace Usuario.Presentation.PermisoRol.Responses
 {
     public class PermisoRolResponse
     {

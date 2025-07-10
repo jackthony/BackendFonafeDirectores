@@ -1,4 +1,16 @@
-﻿using Empresa.Domain.Rubro.Results;
+﻿/***********
+ * Nombre del archivo:  DependencyInjections.cs
+ * Descripción:         Clase estática que registra los presentadores relacionados al módulo Rubro
+ *                      en el contenedor de dependencias, incluyendo presentadores de listado,
+ *                      listado paginado y obtención por ID.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Registro de presentadores para el módulo Rubro.
+ ***********/
+
+using Empresa.Domain.Rubro.Results;
 using Empresa.Presentation.Rubro.Mappers;
 using Empresa.Presentation.Rubro.Presenters;
 using Empresa.Presentation.Rubro.Responses;

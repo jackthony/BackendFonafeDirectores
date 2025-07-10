@@ -1,4 +1,16 @@
-﻿using FluentValidation;
+﻿/***********
+ * Nombre del archivo:  ValidationUseCaseDecorator.cs
+ * Descripción:         Decorador para casos de uso que aplica validación automática 
+ *                      utilizando FluentValidation antes de ejecutar la lógica principal.
+ *                      Si la validación falla, retorna un error con los detalles agrupados 
+ *                      por propiedad, evitando la ejecución del caso de uso subyacente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación inicial del decorador de validación para la capa de aplicación.
+ ***********/
+
+using FluentValidation;
 using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;

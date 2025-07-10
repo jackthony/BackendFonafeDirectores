@@ -1,4 +1,16 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  ExportLogsRepository.cs
+ * Descripción:         Implementación del repositorio para la exportación de logs del sistema,
+ *                      trazabilidad de usuarios y auditoría por roles o estado. Ejecuta procedimientos
+ *                      almacenados mediante Dapper.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de métodos para exportar logs de auditoría, sistema y trazabilidad.
+ ***********/
+
+using Dapper;
 using System.Data;
 using Usuario.Domain.SEG_Log.Parameters;
 using Usuario.Domain.SEG_Log.Repositories;

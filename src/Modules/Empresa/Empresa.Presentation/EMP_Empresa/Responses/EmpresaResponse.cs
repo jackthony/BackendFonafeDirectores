@@ -1,4 +1,18 @@
-﻿namespace Empresa.Presentation.Empresa.Responses
+﻿/***********
+ * Nombre del archivo:  EmpresaResponse.cs
+ * Descripción:         Clase DTO que representa la respuesta del módulo Empresa.
+ *                      Contiene propiedades que describen la información de una empresa,
+ *                      incluyendo identificadores, datos fiscales, ubicación, indicadores financieros,
+ *                      estado, fechas de registro y modificación, usuarios responsables,
+ *                      descripciones relacionadas y un índice auxiliar.
+ * 
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Definición inicial del DTO EmpresaResponse.
+ ***********/
+
+namespace Empresa.Presentation.Empresa.Responses
 {
     public class EmpresaResponse
     {
