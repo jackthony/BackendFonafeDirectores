@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  CrearDirectorUseCase.cs
+ * Descripción:         Caso de uso para crear un director. Mapea los datos del request (`CrearDirectorRequest`) a los parámetros correspondientes (`CrearDirectorParameters`) 
+ *                      y luego llama al repositorio (`IDirectorRepository`) para realizar la inserción del nuevo director en la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

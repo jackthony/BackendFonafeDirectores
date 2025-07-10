@@ -1,4 +1,13 @@
-﻿using Api.Settings;
+﻿/*****
+ * Nombre del archivo:  BunnyStorageService.cs
+ * Descripción:         Implementación del servicio `IStorageService` para interactuar con Bunny CDN y gestionar archivos en el almacenamiento. 
+ *                      Incluye métodos para subir y descargar archivos, utilizando las opciones de configuración proporcionadas por `BunnyStorageOptions`.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Api.Settings;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Application.Archivo.Services;
 using Microsoft.AspNetCore.Http;

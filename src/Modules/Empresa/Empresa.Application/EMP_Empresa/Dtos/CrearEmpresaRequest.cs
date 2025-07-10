@@ -1,4 +1,12 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  CrearEmpresaRequest.cs
+ * Descripción:         Define el DTO para crear una nueva empresa.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Se ha configurado el DTO para crear una nueva empresa, incluyendo los campos requeridos para la operación.
+ *****/
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Empresa.Dtos
 {

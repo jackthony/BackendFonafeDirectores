@@ -1,4 +1,14 @@
-﻿using Empresa.Application.Empresa.Dtos;
+﻿/*****
+ * Nombre del archivo: CrearEmpresaRequestValidator.cs
+ * Descripción: Este archivo contiene la clase `CrearEmpresaRequestValidator`, que valida los datos de entrada para 
+ *              la creación de una empresa. Está implementado utilizando FluentValidation, y se asegura de que los valores 
+ *              sean válidos antes de proceder con la operación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de las reglas de validación para los datos de la empresa.
+ *****/
+using Empresa.Application.Empresa.Dtos;
 using FluentValidation;
 
 public class CrearEmpresaRequestValidator : AbstractValidator<CrearEmpresaRequest>

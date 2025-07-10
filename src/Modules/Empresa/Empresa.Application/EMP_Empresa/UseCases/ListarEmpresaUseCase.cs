@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo: ListarEmpresaUseCase.cs
+ * Descripción: Este archivo contiene la lógica del caso de uso para listar empresas sin paginación, recibiendo un request
+ *              con parámetros de filtrado y mapeando esos parámetros a parámetros específicos que son enviados al repositorio.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación de la lógica para listar empresas según los parámetros de filtro proporcionados.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

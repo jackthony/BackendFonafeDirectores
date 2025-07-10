@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarCargoUseCase.cs
+ * Descripción:         Caso de uso para listar los cargos en el sistema. 
+ *                      Utiliza el repositorio `ICargoRepository` y el mapeador `IMapper` para convertir la solicitud `ListarCargoRequest` en los parámetros adecuados (`ListarCargoParameters`).
+ *                      Ejecuta la operación de listado en el repositorio y devuelve los resultados de la consulta.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

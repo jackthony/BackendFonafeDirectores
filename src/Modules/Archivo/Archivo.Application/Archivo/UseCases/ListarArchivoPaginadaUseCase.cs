@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarArchivoPaginadaUseCase.cs
+ * Descripción:         Caso de uso encargado de gestionar el listado paginado de archivos. 
+ *                      Implementa la interfaz `IUseCase`, mapeando la solicitud de listado paginado (`ListarArchivoPaginadoRequest`) a los parámetros correspondientes (`ListarArchivoPaginadoParameters`),
+ *                      y utilizando el repositorio para obtener los resultados de la base de datos con paginación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

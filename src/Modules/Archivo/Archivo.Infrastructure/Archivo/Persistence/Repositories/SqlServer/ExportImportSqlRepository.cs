@@ -1,4 +1,14 @@
-﻿using Archivo.Domain.Archivo.Parameters;
+﻿/*****
+ * Nombre del archivo:  ExportImportSqlRepository.cs
+ * Descripción:         Implementación del repositorio `IExportImportRepository` para la base de datos SQL Server utilizando Dapper. 
+ *                      Contiene métodos para obtener, insertar y actualizar empresas y directores, 
+ *                      ejecutando procedimientos almacenados correspondientes para cada operación de exportación e importación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Repositories;
 using Archivo.Domain.Archivo.Results;
 using Dapper;

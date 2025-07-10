@@ -1,4 +1,12 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  ObtenerDietaRequestMapper.cs
+ * Descripción:         Clase encargada de mapear una solicitud para obtener la dieta (`ObtenerDietaRequest`) a los parámetros necesarios para la base de datos (`ObtenerDietaParameter`).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 using Empresa.Domain.Dieta.Parameters;
 using Empresa.Application.Dieta.Dtos;
 

@@ -1,4 +1,13 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Clase que configura la inyección de dependencias para los componentes relacionados con los cargos en la aplicación.
+ *                      Registra los casos de uso (`UseCases`), mapeadores (`Mappers`) y validadores (`Validators`) necesarios para la gestión de cargos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

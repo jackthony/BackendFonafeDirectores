@@ -1,4 +1,12 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  ActualizarDirectorRequestValidator.cs
+ * Descripción:         Validador para el caso de uso de actualización de director. Valida que los campos del request cumplan con las reglas de negocio.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación del validador para verificar que los datos de entrada son correctos.
+ *****/
+using FluentValidation;
 using Empresa.Application.Director.Dtos;
 using System;
 

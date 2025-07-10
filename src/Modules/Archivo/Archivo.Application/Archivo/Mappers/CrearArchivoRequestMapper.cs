@@ -1,4 +1,13 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  CrearArchivoRequestMapper.cs
+ * Descripción:         Clase encargada de mapear la solicitud de creación de archivo (`CrearArchivoRequest`) a los parámetros necesarios para la operación (`CrearArchivoParameters`).
+ *                      Utiliza un proveedor de tiempo (`ITimeProvider`) para asignar la fecha de registro.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 using Shared.Time;
 using Archivo.Application.Archivo.Dtos;
 using Archivo.Domain.Archivo.Parameters;

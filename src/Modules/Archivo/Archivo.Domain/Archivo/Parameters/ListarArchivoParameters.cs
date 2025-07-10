@@ -1,4 +1,13 @@
-﻿namespace Archivo.Domain.Archivo.Parameters
+﻿/*****
+ * Nombre del archivo:  ListarArchivoParameters.cs
+ * Descripción:         Clase que contiene los parámetros necesarios para realizar el listado de archivos. 
+ *                      Incluye propiedades opcionales como `CarpetaPadreId`, `DirectorId` y `IdEmpresa` para filtrar los archivos en la consulta.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+namespace Archivo.Domain.Archivo.Parameters
 {
     public class ListarArchivoParameters
     {

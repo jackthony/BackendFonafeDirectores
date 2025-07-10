@@ -1,4 +1,13 @@
-﻿using Shared.ClientV1;
+﻿/*****
+ * Nombre del archivo:  ListArchivoResponsePresenter.cs
+ * Descripción:         Presentador que convierte una lista de resultados de archivos (`List<ArchivoResult>`) en una respuesta estructurada de tipo `TreeResponse<ArchivoNode>`. 
+ *                      Utiliza el mapeador `ArchivoResponseMapper` para organizar los archivos en una estructura jerárquica (árbol).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Archivo.Domain.Archivo.Results;
 using Archivo.Presentation.Archivo.Mappers;

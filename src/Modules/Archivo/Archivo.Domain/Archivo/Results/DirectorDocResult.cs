@@ -1,4 +1,14 @@
-﻿namespace Archivo.Domain.Archivo.Results
+﻿/*****
+ * Nombre del archivo:  DirectorDocResult.cs
+ * Descripción:         Clase que representa los resultados de un director en el contexto de los archivos. 
+ *                      Contiene propiedades como `TipoDocumento`, `Documento`, `Departamento`, `FechaNacimiento`, entre otras, 
+ *                      que describen al director y su información asociada en el sistema.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+namespace Archivo.Domain.Archivo.Results
 {
     public class DirectorDocResult
     {

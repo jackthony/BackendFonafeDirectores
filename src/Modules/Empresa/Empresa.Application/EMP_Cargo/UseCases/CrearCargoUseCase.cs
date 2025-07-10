@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  CrearCargoUseCase.cs
+ * Descripción:         Caso de uso para crear un nuevo cargo en el sistema. 
+ *                      Utiliza el repositorio `ICargoRepository` y el mapeador `IMapper` para convertir la solicitud `CrearCargoRequest` en parámetros adecuados (`CrearCargoParameters`).
+ *                      Ejecuta la operación de creación en el repositorio y maneja los errores de la base de datos si la creación falla.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

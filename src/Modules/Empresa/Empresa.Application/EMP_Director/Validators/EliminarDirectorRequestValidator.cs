@@ -1,4 +1,12 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  EliminarDirectorRequestValidator.cs
+ * Descripción:         Validador para el caso de uso de eliminación de director. Asegura que los datos de entrada sean válidos, como los ID y la fecha de modificación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Validaciones agregadas para el ID del director, el ID del usuario de modificación y la fecha de modificación.
+ *****/
+using FluentValidation;
 using Empresa.Application.Director.Dtos;
 using System;
 

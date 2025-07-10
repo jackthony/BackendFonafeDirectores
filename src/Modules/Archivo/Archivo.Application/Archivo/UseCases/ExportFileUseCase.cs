@@ -1,4 +1,14 @@
-﻿using Archivo.Application.Archivo.Dtos;
+﻿/*****
+ * Nombre del archivo:  ExportFileUseCase.cs
+ * Descripción:         Caso de uso encargado de gestionar la exportación de archivos. 
+ *                      Implementa la interfaz `IUseCase`, mapeando la solicitud de exportación (`ExportFileRequest`) a los parámetros correspondientes (`ExportParameters`),
+ *                      y utilizando el servicio y repositorio para obtener los datos necesarios y generar el archivo de exportación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Archivo.Application.Archivo.Dtos;
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Repositories;

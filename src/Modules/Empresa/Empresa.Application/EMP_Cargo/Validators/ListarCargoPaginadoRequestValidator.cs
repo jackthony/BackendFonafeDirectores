@@ -1,4 +1,13 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  ListarCargoPaginadoRequestValidator.cs
+ * Descripción:         Clase que valida las solicitudes de listado paginado de cargos (`ListarCargoPaginadoRequest`) utilizando FluentValidation. 
+ *                      Incluye reglas de validación para `Page` y `PageSize` (deben ser mayores que cero) y para `Nombre` (opcional, pero no debe exceder los 200 caracteres).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using FluentValidation;
 using Empresa.Application.Cargo.Dtos;
 
 namespace Empresa.Application.Cargo.Validators

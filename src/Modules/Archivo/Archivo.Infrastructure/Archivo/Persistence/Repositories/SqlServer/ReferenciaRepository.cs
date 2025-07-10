@@ -1,4 +1,13 @@
-﻿using Archivo.Domain.Archivo.Repositories;
+﻿/*****
+ * Nombre del archivo:  ReferenciaRepository.cs
+ * Descripción:         Implementación del repositorio `IReferenciaRepository` para obtener diversas referencias relacionadas con entidades en el sistema. 
+ *                      Utiliza Dapper para ejecutar consultas SQL y obtener listas de referencias como empresas, provincias, departamentos, distritos, rubros, ministerios, entre otros.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Archivo.Domain.Archivo.Repositories;
 using Archivo.Domain.Archivo.Results;
 using Dapper;
 using System.Data;

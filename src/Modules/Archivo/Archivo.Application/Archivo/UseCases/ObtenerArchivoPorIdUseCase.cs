@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ObtenerArchivoPorIdUseCase.cs
+ * Descripción:         Caso de uso encargado de obtener un archivo por su ID. 
+ *                      Implementa la interfaz `IUseCase`, utilizando el repositorio para recuperar los detalles del archivo desde la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Archivo.Domain.Archivo.Repositories;

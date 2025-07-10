@@ -1,4 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿/*****
+ * Nombre del archivo:  CrearArchivoRequest.cs
+ * Descripción:         Clase de transferencia de datos (DTO) utilizada para la solicitud de creación de un archivo. 
+ *                      Implementa la interfaz ITrackableRequest, permitiendo el seguimiento de la solicitud. 
+ *                      Contiene las propiedades necesarias para registrar información sobre el archivo a crear.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Microsoft.AspNetCore.Http;
 using Shared.Kernel.Interfaces;
 
 namespace Archivo.Application.Archivo.Dtos

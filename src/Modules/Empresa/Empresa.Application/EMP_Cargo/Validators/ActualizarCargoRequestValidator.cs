@@ -1,4 +1,13 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  ActualizarCargoRequestValidator.cs
+ * Descripción:         Clase que valida las solicitudes de actualización de cargo (`ActualizarCargoRequest`) utilizando FluentValidation. 
+ *                      Incluye reglas de validación para el `nIdCargo`, `sNombreCargo` y `nUsuarioModificacion`, asegurando que cumplan con los requisitos establecidos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using FluentValidation;
 using Empresa.Application.Cargo.Dtos;
 
 namespace Empresa.Application.Cargo.Validators

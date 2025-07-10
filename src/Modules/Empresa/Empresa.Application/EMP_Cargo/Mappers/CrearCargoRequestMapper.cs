@@ -1,4 +1,13 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  CrearCargoRequestMapper.cs
+ * Descripción:         Clase encargada de mapear una solicitud de creación de cargo (`CrearCargoRequest`) a los parámetros necesarios para la base de datos (`CrearCargoParameters`).
+ *                      Utiliza `ITimeProvider` para asignar la fecha de registro actual.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 using Shared.Time;
 using Empresa.Application.Cargo.Dtos;
 using Empresa.Domain.Cargo.Parameters;

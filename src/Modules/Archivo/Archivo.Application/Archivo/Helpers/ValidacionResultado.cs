@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*****
+ * Nombre del archivo:  ValidacionResultado.cs
+ * Descripción:         Clase genérica utilizada para almacenar el resultado de la validación de registros. 
+ *                      Contiene listas de registros válidos, registros a actualizar y errores encontrados durante el proceso de validación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

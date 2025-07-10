@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  EliminarDirectorRequest.cs
+ * Descripción:         Clase que representa una solicitud para eliminar un director en el sistema. 
+ *                      Incluye propiedades como `nDirectorId`, `nUsuarioModificacionId` y `dtFechaModificacion`, que permiten realizar un seguimiento de la eliminación del director.
+ *                      Implementa la interfaz `ITrackableRequest` para realizar un seguimiento de los cambios.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Director.Dtos
 {
