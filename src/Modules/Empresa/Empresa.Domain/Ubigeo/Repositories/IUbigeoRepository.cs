@@ -1,4 +1,14 @@
-﻿using Empresa.Domain.Ubigeo.Parameters;
+﻿/***********
+ * Nombre del archivo:  IUbigeoRepository.cs
+ * Descripción:         Interfaz del repositorio del módulo Ubigeo. Define los contratos para listar
+ *                      departamentos, provincias y distritos, utilizando parámetros específicos por nivel.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la interfaz IUbigeoRepository.
+ ***********/
+
+using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Results;
 
 namespace Empresa.Domain.Ubigeo.Repositories

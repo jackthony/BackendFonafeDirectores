@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  EmpresaSqlRepository.cs
+ * Descripción:         Implementación del repositorio del módulo Empresa utilizando Dapper y SQL Server.
+ *                      Proporciona métodos para registrar, actualizar, eliminar, listar y paginar empresas
+ *                      mediante procedimientos almacenados. Incluye un método genérico para ejecución de SPs.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con operaciones de mantenimiento y consulta.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Empresa.Parameters;

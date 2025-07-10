@@ -1,4 +1,16 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  DirectorSqlRepository.cs
+ * Descripción:         Implementación del repositorio del módulo Director utilizando Dapper y SQL Server.
+ *                      Incluye operaciones para registrar, actualizar, eliminar, listar y paginar directores,
+ *                      además de una consulta adicional para obtener el número de miembros de una empresa.
+ *                      Utiliza procedimientos almacenados y un método genérico para su ejecución.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con lógica adicional para consulta directa de miembros.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Director.Parameters;

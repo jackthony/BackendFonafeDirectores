@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  CargoSqlRepository.cs
+ * Descripción:         Implementación del repositorio del módulo Cargo utilizando Dapper y SQL Server.
+ *                      Proporciona métodos para registrar, actualizar, eliminar, listar y paginar cargos
+ *                      a través de procedimientos almacenados, incluyendo un método genérico para su ejecución.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con lógica de acceso a datos del módulo Cargo.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Cargo.Parameters;

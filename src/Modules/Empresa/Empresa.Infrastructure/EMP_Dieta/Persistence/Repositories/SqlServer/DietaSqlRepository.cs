@@ -1,4 +1,14 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  DietaSqlRepository.cs
+ * Descripción:         Implementación del repositorio del módulo Dieta utilizando Dapper y SQL Server.
+ *                      Contiene el método para obtener una dieta específica a través de un procedimiento almacenado.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con método de consulta de dieta.
+ ***********/
+
+using Dapper;
 using Empresa.Domain.Dieta.Parameters;
 using Empresa.Domain.Dieta.Repositories;
 using Empresa.Domain.Dieta.Results;

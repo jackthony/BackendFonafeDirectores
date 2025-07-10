@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Ubigeo.Results
+﻿/***********
+ * Nombre del archivo:  DepartamentoResult.cs
+ * Descripción:         DTO que representa los datos de un departamento, incluyendo su ID y nombre.
+ *                      Utilizado como resultado en operaciones de consulta del módulo Ubigeo.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del DTO DepartamentoResult.
+ ***********/
+
+namespace Empresa.Domain.Ubigeo.Results
 {
     public class DepartamentoResult
     {

@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Ubigeo.Results
+﻿/***********
+ * Nombre del archivo:  ProvinciaResult.cs
+ * Descripción:         DTO que representa los datos de una provincia, incluyendo su ID, nombre
+ *                      y el ID del departamento al que pertenece. Utilizado como resultado de consultas.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del DTO ProvinciaResult.
+ ***********/
+
+namespace Empresa.Domain.Ubigeo.Results
 {
     public class ProvinciaResult
     {

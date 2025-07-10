@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  MinisterioSqlRepository.cs
+ * Descripción:         Implementación del repositorio del módulo Ministerio usando Dapper y SQL Server.
+ *                      Incluye operaciones para registrar, actualizar, eliminar, listar y paginar ministerios
+ *                      mediante procedimientos almacenados, además de un método genérico para ejecución de SPs.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio y definición de operaciones de acceso a datos.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Ministerio.Parameters;

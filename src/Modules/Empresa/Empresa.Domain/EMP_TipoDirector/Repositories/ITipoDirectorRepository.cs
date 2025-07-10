@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  ITipoDirectorRepository.cs
+ * Descripción:         Interfaz del repositorio para el módulo TipoDirector. Define los contratos
+ *                      para operaciones CRUD, obtención por ID y paginación, utilizando parámetros y DTOs asociados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la interfaz ITipoDirectorRepository.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.TipoDirector.Parameters;
 using Empresa.Domain.TipoDirector.Results;
 

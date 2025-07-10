@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  ISectorRepository.cs
+ * Descripción:         Interfaz del repositorio para el manejo del módulo Sector. Define los contratos
+ *                      para realizar operaciones CRUD, obtener por ID y listar con paginación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la interfaz ISectorRepository.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.Sector.Parameters;
 using Empresa.Domain.Sector.Results;
 

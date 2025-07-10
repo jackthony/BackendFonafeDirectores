@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  EspecialidadSqlRepository.cs
+ * Descripción:         Implementación del repositorio del módulo Especialidad utilizando Dapper y SQL Server.
+ *                      Provee métodos para registrar, actualizar, eliminar, listar y paginar especialidades
+ *                      mediante procedimientos almacenados. Incluye un método genérico para ejecutar SPs.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con operaciones de acceso a datos para Especialidad.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Especialidad.Parameters;

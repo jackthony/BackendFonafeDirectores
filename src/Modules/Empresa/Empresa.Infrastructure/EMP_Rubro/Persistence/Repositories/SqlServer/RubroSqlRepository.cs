@@ -1,4 +1,15 @@
-﻿using Dapper;
+﻿/***********
+ * Nombre del archivo:  RubroSqlRepository.cs
+ * Descripción:         Implementación del repositorio de Rubro utilizando Dapper y SQL Server.
+ *                      Incluye operaciones CRUD, paginación y consultas mediante procedimientos almacenados.
+ *                      Se utiliza un método genérico para ejecutar los procedimientos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial del repositorio con lógica de acceso a datos para el módulo Rubro.
+ ***********/
+
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Empresa.Domain.Rubro.Parameters;
