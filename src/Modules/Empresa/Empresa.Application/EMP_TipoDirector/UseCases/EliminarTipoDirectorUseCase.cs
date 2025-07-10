@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  EliminarTipoDirectorUseCase.cs
+ * Descripción:         Caso de uso para eliminar un tipo de director. Mapea la solicitud a parámetros de dominio,
+ *                      ejecuta la operación en el repositorio y devuelve el resultado o un error si falla.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

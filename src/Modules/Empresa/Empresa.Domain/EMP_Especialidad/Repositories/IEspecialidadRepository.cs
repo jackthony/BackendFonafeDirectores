@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IEspecialidadRepository.cs
+ * Descripción:         Interfaz que define los métodos del repositorio para la entidad Especialidad,
+ *                      incluyendo operaciones CRUD y listados con o sin paginación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Interfaz creada para manejar persistencia de datos de especialidades.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.Especialidad.Parameters;
 using Empresa.Domain.Especialidad.Results;
 

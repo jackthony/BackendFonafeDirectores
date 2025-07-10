@@ -4,8 +4,8 @@
  *                      Provee métodos para registrar, actualizar, eliminar, listar y paginar especialidades
  *                      mediante procedimientos almacenados. Incluye un método genérico para ejecutar SPs.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del repositorio con operaciones de acceso a datos para Especialidad.
  ***********/
 

@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Director.Parameters
+﻿/***********
+ * Nombre del archivo:  ActualizarDirectorParameters.cs
+ * Descripción:         Clase que contiene los parámetros para actualizar la información de un director,
+ *                      incluyendo datos personales, contacto, cargo, fechas importantes, y datos de auditoría.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación de la clase para parámetros de actualización de director.
+ ***********/
+
+namespace Empresa.Domain.Director.Parameters
 {
     public class ActualizarDirectorParameters
     {

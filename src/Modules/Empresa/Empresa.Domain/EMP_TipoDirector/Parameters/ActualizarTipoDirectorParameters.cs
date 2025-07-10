@@ -3,8 +3,8 @@
  * Descripción:         Clase que encapsula los parámetros necesarios para actualizar un tipo de director.
  *                      Incluye el ID, el nuevo nombre y los datos de trazabilidad de la modificación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de los parámetros para actualización de tipo de director.
  ***********/
 

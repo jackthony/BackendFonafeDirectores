@@ -5,8 +5,8 @@
  *                      y restablecimiento de contraseña. Usa configuración externa definida en EmailSettings.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación de lógica de envío de correos para distintos propósitos del sistema.
  ***********/
 

@@ -3,8 +3,8 @@
  * Descripción:         Implementación del servicio `IValidarReferenciaService` encargado de validar referencias de directores y empresas. 
  *                      Utiliza listas de referencias cargadas desde el repositorio para validar los datos y asignar los parámetros correspondientes.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Archivo.Application.Archivo.Services;

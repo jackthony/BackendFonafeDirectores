@@ -5,8 +5,8 @@
 *                     como el usuario que la ejecutó, el módulo y entidad afectados, el tipo de movimiento,
 *                     la sesión, y los datos antes y después del cambio, junto con cualquier detalle adicional.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para el registro de logs de trazabilidad.
 ***********/
 

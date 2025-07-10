@@ -4,8 +4,8 @@
 *                     Orquesta la lógica para recuperar los datos de un rol específico
 *                     desde el repositorio y manejar posibles escenarios de no encontrado.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso.
 ***********/
 

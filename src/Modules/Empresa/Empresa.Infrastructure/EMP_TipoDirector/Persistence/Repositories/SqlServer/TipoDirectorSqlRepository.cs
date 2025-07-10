@@ -4,8 +4,8 @@
  *                      Contiene operaciones CRUD y consultas paginadas a través de procedimientos almacenados.
  *                      Incluye un método genérico para ejecución de procedimientos.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del repositorio con métodos de mantenimiento y consulta.
  ***********/
 

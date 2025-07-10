@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ActualizarTipoDirectorUseCase.cs
+ * Descripción:         Caso de uso para actualizar un tipo de director. Mapea la solicitud a parámetros de dominio,
+ *                      ejecuta la operación en el repositorio y retorna el resultado o un error en caso de falla.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

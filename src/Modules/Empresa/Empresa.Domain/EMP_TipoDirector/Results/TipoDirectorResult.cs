@@ -3,8 +3,8 @@
  * Descripción:         DTO que representa los datos de un tipo de director, incluyendo su identificador,
  *                      nombre, estado, fechas y usuarios de registro y modificación. Utilizado como resultado en consultas.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del DTO TipoDirectorResult.
  ***********/
 

@@ -4,8 +4,8 @@
  *                      Incluye integración con trazabilidad del sistema mediante la interfaz ISistemaRequest.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Inclusión de campos para trazabilidad y validación de captcha.
  ***********/
 

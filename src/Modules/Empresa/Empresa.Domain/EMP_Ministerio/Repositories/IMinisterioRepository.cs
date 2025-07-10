@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IMinisterioRepository.cs
+ * Descripción:         Interfaz que define los contratos para las operaciones de acceso a datos de la entidad Ministerio,
+ *                      incluyendo métodos para registrar, actualizar, eliminar, listar, paginar y obtener por ID.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Definición inicial de interfaz para el repositorio de Ministerio.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.Ministerio.Parameters;
 using Empresa.Domain.Ministerio.Results;
 

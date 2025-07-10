@@ -1,4 +1,15 @@
-﻿namespace Empresa.Domain.Director.Parameters
+﻿/***********
+ * Nombre del archivo:  CrearDirectorParameters.cs
+ * Descripción:         Clase que contiene los parámetros necesarios para crear un nuevo director,
+ *                      incluyendo datos personales, contacto, cargo, fechas importantes y
+ *                      datos de auditoría como usuario y fecha de registro.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación de la clase para parámetros de creación de director.
+ ***********/
+
+namespace Empresa.Domain.Director.Parameters
 {
     public class CrearDirectorParameters
     {

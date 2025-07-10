@@ -4,8 +4,8 @@
  *                      en el contenedor de dependencias mediante extensión de IServiceCollection.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Registro del presentador ModuloConAccionesResponsePresenter.
  ***********/
 

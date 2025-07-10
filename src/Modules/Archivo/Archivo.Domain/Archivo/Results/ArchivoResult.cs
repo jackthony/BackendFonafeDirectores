@@ -4,8 +4,8 @@
  *                      La clase `ArchivoResult` contiene las propiedades principales de un archivo, como `ElementoId`, `Nombre`, `FechaRegistro`, entre otras.
  *                      Se definen clases base y derivadas como `ElementoBase`, `Carpeta` y `Documento` para modelar distintos tipos de elementos en el sistema.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de las clases.
  *****/
 namespace Archivo.Domain.Archivo.Results

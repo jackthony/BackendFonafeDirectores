@@ -4,8 +4,8 @@
  *                      HTTP apropiadas (`IActionResult`) usando `ProblemDetailsOur`. Facilita el manejo
  *                      centralizado de errores en los controladores de la API.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  ***********/
 

@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     EliminarEspecialidadUseCase
+ * Descripción:         Caso de uso para eliminar una especialidad. Recibe una solicitud,
+ *                      mapea a los parámetros del dominio y llama al repositorio para
+ *                      realizar la eliminación en la base de datos. Devuelve el resultado
+ *                      de la operación o un error en caso de fallo.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para gestionar la eliminación de especialidades.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -7,8 +7,8 @@
 *                     lo que implica que los parámetros de paginación se manejarán de otra forma o que este mapper
 *                     se usará para una solicitud de paginación básica sin filtros adicionales.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapeadora.
 ***********/
 

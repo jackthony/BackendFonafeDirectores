@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  CrearTipoDirectorUseCase.cs
+ * Descripción:         Caso de uso para crear un nuevo tipo de director. Convierte la solicitud en parámetros
+ *                      de dominio y utiliza el repositorio para ejecutar la operación de inserción.
+ *                      Devuelve el resultado o un error si ocurre algún problema en la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

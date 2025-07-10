@@ -3,8 +3,8 @@
  * Descripción:         Caso de uso para listar directores paginados. Mapea el request (`ListarDirectorPaginadoRequest`) a los parámetros correspondientes 
  *                      y obtiene los resultados paginados del repositorio. Si se especifica un `nIdEmpresa`, añade directores vacantes si el número de miembros es menor que el máximo permitido.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

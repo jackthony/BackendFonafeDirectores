@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que configura las inyecciones de dependencias del módulo Sector,
  *                      registrando el repositorio que implementa la interfaz utilizando SQL Server.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase y configuración de la inyección de dependencias.
  ***********/
 

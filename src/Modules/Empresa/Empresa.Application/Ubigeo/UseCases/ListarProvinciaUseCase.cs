@@ -1,4 +1,14 @@
-﻿using Empresa.Application.Ubigeo.Dtos;
+﻿/*****
+ * Nombre del archivo:  ListarProvinciaUseCase.cs
+ * Descripción:         Caso de uso para listar provincias. Recibe una solicitud, la mapea a parámetros
+ *                      de dominio y consulta el repositorio para obtener la lista de resultados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using Empresa.Application.Ubigeo.Dtos;
 using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Repositories;
 using Empresa.Domain.Ubigeo.Results;

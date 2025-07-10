@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Ministerio.Results
+﻿/***********
+ * Nombre del archivo:  MinisterioResult.cs
+ * Descripción:         Clase DTO que representa el resultado de una consulta de ministerio, incluyendo
+ *                      su identificador, nombre, estado, y datos de auditoría (registro y modificación).
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación de clase de resultado para entidad Ministerio.
+ ***********/
+
+namespace Empresa.Domain.Ministerio.Results
 {
     public class MinisterioResult
     {

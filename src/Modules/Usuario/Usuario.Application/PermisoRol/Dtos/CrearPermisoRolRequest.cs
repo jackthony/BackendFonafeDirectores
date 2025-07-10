@@ -5,8 +5,8 @@
 *                     específico que asocia un rol, un módulo y una acción. Incluye el ID del usuario
 *                     que realiza el registro y la fecha de creación para propósitos de auditoría.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para la creación de permisos de rol.
 ***********/
 

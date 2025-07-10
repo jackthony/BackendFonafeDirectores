@@ -4,8 +4,8 @@
  *                      Proporciona endpoints para listar dietas según parámetros y obtener listas de constantes
  *                      filtradas por código (como géneros, tipos de documento, estados de usuario, cargos, etc.).
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación inicial con datos fijos simulados para dietas y constantes.
  ***********/
 

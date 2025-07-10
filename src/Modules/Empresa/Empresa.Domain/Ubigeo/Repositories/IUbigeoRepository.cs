@@ -3,8 +3,8 @@
  * Descripción:         Interfaz del repositorio del módulo Ubigeo. Define los contratos para listar
  *                      departamentos, provincias y distritos, utilizando parámetros específicos por nivel.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la interfaz IUbigeoRepository.
  ***********/
 

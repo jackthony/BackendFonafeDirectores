@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre de clase:     EliminarEspecialidadRequest
+ * Descripción:         DTO para la solicitud de eliminación de una especialidad.
+ *                      Implementa ITrackableRequest para permitir el seguimiento de la acción.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para manejar la eliminación de especialidades con trazabilidad.
+ *****/
+
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Especialidad.Dtos
 {

@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  EliminarSectorUseCase.cs
+ * Descripción:         Caso de uso para eliminar un sector. Realiza el mapeo de la solicitud
+ *                      a parámetros para la operación de eliminación en el repositorio.
+ *                      Retorna un resultado de procedimiento almacenado o un error en caso de fallo.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

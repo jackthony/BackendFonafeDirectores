@@ -5,8 +5,8 @@
  *                      incluyendo la fecha en que se realizó dicho cambio.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación inicial para capturar y mostrar cambios históricos en el estado del usuario.
  ***********/
 

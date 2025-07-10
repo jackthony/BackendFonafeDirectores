@@ -1,4 +1,15 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre de clase:     DependencyInjection
+ * Descripción:         Clase estática encargada de registrar las dependencias del módulo Ministerio
+ *                      en el contenedor de inyección de dependencias de la capa de aplicación.
+ *                      Incluye la configuración de UseCases, Mappers y Validators.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para centralizar el registro de servicios del módulo Ministerio.
+ *****/
+
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

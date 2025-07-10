@@ -5,8 +5,8 @@
  *                      además de una consulta adicional para obtener el número de miembros de una empresa.
  *                      Utiliza procedimientos almacenados y un método genérico para su ejecución.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del repositorio con lógica adicional para consulta directa de miembros.
  ***********/
 

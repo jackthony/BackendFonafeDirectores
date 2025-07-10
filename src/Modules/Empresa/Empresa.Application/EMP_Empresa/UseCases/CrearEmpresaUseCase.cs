@@ -3,8 +3,8 @@
  * Descripción:         Lógica de negocio para crear una nueva empresa. Recibe un request con los datos de la empresa, lo mapea a parámetros 
  *                      y luego lo pasa al repositorio para realizar la creación en la base de datos.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación de la lógica para crear una nueva empresa, con manejo de errores.
  *****/
 using OneOf;

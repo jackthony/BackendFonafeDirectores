@@ -4,8 +4,8 @@
  *                      Incluye propiedades como `nPeso`, `sTipoMime`, `sUrlStorage`, `nElementoId`, y `sNombre`, entre otras, 
  *                      que definen un archivo o carpeta y sus atributos asociados.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 namespace Archivo.Presentation.Archivo.Responses

@@ -4,8 +4,8 @@
  *                      Implementa la interfaz `IUseCase`, mapeando la solicitud de listado paginado (`ListarArchivoPaginadoRequest`) a los parámetros correspondientes (`ListarArchivoPaginadoParameters`),
  *                      y utilizando el repositorio para obtener los resultados de la base de datos con paginación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

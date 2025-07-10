@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que configura la inyección de dependencias para los componentes de la infraestructura de archivos. 
  *                      Registra los repositorios y servicios necesarios para la gestión de archivos, como el almacenamiento, la exportación, la importación y la validación de referencias.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Microsoft.Extensions.DependencyInjection;

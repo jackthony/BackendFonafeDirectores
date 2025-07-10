@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que configura la inyección de dependencias para la capa de aplicación de archivos. 
  *                      Registra los casos de uso, mapeadores y validadores necesarios para la gestión de archivos dentro de la aplicación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using FluentValidation;

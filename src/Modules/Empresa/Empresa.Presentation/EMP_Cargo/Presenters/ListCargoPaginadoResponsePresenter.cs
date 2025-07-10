@@ -7,8 +7,8 @@
 *                     a cada elemento dentro de la paginación, y construir la estructura de respuesta final
 *                     que incluye los datos paginados y la información de la paginación.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase presentadora para listar cargos paginados.
 ***********/
 

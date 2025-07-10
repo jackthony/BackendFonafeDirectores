@@ -1,4 +1,15 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre de clase:     CrearMinisterioRequest
+ * Descripción:         DTO utilizado para enviar los datos necesarios para registrar un nuevo ministerio.
+ *                      Implementa ITrackableRequest para permitir la trazabilidad del movimiento en auditorías,
+ *                      especificando información del módulo, tabla y tipo de operación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para representar la solicitud de creación de ministerios con trazabilidad.
+ *****/
+
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Ministerio.Dtos
 {

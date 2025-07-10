@@ -5,8 +5,8 @@
  *                      así como logs diferenciados para errores y ejecuciones exitosas.
  *                      Facilita el seguimiento y diagnóstico de las operaciones en la capa de aplicación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación inicial del decorador para logging en casos de uso.
  ***********/
 

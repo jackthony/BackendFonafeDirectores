@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ListarEspecialidadPaginadaUseCase
+ * Descripción:         Caso de uso para listar especialidades con paginación, aplicando
+ *                      los parámetros paginados recibidos para obtener resultados segmentados.
+ *                      Mapea la solicitud a parámetros de dominio y llama al repositorio para obtener
+ *                      un resultado paginado.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para gestionar la obtención paginada de especialidades.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  CrearSectorUseCase.cs
+ * Descripción:         Caso de uso para crear un nuevo sector. Mapea la solicitud a parámetros
+ *                      del dominio y llama al repositorio para insertar el nuevo registro.
+ *                      Retorna el resultado del procedimiento almacenado o un error en caso de fallo.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -3,8 +3,8 @@
  * Descripción:         Lógica de negocio para eliminar una empresa. Recibe un request con el ID de la empresa a eliminar, lo mapea a parámetros 
  *                      y luego lo pasa al repositorio para realizar la eliminación en la base de datos.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación de la lógica para eliminar una empresa, con manejo de errores.
  *****/
 using OneOf;

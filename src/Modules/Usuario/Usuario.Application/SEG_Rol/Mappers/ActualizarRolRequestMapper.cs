@@ -6,8 +6,8 @@
 *                     utilizables por la capa de dominio, incluyendo el ID del rol, su nuevo nombre,
 *                     la fecha de modificación y el ID del usuario que realiza la modificación.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapper para solicitudes de actualización de rol.
 ***********/
 

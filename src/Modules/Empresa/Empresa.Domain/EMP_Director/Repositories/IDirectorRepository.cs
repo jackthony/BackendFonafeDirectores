@@ -1,4 +1,15 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IDirectorRepository.cs
+ * Descripción:         Interfaz que define los métodos para el acceso y manipulación
+ *                      de datos de directores asociados a empresas, incluyendo operaciones CRUD,
+ *                      listados con paginación y consulta de número de miembros.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación de la interfaz para el repositorio de directores.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.Director.Parameters;
 using Empresa.Domain.Director.Results;
 

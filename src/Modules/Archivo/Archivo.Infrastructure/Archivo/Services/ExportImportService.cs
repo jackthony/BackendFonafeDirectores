@@ -4,8 +4,8 @@
  *                      Incluye la generación de archivos en formato Excel y PDF con la información de empresas y directores. 
  *                      También incluye la lógica para importar datos desde un archivo Excel y convertirlos en objetos `EmpresaDocResult` y `DirectorDocResult`.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Archivo.Application.Archivo.Dtos;

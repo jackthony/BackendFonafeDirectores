@@ -4,8 +4,8 @@
  *                      Incluye datos como nombre, estado, fechas de registro y modificación, así como el índice de fila.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del DTO para respuestas del módulo Sector.
  ***********/
 

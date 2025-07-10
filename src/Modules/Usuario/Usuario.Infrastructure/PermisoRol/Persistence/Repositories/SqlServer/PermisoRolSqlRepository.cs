@@ -4,8 +4,8 @@
  *                      Incluye operaciones CRUD y consultas paginadas usando procedimientos almacenados y Dapper.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación completa del repositorio SQL para PermisoRol.
  ***********/
 

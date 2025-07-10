@@ -4,8 +4,8 @@
  *                      Utiliza el repositorio `ICargoRepository` y el mapeador `IMapper` para convertir la solicitud `EliminarCargoRequest` en parámetros adecuados (`EliminarCargoParameters`).
  *                      Ejecuta la operación de eliminación en el repositorio y maneja los errores de la base de datos si la eliminación falla.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre de clase:     ActualizarRubroRequest
+ * Descripción:         DTO utilizado para enviar los datos necesarios para actualizar un rubro existente.
+ *                      Implementa ITrackableRequest para habilitar la trazabilidad de la modificación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para representar la solicitud de actualización de rubros con trazabilidad.
+ *****/
+
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Rubro.Dtos
 {

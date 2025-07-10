@@ -3,8 +3,8 @@
  * Descripción:         Clase que configura la inyección de dependencias para los componentes relacionados con la gestión de dietas en la aplicación.
  *                      Registra los casos de uso (`UseCases`), mapeadores (`Mappers`) y validadores (`Validators`) necesarios para la obtención de dietas.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Microsoft.Extensions.DependencyInjection;

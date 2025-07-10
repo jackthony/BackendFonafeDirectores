@@ -4,8 +4,8 @@
  *                      geográfica del Perú (departamentos, provincias y distritos). Utiliza casos de uso
  *                      específicos y presentadores para mapear la lógica de negocio a respuestas estándar.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del controlador con endpoints de listado por nivel geográfico.
  ***********/
 

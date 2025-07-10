@@ -3,8 +3,8 @@
  * Descripción:         Clase que valida las solicitudes de eliminación de cargo (`EliminarCargoRequest`) utilizando FluentValidation. 
  *                      Incluye reglas de validación para el `nIdCargo` (debe ser mayor que cero) y `nUsuarioModificacion` (el ID del usuario debe ser válido y mayor que cero).
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using FluentValidation;

@@ -8,8 +8,8 @@
 *                     Finalmente, construye una respuesta de login con el token de acceso, los módulos
 *                     y permisos del usuario, y el token de refresco.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para el proceso de login.
 ***********/
 

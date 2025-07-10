@@ -4,8 +4,8 @@
  *                      Utiliza el repositorio `ICargoRepository` y el mapeador `IMapper` para convertir la solicitud `ActualizarCargoRequest` en parámetros adecuados (`ActualizarCargoParameters`).
  *                      Ejecuta la operación de actualización en el repositorio y maneja los errores de la base de datos si la actualización falla.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ObtenerSectorPorIdUseCase.cs
+ * Descripción:         Caso de uso para obtener un sector por su ID. Consulta el repositorio
+ *                      y retorna el resultado o un error si no se encuentra el sector.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Sector.Repositories;

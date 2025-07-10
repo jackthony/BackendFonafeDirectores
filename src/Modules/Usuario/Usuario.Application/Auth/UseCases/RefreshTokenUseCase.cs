@@ -9,8 +9,8 @@
 *                     respuesta de login con los nuevos tokens y la información del usuario, incluyendo
 *                     sus módulos y permisos.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para el refresco de tokens.
 ***********/
 

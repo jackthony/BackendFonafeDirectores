@@ -7,8 +7,8 @@
 *                     y la actualización de la contraseña del usuario en la base de datos.
 *                     Además, se encarga de limpiar el contador de intentos fallidos del usuario cuya contraseña fue restablecida.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para que un administrador restablezca contraseñas.
 ***********/
 

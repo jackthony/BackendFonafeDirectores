@@ -2,8 +2,8 @@
  * Nombre del archivo:  ListarEmpresaPaginadoRequestMapper.cs
  * Descripción:         Mapea un objeto de tipo ListarEmpresaPaginadoRequest a ListarEmpresaPaginadoParameters.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación del mapeo entre la solicitud de paginación de empresas y sus parámetros correspondientes.
  *****/
 using Shared.Kernel.Interfaces;

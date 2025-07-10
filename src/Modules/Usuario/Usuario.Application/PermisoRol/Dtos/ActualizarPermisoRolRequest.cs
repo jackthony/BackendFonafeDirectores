@@ -5,8 +5,8 @@
 *                     asociado a un **rol**, **módulo** y **acción** determinados. Incluye el identificador del
 *                     **usuario que realiza la modificación** y la **fecha de la misma** para propósitos de auditoría.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para la actualización de permisos de rol.
 ***********/
 

@@ -1,4 +1,15 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  EliminarTipoDirectorRequest.cs
+ * Descripción:         DTO que representa la solicitud para eliminar un tipo de director. 
+ *                      Implementa la interfaz ITrackableRequest para habilitar el seguimiento
+ *                      de auditoría del movimiento realizado sobre la tabla EMP_TipoDirector.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.TipoDirector.Dtos
 {

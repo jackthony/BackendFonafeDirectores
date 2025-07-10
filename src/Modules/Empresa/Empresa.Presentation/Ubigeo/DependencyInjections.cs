@@ -4,8 +4,8 @@
  *                      Asocia cada tipo de resultado (Departamento, Provincia, Distrito) con su respectivo presentador.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Registro de presentadores de Ubigeo para departamentos, provincias y distritos.
  ***********/
 

@@ -4,8 +4,8 @@
 *                     del módulo de roles. Registra los casos de uso (UseCases), mappers y validadores
 *                     relacionados con las operaciones de gestión de roles y sus permisos.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias
 *                     de la capa de aplicación del módulo de roles, incluyendo la gestión de permisos.
 ***********/

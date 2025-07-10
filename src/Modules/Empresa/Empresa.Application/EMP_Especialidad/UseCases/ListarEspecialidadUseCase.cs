@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ListarEspecialidadUseCase
+ * Descripción:         Caso de uso para listar especialidades según los parámetros proporcionados.
+ *                      Mapea la solicitud al parámetro del dominio y obtiene la lista desde el repositorio.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase implementada para la obtención de listas de especialidades.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

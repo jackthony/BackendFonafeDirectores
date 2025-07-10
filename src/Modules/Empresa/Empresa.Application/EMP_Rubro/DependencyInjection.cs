@@ -1,4 +1,15 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Clase estática de extensión que registra los servicios relacionados
+ *                      al módulo Rubro en el contenedor de dependencias de la aplicación.
+ *                      Incluye la configuración de casos de uso, mapeadores y validadores.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Registro inicial de dependencias para el módulo Rubro.
+ *****/
+
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

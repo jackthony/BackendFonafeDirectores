@@ -3,8 +3,8 @@
  * Descripción:         Clase genérica base para respuestas estándar del sistema, incluye información
  *                      sobre el estado de la operación, un mensaje descriptivo y datos del tipo especificado.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  ***********/
 

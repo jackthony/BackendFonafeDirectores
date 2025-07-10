@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que contiene métodos para mapear objetos de `ArchivoResult` a respuestas estructuradas como `ElementoDetalleResponse` y `ElementoNodoResponse`. 
  *                      Incluye métodos para convertir un archivo en un nodo con detalles asociados y estructurar los archivos en una representación jerárquica.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Archivo.Domain.Archivo.Results;

@@ -5,8 +5,8 @@
 *                     contenido en él, para luego invocar el **repositorio de autenticación**
 *                     y confirmar la cuenta del usuario en la base de datos.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para la confirmación de cuentas.
 ***********/
 

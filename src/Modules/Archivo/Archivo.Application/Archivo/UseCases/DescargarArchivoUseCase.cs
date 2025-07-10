@@ -3,8 +3,8 @@
  * Descripción:         Caso de uso encargado de gestionar la descarga de archivos. 
  *                      Implementa la interfaz `IUseCase`, manejando la lógica para verificar la validez de la URL y descargar el archivo utilizando el servicio de almacenamiento.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

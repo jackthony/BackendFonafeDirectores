@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que contiene métodos para mapear objetos de `ArchivoResult` a `ArchivoNode` y estructurarlos en árboles jerárquicos. 
  *                      Incluye métodos para convertir un archivo en un nodo (ya sea carpeta o documento) y para convertir listas de archivos en una representación jerárquica.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Archivo.Domain.Archivo.Results;

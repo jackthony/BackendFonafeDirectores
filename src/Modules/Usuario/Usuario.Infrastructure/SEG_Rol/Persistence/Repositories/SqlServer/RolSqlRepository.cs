@@ -5,8 +5,8 @@
  *                      y consultas paginadas a través de stored procedures.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación completa de métodos: Add, Update, Delete, List, ListByPagination,
  *                      GetById y AddPermisosRoles.
  ***********/

@@ -4,8 +4,8 @@
  *                      Hereda de `ArchivoNode` y contiene una lista de elementos hijos (`ltHijos`), los cuales son nodos de archivo. 
  *                      La propiedad `bEsDocumento` se establece en `false` para indicar que este nodo es una carpeta, y `tipo` se establece en `0`.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 namespace Archivo.Presentation.Archivo.Responses

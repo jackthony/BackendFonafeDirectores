@@ -3,8 +3,8 @@
  * Descripción:         Interfaz del repositorio para el módulo TipoDirector. Define los contratos
  *                      para operaciones CRUD, obtención por ID y paginación, utilizando parámetros y DTOs asociados.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la interfaz ITipoDirectorRepository.
  ***********/
 

@@ -1,4 +1,13 @@
-﻿namespace Empresa.Domain.Cargo.Results
+﻿/***********
+ * Nombre del archivo:  CargoResult.cs
+ * Descripción:         Clase que representa el resultado con los datos de un cargo.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación de la clase CargoResult con sus propiedades.
+ ***********/
+
+namespace Empresa.Domain.Cargo.Results
 {
     public class CargoResult
     {

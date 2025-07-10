@@ -3,8 +3,8 @@
  * Descripción:         Implementación del repositorio de Ubigeo utilizando Dapper y SQL Server.
  *                      Expone métodos para listar departamentos, provincias y distritos mediante procedimientos almacenados.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial del repositorio con métodos de consulta.
  ***********/
 

@@ -6,8 +6,8 @@
 *                     Si el token es válido y el usuario está activo, construye una respuesta de login
 *                     con el token, los módulos y permisos asociados, y los datos del usuario.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para la verificación de tokens.
 ***********/
 

@@ -1,4 +1,15 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Configuración central de la inyección de dependencias para el módulo Sector.
+ *                      Registra los casos de uso, mapeadores y validadores correspondientes en el
+ *                      contenedor de servicios de la aplicación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

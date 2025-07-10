@@ -3,8 +3,8 @@
  * Descripción:         Controlador REST para la gestión de permisos por rol en el sistema.
  *                      Permite crear, actualizar, eliminar y consultar los permisos asignados a cada rol.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación completa de endpoints CRUD para PermisoRol.
  ***********/
 

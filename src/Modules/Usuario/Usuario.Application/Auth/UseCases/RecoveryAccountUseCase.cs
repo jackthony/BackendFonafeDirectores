@@ -7,8 +7,8 @@
 *                     para enviar un aviso, incluyendo el nombre del usuario y su dirección de correo electrónico.
 *                     Finaliza siempre con una respuesta de éxito, indicando que el mensaje fue enviado.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para la recuperación de cuentas.
 ***********/
 

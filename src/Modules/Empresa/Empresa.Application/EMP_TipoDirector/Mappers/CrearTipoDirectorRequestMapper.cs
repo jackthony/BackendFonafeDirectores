@@ -1,4 +1,15 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  CrearTipoDirectorRequestMapper.cs
+ * Descripción:         Mapeador que transforma un objeto CrearTipoDirectorRequest en 
+ *                      CrearTipoDirectorParameters, incluyendo la fecha actual de Perú
+ *                      mediante el proveedor de tiempo inyectado.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using Shared.Kernel.Interfaces;
 using Shared.Time;
 using Empresa.Application.TipoDirector.Dtos;
 using Empresa.Domain.TipoDirector.Parameters;

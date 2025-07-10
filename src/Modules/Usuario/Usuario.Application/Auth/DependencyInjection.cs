@@ -6,8 +6,8 @@
 *                     Además, configura los **mapeadores (Mappers)** necesarios para transformar los DTOs de solicitud
 *                     en parámetros de dominio.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase para la configuración de inyección de dependencias del módulo de autenticación.
 ***********/
 

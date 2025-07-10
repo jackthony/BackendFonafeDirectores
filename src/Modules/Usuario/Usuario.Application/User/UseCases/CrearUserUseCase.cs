@@ -5,8 +5,8 @@
 *                     la adición del usuario a la base de datos, y el envío de un correo electrónico
 *                     de confirmación de cuenta con un token de verificación.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para crear un usuario,
 *                     incluyendo el manejo de contraseña, persistencia y envío de correo de confirmación.
 ***********/
@@ -60,11 +60,17 @@ namespace Usuario.Application.User.UseCases
 
             var usuario = userResult.Data;
 
-            var resetToken = _tokenService.GenerateConfirmationToken(usuario.UsuarioId);
+            try
+            {
+                var resetToken = _tokenService.GenerateConfirmationToken(usuario.UsuarioId);
 
-            var resetLink = $"https://fonafe-directores.com/confirm-account?token={resetToken}";
-            
-            await _emailService.SendConfirmationEmailAsync(request.sCorreoElectronico, resetLink);
+                var resetLink = $"https://fonafe-directores.com/confirm-account?token={resetToken}";
+
+                await _emailService.SendConfirmationEmailAsync(request.sCorreoElectronico, resetLink);
+            }
+            catch
+            {
+            }
             
             return result;
         }

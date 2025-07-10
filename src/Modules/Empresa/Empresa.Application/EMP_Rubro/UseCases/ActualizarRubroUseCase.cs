@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ActualizarRubroUseCase
+ * Descripción:         Caso de uso encargado de actualizar un rubro existente en el sistema.
+ *                      Mapea el DTO recibido a los parámetros de dominio y ejecuta la operación de actualización.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para manejar la lógica de actualización de rubros.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

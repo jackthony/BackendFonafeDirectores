@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarSectorPaginadaUseCase.cs
+ * Descripción:         Caso de uso para listar sectores con paginación y filtros opcionales.
+ *                      Realiza el mapeo de la solicitud paginada a parámetros del dominio y consulta
+ *                      el repositorio para obtener resultados paginados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

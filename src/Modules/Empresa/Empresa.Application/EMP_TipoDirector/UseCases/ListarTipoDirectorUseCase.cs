@@ -1,7 +1,16 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarTipoDirectorUseCase.cs
+ * Descripción:         Caso de uso para listar tipos de director. Convierte la solicitud en parámetros
+ *                      de dominio y consulta el repositorio para obtener la lista de resultados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
-using Shared.Kernel.Responses;
 using Empresa.Application.TipoDirector.Dtos;
 using Empresa.Domain.TipoDirector.Parameters;
 using Empresa.Domain.TipoDirector.Repositories;

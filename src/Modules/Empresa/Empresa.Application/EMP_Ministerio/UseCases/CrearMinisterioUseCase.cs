@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     CrearMinisterioUseCase
+ * Descripción:         Caso de uso encargado de registrar un nuevo ministerio.
+ *                      Convierte el DTO CrearMinisterioRequest en parámetros de dominio mediante un mapper,
+ *                      y ejecuta la inserción a través del repositorio correspondiente.
+ *                      Retorna un resultado base o un error en caso de fallo en la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para implementar la lógica de creación de ministerios.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

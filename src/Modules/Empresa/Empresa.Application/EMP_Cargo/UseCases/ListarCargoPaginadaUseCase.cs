@@ -4,8 +4,8 @@
  *                      Utiliza el repositorio `ICargoRepository` y el mapeador `IMapper` para convertir la solicitud `ListarCargoPaginadoRequest` en los parámetros adecuados (`ListarCargoPaginadoParameters`).
  *                      Ejecuta la operación de listado paginado en el repositorio y devuelve los resultados de la consulta.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

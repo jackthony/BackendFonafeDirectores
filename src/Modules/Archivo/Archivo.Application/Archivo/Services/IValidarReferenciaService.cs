@@ -3,8 +3,8 @@
  * Descripción:         Interfaz que define los métodos para validar referencias de empresas y directores. 
  *                      Incluye métodos para cargar referencias y empresas, y para validar empresas y directores con los resultados de validación correspondientes.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la interfaz.
  *****/
 using Archivo.Domain.Archivo.Results;

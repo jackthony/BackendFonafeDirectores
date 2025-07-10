@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ListarMinisterioUseCase
+ * Descripción:         Caso de uso encargado de listar ministerios según los parámetros definidos
+ *                      en el DTO ListarMinisterioRequest. Utiliza un mapper para transformar el DTO
+ *                      en parámetros de búsqueda y consulta el repositorio correspondiente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para implementar la lógica de listado simple de ministerios.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

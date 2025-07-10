@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IRubroRepository.cs
+ * Descripción:         Interfaz que define los contratos para el repositorio de rubros, incluyendo
+ *                      operaciones CRUD, listado simple y listado paginado.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Definición inicial de la interfaz para el repositorio de rubros.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.Rubro.Parameters;
 using Empresa.Domain.Rubro.Results;
 

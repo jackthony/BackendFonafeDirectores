@@ -5,8 +5,8 @@
  *                      así como para listar módulos junto con sus acciones asociadas por rol.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial con todos los métodos CRUD y consulta específica para módulos con acciones.
  ***********/
 

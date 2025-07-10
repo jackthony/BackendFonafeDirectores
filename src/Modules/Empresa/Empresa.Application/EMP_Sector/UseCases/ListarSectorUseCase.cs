@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarSectorUseCase.cs
+ * Descripción:         Caso de uso para listar sectores según criterios especificados en la solicitud.
+ *                      Realiza el mapeo de la solicitud a parámetros del dominio y consulta el repositorio
+ *                      para obtener la lista de sectores.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

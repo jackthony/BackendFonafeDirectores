@@ -4,8 +4,8 @@
  *                      Implementa endpoints para crear, actualizar, eliminar, listar (con y sin paginación),
  *                      importar y exportar archivos, así como descargar archivos desde una URL.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación inicial de funcionalidades CRUD y gestión avanzada de archivos.
  ***********/
 

@@ -7,8 +7,8 @@
 *                     la fecha de expiración (7 días después de la creación), y el estado de revocación.
 *                     También inicializa la dirección IP de registro como nula.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapeadora para solicitudes de creación de Refresh Tokens.
 ***********/
 

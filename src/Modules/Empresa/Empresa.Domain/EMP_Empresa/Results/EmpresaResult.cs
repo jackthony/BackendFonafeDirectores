@@ -1,4 +1,15 @@
-﻿namespace Empresa.Domain.Empresa.Results
+﻿/***********
+ * Nombre del archivo:  EmpresaResult.cs
+ * Descripción:         Clase que representa el resultado de una entidad Empresa al ser consultada.
+ *                      Incluye información fiscal, ubicación, datos económicos y de auditoría,
+ *                      así como descripciones complementarias de rubro, ministerio y provincia.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para retornar información estructurada de empresas desde la base de datos.
+ ***********/
+
+namespace Empresa.Domain.Empresa.Results
 {
     public class EmpresaResult
     {

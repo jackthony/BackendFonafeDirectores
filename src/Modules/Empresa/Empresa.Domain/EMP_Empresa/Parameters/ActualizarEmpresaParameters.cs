@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Empresa.Parameters
+﻿/***********
+ * Nombre del archivo:  ActualizarEmpresaParameters.cs
+ * Descripción:         Clase que define los parámetros necesarios para actualizar la información de una empresa existente.
+ *                      Contiene información de ubicación, datos económicos y trazabilidad.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para soportar la operación de actualización de empresas.
+ ***********/
+
+namespace Empresa.Domain.Empresa.Parameters
 {
     public class ActualizarEmpresaParameters
     {

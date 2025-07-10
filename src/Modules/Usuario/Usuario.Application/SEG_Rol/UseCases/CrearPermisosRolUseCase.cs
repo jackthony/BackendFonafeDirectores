@@ -5,8 +5,8 @@
 *                     transformando la solicitud a parámetros de dominio y utilizando el repositorio
 *                     para persistir los cambios, manejando el resultado de la operación.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para crear permisos de rol.
 ***********/
 

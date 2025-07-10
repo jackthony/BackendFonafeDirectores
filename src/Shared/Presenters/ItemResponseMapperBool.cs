@@ -3,8 +3,8 @@
  * Descripción:         Presentador que transforma un resultado base (`SpResultBase`) en una respuesta
  *                      estándar con un item de tipo booleano (`ItemResponse<bool>`), evaluando si el dato es mayor a cero.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  ***********/
 

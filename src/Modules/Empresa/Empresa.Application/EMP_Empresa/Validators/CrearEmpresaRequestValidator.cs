@@ -4,8 +4,8 @@
  *              la creación de una empresa. Está implementado utilizando FluentValidation, y se asegura de que los valores 
  *              sean válidos antes de proceder con la operación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación de las reglas de validación para los datos de la empresa.
  *****/
 using Empresa.Application.Empresa.Dtos;

@@ -6,8 +6,8 @@
 *                     extrayendo los módulos y acciones, y asignando la fecha de operación para que sean
 *                     utilizables por la capa de dominio.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapper para solicitudes de creación/actualización de permisos de rol.
 ***********/
 

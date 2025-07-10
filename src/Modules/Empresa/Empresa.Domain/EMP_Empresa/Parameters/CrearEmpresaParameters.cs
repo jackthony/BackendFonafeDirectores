@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Empresa.Parameters
+﻿/***********
+ * Nombre del archivo:  CrearEmpresaParameters.cs
+ * Descripción:         Clase que encapsula los parámetros requeridos para registrar una nueva empresa.
+ *                      Incluye datos generales, ubicación, indicadores económicos y trazabilidad.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para soportar la operación de registro de empresas.
+ ***********/
+
+namespace Empresa.Domain.Empresa.Parameters
 {
     public class CrearEmpresaParameters
     {

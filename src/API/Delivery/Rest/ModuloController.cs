@@ -3,8 +3,8 @@
  * Descripción:         Controlador REST para la obtención de módulos con sus respectivas acciones asociadas a un rol.
  *                      Expone el endpoint para listar los módulos disponibles con sus permisos asignables.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación del endpoint para listar módulos con acciones por rol.
  ***********/
 

@@ -3,8 +3,8 @@
  * Descripción:         Caso de uso encargado de obtener un archivo por su ID. 
  *                      Implementa la interfaz `IUseCase`, utilizando el repositorio para recuperar los detalles del archivo desde la base de datos.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using OneOf;

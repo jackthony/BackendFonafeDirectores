@@ -8,8 +8,8 @@ using Usuario.Domain.PermisoRol.Results;
  *                      de permisos por rol en una respuesta estandarizada para el cliente.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación del presentador para respuesta paginada de permisos por rol.
  ***********/
 

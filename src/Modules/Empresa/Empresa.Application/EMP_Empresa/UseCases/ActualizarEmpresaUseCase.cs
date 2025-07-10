@@ -3,8 +3,8 @@
  * Descripción:         Lógica de negocio para actualizar una empresa. Recibe un request de actualización y lo convierte en un parámetro,
  *                      luego lo pasa al repositorio para realizar la actualización.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación de la lógica para actualizar los detalles de la empresa, con manejo de errores.
  *****/
 using OneOf;

@@ -4,8 +4,8 @@
  *                      en una respuesta de presentación (LstItemResponse<RolResponse>).
  *                      Se utiliza para retornar la lista completa de roles.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación del presentador para el listado de roles.
  ***********/
 

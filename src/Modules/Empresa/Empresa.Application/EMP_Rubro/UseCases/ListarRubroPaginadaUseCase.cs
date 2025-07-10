@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ListarRubroPaginadaUseCase
+ * Descripción:         Caso de uso que permite listar rubros de forma paginada, utilizando los filtros enviados en el request.
+ *                      Aplica el patrón de mapeo para convertir el DTO en parámetros de dominio y consulta el repositorio correspondiente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase implementada para soportar listado paginado de rubros.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

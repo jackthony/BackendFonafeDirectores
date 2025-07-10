@@ -1,4 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿/***********
+ * Nombre del archivo:  DirectorResult.cs
+ * Descripción:         Clase que representa la información resultante de un director asociado a una empresa,
+ *                      incluyendo datos personales, de contacto, ubicación, cargo y trazabilidad.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para representar el resultado de consultas relacionadas a directores.
+ ***********/
 
 namespace Empresa.Domain.Director.Results
 {

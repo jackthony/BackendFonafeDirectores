@@ -6,8 +6,8 @@
  *                      Se utiliza principalmente para inspección y comparación en la trazabilidad.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Definición inicial para soporte de trazabilidad en auditoría.
  ***********/
 

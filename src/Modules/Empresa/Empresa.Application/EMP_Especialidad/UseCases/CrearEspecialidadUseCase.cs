@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     CrearEspecialidadUseCase
+ * Descripción:         Caso de uso para crear una nueva especialidad. Recibe un DTO
+ *                      de creación, lo mapea a los parámetros del dominio y llama al
+ *                      repositorio para agregar la especialidad en la base de datos.
+ *                      Devuelve el resultado de la operación o un error si falla.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para gestionar la creación de especialidades.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

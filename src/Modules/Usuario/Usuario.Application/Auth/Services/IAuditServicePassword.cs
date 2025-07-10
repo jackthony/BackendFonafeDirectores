@@ -5,8 +5,8 @@
 *                     incluyendo el ID del usuario, la contraseña antigua (hasheada) y la nueva contraseña (hasheada).
 *                     Esta interfaz es crucial para mantener un registro de seguridad de las modificaciones de credenciales.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la interfaz IAuditServicePassword.
 ***********/
 

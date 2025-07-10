@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Responses;
+﻿/***********
+ * Nombre del archivo:  IEmpresaRepository.cs
+ * Descripción:         Interfaz que define los contratos para el repositorio de la entidad Empresa.
+ *                      Contempla operaciones CRUD, consulta por ID, listado y paginación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Interfaz creada para abstraer las operaciones de acceso a datos de Empresa.
+ ***********/
+
+using Shared.Kernel.Responses;
 using Empresa.Domain.Empresa.Parameters;
 using Empresa.Domain.Empresa.Results;
 

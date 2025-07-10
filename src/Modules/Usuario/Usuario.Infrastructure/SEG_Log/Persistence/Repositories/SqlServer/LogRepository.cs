@@ -4,8 +4,8 @@
  *                      para registrar eventos del sistema y trazabilidad utilizando procedimientos almacenados.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación de métodos para registrar logs de sistema y trazabilidad mediante Dapper.
  ***********/
 

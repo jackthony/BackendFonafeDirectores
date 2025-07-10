@@ -5,8 +5,8 @@
  *                      (con y sin paginación) y obtener por ID, utilizando casos de uso y presentadores para 
  *                      estructurar la respuesta al cliente.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación completa del CRUD para el recurso Sector.
  ***********/
 

@@ -3,8 +3,8 @@
  * Descripción:         Presentador que convierte un resultado de archivo (`ArchivoResult`) en una respuesta estructurada de tipo `ItemResponse<ArchivoResponse>`. 
  *                      Esta respuesta contiene los detalles de un archivo específico, aunque el mapeo a `ArchivoResponse` está comentado en el código.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Shared.ClientV1;

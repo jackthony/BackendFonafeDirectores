@@ -2,8 +2,8 @@
  * Nombre del archivo:  ActualizarEmpresaRequest.cs
  * Descripción:         Define el DTO para actualizar los datos de una empresa.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Se ha configurado el DTO para actualizar la información de una empresa, incluyendo los campos requeridos y los detalles de la solicitud de seguimiento.
  *****/
 using Shared.Kernel.Interfaces;

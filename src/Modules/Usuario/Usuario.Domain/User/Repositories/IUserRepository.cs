@@ -4,8 +4,8 @@
  *                      CRUD, listado simple y paginado, y obtención por ID de los usuarios del sistema.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la interfaz para operaciones básicas sobre usuarios.
  ***********/
 

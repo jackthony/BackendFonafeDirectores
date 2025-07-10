@@ -1,4 +1,14 @@
-﻿using Empresa.Application.Ubigeo.Dtos;
+﻿/*****
+ * Nombre del archivo:  ListarDepartamentoUseCase.cs
+ * Descripción:         Caso de uso para listar departamentos. Mapea la solicitud a parámetros de dominio
+ *                      y utiliza el repositorio para obtener los resultados correspondientes.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using Empresa.Application.Ubigeo.Dtos;
 using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Repositories;
 using Empresa.Domain.Ubigeo.Results;

@@ -4,8 +4,8 @@
  *                      en el contenedor de dependencias, facilitando su inyección y uso en la aplicación.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Registro de presentadores para listar y obtener TipoDirector.
  ***********/
 

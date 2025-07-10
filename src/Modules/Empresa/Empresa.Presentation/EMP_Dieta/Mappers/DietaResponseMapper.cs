@@ -5,8 +5,8 @@
 *                     obtenidos de la lógica de negocio a un formato adecuado para ser presentado al cliente,
 *                     asignando el RUC, el tipo de cargo y el monto de la dieta.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapeadora estática para respuestas de dieta.
 ***********/
 

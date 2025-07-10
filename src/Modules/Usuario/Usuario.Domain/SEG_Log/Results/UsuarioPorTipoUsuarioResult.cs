@@ -4,8 +4,8 @@
  *                      Contiene datos básicos del usuario como nombre, correo, rol y estado.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación inicial para resultados de consulta de usuarios por tipo.
  ***********/
 

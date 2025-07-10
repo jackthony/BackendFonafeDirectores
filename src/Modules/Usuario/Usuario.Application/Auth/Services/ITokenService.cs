@@ -5,8 +5,8 @@
 *                     información de tokens de acceso, tokens de refresco, tokens de restablecimiento de contraseña
 *                     y tokens de confirmación de cuenta, facilitando la seguridad y la gestión de sesiones.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la interfaz ITokenService.
 ***********/
 

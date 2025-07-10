@@ -2,8 +2,8 @@
  * Nombre del archivo:  ListarDirectorPaginadoRequestValidator.cs
  * Descripción:         Validador para la solicitud de listado de directores paginado. Asegura que los parámetros de la paginación sean válidos, y valida el nombre, ID de empresa y estado si se proporcionan.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Validación agregada para el número de página, tamaño de página, nombre de director, ID de empresa y estado.
  *****/
 using FluentValidation;

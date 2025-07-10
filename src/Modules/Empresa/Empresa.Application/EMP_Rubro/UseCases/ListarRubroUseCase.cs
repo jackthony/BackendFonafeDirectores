@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ListarRubroUseCase
+ * Descripción:         Caso de uso encargado de listar rubros según los parámetros enviados.
+ *                      Utiliza un mapper para transformar el request en parámetros de búsqueda 
+ *                      y consulta el repositorio correspondiente.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada con lógica de listado simple de rubros.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

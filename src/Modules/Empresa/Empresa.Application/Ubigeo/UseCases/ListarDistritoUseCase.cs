@@ -1,4 +1,14 @@
-﻿using Empresa.Application.Ubigeo.Dtos;
+﻿/*****
+ * Nombre del archivo:  ListarDistritoUseCase.cs
+ * Descripción:         Caso de uso para listar distritos. Convierte la solicitud en parámetros de dominio
+ *                      mediante un mapeador y consulta el repositorio para obtener los resultados.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using Empresa.Application.Ubigeo.Dtos;
 using Empresa.Domain.Ubigeo.Parameters;
 using Empresa.Domain.Ubigeo.Repositories;
 using Empresa.Domain.Ubigeo.Results;

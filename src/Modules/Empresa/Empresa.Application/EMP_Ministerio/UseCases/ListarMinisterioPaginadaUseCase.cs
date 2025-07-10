@@ -1,4 +1,16 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ListarMinisterioPaginadaUseCase
+ * Descripción:         Caso de uso encargado de listar ministerios con soporte de paginación,
+ *                      utilizando filtros definidos en el DTO ListarMinisterioPaginadoRequest.
+ *                      El DTO es transformado a parámetros de dominio mediante un mapper y luego
+ *                      se consulta el repositorio.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para implementar la lógica de listado paginado de ministerios.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

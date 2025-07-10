@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que configura las inyecciones de dependencias del módulo Especialidad,
  *                      registrando el repositorio correspondiente que utiliza SQL Server como proveedor de datos.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase y configuración de la inyección de dependencias.
  ***********/
 

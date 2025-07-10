@@ -4,8 +4,8 @@
  *                      endpoints para operaciones de creación, actualización, eliminación, obtención por ID
  *                      y listado (con y sin paginación), delegando la lógica a los casos de uso y mapeadores.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación CRUD completa para el módulo Rubro.
  ***********/
 

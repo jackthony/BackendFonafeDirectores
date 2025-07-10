@@ -5,8 +5,8 @@
 *                     y luego utiliza un **servicio de exportación** para generar un flujo (stream)
 *                     de datos en formato Excel, listo para ser descargado o procesado.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para exportar el log del sistema a Excel.
 ***********/
 

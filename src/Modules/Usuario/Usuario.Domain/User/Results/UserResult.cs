@@ -4,8 +4,8 @@
  *                      Contiene datos personales, de rol, cargo y metainformación de registro y modificación.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Estructura inicial del DTO con descripciones extendidas para uso en vistas.
  ***********/
 

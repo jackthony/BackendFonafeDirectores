@@ -5,8 +5,8 @@
 *                     (si aplica), el tipo de evento, un mensaje descriptivo, el stack trace (para errores),
 *                     el origen del evento, el estado, la dirección IP y el ID de sesión.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para el registro de logs de sistema.
 ***********/
 

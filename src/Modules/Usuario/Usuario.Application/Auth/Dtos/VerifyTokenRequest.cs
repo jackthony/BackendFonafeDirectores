@@ -6,8 +6,8 @@
 *                     Implementa `ISistemaRequest` para incluir metadatos de auditoría como el `Origen`, `Estado`, `Mensaje` y `TipoEvento`,
 *                     aunque el `UsuarioId` es `null` aquí, ya que se espera extraer del token mismo.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para la verificación de tokens, incluyendo metadatos de sistema.
 ***********/
 

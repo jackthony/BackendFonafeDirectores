@@ -3,8 +3,8 @@
  * Descripción:         Interfaz del repositorio para el manejo del módulo Sector. Define los contratos
  *                      para realizar operaciones CRUD, obtener por ID y listar con paginación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la interfaz ISectorRepository.
  ***********/
 

@@ -6,8 +6,8 @@
 *                     utilizables por la capa de dominio. Actualmente, se inicializa sin mapeo de propiedades,
 *                     indicando que la solicitud podría no contener filtros específicos y simplemente se usa para invocar la lista completa.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapeadora.
 ***********/
 

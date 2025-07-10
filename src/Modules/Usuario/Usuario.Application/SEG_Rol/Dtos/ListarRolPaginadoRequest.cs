@@ -4,8 +4,8 @@
 *                     Hereda de 'PagedRequest' para incluir parámetros de paginación y añade
 *                     campos específicos para filtrar roles por nombre y estado.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para solicitudes de listado de roles paginados.
 ***********/
 

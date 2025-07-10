@@ -1,4 +1,14 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Implementa la inyección de dependencias para el módulo Ubigeo. Registra los
+ *                      casos de uso, mapeadores y validadores en el contenedor de servicios de .NET.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Empresa.Application.Ubigeo.Dtos;

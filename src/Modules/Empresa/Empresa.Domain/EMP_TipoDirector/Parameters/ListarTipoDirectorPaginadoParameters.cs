@@ -3,8 +3,8 @@
  * Descripción:         Clase que encapsula los parámetros necesarios para paginar la lista de tipos de director,
  *                      incluyendo filtros por nombre y estado. Hereda de PagedRequest para soportar paginación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de los parámetros de paginación para tipos de director.
  ***********/
 

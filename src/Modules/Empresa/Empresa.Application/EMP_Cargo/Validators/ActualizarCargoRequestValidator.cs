@@ -3,8 +3,8 @@
  * Descripción:         Clase que valida las solicitudes de actualización de cargo (`ActualizarCargoRequest`) utilizando FluentValidation. 
  *                      Incluye reglas de validación para el `nIdCargo`, `sNombreCargo` y `nUsuarioModificacion`, asegurando que cumplan con los requisitos establecidos.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using FluentValidation;

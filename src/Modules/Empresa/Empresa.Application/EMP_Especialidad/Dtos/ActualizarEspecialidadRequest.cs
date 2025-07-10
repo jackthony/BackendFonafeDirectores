@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre de clase:     ActualizarEspecialidadRequest
+ * Descripción:         DTO para la solicitud de actualización de una especialidad existente.
+ *                      Implementa ITrackableRequest para el seguimiento de la acción de actualización.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase creada para manejar la actualización de especialidades con trazabilidad.
+ *****/
+
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Especialidad.Dtos
 {

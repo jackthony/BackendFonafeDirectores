@@ -4,8 +4,8 @@
  *                      Incluye métodos para crear, actualizar, eliminar, listar, paginar y asignar permisos a roles.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Definición inicial de operaciones para la gestión de roles y sus permisos.
  ***********/
 

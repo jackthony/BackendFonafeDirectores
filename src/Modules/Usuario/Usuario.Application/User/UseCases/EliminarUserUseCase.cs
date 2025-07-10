@@ -5,8 +5,8 @@
 *                     a parámetros de dominio y utilizando el repositorio para ejecutar la operación
 *                     de eliminación, manejando el resultado de la misma.
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase de caso de uso para eliminar un usuario.
 ***********/
 

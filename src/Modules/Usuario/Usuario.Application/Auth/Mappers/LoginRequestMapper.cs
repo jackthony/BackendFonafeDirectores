@@ -6,8 +6,8 @@
 *                     que serán utilizados por la capa de dominio. La fecha de sesión está comentada,
 *                     indicando que actualmente no se mapea directamente desde la solicitud.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapeadora para solicitudes de login.
 ***********/
 

@@ -5,8 +5,8 @@
 *                     y para **verificar si una contraseña en texto plano coincide con una contraseña hasheada** almacenada.
 *                     Esto es fundamental para la seguridad en la gestión de credenciales de usuario.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la interfaz IPasswordHasher.
 ***********/
 

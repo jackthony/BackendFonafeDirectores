@@ -4,8 +4,8 @@
  *                      Incluye el ID del usuario objetivo, la nueva contraseña y un token de autenticación del administrador.
  * 
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Implementación inicial del modelo de solicitud para reinicio de contraseña por administrador.
  ***********/
 

@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre de clase:     ObtenerEspecialidadPorIdUseCase
+ * Descripción:         Caso de uso para obtener una especialidad por su Id.
+ *                      Se encarga de invocar el repositorio para buscar la especialidad y
+ *                      retorna el resultado o un error si no se encuentra.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Clase implementada para la obtención de especialidades por Id.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Especialidad.Repositories;

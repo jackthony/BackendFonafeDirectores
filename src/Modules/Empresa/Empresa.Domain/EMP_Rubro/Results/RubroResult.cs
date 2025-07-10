@@ -1,4 +1,14 @@
-﻿namespace Empresa.Domain.Rubro.Results
+﻿/***********
+ * Nombre del archivo:  RubroResult.cs
+ * Descripción:         Clase que representa el resultado devuelto al consultar la información de un rubro,
+ *                      incluyendo su ID, nombre, estado, fechas y trazabilidad de registro/modificación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial del DTO de resultado para rubros.
+ ***********/
+
+namespace Empresa.Domain.Rubro.Results
 {
     public class RubroResult
     {

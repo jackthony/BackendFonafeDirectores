@@ -4,8 +4,8 @@
  *                      Implementa `ITrackableRequest` para rastrear las operaciones de creación, con propiedades como `sNombreCargo` y `nUsuarioRegistro`.
  *                      Incluye metadatos sobre el módulo, tabla y campo de la base de datos correspondientes al cargo que se va a crear.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Shared.Kernel.Interfaces;

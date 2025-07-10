@@ -1,4 +1,15 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ActualizarSectorUseCase.cs
+ * Descripción:         Caso de uso para actualizar un sector existente. Mapea la solicitud
+ *                      a parámetros de dominio y llama al repositorio para realizar la actualización.
+ *                      Retorna el resultado del procedimiento almacenado o un error si falla la operación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -2,8 +2,8 @@
  * Nombre del archivo:  CrearDirectorRequestValidator.cs
  * Descripción:         Validador para el caso de uso de creación de director. Valida que los campos del request cumplan con las reglas de negocio.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación del validador para verificar que los datos de entrada son correctos, incluyendo validaciones de campos de texto, fechas y números.
  *****/
 using FluentValidation;

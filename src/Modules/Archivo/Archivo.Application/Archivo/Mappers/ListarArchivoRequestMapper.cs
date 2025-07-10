@@ -2,8 +2,8 @@
  * Nombre del archivo:  ListarArchivoRequestMapper.cs
  * Descripción:         Clase encargada de mapear la solicitud de listado de archivos (`ListarArchivoRequest`) a los parámetros necesarios para la operación de listado (`ListarArchivoParameters`).
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Shared.Kernel.Interfaces;

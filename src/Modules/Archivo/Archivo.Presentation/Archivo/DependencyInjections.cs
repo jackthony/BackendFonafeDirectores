@@ -3,8 +3,8 @@
  * Descripción:         Clase estática que configura la inyección de dependencias para los presentadores en la capa de presentación de archivos. 
  *                      Registra los presentadores que entregan respuestas estructuradas para la visualización de archivos y elementos en forma de árboles o listas.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Archivo.Domain.Archivo.Results;

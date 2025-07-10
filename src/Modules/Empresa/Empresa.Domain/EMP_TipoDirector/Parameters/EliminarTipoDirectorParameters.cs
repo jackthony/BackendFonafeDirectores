@@ -3,8 +3,8 @@
  * Descripción:         Clase que define los parámetros necesarios para eliminar un tipo de director.
  *                      Incluye el ID del tipo de director y los datos de trazabilidad de la modificación.
  * Autor:               Daniel Alva
- * Fecha de creación:   10/07/2025
- * Última modificación: 10/07/2025 por Daniel Alva
+ * Fecha de creación:   02/06/25
+ * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación inicial de los parámetros para eliminación de tipo de director.
  ***********/
 

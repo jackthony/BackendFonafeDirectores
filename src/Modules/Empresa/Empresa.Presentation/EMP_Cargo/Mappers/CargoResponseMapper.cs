@@ -5,8 +5,8 @@
 *                     de cargo o una colección de ellos, facilitando la adaptación de los datos de la capa
 *                     de dominio a la capa de presentación.
 * Autor:              Daniel Alva
-* Fecha de creación:  11/07/2025
-* Última modificación:11/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase mapeadora estática para respuestas de cargo.
 ***********/
 

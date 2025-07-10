@@ -4,8 +4,8 @@
 *                     Contiene el identificador de la acción y un booleano que indica
 *                     si el permiso para dicha acción está concedido (`true`) o denegado (`false`).
 * Autor:              Daniel Alva
-* Fecha de creación:  10/07/2025
-* Última modificación:10/07/2025 por Daniel Alva
+* Fecha de creación:  02/06/25
+* Última modificación:02/06/25 por Daniel Alva
 * Cambios recientes:  Creación inicial de la clase DTO para el estado de una acción de permiso.
 ***********/
 
