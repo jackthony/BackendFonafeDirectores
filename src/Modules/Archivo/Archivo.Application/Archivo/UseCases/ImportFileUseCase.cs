@@ -1,4 +1,14 @@
-﻿using Archivo.Application.Archivo.Dtos;
+﻿/*****
+ * Nombre del archivo:  ImportFileUseCase.cs
+ * Descripción:         Caso de uso encargado de gestionar la importación de archivos. 
+ *                      Implementa la interfaz `IUseCase`, manejando la lectura, validación y almacenamiento de los datos de un archivo importado, 
+ *                      incluyendo la validación de empresas y directores, y la inserción/actualización en la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Archivo.Application.Archivo.Dtos;
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Repositories;
 using Archivo.Domain.Archivo.Results;

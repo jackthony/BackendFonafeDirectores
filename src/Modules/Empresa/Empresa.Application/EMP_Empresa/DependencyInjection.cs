@@ -1,4 +1,14 @@
-﻿using FluentValidation;
+﻿/*****
+ * Nombre del archivo:  DependencyInjection.cs
+ * Descripción:         Configuración de la inyección de dependencias para la aplicación de Empresa.
+ *                      Registra los casos de uso, mapeadores y validadores necesarios para el funcionamiento 
+ *                      de los servicios relacionados con las empresas.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase para configurar la inyección de dependencias.
+ *****/
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

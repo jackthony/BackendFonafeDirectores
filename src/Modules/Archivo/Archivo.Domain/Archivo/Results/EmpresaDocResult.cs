@@ -1,4 +1,14 @@
-﻿namespace Archivo.Domain.Archivo.Results
+﻿/*****
+ * Nombre del archivo:  EmpresaDocResult.cs
+ * Descripción:         Clase que representa los resultados de una empresa en el contexto de los archivos. 
+ *                      Contiene propiedades como `Ruc`, `RazonSocial`, `Departamento`, `Ingresos`, entre otras, 
+ *                      que describen a la empresa y su información asociada en el sistema.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+namespace Archivo.Domain.Archivo.Results
 {
     public class EmpresaDocResult
     {

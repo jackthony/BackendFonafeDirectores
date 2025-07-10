@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ActualizarEmpresaUseCase.cs
+ * Descripción:         Lógica de negocio para actualizar una empresa. Recibe un request de actualización y lo convierte en un parámetro,
+ *                      luego lo pasa al repositorio para realizar la actualización.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de la lógica para actualizar los detalles de la empresa, con manejo de errores.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -1,4 +1,14 @@
-﻿using Dapper;
+﻿/*****
+ * Nombre del archivo:  ArchivoSqlRepository.cs
+ * Descripción:         Implementación del repositorio `IArchivoRepository` para la base de datos SQL Server utilizando Dapper. 
+ *                      Contiene métodos para agregar, actualizar, eliminar, obtener y listar archivos, 
+ *                      ejecutando procedimientos almacenados correspondientes para cada operación.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Dapper;
 using Shared.Kernel.Responses;
 using System.Data;
 using Archivo.Domain.Archivo.Parameters;

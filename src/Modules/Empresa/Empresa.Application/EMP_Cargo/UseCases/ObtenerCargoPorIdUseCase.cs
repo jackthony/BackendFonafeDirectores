@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ObtenerCargoPorIdUseCase.cs
+ * Descripción:         Caso de uso para obtener un cargo por su ID en el sistema. 
+ *                      Utiliza el repositorio `ICargoRepository` para consultar el cargo correspondiente y devuelve el resultado o un error si no se encuentra el cargo.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Cargo.Repositories;

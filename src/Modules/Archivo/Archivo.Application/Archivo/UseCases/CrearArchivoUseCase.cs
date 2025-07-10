@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  CrearArchivoUseCase.cs
+ * Descripción:         Caso de uso encargado de gestionar la creación de archivos. 
+ *                      Implementa la interfaz `IUseCase`, mapeando la solicitud de creación (`CrearArchivoRequest`) a los parámetros correspondientes (`CrearArchivoParameters`),
+ *                      y utilizando el servicio de almacenamiento para subir el archivo antes de registrar los detalles en el repositorio.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo: ObtenerEmpresaPorIdUseCase.cs
+ * Descripción: Este archivo contiene la lógica del caso de uso para obtener una empresa por su ID. Si la empresa no se encuentra,
+ *              devuelve un error "Not Found". El repositorio correspondiente es utilizado para consultar la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación de la lógica para obtener una empresa por su ID, manejo del error en caso de no encontrarse.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Empresa.Domain.Empresa.Repositories;

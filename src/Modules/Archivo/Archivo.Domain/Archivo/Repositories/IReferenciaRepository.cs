@@ -1,4 +1,13 @@
-﻿using Archivo.Domain.Archivo.Results;
+﻿/*****
+ * Nombre del archivo:  IReferenciaRepository.cs
+ * Descripción:         Interfaz que define los métodos para obtener referencias de diversos tipos de datos relacionados con empresas y entidades gubernamentales. 
+ *                      Incluye operaciones para obtener listas de empresas, provincias, departamentos, distritos, rubros, ministerios, y otros datos relevantes.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la interfaz.
+ *****/
+using Archivo.Domain.Archivo.Results;
 using Empresa.Domain.Empresa.Results;
 using Empresa.Domain.Especialidad.Results;
 using Empresa.Domain.Ministerio.Results;

@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarEmpresaPaginadaUseCase.cs
+ * Descripción:         Lógica de negocio para listar empresas con paginación. Recibe un request con los parámetros de paginación y los mapea
+ *                      a parámetros específicos que son enviados al repositorio para obtener los resultados de la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de la lógica de paginación para la obtención de empresas, con manejo de errores.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

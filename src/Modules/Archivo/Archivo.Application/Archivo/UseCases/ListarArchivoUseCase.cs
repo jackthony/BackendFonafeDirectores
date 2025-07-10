@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarArchivoUseCase.cs
+ * Descripción:         Caso de uso encargado de gestionar el listado de archivos. 
+ *                      Implementa la interfaz `IUseCase`, mapeando la solicitud de listado (`ListarArchivoRequest`) a los parámetros correspondientes (`ListarArchivoParameters`),
+ *                      y utilizando el repositorio para obtener los resultados desde la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Archivo.Application.Archivo.Dtos;

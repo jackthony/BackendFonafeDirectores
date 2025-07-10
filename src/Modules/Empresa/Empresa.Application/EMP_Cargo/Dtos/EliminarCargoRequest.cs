@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  EliminarCargoRequest.cs
+ * Descripción:         Clase que representa una solicitud para eliminar un cargo en el sistema. 
+ *                      Implementa `ITrackableRequest` para rastrear las modificaciones, con propiedades como `nIdCargo` y `nUsuarioModificacion`.
+ *                      Incluye metadatos sobre el módulo, tabla y campo de la base de datos correspondientes al cargo que se eliminará.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Cargo.Dtos
 {

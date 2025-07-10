@@ -1,4 +1,13 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ListarDirectorUseCase.cs
+ * Descripción:         Caso de uso para listar directores. Mapea el request (`ListarDirectorRequest`) a los parámetros correspondientes 
+ *                      y obtiene la lista de directores del repositorio.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;

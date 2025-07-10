@@ -1,4 +1,12 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  CrearEmpresaRequestMapper.cs
+ * Descripción:         Mapea un objeto de tipo CrearEmpresaRequest a CrearEmpresaParameters.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Implementación de mapeo entre el DTO de creación de empresa y el modelo de parámetros.
+ *****/
+using Shared.Kernel.Interfaces;
 using Shared.Time;
 using Empresa.Application.Empresa.Dtos;
 using Empresa.Domain.Empresa.Parameters;

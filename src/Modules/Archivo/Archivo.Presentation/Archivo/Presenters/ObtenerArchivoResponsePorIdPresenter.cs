@@ -1,4 +1,13 @@
-﻿using Shared.ClientV1;
+﻿/*****
+ * Nombre del archivo:  ObtenerArchivoResponsePorIdPresenter.cs
+ * Descripción:         Presentador que convierte un resultado de archivo (`ArchivoResult`) en una respuesta estructurada de tipo `ItemResponse<ArchivoResponse>`. 
+ *                      Esta respuesta contiene los detalles de un archivo específico, aunque el mapeo a `ArchivoResponse` está comentado en el código.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.ClientV1;
 using Shared.Kernel.Interfaces;
 using Archivo.Domain.Archivo.Results;
 using Archivo.Presentation.Archivo.Responses;

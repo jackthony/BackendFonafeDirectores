@@ -1,4 +1,14 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  ActualizarDirectorRequest.cs
+ * Descripción:         Clase que representa una solicitud para actualizar la información de un director en el sistema. 
+ *                      Incluye propiedades como `nIdRegistro`, `nIdEmpresa`, `sDepartamento`, `sTelefono`, entre otras, que permiten actualizar los datos relacionados con un director específico.
+ *                      Implementa la interfaz `ITrackableRequest` para realizar un seguimiento de los cambios.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 
 namespace Empresa.Application.Director.Dtos
 {

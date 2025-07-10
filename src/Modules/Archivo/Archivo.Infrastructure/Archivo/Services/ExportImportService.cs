@@ -1,4 +1,14 @@
-﻿using Archivo.Application.Archivo.Dtos;
+﻿/*****
+ * Nombre del archivo:  ExportImportService.cs
+ * Descripción:         Implementación del servicio `IExportImportService` para manejar la importación y exportación de archivos. 
+ *                      Incluye la generación de archivos en formato Excel y PDF con la información de empresas y directores. 
+ *                      También incluye la lógica para importar datos desde un archivo Excel y convertirlos en objetos `EmpresaDocResult` y `DirectorDocResult`.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Archivo.Application.Archivo.Dtos;
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Results;
 using ClosedXML.Excel;

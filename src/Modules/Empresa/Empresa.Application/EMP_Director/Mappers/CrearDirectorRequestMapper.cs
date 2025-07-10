@@ -1,4 +1,13 @@
-﻿using Shared.Kernel.Interfaces;
+﻿/*****
+ * Nombre del archivo:  CrearDirectorRequestMapper.cs
+ * Descripción:         Clase que mapea una solicitud de creación de director (`CrearDirectorRequest`) a los parámetros necesarios para la base de datos (`CrearDirectorParameters`).
+ *                      Utiliza el servicio `ITimeProvider` para asignar la fecha de registro al objeto de parámetros.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using Shared.Kernel.Interfaces;
 using Shared.Time;
 using Empresa.Application.Director.Dtos;
 using Empresa.Domain.Director.Parameters;

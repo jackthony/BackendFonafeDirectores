@@ -1,4 +1,14 @@
-﻿using OneOf;
+﻿/*****
+ * Nombre del archivo:  ActualizarArchivoUseCase.cs
+ * Descripción:         Caso de uso encargado de gestionar la actualización de archivos. 
+ *                      Implementa la interfaz `IUseCase`, mapeando la solicitud de actualización (`ActualizarArchivoRequest`) a los parámetros correspondientes (`ActualizarArchivoParameters`), 
+ *                      y utilizando el repositorio para realizar la actualización en la base de datos.
+ * Autor:               Daniel Alva
+ * Fecha de creación:   10/07/2025
+ * Última modificación: 10/07/2025 por Daniel Alva
+ * Cambios recientes:   Creación inicial de la clase.
+ *****/
+using OneOf;
 using Shared.Kernel.Errors;
 using Shared.Kernel.Interfaces;
 using Shared.Kernel.Responses;
