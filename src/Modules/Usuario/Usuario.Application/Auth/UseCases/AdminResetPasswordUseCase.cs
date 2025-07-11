@@ -19,6 +19,7 @@ using Usuario.Application.Auth.Dtos;
 using Usuario.Application.Auth.Services;
 using Usuario.Domain.Auth.Repositories;
 using Usuario.Domain.Auth.Parameters;
+using Shared.Time;
 
 namespace Usuario.Application.Auth.UseCases
 {
@@ -27,15 +28,14 @@ namespace Usuario.Application.Auth.UseCases
         private readonly ITokenService _tokenService;
         private readonly IAuthRepository _authRepository;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly ITimeProvider _timeProvider;
 
-        public AdminResetPasswordUseCase(
-            ITokenService tokenService,
-            IAuthRepository authRepository,
-            IPasswordHasher passwordHasher)
+        public AdminResetPasswordUseCase(ITokenService tokenService, IAuthRepository authRepository, IPasswordHasher passwordHasher, ITimeProvider timeProvider)
         {
             _tokenService = tokenService;
             _authRepository = authRepository;
             _passwordHasher = passwordHasher;
+            _timeProvider = timeProvider;
         }
 
         public async Task<OneOf<ErrorBase, AdminResetPasswordResponse>> ExecuteAsync(AdminResetPasswordRequest request)
@@ -63,7 +63,9 @@ namespace Usuario.Application.Auth.UseCases
             var changePasswordParameters = new ChangePasswordParameters
             {
                 UsuarioId = request.UsuarioId,
-                newPasswordHash = newPasswordHash
+                newPasswordHash = newPasswordHash,
+                UsuarioModificaId = request.nUserIdModifica,
+                FechaModifica = _timeProvider.NowPeru
             };
 
             // 5. Actualizar la contraseña del usuario

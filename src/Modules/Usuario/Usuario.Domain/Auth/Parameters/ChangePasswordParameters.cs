@@ -15,5 +15,7 @@ namespace Usuario.Domain.Auth.Parameters
     {
         public int UsuarioId { get; set; }               // ID del usuario
         public string newPasswordHash { get; set; } // Nuevo hash de la contraseña
+        public int UsuarioModificaId { get; set; }
+        public DateTime FechaModifica {  get; set; }
     }
 }
