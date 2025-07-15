@@ -44,6 +44,7 @@ namespace Usuario.Infrastructure.SEG_Log.Services
         [
             "Id",
             "UsuarioId",
+            "Usuario",
             "CorreoElectronico",
             "TipoEvento",
             "Mensaje",
@@ -151,15 +152,16 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             {
                 worksheet.Cell(fila, 1).Value = log.Id;
                 worksheet.Cell(fila, 2).Value = log.UsuarioId;
-                worksheet.Cell(fila, 3).Value = log.CorreoElectronico;
-                worksheet.Cell(fila, 4).Value = log.TipoEvento;
-                worksheet.Cell(fila, 5).Value = log.Mensaje;
-                worksheet.Cell(fila, 6).Value = log.StackTrace;
-                worksheet.Cell(fila, 7).Value = log.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
-                worksheet.Cell(fila, 8).Value = log.Origen;
-                worksheet.Cell(fila, 9).Value = log.Estado;
-                worksheet.Cell(fila, 10).Value = log.Ip;
-                worksheet.Cell(fila, 11).Value = log.IdSession;
+                worksheet.Cell(fila, 3).Value = log.ApellidosYNombres;
+                worksheet.Cell(fila, 4).Value = log.CorreoElectronico;
+                worksheet.Cell(fila, 5).Value = log.TipoEvento;
+                worksheet.Cell(fila, 6).Value = log.Mensaje;
+                worksheet.Cell(fila, 7).Value = log.StackTrace;
+                worksheet.Cell(fila, 8).Value = log.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
+                worksheet.Cell(fila, 9).Value = log.Origen;
+                worksheet.Cell(fila, 10).Value = log.Estado;
+                worksheet.Cell(fila, 11).Value = log.Ip;
+                worksheet.Cell(fila, 12).Value = log.IdSession;
                 fila++;
             }
 

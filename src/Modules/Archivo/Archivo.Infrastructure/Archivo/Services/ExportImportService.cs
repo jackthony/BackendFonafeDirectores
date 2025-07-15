@@ -12,11 +12,9 @@ using Archivo.Application.Archivo.Dtos;
 using Archivo.Application.Archivo.Services;
 using Archivo.Domain.Archivo.Results;
 using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Spreadsheet;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using System.ComponentModel;
 using System.Globalization;
 using Colors = QuestPDF.Helpers.Colors;
 using IContainer = QuestPDF.Infrastructure.IContainer;
@@ -333,8 +331,10 @@ namespace Archivo.Infrastructure.Archivo.Services
                             table.Cell().Element(CellStyle).Text(empresa?.Ruc ?? "");
                             table.Cell().Element(CellStyle).Text(empresa?.RazonSocial ?? "");
 
-                            foreach (var propiedad in propiedadesDirectores)
+
+                            for (int i = 0; i < propiedadesDirectores.Length - 2; i++)
                             {
+                                var propiedad = propiedadesDirectores[i];
                                 var valor = propiedad.GetValue(director);
                                 string texto = valor switch
                                 {

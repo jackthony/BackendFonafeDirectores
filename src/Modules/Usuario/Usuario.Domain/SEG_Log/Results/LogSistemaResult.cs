@@ -17,6 +17,7 @@ namespace Usuario.Domain.SEG_Log.Results
     {
         public int Id { get; set; }
         public int? UsuarioId { get; set; }
+        public string? ApellidosYNombres { get; set; }
         public string? CorreoElectronico { get; set; }
         public string? TipoEvento { get; set; }
         public string? Mensaje { get; set; }
