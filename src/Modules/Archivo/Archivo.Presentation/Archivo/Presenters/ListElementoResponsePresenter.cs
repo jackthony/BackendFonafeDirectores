@@ -8,19 +8,19 @@
  * Cambios recientes:   Creación inicial de la clase.
  *****/
 using Shared.Kernel.Interfaces;
-using Archivo.Domain.Archivo.Results;
 using Archivo.Presentation.Archivo.Mappers;
 using Archivo.Presentation.Archivo.Responses;
+using Archivo.Presentation.Archivo.Requests;
 
 namespace Archivo.Presentation.Archivo.Presenters
 {
-    public class ListElementoResponsePresenter : IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>>
+    public class ListElementoResponsePresenter : IPresenterDelivery<PresentarArbolRequest, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>>
     {
-        public ListResponse<ElementoNodoResponse<ElementoDetalleResponse>> Present(List<ArchivoResult> input)
+        public ListResponse<ElementoNodoResponse<ElementoDetalleResponse>> Present(PresentarArbolRequest input)
         {
             return new ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>
             {
-                LstItem = ElementoResponseMapper.ToTree(input),
+                LstItem = ElementoResponseMapper.ToTree(input.Archivos, input.IdRaiz),
                 IsSuccess = true
             };
         }

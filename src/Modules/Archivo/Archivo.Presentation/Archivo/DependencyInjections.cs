@@ -9,6 +9,7 @@
  *****/
 using Archivo.Domain.Archivo.Results;
 using Archivo.Presentation.Archivo.Presenters;
+using Archivo.Presentation.Archivo.Requests;
 using Archivo.Presentation.Archivo.Responses;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.ClientV1;
@@ -22,7 +23,7 @@ namespace Archivo.Presentation.Archivo
         {
 
             services.AddScoped<IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>>, ListArchivoResponsePresenter>();
-            services.AddScoped<IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>>, ListElementoResponsePresenter>();
+            services.AddScoped<IPresenterDelivery<PresentarArbolRequest, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>>, ListElementoResponsePresenter>();
 
             return services;
         }

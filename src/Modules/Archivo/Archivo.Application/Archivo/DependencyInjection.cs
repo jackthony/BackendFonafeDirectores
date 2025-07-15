@@ -17,6 +17,7 @@ using Archivo.Application.Archivo.UseCases;
 using Archivo.Application.Archivo.Validators;
 using Archivo.Domain.Archivo.Parameters;
 using Archivo.Domain.Archivo.Results;
+using Shared.Kernel.Errors;
 
 namespace Archivo.Application.Archivo
 {
@@ -35,6 +36,7 @@ namespace Archivo.Application.Archivo
             services.AddScoped<IUseCase<ExportFileRequest, Stream>, ExportFileUseCase>();
             services.AddScoped<IUseCase<ImportFileRequest, ImportFileResult>, ImportFileUseCase>();
             services.AddScoped<IUseCase<string, Stream>, DescargarArchivoUseCase>();
+            services.AddScoped<IUseCase<List<ArchivoResult>, Stream>, DescargaZipUseCase>();
 
             // Mappers
             services.AddScoped<IMapper<ActualizarArchivoRequest, ActualizarArchivoParameters>, ActualizarArchivoRequestMapper>();

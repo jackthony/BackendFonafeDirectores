@@ -164,7 +164,7 @@ builder.Services.AddTrackableApplication();
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(LoggingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(SistemaUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(TrazabilidadUseCaseDecorator<,>));
-builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));   
+builder.Services.Decorate(typeof(IUseCase<,>), typeof(ExceptionHandlingUseCaseDecorator<,>));
 builder.Services.Decorate(typeof(IUseCase<,>), typeof(ValidationUseCaseDecorator<,>));
 
 builder.Services.AddCors(options =>
@@ -172,8 +172,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("PermitirTodos", policy =>
     {
         policy.AllowAnyOrigin()
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+                .AllowAnyHeader()
+                .AllowAnyMethod();
     });
 });
 

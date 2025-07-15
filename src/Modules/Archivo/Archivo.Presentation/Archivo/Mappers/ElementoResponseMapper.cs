@@ -46,18 +46,28 @@ namespace Archivo.Presentation.Archivo.Mappers
             };
         }
 
-        public static List<ElementoNodoResponse<ElementoDetalleResponse>> ToTree(List<ArchivoResult> planos)
+        public static List<ElementoNodoResponse<ElementoDetalleResponse>> ToTree(List<ArchivoResult> planos, int? idRaiz = null)
         {
             var nodos = planos.Select(ToNodo).ToDictionary(n => n.id);
             var raiz = new List<ElementoNodoResponse<ElementoDetalleResponse>>();
 
             foreach (var nodo in nodos.Values)
             {
-                if (nodo.codeParent == 0 || nodo.codeParent is null)
+                if (idRaiz.HasValue)
                 {
-                    raiz.Add(nodo);
+                    if (nodo.codeParent == idRaiz)
+                    {
+                        raiz.Add(nodo);
+                    }
                 }
-                else if (nodos.TryGetValue(nodo.codeParent.Value, out var padre))
+                else
+                {
+                    if (nodo.codeParent == 0 || nodo.codeParent is null)
+                    {
+                        raiz.Add(nodo);
+                    }
+                }
+                if (nodo.codeParent.HasValue && nodos.TryGetValue(nodo.codeParent.Value, out var padre))
                 {
                     padre.Children.Add(nodo);
                     padre.hasChildren = true;

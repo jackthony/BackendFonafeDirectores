@@ -18,6 +18,8 @@ using Archivo.Domain.Archivo.Results;
 using Shared.ClientV1;
 using Microsoft.AspNetCore.StaticFiles;
 using Archivo.Presentation.Archivo.Responses;
+using Archivo.Presentation.Archivo.Requests;
+using Archivo.Application.Archivo.UseCases;
 
 namespace Api.Delivery.Rest
 {
@@ -38,9 +40,10 @@ namespace Api.Delivery.Rest
         private readonly IUseCase<ImportFileRequest, ImportFileResult> _importarFileUseCase;
         private readonly IUseCase<string, Stream> _descargarArchivoUseCase;
         private readonly IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> _presenterList;
-        private readonly IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>> _presenterListElement;
+        private readonly IPresenterDelivery<PresentarArbolRequest, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>> _presenterListElement;
+        private readonly IUseCase<List<ArchivoResult>, Stream> _descargarZipUseCase;
 
-        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase, IUseCase<string, Stream> descargarArchivoUseCase, IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> presenterList, IPresenterDelivery<List<ArchivoResult>, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>> presenterListElement)
+        public ArchivoController(IUseCase<CrearArchivoRequest, SpResultBase> crearArchivoUseCase, IUseCase<ActualizarArchivoRequest, SpResultBase> actualizarArchivoUseCase, IUseCase<EliminarArchivoRequest, SpResultBase> eliminarArchivoUseCase, IUseCase<ListarArchivoPaginadoRequest, PagedResult<ArchivoResult>> listarArchivoPaginadaUseCase, IUseCase<ListarArchivoRequest, List<ArchivoResult>> listarArchivoUseCase, IUseCase<int, ArchivoResult?> obtenerArchivoPorIdUseCase, IPresenterDelivery<SpResultBase, ItemResponse<bool>> presenterBool, IPresenterDelivery<SpResultBase, ItemResponse<int>> presenterInt, IUseCase<ExportFileRequest, Stream> exportarFileUseCase, IUseCase<ImportFileRequest, ImportFileResult> importarFileUseCase, IUseCase<string, Stream> descargarArchivoUseCase, IPresenterDelivery<List<ArchivoResult>, TreeResponse<ArchivoNode>> presenterList, IPresenterDelivery<PresentarArbolRequest, ListResponse<ElementoNodoResponse<ElementoDetalleResponse>>> presenterListElement, IUseCase<List<ArchivoResult>, Stream> descargarZipUseCase)
         {
             _crearArchivoUseCase = crearArchivoUseCase;
             _actualizarArchivoUseCase = actualizarArchivoUseCase;
@@ -55,6 +58,7 @@ namespace Api.Delivery.Rest
             _descargarArchivoUseCase = descargarArchivoUseCase;
             _presenterList = presenterList;
             _presenterListElement = presenterListElement;
+            _descargarZipUseCase = descargarZipUseCase;
         }
 
         [HttpPost("importar")]
@@ -149,8 +153,31 @@ namespace Api.Delivery.Rest
             var result = await _listarArchivoUseCase.ExecuteAsync(request);
             if (result.IsT0)
                 return ErrorResultMapper.MapError(result.AsT0);
-            var response = _presenterListElement.Present(result.AsT1);
+            var presentarRequest = new PresentarArbolRequest
+            {
+                Archivos = result.AsT1,
+                IdRaiz = request.nCarpetaPadreId
+            };
+
+            var response = _presenterListElement.Present(presentarRequest);
             return Ok(response);
+        }
+
+        [HttpPost("descargar-zip")]
+        public async Task<IActionResult> DescargarZip([FromBody] ListarArchivoRequest request)
+        {
+            var archivosResult = await _listarArchivoUseCase.ExecuteAsync(request);
+
+            if (archivosResult.IsT0)
+                return ErrorResultMapper.MapError(archivosResult.AsT0);
+
+            var zipStreamResult = await _descargarZipUseCase.ExecuteAsync(archivosResult.AsT1);
+
+            if (zipStreamResult.IsT0)
+                return ErrorResultMapper.MapError(zipStreamResult.AsT0);
+
+            var zipStream = zipStreamResult.AsT1;
+            return File(zipStream, "application/zip", "archivos.zip");
         }
 
         [HttpGet("{id}")]
