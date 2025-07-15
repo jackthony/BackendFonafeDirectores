@@ -11,5 +11,8 @@ namespace Archivo.Domain.Archivo.Parameters
 {
     public class EliminarArchivoParameters
     {
+        public required int ElementoId { get; set; }
+        public required int UsuarioEliminacionId { get; set; }
+        public DateTime FechaEliminacion { get; set; }
     }
 }
