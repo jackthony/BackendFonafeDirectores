@@ -17,5 +17,7 @@ namespace Empresa.Application.Director.Dtos
         public string Nombre { get; set; } = string.Empty;
         public bool? Estado { get; set; }
         public int? nIdEmpresa { get; set; }
+        public DateTime? dtFechaInicio { get; set; }
+        public DateTime? dtFechaFin { get; set; }
     }
 }

@@ -22,6 +22,9 @@ namespace Empresa.Application.Director.Mappers
                 Nombre = source.Nombre,
                 Estado = source.Estado,
                 nIdEmpresa = source.nIdEmpresa,
+                FechaInicio=source.dtFechaInicio,
+                FechaFin = source.dtFechaFin,
+
                 Page = source.Page,
                 PageSize = source.PageSize,
             };

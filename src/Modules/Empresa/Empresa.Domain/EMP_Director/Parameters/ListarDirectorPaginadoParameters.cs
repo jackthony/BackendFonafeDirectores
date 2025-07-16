@@ -15,5 +15,7 @@ namespace Empresa.Domain.Director.Parameters
         public string? Nombre { get; set; }
         public bool? Estado { get; set; }
         public int? nIdEmpresa { get; set; }
+        public DateTime? FechaInicio { get; set; }
+        public DateTime? FechaFin { get; set; }
     }
 }
