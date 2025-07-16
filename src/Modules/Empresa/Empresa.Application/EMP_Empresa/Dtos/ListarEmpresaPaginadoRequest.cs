@@ -14,5 +14,7 @@ namespace Empresa.Application.Empresa.Dtos
     {
         public string? sRazonSocial { get; set; }
         public bool? bEstado { get; set; }
+        public DateTime? dtFechaInicio { get; set; }
+        public DateTime? dtFechaFin {  get; set; }
     }
 }

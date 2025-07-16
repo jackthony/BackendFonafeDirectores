@@ -21,7 +21,9 @@ namespace Empresa.Application.Empresa.Mappers
                 Page = source.Page,
                 PageSize = source.PageSize,
                 RazonSocial = source.sRazonSocial,
-                Estado = source.bEstado
+                Estado = source.bEstado,
+                FechaIncio = source.dtFechaInicio,
+                FechaFin = source.dtFechaFin,
             };
         }
     }

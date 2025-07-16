@@ -6,9 +6,9 @@
  * Última modificación: 02/06/25 por Daniel Alva
  * Cambios recientes:   Creación del validador para verificar que los datos de entrada son correctos.
  *****/
+
 using FluentValidation;
 using Empresa.Application.Director.Dtos;
-using System;
 
 namespace Empresa.Application.Director.Validators
 {
@@ -26,7 +26,6 @@ namespace Empresa.Application.Director.Validators
             RuleFor(x => x.nIdEmpresa)
                 .GreaterThan(0)
                 .WithMessage("Debe especificar una empresa válida.");
-
         }
     }
 }

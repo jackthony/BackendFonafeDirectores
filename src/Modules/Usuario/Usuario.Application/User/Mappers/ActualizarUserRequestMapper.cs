@@ -11,6 +11,7 @@
 ***********/
 
 using Shared.Kernel.Interfaces;
+using Shared.Time;
 using Usuario.Application.User.Dtos;
 using Usuario.Domain.User.Parameters;
 
@@ -18,6 +19,12 @@ namespace Usuario.Application.User.Mappers
 {
     public class ActualizarUserRequestMapper : IMapper<ActualizarUserRequest, ActualizarUserParameters>
     {
+        private readonly ITimeProvider _timeProvider;
+
+        public ActualizarUserRequestMapper(ITimeProvider timeProvider)
+        {
+            _timeProvider = timeProvider;
+        }
         public ActualizarUserParameters Map(ActualizarUserRequest source)
         {
             return new ActualizarUserParameters
@@ -28,7 +35,7 @@ namespace Usuario.Application.User.Mappers
                 Estado = source.nEstado,
                 CargoId = source.nIdCargo,
                 nTipoPersonal = source.nTipoPersonal,
-                FechaModificacion = DateTime.UtcNow
+                FechaModificacion = _timeProvider.NowPeru
             };
         }
     }

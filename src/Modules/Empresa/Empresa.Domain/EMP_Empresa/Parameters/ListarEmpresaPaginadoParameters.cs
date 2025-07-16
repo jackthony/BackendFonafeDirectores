@@ -16,5 +16,7 @@ namespace Empresa.Domain.Empresa.Parameters
     {
         public string? RazonSocial { get; set; }
         public bool? Estado { get; set; }
+        public DateTime? FechaIncio { get; set; }
+        public DateTime? FechaFin {  get; set; }
     }
 }
