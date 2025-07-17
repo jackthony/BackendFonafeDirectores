@@ -38,28 +38,30 @@ namespace Empresa.Application.Director.UseCases
 
             if (request.nIdEmpresa != null)
             {
-                var cantidadMaxima = await _repository.GetNumeroMiembros(request.nIdEmpresa ?? 0);
-
-                int itemsMostradosHastaAhora = (request.Page - 1) * request.PageSize;
-                int cantidadReal = result.TotalItems;
-                int vacantesDisponibles = cantidadMaxima - cantidadReal;
-
-                for (int i = 0; i < request.PageSize; i++)
+                if (result.TotalItems > 0 && request.Nombre.Contains("VACANTE DISPONIBLE", StringComparison.OrdinalIgnoreCase))
                 {
-                    int indiceGlobal = itemsMostradosHastaAhora + i;
-                    if (indiceGlobal >= cantidadReal && vacantesDisponibles > 0)
+                    var cantidadMaxima = await _repository.GetNumeroMiembros(request.nIdEmpresa ?? 0);
+
+                    int itemsMostradosHastaAhora = (request.Page - 1) * request.PageSize;
+                    int cantidadReal = result.TotalItems;
+                    int vacantesDisponibles = cantidadMaxima - cantidadReal;
+
+                    for (int i = 0; i < request.PageSize; i++)
                     {
-                        var director = new DirectorResult
+                        int indiceGlobal = itemsMostradosHastaAhora + i;
+                        if (indiceGlobal >= cantidadReal && vacantesDisponibles > 0)
                         {
-                            sNombres = "DISPONIBLE",
-                            sApellidos = "VACANTE"
-                        };
-                        result.Items.Add(director);
-                        vacantesDisponibles--;
+                            var director = new DirectorResult
+                            {
+                                sNombres = "DISPONIBLE",
+                                sApellidos = "VACANTE"
+                            };
+                            result.Items.Add(director);
+                            vacantesDisponibles--;
+                        }
                     }
                 }
             }
-
             return result;
         }
     }
