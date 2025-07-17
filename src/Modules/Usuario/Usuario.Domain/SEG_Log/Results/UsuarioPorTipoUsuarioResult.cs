@@ -20,5 +20,7 @@ namespace Usuario.Domain.SEG_Log.Results
         public string ApellidoMaterno { get; set; } = default!;
         public string Nombres { get; set; } = default!;
         public string Estado { get; set; } = default!;
+        public DateTime? FechaRegistroRol { get; set; }
+        public DateTime? FechaModificacionUserRol { get; set; }
     }
 }

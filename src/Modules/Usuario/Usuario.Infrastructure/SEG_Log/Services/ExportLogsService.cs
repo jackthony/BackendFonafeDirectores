@@ -37,7 +37,9 @@ namespace Usuario.Infrastructure.SEG_Log.Services
             "Apellido Paterno",
             "Apellido Materno",
             "Nombres",
-            "Estado"
+            "Estado",
+            "Fecha Registro Rol",
+            "Fecha Modificación"
         ];
 
         private readonly string[] _encabezadosLogSistema =
@@ -125,6 +127,8 @@ namespace Usuario.Infrastructure.SEG_Log.Services
                 worksheet.Cell(fila, 5).Value = user.ApellidoMaterno;
                 worksheet.Cell(fila, 6).Value = user.Nombres;
                 worksheet.Cell(fila, 7).Value = user.Estado;
+                worksheet.Cell(fila, 8).Value = user.FechaRegistroRol?.ToString("dd/MM/yyyy HH:mm") ?? "";
+                worksheet.Cell(fila, 9).Value = user.FechaModificacionUserRol?.ToString("dd/MM/yyyy HH:mm") ?? "";
                 fila++;
             }
 
