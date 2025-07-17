@@ -220,16 +220,14 @@ namespace Archivo.Infrastructure.Archivo.Services
 
                     if (valor is DateTime fecha)
                     {
-                        hojaDirectores.Cell(fila, col + 3).Value = fecha;
-                        hojaDirectores.Cell(fila, col + 3).Style.DateFormat.Format = "dd/MM/yyyy";
+                        hojaDirectores.Cell(fila, col + 3).Value = fecha.ToString("dd/MM/yyyy");
                     }
                     else if (valor != null && prop.PropertyType == typeof(DateTime?))
                     {
                         var fechaHere = (DateTime?)valor;
                         if (fechaHere.HasValue)
                         {
-                            hojaDirectores.Cell(fila, col + 3).Value = fechaHere.Value;
-                            hojaDirectores.Cell(fila, col + 3).Style.DateFormat.Format = "dd/MM/yyyy";
+                            hojaDirectores.Cell(fila, col + 3).Value = fechaHere.Value.ToString("dd/MM/yyyy");
                         }
                         else
                         {
