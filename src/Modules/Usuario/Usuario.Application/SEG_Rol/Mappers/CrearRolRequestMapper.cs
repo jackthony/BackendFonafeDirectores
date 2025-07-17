@@ -31,7 +31,7 @@ namespace Usuario.Application.Rol.Mappers
             return new CrearRolParameters
             {
                 NombreRol = source.sNombreRol,
-                UsuarioRegistroId = source.nUsuarioRegistro,
+                UsuarioRegistroId = source.nIdUsuarioCreacion,
                 FechaRegistro = _timeProvider.NowPeru,
             };
         }
